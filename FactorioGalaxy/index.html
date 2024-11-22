@@ -49,7 +49,7 @@
         if(focusOnStar(user)){
           $("#errordiv").html("Found "+user+"'s star and focused on it!");
         }else{
-          $("#errordiv").html("Sorry I could not find "+user+"'s star!");
+          $("#errordiv").html("Searched "+totalStars()+" stars and I could not find "+user+"'s star!");
         }
       }
     </script>
@@ -109,7 +109,7 @@
             </div>
 
             <script type="module">
-              import { initSpacemapViewer, focusOnStar } from "./libs/spacemap.js";
+              import { initSpacemapViewer, focusOnStar, totalStars } from "./libs/spacemap.js";
 
               addEventListener("DOMContentLoaded", () => {
                 fetch("./stars.json").then(async (response) => {

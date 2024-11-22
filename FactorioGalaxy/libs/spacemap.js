@@ -45,6 +45,10 @@ const starIdToIndexMap = new Map();
 
 var starLabel;
 
+export function totalStars(){
+  return chartbundleOpts.stars.users.length;
+}
+
 export function focusOnStar(user) {
   const opts = chartbundleOpts;
   user = user.toLowerCase();
