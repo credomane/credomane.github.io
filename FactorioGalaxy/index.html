@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Galaxy Of Fame | Factorio</title>
+
+    <link
+      href="https://cdn.factorio.com/assets/fonts/titillium-web.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.factorio.com/assets/vendor/fontawesome/css/all.min.css"
+      rel="stylesheet"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://factorio.com/static/css/main.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <meta name="viewport" content="width=device-width" />
+
+    <script src="./libs/jquery-3.7.0.min.js"></script>
+
+    <link rel="stylesheet" href="./libs/lite-yt-embed.css" />
+    <script src="./libs/lite-yt-embed.js"></script>
+
+    <script src="./libs/floating-ui-core@1.0.1.js"></script>
+    <script src="./libs/floating-ui-dom@1.0.4.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/htmx/1.9.10/htmx.min.js"
+      integrity="sha512-9qpauSP4+dDIldsrdNEZ2Z7JoyLZGfJsAP2wfXnc3drOh+5NXOBxjlq3sGXKdulmN9W+iwLxRt42zKMa8AHEeg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://cdn.jsdelivr.net/npm/three@0.168.0/build/three.module.js",
+          "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.168.0/examples/jsm/",
+          "zip": "https://cdn.jsdelivr.net/npm/@zip.js/zip.js@2.7.52/+esm",
+          "gsap": "https://cdn.jsdelivr.net/npm/gsap@3.9.0/all.js"
+        }
+      }
+    </script>
+    <script>
+      function findstar(){
+        let user=$("#usernameinput").val()
+        if(focusOnStar(user)){
+          $("#errordiv").html("Found "+user+"'s star and focused on it!");
+        }else{
+          $("#errordiv").html("Sorry I could not find "+user+"'s star!");
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div class="header">
+      <div class="header-inner" style="display: block;">
+        Search for star by factorio username:<br><input id="usernameinput" type="text" length="40"><button onclick="findstar()">Search!</button><br>
+        <div id="errordiv">&nbsp;</div>
+      </div>
+  </div>
+    <div class="container">
+      <div class="container-inner">
+        <div id="flashed-messages" class="small-center"></div>
+
+        <div class="panel pb0 mb64">
+          <h2>Space Age: Galaxy Of Fame</h2>
+          <div class="panel-inset-lighter">
+            <style>
+              #chartbundle-loading {
+                position: absolute;
+                top: 0px;
+                left: 0px;
+                text-align: center;
+              }
+
+              #chartbundle-planets {
+                position: absolute;
+                top: 0px;
+                right: 0px;
+                text-align: center;
+                display: flex;
+                flex-direction: column;
+              }
+
+              #chartbundle-planets > .button {
+                margin-bottom: 8px;
+                margin-right: 0px;
+              }
+
+              .star-label {
+                color: transparent;
+                transition: color 0.2s ease;
+              }
+
+              .star-label:hover {
+                color: white;
+              }
+            </style>
+
+            <div id="chartbundle-map-container">
+              <canvas id="chartbundle-map-canvas"></canvas>
+              <div id="chartbundle-loading" class="panel m0">
+                Loading map info...
+              </div>
+              <div id="chartbundle-planets" class=""></div>
+            </div>
+
+            <script type="module">
+              import { initSpacemapViewer, focusOnStar } from "./libs/spacemap.js";
+
+              addEventListener("DOMContentLoaded", () => {
+                fetch("./stars.json").then(async (response) => {
+                  initSpacemapViewer(await response.json());
+                });
+              });
+
+              window.focusOnStar = focusOnStar;
+            </script>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
