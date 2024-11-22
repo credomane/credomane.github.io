@@ -202,7 +202,7 @@ export async function initSpacemapViewer(opts) {
   const textureLoader = new THREE.TextureLoader();
 
   for (let index = 0; index < 5; index++) {
-    const tex = textureLoader.load(`/libs/${index + 1}.png`, assignSRGB);
+    const tex = textureLoader.load(`./libs/${index + 1}.png`, assignSRGB);
     starTextureVariations.push(tex);
   }
 
@@ -596,7 +596,7 @@ function render() {
 
     starLabel.visible = true;
     starLabel.element.textContent = chartbundleOpts.stars.users[starIndex];
-    starLabel.element.href = `/galaxy/${name}`
+    starLabel.element.href = `https://factorio.com/galaxy/${name}`
 
     const pos = starIdToWorldPos(starId)
     starLabel.position.copy(pos)
