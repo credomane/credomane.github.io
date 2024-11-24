@@ -47,9 +47,9 @@
       function findstar(){
         let user=$("#usernameinput").val()
         if(focusOnStar(user)){
-          $("#errordiv").html("Found "+user+"'s star and focused on it!");
+          $("#errordiv").html("Found " + user + "'s star and focused on it!");
         }else{
-          $("#errordiv").html("Searched "+totalStars()+" stars and I could not find "+user+"'s star!");
+          $("#errordiv").html("Searched " + totalStars() + " stars and I could not find " + user + "'s star!");
         }
       }
     </script>
@@ -114,6 +114,7 @@
               addEventListener("DOMContentLoaded", () => {
                 fetch("./stars.json").then(async (response) => {
                   initSpacemapViewer(await response.json());
+                  $("#errordiv").html("Loaded " + totalStars() + " stars.");
                 });
               });
 
