@@ -1,8 +1,11 @@
-import * as THREE from 'three';
-import gsap from 'gsap';
-import { MapControls } from 'three/addons/controls/MapControls.js';
-import { GUI } from 'three/addons/libs/lil-gui.module.min.js';
-import { CSS2DRenderer, CSS2DObject } from 'three/addons/renderers/CSS2DRenderer.js';
+import * as THREE from "three";
+import gsap from "gsap";
+import { MapControls } from "three/addons/controls/MapControls.js";
+import { GUI } from "three/addons/libs/lil-gui.module.min.js";
+import {
+  CSS2DRenderer,
+  CSS2DObject,
+} from "three/addons/renderers/CSS2DRenderer.js";
 
 var scene;
 var camera;
@@ -45,7 +48,7 @@ const starIdToIndexMap = new Map();
 
 var starLabel;
 
-export function totalStars(){
+export function totalStars() {
   return chartbundleOpts.stars.users.length;
 }
 
@@ -64,53 +67,104 @@ export function focusOnStar(user) {
     return false;
   }
 
-  const x = chartbundleOpts.stars.positions[index * 2];
-  const y = chartbundleOpts.stars.positions[index * 2 + 1];
+  const starX = chartbundleOpts.stars.positions[index * 2];
+  const starY = chartbundleOpts.stars.positions[index * 2 + 1];
 
-  camera.position.set(x, y, 20);
-  controls.target.set(camera.position.x, camera.position.y, 0)
+  //Old Instant Teleport.
+  //camera.position.set(starX, starY, 20);
+  //controls.target.set(camera.position.x, camera.position.y, 0)
+  //render();
 
-  render();
+  //New Fancy Panning.
+  panCameraTo(starX, starY);
 
   return true;
 }
 
+function panCameraTo(x, y) {
+  const camX = camera.position.x;
+  const camY = camera.position.y;
+
+  //Get the midway point. for zoom out/in.
+  let midX = camX + (x - camX) / 2;
+  let midY = camY + (y - camY) / 2;
+
+  gsap.to(camera.position, {
+    x: midX,
+    y: midY,
+    z: 60,
+    duration: 3,
+    onUpdate: function () {
+      controls.target.set(camera.position.x, camera.position.y, 0);
+    },
+    onComplete: function () {
+      gsap.to(camera.position, {
+        x: x,
+        y: y,
+        z: 15,
+        duration: 3,
+        onUpdate: function () {
+          controls.target.set(camera.position.x, camera.position.y, 0);
+        },
+        onComplete: function () {
+          //Figure out maybe auto showing the star label here?
+        },
+      });
+    },
+  });
+}
+
 export async function initSpacemapViewer(opts) {
-  if (opts.debug)
-    console.log(opts);
+  if (opts.debug) console.log(opts);
   chartbundleOpts = opts;
-  starCount = opts.stars.coordinates.length / 2
+  starCount = opts.stars.coordinates.length / 2;
 
   scene = new THREE.Scene();
   target = document.getElementById("chartbundle-map-canvas");
   loadingInfo = document.getElementById("chartbundle-loading");
 
-
   renderer = new THREE.WebGLRenderer({ antialias: true, canvas: target });
-  renderer.setSize(target.getBoundingClientRect().width, target.getBoundingClientRect().height)
-
+  renderer.setSize(
+    target.getBoundingClientRect().width,
+    target.getBoundingClientRect().height
+  );
 
   labelRenderer = new CSS2DRenderer();
-  labelRenderer.setSize(target.getBoundingClientRect().width, target.getBoundingClientRect().height);
-  labelRenderer.domElement.style.position = 'absolute';
-  labelRenderer.domElement.style.top = '0';
-  labelRenderer.domElement.style.left = '0';
-  labelRenderer.domElement.style.pointerEvents = 'none';
+  labelRenderer.setSize(
+    target.getBoundingClientRect().width,
+    target.getBoundingClientRect().height
+  );
+  labelRenderer.domElement.style.position = "absolute";
+  labelRenderer.domElement.style.top = "0";
+  labelRenderer.domElement.style.left = "0";
+  labelRenderer.domElement.style.pointerEvents = "none";
   target.parentElement.appendChild(labelRenderer.domElement);
 
-
-  camera = new THREE.PerspectiveCamera(80, renderer.domElement.width / renderer.domElement.height, 0.1, 10000)
+  camera = new THREE.PerspectiveCamera(
+    80,
+    renderer.domElement.width / renderer.domElement.height,
+    0.1,
+    10000
+  );
   camera.up.set(0, 0, 1);
-  camera.position.set(opts.cols * opts.gridsize / 2, opts.rows * opts.gridsize / 2, camStartZ);
-  camera.lookAt(camera.position.x, camera.position.y, 0)
+  camera.position.set(
+    (opts.cols * opts.gridsize) / 2,
+    (opts.rows * opts.gridsize) / 2,
+    camStartZ
+  );
+  camera.lookAt(camera.position.x, camera.position.y, 0);
 
   resizeRendererToDisplaySize(true);
   adaptCameraToDisplaySize();
-  window.addEventListener('resize', () => { if (resizeRendererToDisplaySize()) { adaptCameraToDisplaySize(); } });
+  window.addEventListener("resize", () => {
+    if (resizeRendererToDisplaySize()) {
+      adaptCameraToDisplaySize();
+    }
+  });
   scene.add(camera);
 
   controls = new MapControls(camera, renderer.domElement);
-  controls.target.set(camera.position.x, camera.position.y, 0)
+  controls.target.set(camera.position.x, camera.position.y, 0);
   controls.screenSpacePanning = false;
   controls.enableRotate = false;
   controls.zoomSpeed = 2;
@@ -121,24 +175,30 @@ export async function initSpacemapViewer(opts) {
     controls.maxDistance = camMaxZ;
   }
 
-
   // pass-through mousewheel events from labelRenderer
-  labelRenderer.domElement.addEventListener('wheel', controls._onMouseWheel, { passive: false });
+  labelRenderer.domElement.addEventListener("wheel", controls._onMouseWheel, {
+    passive: false,
+  });
 
-
-  target.addEventListener('pointermove', onPointerMove);
+  target.addEventListener("pointermove", onPointerMove);
   function onPointerMove(event) {
-
     // calculate pointer position in normalized device coordinates
     // (-1 to +1) for both components
-    pointer.x = (event.layerX / renderer.domElement.width * window.devicePixelRatio) * 2 - 1;
-    pointer.y = - (event.layerY / renderer.domElement.height * window.devicePixelRatio) * 2 + 1;
+    pointer.x =
+      (event.layerX / renderer.domElement.width) * window.devicePixelRatio * 2 -
+      1;
+    pointer.y =
+      -((event.layerY / renderer.domElement.height) * window.devicePixelRatio) *
+        2 +
+      1;
 
     pointerWorld.set(pointer.x, pointer.y, 0.5);
     pointerWorld.unproject(camera);
-    pointerWorld.sub(camera.position).normalize()
+    pointerWorld.sub(camera.position).normalize();
     var distance = -camera.position.z / pointerWorld.z;
-    pointerWorld = (new THREE.Vector3()).copy(camera.position).add(pointerWorld.multiplyScalar(distance));
+    pointerWorld = new THREE.Vector3()
+      .copy(camera.position)
+      .add(pointerWorld.multiplyScalar(distance));
   }
 
   gui = new GUI();
@@ -153,55 +213,54 @@ export async function initSpacemapViewer(opts) {
     pointer: JSON.stringify(pointerWorld),
     zoom: camera.zoom,
     info: "",
-  }
+  };
 
-
-  gui.add(guiData, 'camera_x', camera.position.x).listen().disable();
-  gui.add(guiData, 'camera_y', camera.position.y).listen().disable();
-  gui.add(guiData, 'camera_z', camera.position.z).listen().disable();
+  gui.add(guiData, "camera_x", camera.position.x).listen().disable();
+  gui.add(guiData, "camera_y", camera.position.y).listen().disable();
+  gui.add(guiData, "camera_z", camera.position.z).listen().disable();
   gui.add(guiData, "pointer", JSON.stringify(pointerWorld)).listen().disable();
-  gui.add(guiData, 'zoom', camera.zoom).listen().disable();
-  gui.add(guiData, 'info', "").listen();
-
+  gui.add(guiData, "zoom", camera.zoom).listen().disable();
+  gui.add(guiData, "info", "").listen();
 
   starPositions = new Array(starCount * 3);
   starColors = new Array(starPositions.length);
-  starSizes = new Array(starCount)
+  starSizes = new Array(starCount);
 
   // TODO: as long as we're not using THREE.Points as a zoom fallback most of this code is redundant
   for (let index = 0; index < starCount; index++) {
-
-    const starCoords = { col: opts.stars.coordinates[index * 2], row: opts.stars.coordinates[index * 2 + 1] }
-    const starPosition = new THREE.Vector3(opts.stars.positions[index * 2], opts.stars.positions[index * 2 + 1], 0)
+    const starCoords = {
+      col: opts.stars.coordinates[index * 2],
+      row: opts.stars.coordinates[index * 2 + 1],
+    };
+    const starPosition = new THREE.Vector3(
+      opts.stars.positions[index * 2],
+      opts.stars.positions[index * 2 + 1],
+      0
+    );
     const starId = starCoordsToId(starCoords);
     //const color = (new THREE.Color()).setHex(opts.stars.colors[index]);
     let color = new THREE.Color().setHex(opts.stars.colors[index]);
-    color.convertSRGBToLinear();  // Convert to linear space for manipulation
-    color.multiplyScalar(1.2);  // Brighten by multiplying the color
-    color.convertLinearToSRGB();  // Convert back to sRGB space
-
+    color.convertSRGBToLinear(); // Convert to linear space for manipulation
+    color.multiplyScalar(1.2); // Brighten by multiplying the color
+    color.convertLinearToSRGB(); // Convert back to sRGB space
 
     starIdToIndexMap.set(starId, index);
 
     starPositions[index * 3] = starPosition.x;
-    starPositions[index * 3 + 1] = starPosition.y
+    starPositions[index * 3 + 1] = starPosition.y;
     starPositions[index * 3 + 2] = 0;
 
     starColors[index * 3] = color.r;
     starColors[index * 3 + 1] = color.g;
     starColors[index * 3 + 2] = color.b;
 
-    starSizes[index] = triple32inc(starId) % 3 + 3
+    starSizes[index] = (triple32inc(starId) % 3) + 3;
   }
 
-
-
   const assignSRGB = (texture) => {
-
     texture.colorSpace = THREE.SRGBColorSpace;
     texture.minFilter = THREE.NearestFilter;
     texture.magFilter = THREE.NearestFilter;
-
   };
   const textureLoader = new THREE.TextureLoader();
 
@@ -210,10 +269,15 @@ export async function initSpacemapViewer(opts) {
     starTextureVariations.push(tex);
   }
 
-
-  geometry.setAttribute('position', new THREE.Float32BufferAttribute(starPositions, 3));
-  geometry.setAttribute('color', new THREE.Float32BufferAttribute(starColors, 3));
-  geometry.setAttribute('size', new THREE.Float32BufferAttribute(starSizes, 1));
+  geometry.setAttribute(
+    "position",
+    new THREE.Float32BufferAttribute(starPositions, 3)
+  );
+  geometry.setAttribute(
+    "color",
+    new THREE.Float32BufferAttribute(starColors, 3)
+  );
+  geometry.setAttribute("size", new THREE.Float32BufferAttribute(starSizes, 1));
 
   // Vertex shader
   const vertexShader = `
@@ -232,8 +296,6 @@ void main() {
   gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
 }
 `;
-
-
 
   const fragmentShader = `
 varying vec3 vColor;
@@ -257,19 +319,21 @@ void main() {
     vertexShader: vertexShader,
     fragmentShader: fragmentShader,
     vertexColors: true, // Enable vertex colors
-    transparent: false
+    transparent: false,
   });
 
   starPoints = new THREE.Points(geometry, pointsMaterial);
-  if (!chartbundleOpts.debug)
-    starPoints.visible = false;
+  if (!chartbundleOpts.debug) starPoints.visible = false;
   scene.add(starPoints);
 
-  scene.add(starSprites)
+  scene.add(starSprites);
   starSprites.visible = true;
 
   const gridGeometry = new THREE.BufferGeometry();
-  grid = new THREE.LineSegments(gridGeometry, new THREE.LineBasicMaterial({ color: 0x0000ff }));
+  grid = new THREE.LineSegments(
+    gridGeometry,
+    new THREE.LineBasicMaterial({ color: 0x0000ff })
+  );
 
   scene.add(grid);
 
@@ -293,7 +357,6 @@ function triple32inc(x) {
   return x;
 }
 
-
 function screenToWorld(x, y) {
   const ndc = new THREE.Vector2(x, y);
 
@@ -307,9 +370,6 @@ function screenToWorld(x, y) {
   return new THREE.Vector3(intersection.x, intersection.y, 0);
 }
 
-
-
-
 /* the different kinds of star ids
 
 - starCoordinates - (col, grid)-> position of the star on a 2d grid
@@ -319,28 +379,29 @@ function screenToWorld(x, y) {
 
 */
 
-
 function worldToStarCoords(vec3) {
-  const col = Math.floor((vec3.x + chartbundleOpts.gridsize / 2) / chartbundleOpts.gridsize);
-  const row = Math.floor((vec3.y + chartbundleOpts.gridsize / 2) / chartbundleOpts.gridsize);
+  const col = Math.floor(
+    (vec3.x + chartbundleOpts.gridsize / 2) / chartbundleOpts.gridsize
+  );
+  const row = Math.floor(
+    (vec3.y + chartbundleOpts.gridsize / 2) / chartbundleOpts.gridsize
+  );
 
   return { col: col, row: row };
 }
 
-
 function starCoordsToId(coords) {
-  return (coords.col << 16) | coords.row
+  return (coords.col << 16) | coords.row;
 }
 
 function idToStarCoords(id) {
   const col = id >> 16;
-  const row = id & 0xFFFF;
+  const row = id & 0xffff;
   return { col, row };
 }
 
 function starIdToIndex(id) {
-  if (starIdToIndexMap.has(id))
-    return starIdToIndexMap.get(id);
+  if (starIdToIndexMap.has(id)) return starIdToIndexMap.get(id);
   return null;
 }
 
@@ -350,42 +411,42 @@ function starIdToWorldPos(id) {
     return new THREE.Vector3(
       chartbundleOpts.stars.positions[idx * 2],
       chartbundleOpts.stars.positions[idx * 2 + 1],
-      0)
+      0
+    );
   }
   return null;
 }
 
 function starCoordsToName(coords) {
-  let name = ''
+  let name = "";
   for (let index = 0; index < chartbundleOpts.levels.length; index++) {
     const lvl = chartbundleOpts.levels[index];
 
     const lvlCol = Math.floor(coords.col / lvl.total_cols) % lvl.cols;
     const lvlRow = Math.floor(coords.row / lvl.total_rows) % lvl.rows;
 
-    const slot = lvl.slots[lvlRow * lvl.cols + lvlCol]
-    name = `${name}${slot}${lvl.addr_suffix}`
+    const slot = lvl.slots[lvlRow * lvl.cols + lvlCol];
+    name = `${name}${slot}${lvl.addr_suffix}`;
   }
-  return name
+  return name;
 }
-
-
 
 function createLabel(message) {
   // TODO: move style to css
-  const div = document.createElement('a');
-  div.className = 'star-label';
+  const div = document.createElement("a");
+  div.className = "star-label";
   div.textContent = message;
-  div.style.marginTop = '-0.5em';
-  div.style.fontSize = '1.5em';
+  div.style.marginTop = "-0.5em";
+  div.style.fontSize = "1.5em";
   div.style.fontFamily = "'Titillium Web', sans-serif'";
-  div.style.paddingTop = '8px';
-  div.style.paddingBottom = '26px';
-  if (chartbundleOpts.debug)
-    div.style.border = '4px solid #ff6550';
-  div.style.pointerEvents = 'auto';
+  div.style.paddingTop = "8px";
+  div.style.paddingBottom = "26px";
+  if (chartbundleOpts.debug) div.style.border = "4px solid #ff6550";
+  div.style.pointerEvents = "auto";
 
-  div.addEventListener("scroll", (event) => { console.log(event); });
+  div.addEventListener("scroll", (event) => {
+    console.log(event);
+  });
   const label = new CSS2DObject(div);
   label.visible = true;
   return label;
@@ -393,7 +454,8 @@ function createLabel(message) {
 
 function resizeRendererToDisplaySize(force) {
   const canvas = renderer.domElement;
-  const targetBounds = renderer.domElement.parentElement.getBoundingClientRect()
+  const targetBounds =
+    renderer.domElement.parentElement.getBoundingClientRect();
   const pixelRatio = window.devicePixelRatio;
   const width = Math.floor(targetBounds.width * pixelRatio);
   const height = Math.floor(targetBounds.height * pixelRatio);
@@ -404,8 +466,7 @@ function resizeRendererToDisplaySize(force) {
     renderer.setSize(width, height);
 
     // labelRenderer.setSize(width, height) breaks for hidpi devices, retina displays...
-    labelRenderer.setSize(targetBounds.width, targetBounds.height)
-
+    labelRenderer.setSize(targetBounds.width, targetBounds.height);
   }
   return needResize;
 }
@@ -423,26 +484,35 @@ function adaptCameraToDisplaySize() {
 function updateGridAndSprites() {
   const topLeftWorld = screenToWorld(-1, -1);
   const bottomRightWorld = screenToWorld(1, 1);
-  const sizeWorld = new THREE.Vector3().copy(bottomRightWorld).sub(topLeftWorld);
+  const sizeWorld = new THREE.Vector3()
+    .copy(bottomRightWorld)
+    .sub(topLeftWorld);
 
   const cols = Math.ceil(sizeWorld.x / chartbundleOpts.gridsize) + 2;
   const rows = Math.ceil(sizeWorld.y / chartbundleOpts.gridsize) + 2;
 
-
-  if ((cols > 30 || rows > 30)) {
-    grid.visible = false
+  if (cols > 30 || rows > 30) {
+    grid.visible = false;
     starLabel.visible = false;
-  }
-  else {
-    if (chartbundleOpts.debug)
-      grid.visible = true;
+  } else {
+    if (chartbundleOpts.debug) grid.visible = true;
   }
 
-  const offsetX = Math.floor(topLeftWorld.x / chartbundleOpts.gridsize) * chartbundleOpts.gridsize - chartbundleOpts.gridsize / 2;
-  const offsetY = Math.floor(topLeftWorld.y / chartbundleOpts.gridsize) * chartbundleOpts.gridsize + chartbundleOpts.gridsize / 2;
+  const offsetX =
+    Math.floor(topLeftWorld.x / chartbundleOpts.gridsize) *
+      chartbundleOpts.gridsize -
+    chartbundleOpts.gridsize / 2;
+  const offsetY =
+    Math.floor(topLeftWorld.y / chartbundleOpts.gridsize) *
+      chartbundleOpts.gridsize +
+    chartbundleOpts.gridsize / 2;
 
-  guiData.info = JSON.stringify({ cols: cols, rows: rows, x: offsetX.toFixed(2), y: offsetY.toFixed(2) });
-
+  guiData.info = JSON.stringify({
+    cols: cols,
+    rows: rows,
+    x: offsetX.toFixed(2),
+    y: offsetY.toFixed(2),
+  });
 
   if (chartbundleOpts.debug) {
     const gridPoints = [];
@@ -450,97 +520,115 @@ function updateGridAndSprites() {
     for (let col = 0; col < cols; col++) {
       const x = offsetX + col * chartbundleOpts.gridsize;
       gridPoints.push(new THREE.Vector3(x, offsetY, 0));
-      gridPoints.push(new THREE.Vector3(x, offsetY + rows * chartbundleOpts.gridsize, 0));
+      gridPoints.push(
+        new THREE.Vector3(x, offsetY + rows * chartbundleOpts.gridsize, 0)
+      );
     }
 
     for (let row = 0; row < rows; row++) {
       const y = offsetY + row * chartbundleOpts.gridsize;
       gridPoints.push(new THREE.Vector3(offsetX, y, 0));
-      gridPoints.push(new THREE.Vector3(offsetX + cols * chartbundleOpts.gridsize, y, 0));
+      gridPoints.push(
+        new THREE.Vector3(offsetX + cols * chartbundleOpts.gridsize, y, 0)
+      );
     }
     grid.frustumCulled = false;
     grid.geometry.setFromPoints(gridPoints);
     grid.geometry.computeBoundingBox();
-
   }
 
   const starOffsetX = Math.floor(topLeftWorld.x / chartbundleOpts.gridsize);
   const starOffsetY = Math.floor(topLeftWorld.y / chartbundleOpts.gridsize);
 
-  const starCoords = { col: 0, row: 0 }
+  const starCoords = { col: 0, row: 0 };
   for (let col = 0; col < cols; col++) {
     for (let row = 0; row < rows; row++) {
       starCoords.col = starOffsetX + col;
       starCoords.row = starOffsetY + row;
       const starId = starCoordsToId(starCoords);
       if (!starIdToSprite.has(starId) && starIdToIndex(starId) != null) {
-        const color = new THREE.Color().lerpColors(new THREE.Color('white'), new THREE.Color().setHex(chartbundleOpts.stars.colors[starIdToIndex(starId)]), 1);
-        const tex = starTextureVariations[triple32inc(starId) % starTextureVariations.length]
-        const sprite = new THREE.Sprite(new THREE.SpriteMaterial({
-          map: tex,
-          color: color,
-          transparent: true,
-          blending: THREE.AdditiveBlending,
-          depthWrite: false,
-        }));
-        const baseScale = 6
-        const scaleStep = 0.1
-        const scaleVariants = 5
-        const scale = baseScale + ((triple32inc(starId) % scaleVariants) * scaleStep);
+        const color = new THREE.Color().lerpColors(
+          new THREE.Color("white"),
+          new THREE.Color().setHex(
+            chartbundleOpts.stars.colors[starIdToIndex(starId)]
+          ),
+          1
+        );
+        const tex =
+          starTextureVariations[
+            triple32inc(starId) % starTextureVariations.length
+          ];
+        const sprite = new THREE.Sprite(
+          new THREE.SpriteMaterial({
+            map: tex,
+            color: color,
+            transparent: true,
+            blending: THREE.AdditiveBlending,
+            depthWrite: false,
+          })
+        );
+        const baseScale = 6;
+        const scaleStep = 0.1;
+        const scaleVariants = 5;
+        const scale =
+          baseScale + (triple32inc(starId) % scaleVariants) * scaleStep;
 
-        const pos = starIdToWorldPos(starId)
-        sprite.position.copy(pos)
+        const pos = starIdToWorldPos(starId);
+        sprite.position.copy(pos);
         sprite.position.z = 0;
         starSprites.add(sprite);
         starIdToSprite.set(starId, sprite);
 
         sprite.scale.set(scale, scale, 1);
-
-
       }
     }
   }
 }
 
-
 function clampCamera() {
   const topLeft = new THREE.Vector2(0, 0);
   const bottomRight = new THREE.Vector2(
     chartbundleOpts.cols * chartbundleOpts.gridsize,
-    chartbundleOpts.rows * chartbundleOpts.gridsize)
+    chartbundleOpts.rows * chartbundleOpts.gridsize
+  );
 
-  if (camera.position.x < topLeft.x
-    || camera.position.x > bottomRight.x
-    || camera.position.y < topLeft.y
-    || camera.position.y > bottomRight.y) {
+  if (
+    camera.position.x < topLeft.x ||
+    camera.position.x > bottomRight.x ||
+    camera.position.y < topLeft.y ||
+    camera.position.y > bottomRight.y
+  ) {
     // remove camera from controls so it doesnt mess with me
     // https://discourse.threejs.org/t/orbit-mapcontrols-mess-up-manual-camera-positioning/55335/2
     controls.object = new THREE.OrthographicCamera();
     controls.reset();
-    const clampedPos = (new THREE.Vector2(camera.position.x, camera.position.y)).clamp(topLeft, bottomRight);
+    const clampedPos = new THREE.Vector2(
+      camera.position.x,
+      camera.position.y
+    ).clamp(topLeft, bottomRight);
 
-
-    camera.position.set(
-      clampedPos.x,
-      clampedPos.y,
-      camera.position.z);
+    camera.position.set(clampedPos.x, clampedPos.y, camera.position.z);
     camera.lookAt(new THREE.Vector3(clampedPos.x, clampedPos.y, 0));
     camera.updateProjectionMatrix();
     controls.target.set(clampedPos.x, clampedPos.y, 0); // prepare controls for camera reintroduction
     controls.object = camera; // here you are
-    controls.update()
+    controls.update();
   }
 }
-
 
 function getNearestStar(vec3) {
   const coords = worldToStarCoords(vec3);
   const offsets = [
-    [-1, -1], [0, -1], [1, -1],
-    [-1, 0], [0, 0], [1, 0],
-    [-1, 1], [0, 1], [1, 1],
-  ]
-
+    [-1, -1],
+    [0, -1],
+    [1, -1],
+    [-1, 0],
+    [0, 0],
+    [1, 0],
+    [-1, 1],
+    [0, 1],
+    [1, 1],
+  ];
 
   let closesStarCoord = null;
   let currentDistance = Number.MAX_SAFE_INTEGER;
@@ -548,72 +636,68 @@ function getNearestStar(vec3) {
     const offsetCol = offsets[offsetIdx][0];
     const offsetRow = offsets[offsetIdx][1];
 
-    const starCoords = { col: coords.col + offsetCol, row: coords.row + offsetRow }
+    const starCoords = {
+      col: coords.col + offsetCol,
+      row: coords.row + offsetRow,
+    };
     const starId = starCoordsToId(starCoords);
     const starPos = starIdToWorldPos(starId);
 
-    if (starPos == null)
-      continue;
+    if (starPos == null) continue;
 
-    const distance = vec3.distanceTo(starPos)
+    const distance = vec3.distanceTo(starPos);
     if (distance < currentDistance) {
       closesStarCoord = starCoords;
       currentDistance = distance;
     }
   }
 
-  return closesStarCoord
+  return closesStarCoord;
 }
 
 function updateZoomSpeed() {
-
-  const alpha = (camera.position.z - controls.minDistance) / controls.maxDistance;
+  const alpha =
+    (camera.position.z - controls.minDistance) / controls.maxDistance;
   let nextSpeed = THREE.MathUtils.lerp(camMinSpeed, camMaxSpeed, alpha);
   controls.zoomSpeed = nextSpeed;
 }
-
-
 
 function render() {
   if (resizeRendererToDisplaySize(renderer)) {
     adaptCameraToDisplaySize();
   }
 
-
   const nearestStarCoords = getNearestStar(pointerWorld);
   if (chartbundleOpts.debug)
-    loadingInfo.textContent = `${worldToStarCoords(pointerWorld).col}, ${worldToStarCoords(pointerWorld).row}`
-  else
-    loadingInfo.style.display = "none";
-
-
+    loadingInfo.textContent = `${worldToStarCoords(pointerWorld).col}, ${
+      worldToStarCoords(pointerWorld).row
+    }`;
+  else loadingInfo.style.display = "none";
 
   starLabel.visible = false;
   if (nearestStarCoords != null) {
-
-
-    const name = starCoordsToName(nearestStarCoords)
+    const name = starCoordsToName(nearestStarCoords);
     const starId = starCoordsToId(nearestStarCoords);
-    const starIndex = starIdToIndex(starId)
-
-
+    const starIndex = starIdToIndex(starId);
 
     starLabel.visible = true;
     starLabel.element.textContent = chartbundleOpts.stars.users[starIndex];
-    starLabel.element.href = `https://factorio.com/galaxy/${name}`
+    starLabel.element.href = `https://factorio.com/galaxy/${name}`;
 
-    const pos = starIdToWorldPos(starId)
-    starLabel.position.copy(pos)
+    const pos = starIdToWorldPos(starId);
+    starLabel.position.copy(pos);
 
     if (starIdToSprite.has(starId)) {
       const nextHoveringSprite = starIdToSprite.get(starId);
       if (hoveringSprite == null || hoveringSprite != nextHoveringSprite) {
         if (hoveringSprite != null)
           hoveringSprite.material.color = hoveringSpriteColor;
-        hoveringSprite = nextHoveringSprite
+        hoveringSprite = nextHoveringSprite;
         hoveringSpriteColor = hoveringSprite.material.color;
 
-        let color = new THREE.Color().setHex(chartbundleOpts.stars.colors[starIdToIndex(starId)]);
+        let color = new THREE.Color().setHex(
+          chartbundleOpts.stars.colors[starIdToIndex(starId)]
+        );
         color.convertSRGBToLinear();
         color.multiplyScalar(1.2);
         color.convertLinearToSRGB();
@@ -621,11 +705,9 @@ function render() {
         hoveringSprite.material.color = color;
       }
     }
-  }
-  else if (hoveringSprite != null) {
+  } else if (hoveringSprite != null) {
     hoveringSprite.material.color = hoveringSpriteColor;
     hoveringSprite = null;
-
   }
 
   updateZoomSpeed();
@@ -639,10 +721,10 @@ function render() {
     guiData.camera_x = camera.position.x;
     guiData.camera_y = camera.position.y;
     guiData.camera_z = camera.position.z;
-    guiData.pointer = `${pointerWorld.x.toFixed(2)}, ${pointerWorld.y.toFixed(2)}, ${pointerWorld.z.toFixed(2)}`;
+    guiData.pointer = `${pointerWorld.x.toFixed(2)}, ${pointerWorld.y.toFixed(
+      2
+    )}, ${pointerWorld.z.toFixed(2)}`;
     guiData.zoom = camera.zoom;
-
-
   }
 
   requestAnimationFrame(render);

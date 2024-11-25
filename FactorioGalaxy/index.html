@@ -116,6 +116,12 @@
                   initSpacemapViewer(await response.json());
                   $("#errordiv").html("Loaded " + totalStars() + " stars.");
                 });
+                
+                $('#usernameinput').keypress(function(e) {
+                  if(e.which == 13) {
+                    findstar();
+                  }
+                });
               });
 
               window.focusOnStar = focusOnStar;
