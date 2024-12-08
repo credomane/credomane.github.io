@@ -1,7 +1,7 @@
 const data = {
   percent0: 0,
   percent100: 100,
-  resolution: 1,
+  resolution: 2,
   barWidth: 20,
   color1: "#B80F0A",
   color2: "#5CE65C",
@@ -18,7 +18,7 @@ function updateEverything() {
   data.preview = [];
   data.bp = JSON.parse(JSON.stringify(bp));
   const icon = makeIcon(data.signalType, data.signalName);
-  bp.icons[1].signal = icon;
+  data.bp.blueprint.icons[1].signal = icon;
 
   const color1 = hexToRgb(data.color1);
   const color2 = hexToRgb(data.color2);
@@ -62,14 +62,14 @@ function updateEverything() {
       textBP = "[color=" + color + "]" + textL + " " + textM + " " + textR + "[/color]";
     } else {
       textPV = textL + " <span style='color:" + color + "'>" + textM + "</span> " + textR + "<br>";
-      textBP = textL + " [color=" + color + "]" + textM + "</div> " + textR;
+      textBP = textL + " [color=" + color + "]" + textM + "[/color] " + textR;
     }
 
     data.preview.push({ val: getValueFromPercent(percent, data.percent0, data.percent100), text: textPV });
-    data.bp.entities[0].control_behavior.parameters.unshift(makeParameter(icon, getValueFromPercent(percent, data.percent0, data.percent100), textBP));
+    data.bp.blueprint.entities[0].control_behavior.parameters.unshift(makeParameter(icon, getValueFromPercent(percent, data.percent0, data.percent100), textBP));
   }
 
-  //$("#blueprint").val(JSON.stringify(data.bp, null, 2));
+  $("#blueprintJSON").val(JSON.stringify(data.bp, null, 2));
   $("#blueprint").val(encodeBlueprint(data.bp));
 
   let html = "";
@@ -128,50 +128,44 @@ function getValueFromPercent(percent, low, high) {
 }
 
 function decodeBlueprint(str) {
-  const encoded = atob(str.substring(1));
-  const decoded = pako.inflate(encoded);
-  const string = new TextDecoder("utf-8").decode(decoded);
-  const jsonObject = JSON.parse(string);
-  const jsonString = JSON.stringify(jsonObject, null, 4);
-  return jsonObject;
+  return JSON.parse(pako.inflate(atob(str.substr(1)), { to: "string" }));
 }
 
 function encodeBlueprint(jsonObject) {
-  const jsonString = JSON.stringify(jsonObject);
-  const decoded = pako.deflate(jsonString);
-  const str = btoa(decoded);
-  return str;
+  return "0" + btoa(pako.deflate(JSON.stringify(jsonObject), { to: "string" }));
 }
 
 const bp = {
-  icons: [
-    {
-      signal: {
+  blueprint: {
+    icons: [
+      {
+        signal: {
+          name: "display-panel",
+        },
+        index: 1,
+      },
+      {
+        signal: {
+          type: "virtual",
+          name: "signal-anything",
+        },
+        index: 2,
+      },
+    ],
+    entities: [
+      {
+        entity_number: 1,
         name: "display-panel",
+        position: {
+          x: 10.5,
+          y: 52.5,
+        },
+        control_behavior: {
+          parameters: [],
+        },
       },
-      index: 1,
-    },
-    {
-      signal: {
-        type: "virtual",
-        name: "signal-anything",
-      },
-      index: 2,
-    },
-  ],
-  entities: [
-    {
-      entity_number: 1,
-      name: "display-panel",
-      position: {
-        x: 10.5,
-        y: 52.5,
-      },
-      control_behavior: {
-        parameters: [],
-      },
-    },
-  ],
-  item: "blueprint",
-  version: 562949954994181,
+    ],
+    item: "blueprint",
+    version: 562949954994181,
+  },
 };

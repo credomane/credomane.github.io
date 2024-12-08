@@ -93,6 +93,9 @@
             updateEverything();
           });
 
+        $("#copytoclipboard").on("click", () => {
+          navigator.clipboard.writeText($("#blueprint").val())
+        });
         updateEverything();
       });
     </script>
@@ -116,7 +119,7 @@
           </div>
           <div class="form-floating">
             <select class="form-select" id="dataresolution" title="">
-              <option value="1" selected>1%</option>
+              <option value="2" selected>2%</option>
               <option value="5">5%</option>
               <option value="10">10%</option>
               <option value="20">20%</option>
@@ -191,8 +194,9 @@
             <span class="input-group-text">Color percentage with progress bar?</span>
           </div>
           <hr />
-          <button id="copybp">Copy BP</button><br />
+          <button id="copytoclipboard">Copy BP</button><br />
           <textarea class="form-control" readonly id="blueprint" style="height: 500px"></textarea>
+          <textarea class="form-control" readonly id="blueprintJSON" style="height: 500px"></textarea>
         </div>
         <div class="col" id="bppreview"></div>
       </div>
