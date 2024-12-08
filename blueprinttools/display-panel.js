@@ -45,19 +45,19 @@ $(() => {
   $("#datasignaltype")
     .val(data.signalType)
     .on("change", (event) => {
-      data.signalType = event.currentTarget.checked;
+      data.signalType = event.currentTarget.value;
       updateEverything();
     });
   $("#datasignalshow")
-    .prop("checked", data.signalshow)
+    .prop("checked", data.signalShow)
     .on("change", (event) => {
-      data.signalshow = event.currentTarget.checked;
+      data.signalShow = event.currentTarget.checked;
       updateEverything();
     });
   $("#datasignalside")
-    .val(data.signalside)
+    .val(data.signalSide)
     .on("change", (event) => {
-      data.signalside = event.currentTarget.value;
+      data.signalSide = event.currentTarget.value;
       updateEverything();
     });
 
@@ -96,7 +96,7 @@ const data = {
   signalSide: "L",
   percentageShow: true,
   percentageSide: "R",
-  percentageColor: true,
+  percentageColor: false,
 };
 
 function updateEverything() {
@@ -146,7 +146,7 @@ function updateEverything() {
       textPV = "<span style='color:" + color + "'>" + textL + " " + textM + " " + textR + "</span><br>";
       textBP = "[color=" + color + "]" + textL + " " + textM + " " + textR + "[/color]";
     } else {
-      textPV = textL + " <div style='color:" + color + "'>" + textM + "[/color] " + textR;
+      textPV = textL + " <span style='color:" + color + "'>" + textM + "</span> " + textR + "<br>";
       textBP = textL + " [color=" + color + "]" + textM + "</div> " + textR;
     }
 
