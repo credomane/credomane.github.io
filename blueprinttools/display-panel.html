@@ -1,21 +1,114 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Simple Blueprinting tools for Factorio</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-JobWAqYk5CSjWuVV3mxgS+MmccJqkrBaDhk8SKS1BW+71dJ9gzascwzW85UwGhxiSyR7Pxhu50k+Nl3+o5I49A==" crossorigin="anonymous" referrerpolicy="no-referrer" ></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.14.1/jquery-ui.min.js" integrity="sha512-MSOo1aY+3pXCOCdGAYoBZ6YGI0aragoQsg1mKKBHXCYPIWxamwOE7Drh+N5CPgGI5SA9IEKJiPjdfqWFWmZtRA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js" integrity="sha512-XMVd28F1oH/O71fzwBnV7HucLxVwtxf26XV8P4wPk26EDxuGZ91N8bsOttmnomcCD3CS5ZMRL50H0GgOHvegtg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <title>Progress Bar Generator</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pako/2.1.0/pako.min.js" integrity="sha512-g2TeAWw5GPnX7z0Kn8nFbYfeHcvAu/tx6d6mrLe/90mkCxO+RcptyYpksUz35EO337F83bZwcmUyHiHamspkfg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="./display-panel.js"></script>
+    <script src="./colors.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha256-PI8n5gCcz9cQqQXm3PEtDuPG8qx9oFsFctPg0S5zb8g=" crossorigin="anonymous" />
   </head>
   <body>
-    <h1>Generates a progress bar on Display Panels "Alt-mode" display.</h1>
-      Enter value seen as 100%: <input type="number"><br>
-      Pick 0% color: <input type="color"><br>
-      Pick 100% color: <input type="color"><br>
-    <hr>
-    <button>Generate BP</button><br>
-    <button>Copy BP</button><br />
-    <textarea readonly></textarea>
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <h1>Generate a progress bar using a Display Panel.</h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="form-floating">
+            <input type="number" class="form-control" id="datapercent0" placeholder="0" value="0" />
+            <label for="datapercent0">Enter value to see as 0%</label>
+          </div>
+          <div class="form-floating">
+            <input type="number" class="form-control" id="datapercent100" placeholder="0" value="100" />
+            <label for="datapercent100">Enter value to see as 100%</label>
+          </div>
+          <div class="form-floating">
+            <select class="form-select" id="dataresolution" title="">
+              <option value="1" selected>1%</option>
+              <option value="5">5%</option>
+              <option value="10">10%</option>
+              <option value="20">20%</option>
+              <option value="25">25%</option>
+              <option value="33">33%</option>
+            </select>
+            <label for="dataresolution">Update progress every X%.</label>
+          </div>
+          <div class="form-floating">
+            <select class="form-select" id="databarwidth">
+              <option value="4">4</option>
+              <option value="6">6</option>
+              <option value="8">8</option>
+              <option value="10">10</option>
+              <option value="12">12</option>
+              <option value="14">14</option>
+              <option value="16">16</option>
+              <option value="18">18</option>
+              <option value="20" selected>20</option>
+            </select>
+            <label for="databarwidth">Bar Width (in characters)</label>
+          </div>
+          <div class="row">
+            <label class="col col-form-label">Pick 0% color for gradient: </label>
+            <div class="col">
+              <input type="color" class="form-control form-control-color" id="datacolor1" value="#B80F0A" title="Choose your color" />
+            </div>
+          </div>
+          <div class="row">
+            <label class="col col-form-label">Pick 100% color for gradient: </label>
+            <div class="col">
+              <input type="color" class="form-control form-control-color" id="datacolor2" value="#5CE65C" title="Choose your color" />
+            </div>
+          </div>
+          <div class="input-group">
+            <div class="form-floating">
+              <select class="form-select" id="datasignaltype">
+                <option value="item">Item</option>
+                <option value="fluid">Fluid</option>
+                <option value="recipe">Recipe</option>
+                <option value="virtual">Virtual</option>
+              </select>
+              <label for="datasignaltype">Signal Type</label>
+            </div>
+            <div class="form-floating">
+              <input type="text" class="form-control" id="datasignalname" />
+              <label for="datasignalname">Signal Name</label>
+            </div>
+          </div>
+          <div class="input-group">
+            <span class="input-group-text"><input type="checkbox" class="form-check-input" id="datasignalshow" checked /></span>
+            <span class="input-group-text">Show signal on progress bar?</span>
+            <div class="input-group mb-3">
+              <label class="input-group-text" for="datasignalside">Put it on which side?</label>
+              <select class="form-select" id="datasignalside">
+                <option value="L" selected>Left</option>
+                <option value="R">Right</option>
+              </select>
+            </div>
+          </div>
+          <div class="input-group">
+            <span class="input-group-text"><input type="checkbox" class="form-check-input" id="datapercentageshow" checked /></span>
+            <span class="input-group-text">Show percentage on progress bar?</span>
+            <div class="input-group mb-3">
+              <label class="input-group-text" for="datapercentageside">Put it on which side?</label>
+              <select class="form-select" id="datapercentageside">
+                <option value="L">Left</option>
+                <option value="R" selected>Right</option>
+              </select>
+            </div>
+            <span class="input-group-text"><input type="checkbox" class="form-check-input" id="datapercentagecolor" /></span>
+            <span class="input-group-text">Color percentage with progress bar?</span>
+          </div>
+          <hr />
+          <button id="copybp">Copy BP</button><br />
+          <textarea class="form-control" readonly id="blueprint" style="height: 500px"></textarea>
+        </div>
+        <div class="col" id="bppreview"></div>
+      </div>
+    </div>
   </body>
 </html>
-200 / 400 * 100
