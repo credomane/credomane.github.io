@@ -5,10 +5,6 @@ const data = {
   barWidth: 20,
   color1: "#B80F0A",
   color2: "#5CE65C",
-  signalType: "item",
-  signalName: "iron-plate",
-  signalShow: true,
-  signalSide: "L",
   percentageShow: true,
   percentageSide: "R",
   percentageColor: false,
@@ -17,8 +13,7 @@ const data = {
 function updateEverything() {
   data.preview = [];
   data.bp = JSON.parse(JSON.stringify(bp));
-  const icon = makeIcon(data.signalType, data.signalName);
-  data.bp.blueprint.icons[1].signal = icon;
+  const icon = { name: "parameter-0" };
 
   const color1 = hexToRgb(data.color1);
   const color2 = hexToRgb(data.color2);
@@ -31,15 +26,6 @@ function updateEverything() {
     if (percent == 99 && data.resolution == 33) {
       //Hack to make the 33% resolution work.
       percent = 100;
-    }
-
-    if (data.signalShow) {
-      const signalText = "[" + data.signalType + "=" + data.signalName + "]";
-      if (data.signalSide === "L") {
-        textL += signalText;
-      } else {
-        textR += signalText;
-      }
     }
 
     if (data.percentageShow) {
@@ -59,14 +45,26 @@ function updateEverything() {
     let textBP = "";
     if (data.percentageColor) {
       textPV = "<span style='color:" + color + "'>" + textL + " " + textM + " " + textR + "</span><br>";
-      textBP = "[color=" + color + "]" + textL + " " + textM + " " + textR + "[/color]";
+      textBP = "[color=#FF" + color.substr(1) + "]" + textL + " " + textM + " " + textR + "[/color]";
     } else {
       textPV = textL + " <span style='color:" + color + "'>" + textM + "</span> " + textR + "<br>";
-      textBP = textL + " [color=" + color + "]" + textM + "[/color] " + textR;
+      textBP = textL + " [color=#FF" + color.substr(1) + "]" + textM + "[/color] " + textR;
     }
 
-    data.preview.push({ val: getValueFromPercent(percent, data.percent0, data.percent100), text: textPV });
-    data.bp.blueprint.entities[0].control_behavior.parameters.unshift(makeParameter(icon, getValueFromPercent(percent, data.percent0, data.percent100), textBP));
+    let parameter = makeParameter(icon, getValueFromPercent(percent, data.percent0, data.percent100), textBP);
+    let preview = { val: getValueFromPercent(percent, data.percent0, data.percent100), comparator: ">=", text: textPV };
+    if (percent == 0) {
+      //Generate 0% with different rules so that it is the one the appears anytime the signal is less than 1%.
+      let parameter = makeParameter(icon, getValueFromPercent(data.resolution, data.percent0, data.percent100), textBP);
+      parameter.condition.comparator = "<=";
+      preview = { val: getValueFromPercent(data.resolution, data.percent0, data.percent100), comparator: "<=", text: textPV };
+    } else if (percent == 39 && data.resolution == 1) {
+      //Apparently Display Panels have a limit of 100 messages. Resolution 1 generates 101 messages and thus exceeds the limit. So skip one.
+      continue;
+    }
+
+    data.bp.blueprint.entities[0].control_behavior.parameters.unshift(parameter);
+    data.preview.push(preview);
   }
 
   $("#blueprintJSON").val(JSON.stringify(data.bp, null, 2));
@@ -75,7 +73,11 @@ function updateEverything() {
   let html = "";
   for (let i = 0; i < data.preview.length; ++i) {
     const entry = data.preview[i];
-    html += entry.val + "&nbsp;==&nbsp;" + entry.text;
+    if (i == 0) {
+      html += entry.val + "&nbsp;<=&nbsp;" + entry.text;
+    } else {
+      html += entry.val + "&nbsp;>=&nbsp;" + entry.text;
+    }
   }
   $("#bppreview").html(html);
 }
@@ -91,16 +93,6 @@ function makeProgressBar(percent) {
   }
 
   return bar;
-}
-
-function makeIcon(signalType, signalName) {
-  let icon = {};
-  if (signalType !== "item") {
-    icon.type = signalType;
-  }
-  icon.name = signalName;
-
-  return icon;
 }
 
 function makeParameter(icon, value, text) {
@@ -146,8 +138,8 @@ const bp = {
       },
       {
         signal: {
-          type: "virtual",
-          name: "signal-anything",
+          type: "item",
+          name: "parameter-0",
         },
         index: 2,
       },
@@ -163,6 +155,18 @@ const bp = {
         control_behavior: {
           parameters: [],
         },
+        text: "Warning: Circuit network wire found.",
+        icon: {
+          name: "parameter-0",
+        },
+        always_show: true,
+      },
+    ],
+    parameters: [
+      {
+        type: "id",
+        name: "The signal to watch the value of",
+        id: "parameter-0",
       },
     ],
     item: "blueprint",

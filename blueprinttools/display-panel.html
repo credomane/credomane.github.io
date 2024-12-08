@@ -49,31 +49,6 @@
             updateEverything();
           });
 
-        $("#datasignalname")
-          .val(data.signalName)
-          .on("change", (event) => {
-            data.signalName = event.currentTarget.value;
-            updateEverything();
-          });
-        $("#datasignaltype")
-          .val(data.signalType)
-          .on("change", (event) => {
-            data.signalType = event.currentTarget.value;
-            updateEverything();
-          });
-        $("#datasignalshow")
-          .prop("checked", data.signalShow)
-          .on("change", (event) => {
-            data.signalShow = event.currentTarget.checked;
-            updateEverything();
-          });
-        $("#datasignalside")
-          .val(data.signalSide)
-          .on("change", (event) => {
-            data.signalSide = event.currentTarget.value;
-            updateEverything();
-          });
-
         $("#datapercentageshow")
           .prop("checked", data.percentageShow)
           .on("change", (event) => {
@@ -94,7 +69,7 @@
           });
 
         $("#copytoclipboard").on("click", () => {
-          navigator.clipboard.writeText($("#blueprint").val())
+          navigator.clipboard.writeText($("#blueprint").val());
         });
         updateEverything();
       });
@@ -119,7 +94,8 @@
           </div>
           <div class="form-floating">
             <select class="form-select" id="dataresolution" title="">
-              <option value="2" selected>2%</option>
+              <option value="1" selected>1%</option>
+              <option value="2">2%</option>
               <option value="5">5%</option>
               <option value="10">10%</option>
               <option value="20">20%</option>
@@ -155,32 +131,6 @@
             </div>
           </div>
           <div class="input-group">
-            <div class="form-floating">
-              <select class="form-select" id="datasignaltype">
-                <option value="item">Item</option>
-                <option value="fluid">Fluid</option>
-                <option value="recipe">Recipe</option>
-                <option value="virtual">Virtual</option>
-              </select>
-              <label for="datasignaltype">Signal Type</label>
-            </div>
-            <div class="form-floating">
-              <input type="text" class="form-control" id="datasignalname" />
-              <label for="datasignalname">Signal Name</label>
-            </div>
-          </div>
-          <div class="input-group">
-            <span class="input-group-text"><input type="checkbox" class="form-check-input" id="datasignalshow" checked /></span>
-            <span class="input-group-text">Show signal on progress bar?</span>
-            <div class="input-group mb-3">
-              <label class="input-group-text" for="datasignalside">Put it on which side?</label>
-              <select class="form-select" id="datasignalside">
-                <option value="L" selected>Left</option>
-                <option value="R">Right</option>
-              </select>
-            </div>
-          </div>
-          <div class="input-group">
             <span class="input-group-text"><input type="checkbox" class="form-check-input" id="datapercentageshow" checked /></span>
             <span class="input-group-text">Show percentage on progress bar?</span>
             <div class="input-group mb-3">
@@ -196,7 +146,7 @@
           <hr />
           <button id="copytoclipboard">Copy BP</button><br />
           <textarea class="form-control" readonly id="blueprint" style="height: 500px"></textarea>
-          <textarea class="form-control" readonly id="blueprintJSON" style="height: 500px"></textarea>
+          <textarea class="form-control" readonly id="blueprintJSON" style="height: 500px; display: none"></textarea>
         </div>
         <div class="col" id="bppreview"></div>
       </div>
