@@ -1,88 +1,3 @@
-$(() => {
-  $("#datapercent0")
-    .val(data.percent0)
-    .on("change", (event) => {
-      data.percent0 = parseInt(event.currentTarget.value);
-      updateEverything();
-    });
-  $("#datapercent100")
-    .val(data.percent100)
-    .on("change", (event) => {
-      data.percent100 = parseInt(event.currentTarget.value);
-      updateEverything();
-    });
-  $("#dataresolution")
-    .val(data.resolution)
-    .on("change", (event) => {
-      data.resolution = parseInt(event.currentTarget.value);
-      updateEverything();
-    });
-  $("#databarwidth")
-    .val(data.barWidth)
-    .on("change", (event) => {
-      data.barWidth = parseInt(event.currentTarget.value);
-      updateEverything();
-    });
-  $("#datacolor1")
-    .val(data.color1)
-    .on("change", (event) => {
-      data.color1 = event.currentTarget.value;
-      updateEverything();
-    });
-  $("#datacolor2")
-    .val(data.color2)
-    .on("change", (event) => {
-      data.color2 = event.currentTarget.value;
-      updateEverything();
-    });
-
-  $("#datasignalname")
-    .val(data.signalName)
-    .on("change", (event) => {
-      data.signalName = event.currentTarget.value;
-      updateEverything();
-    });
-  $("#datasignaltype")
-    .val(data.signalType)
-    .on("change", (event) => {
-      data.signalType = event.currentTarget.value;
-      updateEverything();
-    });
-  $("#datasignalshow")
-    .prop("checked", data.signalShow)
-    .on("change", (event) => {
-      data.signalShow = event.currentTarget.checked;
-      updateEverything();
-    });
-  $("#datasignalside")
-    .val(data.signalSide)
-    .on("change", (event) => {
-      data.signalSide = event.currentTarget.value;
-      updateEverything();
-    });
-
-  $("#datapercentageshow")
-    .prop("checked", data.percentageShow)
-    .on("change", (event) => {
-      data.percentageShow = event.currentTarget.checked;
-      updateEverything();
-    });
-  $("#datapercentageside")
-    .prop("checked", data.percentageSide)
-    .on("change", (event) => {
-      data.percentageSide = event.currentTarget.value;
-      updateEverything();
-    });
-  $("#datapercentagecolor")
-    .prop("checked", data.percentageColor)
-    .on("change", (event) => {
-      data.percentageColor = event.currentTarget.checked;
-      updateEverything();
-    });
-
-  updateEverything();
-});
-
 const data = {
   percent0: 0,
   percent100: 100,
@@ -213,18 +128,18 @@ function getValueFromPercent(percent, low, high) {
 }
 
 function decodeBlueprint(str) {
-  var encoded = atob(str.substring(1));
-  var decoded = pako.inflate(encoded);
-  var string = new TextDecoder("utf-8").decode(decoded);
-  var jsonObject = JSON.parse(string);
-  var jsonString = JSON.stringify(jsonObject, null, 4);
+  const encoded = atob(str.substring(1));
+  const decoded = pako.inflate(encoded);
+  const string = new TextDecoder("utf-8").decode(decoded);
+  const jsonObject = JSON.parse(string);
+  const jsonString = JSON.stringify(jsonObject, null, 4);
   return jsonObject;
 }
 
 function encodeBlueprint(jsonObject) {
-  let jsonString = JSON.stringify(jsonObject);
-  let decoded = pako.deflate(jsonString);
-  let str = btoa(decoded);
+  const jsonString = JSON.stringify(jsonObject);
+  const decoded = pako.deflate(jsonString);
+  const str = btoa(decoded);
   return str;
 }
 
