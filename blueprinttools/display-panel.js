@@ -51,6 +51,8 @@ function updateEverything() {
       textBP = textL + " [color=#FF" + color.substr(1) + "]" + textM + "[/color] " + textR;
     }
 
+    textBP = "[font=scenario-message-dialog]" + textBP + "[/font]";
+
     let parameter = makeParameter(icon, getValueFromPercent(percent, data.percent0, data.percent100), textBP);
     let preview = { val: getValueFromPercent(percent, data.percent0, data.percent100), comparator: ">=", text: textPV };
     if (percent == 0) {
