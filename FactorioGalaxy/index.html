@@ -52,17 +52,6 @@
           $("#errordiv").html("Searched " + totalStars() + " stars and I could not find " + user + "'s star!");
         }
       }
-
-      $(() => {
-        const star = getUrlParameter("star");
-        if (star !== false) {
-          $("#usernameinput").val(star);
-          //Give the Galaxy a chance to actually load.
-          setTimeout(() => {
-            findstar();
-          }, 100);
-        }
-      });
     </script>
   </head>
   <body>
@@ -124,6 +113,11 @@
                 fetch("./stars.json").then(async (response) => {
                   initSpacemapViewer(await response.json());
                   $("#errordiv").html("Loaded " + totalStars() + " stars.");
+                  const star = getUrlParameter("star");
+                  if (star !== false) {
+                    $("#usernameinput").val(star);
+                    findstar();
+                  }
                 });
 
                 $("#usernameinput").keypress(function (e) {
