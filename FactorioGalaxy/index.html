@@ -3,20 +3,9 @@
   <head>
     <title>Galaxy Of Fame | Factorio</title>
 
-    <link
-      href="https://cdn.factorio.com/assets/fonts/titillium-web.css"
-      rel="stylesheet"
-    />
-    <link
-      href="https://cdn.factorio.com/assets/vendor/fontawesome/css/all.min.css"
-      rel="stylesheet"
-      crossorigin="anonymous"
-    />
-    <link
-      href="https://factorio.com/static/css/main.css"
-      rel="stylesheet"
-      type="text/css"
-    />
+    <link href="https://cdn.factorio.com/assets/fonts/titillium-web.css" rel="stylesheet" />
+    <link href="https://cdn.factorio.com/assets/vendor/fontawesome/css/all.min.css" rel="stylesheet" crossorigin="anonymous" />
+    <link href="https://factorio.com/static/css/main.css" rel="stylesheet" type="text/css" />
     <meta name="viewport" content="width=device-width" />
 
     <script src="./libs/jquery-3.7.0.min.js"></script>
@@ -26,12 +15,7 @@
 
     <script src="./libs/floating-ui-core@1.0.1.js"></script>
     <script src="./libs/floating-ui-dom@1.0.4.js"></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/htmx/1.9.10/htmx.min.js"
-      integrity="sha512-9qpauSP4+dDIldsrdNEZ2Z7JoyLZGfJsAP2wfXnc3drOh+5NXOBxjlq3sGXKdulmN9W+iwLxRt42zKMa8AHEeg=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/htmx/1.9.10/htmx.min.js" integrity="sha512-9qpauSP4+dDIldsrdNEZ2Z7JoyLZGfJsAP2wfXnc3drOh+5NXOBxjlq3sGXKdulmN9W+iwLxRt42zKMa8AHEeg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <script type="importmap">
       {
@@ -44,23 +28,49 @@
       }
     </script>
     <script>
-      function findstar(){
-        let user=$("#usernameinput").val()
-        if(focusOnStar(user)){
+      function getUrlParameter(sParam) {
+        let sPageURL = window.location.search.substring(1),
+          sURLVariables = sPageURL.split("&"),
+          sParameterName,
+          i;
+
+        for (i = 0; i < sURLVariables.length; i++) {
+          sParameterName = sURLVariables[i].split("=");
+
+          if (sParameterName[0] === sParam) {
+            return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+          }
+        }
+        return false;
+      }
+      
+      function findstar() {
+        let user = $("#usernameinput").val();
+        if (focusOnStar(user)) {
           $("#errordiv").html("Found " + user + "'s star and focused on it!");
-        }else{
+        } else {
           $("#errordiv").html("Searched " + totalStars() + " stars and I could not find " + user + "'s star!");
         }
       }
+
+      $(() => {
+        const star = getUrlParameter("star");
+        if (star !== false) {
+          $("#usernameinput").val(star);
+          setTimeout(() => {
+            findstar();
+          }, 1000);
+        }
+      });
     </script>
   </head>
   <body>
     <div class="header">
-      <div class="header-inner" style="display: block;">
-        Search for star by factorio username:<br><input id="usernameinput" type="text" length="40"><button onclick="findstar()">Search!</button><br>
+      <div class="header-inner" style="display: block">
+        Search for star by factorio username:<br /><input id="usernameinput" type="text" length="40" /><button onclick="findstar()">Search!</button><br />
         <div id="errordiv">&nbsp;</div>
       </div>
-  </div>
+    </div>
     <div class="container">
       <div class="container-inner">
         <div id="flashed-messages" class="small-center"></div>
@@ -102,9 +112,7 @@
 
             <div id="chartbundle-map-container">
               <canvas id="chartbundle-map-canvas"></canvas>
-              <div id="chartbundle-loading" class="panel m0">
-                Loading map info...
-              </div>
+              <div id="chartbundle-loading" class="panel m0">Loading map info...</div>
               <div id="chartbundle-planets" class=""></div>
             </div>
 
@@ -116,9 +124,9 @@
                   initSpacemapViewer(await response.json());
                   $("#errordiv").html("Loaded " + totalStars() + " stars.");
                 });
-                
-                $('#usernameinput').keypress(function(e) {
-                  if(e.which == 13) {
+
+                $("#usernameinput").keypress(function (e) {
+                  if (e.which == 13) {
                     findstar();
                   }
                 });
