@@ -2,10 +2,7 @@ import * as THREE from "three";
 import gsap from "gsap";
 import { MapControls } from "three/addons/controls/MapControls.js";
 import { GUI } from "three/addons/libs/lil-gui.module.min.js";
-import {
-  CSS2DRenderer,
-  CSS2DObject,
-} from "three/addons/renderers/CSS2DRenderer.js";
+import { CSS2DRenderer, CSS2DObject } from "three/addons/renderers/CSS2DRenderer.js";
 
 var scene;
 var camera;
@@ -48,72 +45,6 @@ const starIdToIndexMap = new Map();
 
 var starLabel;
 
-export function totalStars() {
-  return chartbundleOpts.stars.users.length;
-}
-
-export function focusOnStar(user) {
-  const opts = chartbundleOpts;
-  user = user.toLowerCase();
-  let index = null;
-  for (let i = 0; i < chartbundleOpts.stars.users.length; i++) {
-    if (chartbundleOpts.stars.users[i].toLowerCase() == user) {
-      index = i;
-      break;
-    }
-  }
-
-  if (index === null) {
-    return false;
-  }
-
-  const starX = chartbundleOpts.stars.positions[index * 2];
-  const starY = chartbundleOpts.stars.positions[index * 2 + 1];
-
-  //Old Instant Teleport.
-  //camera.position.set(starX, starY, 20);
-  //controls.target.set(camera.position.x, camera.position.y, 0)
-  //render();
-
-  //New Fancy Panning.
-  panCameraTo(starX, starY);
-
-  return true;
-}
-
-function panCameraTo(x, y) {
-  const camX = camera.position.x;
-  const camY = camera.position.y;
-
-  //Get the midway point. for zoom out/in.
-  let midX = camX + (x - camX) / 2;
-  let midY = camY + (y - camY) / 2;
-
-  gsap.to(camera.position, {
-    x: midX,
-    y: midY,
-    z: 60,
-    duration: 3,
-    onUpdate: function () {
-      controls.target.set(camera.position.x, camera.position.y, 0);
-    },
-    onComplete: function () {
-      gsap.to(camera.position, {
-        x: x,
-        y: y,
-        z: 15,
-        duration: 3,
-        onUpdate: function () {
-          controls.target.set(camera.position.x, camera.position.y, 0);
-        },
-        onComplete: function () {
-          //Figure out maybe auto showing the star label here?
-        },
-      });
-    },
-  });
-}
-
 export async function initSpacemapViewer(opts) {
   if (opts.debug) console.log(opts);
   chartbundleOpts = opts;
@@ -124,34 +55,19 @@ export async function initSpacemapViewer(opts) {
   loadingInfo = document.getElementById("chartbundle-loading");
 
   renderer = new THREE.WebGLRenderer({ antialias: true, canvas: target });
-  renderer.setSize(
-    target.getBoundingClientRect().width,
-    target.getBoundingClientRect().height
-  );
+  renderer.setSize(target.getBoundingClientRect().width, target.getBoundingClientRect().height);
 
   labelRenderer = new CSS2DRenderer();
-  labelRenderer.setSize(
-    target.getBoundingClientRect().width,
-    target.getBoundingClientRect().height
-  );
+  labelRenderer.setSize(target.getBoundingClientRect().width, target.getBoundingClientRect().height);
   labelRenderer.domElement.style.position = "absolute";
   labelRenderer.domElement.style.top = "0";
   labelRenderer.domElement.style.left = "0";
   labelRenderer.domElement.style.pointerEvents = "none";
   target.parentElement.appendChild(labelRenderer.domElement);
 
-  camera = new THREE.PerspectiveCamera(
-    80,
-    renderer.domElement.width / renderer.domElement.height,
-    0.1,
-    10000
-  );
+  camera = new THREE.PerspectiveCamera(80, renderer.domElement.width / renderer.domElement.height, 0.1, 10000);
   camera.up.set(0, 0, 1);
-  camera.position.set(
-    (opts.cols * opts.gridsize) / 2,
-    (opts.rows * opts.gridsize) / 2,
-    camStartZ
-  );
+  camera.position.set((opts.cols * opts.gridsize) / 2, (opts.rows * opts.gridsize) / 2, camStartZ);
   camera.lookAt(camera.position.x, camera.position.y, 0);
 
   resizeRendererToDisplaySize(true);
@@ -176,29 +92,20 @@ export async function initSpacemapViewer(opts) {
   }
 
   // pass-through mousewheel events from labelRenderer
-  labelRenderer.domElement.addEventListener("wheel", controls._onMouseWheel, {
-    passive: false,
-  });
+  labelRenderer.domElement.addEventListener("wheel", controls._onMouseWheel, { passive: false });
 
   target.addEventListener("pointermove", onPointerMove);
   function onPointerMove(event) {
     // calculate pointer position in normalized device coordinates
     // (-1 to +1) for both components
-    pointer.x =
-      (event.layerX / renderer.domElement.width) * window.devicePixelRatio * 2 -
-      1;
-    pointer.y =
-      -((event.layerY / renderer.domElement.height) * window.devicePixelRatio) *
-        2 +
-      1;
+    pointer.x = (event.layerX / renderer.domElement.width) * window.devicePixelRatio * 2 - 1;
+    pointer.y = -((event.layerY / renderer.domElement.height) * window.devicePixelRatio) * 2 + 1;
 
     pointerWorld.set(pointer.x, pointer.y, 0.5);
     pointerWorld.unproject(camera);
     pointerWorld.sub(camera.position).normalize();
     var distance = -camera.position.z / pointerWorld.z;
-    pointerWorld = new THREE.Vector3()
-      .copy(camera.position)
-      .add(pointerWorld.multiplyScalar(distance));
+    pointerWorld = new THREE.Vector3().copy(camera.position).add(pointerWorld.multiplyScalar(distance));
   }
 
   gui = new GUI();
@@ -228,15 +135,8 @@ export async function initSpacemapViewer(opts) {
 
   // TODO: as long as we're not using THREE.Points as a zoom fallback most of this code is redundant
   for (let index = 0; index < starCount; index++) {
-    const starCoords = {
-      col: opts.stars.coordinates[index * 2],
-      row: opts.stars.coordinates[index * 2 + 1],
-    };
-    const starPosition = new THREE.Vector3(
-      opts.stars.positions[index * 2],
-      opts.stars.positions[index * 2 + 1],
-      0
-    );
+    const starCoords = { col: opts.stars.coordinates[index * 2], row: opts.stars.coordinates[index * 2 + 1] };
+    const starPosition = new THREE.Vector3(opts.stars.positions[index * 2], opts.stars.positions[index * 2 + 1], 0);
     const starId = starCoordsToId(starCoords);
     //const color = (new THREE.Color()).setHex(opts.stars.colors[index]);
     let color = new THREE.Color().setHex(opts.stars.colors[index]);
@@ -269,14 +169,8 @@ export async function initSpacemapViewer(opts) {
     starTextureVariations.push(tex);
   }
 
-  geometry.setAttribute(
-    "position",
-    new THREE.Float32BufferAttribute(starPositions, 3)
-  );
-  geometry.setAttribute(
-    "color",
-    new THREE.Float32BufferAttribute(starColors, 3)
-  );
+  geometry.setAttribute("position", new THREE.Float32BufferAttribute(starPositions, 3));
+  geometry.setAttribute("color", new THREE.Float32BufferAttribute(starColors, 3));
   geometry.setAttribute("size", new THREE.Float32BufferAttribute(starSizes, 1));
 
   // Vertex shader
@@ -330,10 +224,7 @@ void main() {
   starSprites.visible = true;
 
   const gridGeometry = new THREE.BufferGeometry();
-  grid = new THREE.LineSegments(
-    gridGeometry,
-    new THREE.LineBasicMaterial({ color: 0x0000ff })
-  );
+  grid = new THREE.LineSegments(gridGeometry, new THREE.LineBasicMaterial({ color: 0x0000ff }));
 
   scene.add(grid);
 
@@ -380,12 +271,8 @@ function screenToWorld(x, y) {
 */
 
 function worldToStarCoords(vec3) {
-  const col = Math.floor(
-    (vec3.x + chartbundleOpts.gridsize / 2) / chartbundleOpts.gridsize
-  );
-  const row = Math.floor(
-    (vec3.y + chartbundleOpts.gridsize / 2) / chartbundleOpts.gridsize
-  );
+  const col = Math.floor((vec3.x + chartbundleOpts.gridsize / 2) / chartbundleOpts.gridsize);
+  const row = Math.floor((vec3.y + chartbundleOpts.gridsize / 2) / chartbundleOpts.gridsize);
 
   return { col: col, row: row };
 }
@@ -408,11 +295,7 @@ function starIdToIndex(id) {
 function starIdToWorldPos(id) {
   const idx = starIdToIndex(id);
   if (idx != null) {
-    return new THREE.Vector3(
-      chartbundleOpts.stars.positions[idx * 2],
-      chartbundleOpts.stars.positions[idx * 2 + 1],
-      0
-    );
+    return new THREE.Vector3(chartbundleOpts.stars.positions[idx * 2], chartbundleOpts.stars.positions[idx * 2 + 1], 0);
   }
   return null;
 }
@@ -454,8 +337,7 @@ function createLabel(message) {
 
 function resizeRendererToDisplaySize(force) {
   const canvas = renderer.domElement;
-  const targetBounds =
-    renderer.domElement.parentElement.getBoundingClientRect();
+  const targetBounds = renderer.domElement.parentElement.getBoundingClientRect();
   const pixelRatio = window.devicePixelRatio;
   const width = Math.floor(targetBounds.width * pixelRatio);
   const height = Math.floor(targetBounds.height * pixelRatio);
@@ -484,9 +366,7 @@ function adaptCameraToDisplaySize() {
 function updateGridAndSprites() {
   const topLeftWorld = screenToWorld(-1, -1);
   const bottomRightWorld = screenToWorld(1, 1);
-  const sizeWorld = new THREE.Vector3()
-    .copy(bottomRightWorld)
-    .sub(topLeftWorld);
+  const sizeWorld = new THREE.Vector3().copy(bottomRightWorld).sub(topLeftWorld);
 
   const cols = Math.ceil(sizeWorld.x / chartbundleOpts.gridsize) + 2;
   const rows = Math.ceil(sizeWorld.y / chartbundleOpts.gridsize) + 2;
@@ -498,21 +378,10 @@ function updateGridAndSprites() {
     if (chartbundleOpts.debug) grid.visible = true;
   }
 
-  const offsetX =
-    Math.floor(topLeftWorld.x / chartbundleOpts.gridsize) *
-      chartbundleOpts.gridsize -
-    chartbundleOpts.gridsize / 2;
-  const offsetY =
-    Math.floor(topLeftWorld.y / chartbundleOpts.gridsize) *
-      chartbundleOpts.gridsize +
-    chartbundleOpts.gridsize / 2;
+  const offsetX = Math.floor(topLeftWorld.x / chartbundleOpts.gridsize) * chartbundleOpts.gridsize - chartbundleOpts.gridsize / 2;
+  const offsetY = Math.floor(topLeftWorld.y / chartbundleOpts.gridsize) * chartbundleOpts.gridsize + chartbundleOpts.gridsize / 2;
 
-  guiData.info = JSON.stringify({
-    cols: cols,
-    rows: rows,
-    x: offsetX.toFixed(2),
-    y: offsetY.toFixed(2),
-  });
+  guiData.info = JSON.stringify({ cols: cols, rows: rows, x: offsetX.toFixed(2), y: offsetY.toFixed(2) });
 
   if (chartbundleOpts.debug) {
     const gridPoints = [];
@@ -520,17 +389,13 @@ function updateGridAndSprites() {
     for (let col = 0; col < cols; col++) {
       const x = offsetX + col * chartbundleOpts.gridsize;
       gridPoints.push(new THREE.Vector3(x, offsetY, 0));
-      gridPoints.push(
-        new THREE.Vector3(x, offsetY + rows * chartbundleOpts.gridsize, 0)
-      );
+      gridPoints.push(new THREE.Vector3(x, offsetY + rows * chartbundleOpts.gridsize, 0));
     }
 
     for (let row = 0; row < rows; row++) {
       const y = offsetY + row * chartbundleOpts.gridsize;
       gridPoints.push(new THREE.Vector3(offsetX, y, 0));
-      gridPoints.push(
-        new THREE.Vector3(offsetX + cols * chartbundleOpts.gridsize, y, 0)
-      );
+      gridPoints.push(new THREE.Vector3(offsetX + cols * chartbundleOpts.gridsize, y, 0));
     }
     grid.frustumCulled = false;
     grid.geometry.setFromPoints(gridPoints);
@@ -547,17 +412,8 @@ function updateGridAndSprites() {
       starCoords.row = starOffsetY + row;
       const starId = starCoordsToId(starCoords);
       if (!starIdToSprite.has(starId) && starIdToIndex(starId) != null) {
-        const color = new THREE.Color().lerpColors(
-          new THREE.Color("white"),
-          new THREE.Color().setHex(
-            chartbundleOpts.stars.colors[starIdToIndex(starId)]
-          ),
-          1
-        );
-        const tex =
-          starTextureVariations[
-            triple32inc(starId) % starTextureVariations.length
-          ];
+        const color = new THREE.Color().lerpColors(new THREE.Color("white"), new THREE.Color().setHex(chartbundleOpts.stars.colors[starIdToIndex(starId)]), 1);
+        const tex = starTextureVariations[triple32inc(starId) % starTextureVariations.length];
         const sprite = new THREE.Sprite(
           new THREE.SpriteMaterial({
             map: tex,
@@ -570,8 +426,7 @@ function updateGridAndSprites() {
         const baseScale = 6;
         const scaleStep = 0.1;
         const scaleVariants = 5;
-        const scale =
-          baseScale + (triple32inc(starId) % scaleVariants) * scaleStep;
+        const scale = baseScale + (triple32inc(starId) % scaleVariants) * scaleStep;
 
         const pos = starIdToWorldPos(starId);
         sprite.position.copy(pos);
@@ -587,25 +442,14 @@ function updateGridAndSprites() {
 
 function clampCamera() {
   const topLeft = new THREE.Vector2(0, 0);
-  const bottomRight = new THREE.Vector2(
-    chartbundleOpts.cols * chartbundleOpts.gridsize,
-    chartbundleOpts.rows * chartbundleOpts.gridsize
-  );
+  const bottomRight = new THREE.Vector2(chartbundleOpts.cols * chartbundleOpts.gridsize, chartbundleOpts.rows * chartbundleOpts.gridsize);
 
-  if (
-    camera.position.x < topLeft.x ||
-    camera.position.x > bottomRight.x ||
-    camera.position.y < topLeft.y ||
-    camera.position.y > bottomRight.y
-  ) {
+  if (camera.position.x < topLeft.x || camera.position.x > bottomRight.x || camera.position.y < topLeft.y || camera.position.y > bottomRight.y) {
     // remove camera from controls so it doesnt mess with me
     // https://discourse.threejs.org/t/orbit-mapcontrols-mess-up-manual-camera-positioning/55335/2
     controls.object = new THREE.OrthographicCamera();
     controls.reset();
-    const clampedPos = new THREE.Vector2(
-      camera.position.x,
-      camera.position.y
-    ).clamp(topLeft, bottomRight);
+    const clampedPos = new THREE.Vector2(camera.position.x, camera.position.y).clamp(topLeft, bottomRight);
 
     camera.position.set(clampedPos.x, clampedPos.y, camera.position.z);
     camera.lookAt(new THREE.Vector3(clampedPos.x, clampedPos.y, 0));
@@ -636,10 +480,7 @@ function getNearestStar(vec3) {
     const offsetCol = offsets[offsetIdx][0];
     const offsetRow = offsets[offsetIdx][1];
 
-    const starCoords = {
-      col: coords.col + offsetCol,
-      row: coords.row + offsetRow,
-    };
+    const starCoords = { col: coords.col + offsetCol, row: coords.row + offsetRow };
     const starId = starCoordsToId(starCoords);
     const starPos = starIdToWorldPos(starId);
 
@@ -656,8 +497,7 @@ function getNearestStar(vec3) {
 }
 
 function updateZoomSpeed() {
-  const alpha =
-    (camera.position.z - controls.minDistance) / controls.maxDistance;
+  const alpha = (camera.position.z - controls.minDistance) / controls.maxDistance;
   let nextSpeed = THREE.MathUtils.lerp(camMinSpeed, camMaxSpeed, alpha);
   controls.zoomSpeed = nextSpeed;
 }
@@ -668,10 +508,7 @@ function render() {
   }
 
   const nearestStarCoords = getNearestStar(pointerWorld);
-  if (chartbundleOpts.debug)
-    loadingInfo.textContent = `${worldToStarCoords(pointerWorld).col}, ${
-      worldToStarCoords(pointerWorld).row
-    }`;
+  if (chartbundleOpts.debug) loadingInfo.textContent = `${worldToStarCoords(pointerWorld).col}, ${worldToStarCoords(pointerWorld).row}`;
   else loadingInfo.style.display = "none";
 
   starLabel.visible = false;
@@ -690,14 +527,11 @@ function render() {
     if (starIdToSprite.has(starId)) {
       const nextHoveringSprite = starIdToSprite.get(starId);
       if (hoveringSprite == null || hoveringSprite != nextHoveringSprite) {
-        if (hoveringSprite != null)
-          hoveringSprite.material.color = hoveringSpriteColor;
+        if (hoveringSprite != null) hoveringSprite.material.color = hoveringSpriteColor;
         hoveringSprite = nextHoveringSprite;
         hoveringSpriteColor = hoveringSprite.material.color;
 
-        let color = new THREE.Color().setHex(
-          chartbundleOpts.stars.colors[starIdToIndex(starId)]
-        );
+        let color = new THREE.Color().setHex(chartbundleOpts.stars.colors[starIdToIndex(starId)]);
         color.convertSRGBToLinear();
         color.multiplyScalar(1.2);
         color.convertLinearToSRGB();
@@ -721,11 +555,95 @@ function render() {
     guiData.camera_x = camera.position.x;
     guiData.camera_y = camera.position.y;
     guiData.camera_z = camera.position.z;
-    guiData.pointer = `${pointerWorld.x.toFixed(2)}, ${pointerWorld.y.toFixed(
-      2
-    )}, ${pointerWorld.z.toFixed(2)}`;
+    guiData.pointer = `${pointerWorld.x.toFixed(2)}, ${pointerWorld.y.toFixed(2)}, ${pointerWorld.z.toFixed(2)}`;
     guiData.zoom = camera.zoom;
   }
 
   requestAnimationFrame(render);
+}
+
+/*************************************************************\
+    Credomane's Additions. 
+    @Wube Feel free to integrate/modify these into your code.
+      I wouldn't mind at all.
+\*************************************************************/
+export function totalStars() {
+  return chartbundleOpts.stars.users.length;
+}
+
+export function focusOnStar(user) {
+  const opts = chartbundleOpts;
+  user = user.toLowerCase();
+  let index = null;
+  for (let i = 0; i < chartbundleOpts.stars.users.length; i++) {
+    if (chartbundleOpts.stars.users[i].toLowerCase() == user) {
+      index = i;
+      break;
+    }
+  }
+
+  if (index === null) {
+    return false;
+  }
+
+  const starX = chartbundleOpts.stars.positions[index * 2];
+  const starY = chartbundleOpts.stars.positions[index * 2 + 1];
+
+  //Old Instant Teleport.
+  //camera.position.set(starX, starY, 20);
+  //controls.target.set(camera.position.x, camera.position.y, 0)
+  //render();
+
+  //New Fancy Panning.
+  panCameraTo(starX, starY);
+
+  return true;
+}
+
+function panCameraTo(x, y) {
+  const camX = camera.position.x;
+  const camY = camera.position.y;
+
+  let dur = Math.abs(Math.floor((camX - x + (camY - y)) / 250));
+  if (dur < 3) {
+    dur = 3;
+  }
+  if (dur > 10) {
+    dur = 10;
+  }
+
+  gsap.to(camera.position, {
+    x: camera.position.x,
+    y: camera.position.y,
+    z: 60,
+    duration: 3,
+    onUpdate: function () {
+      controls.target.set(camera.position.x, camera.position.y, 0);
+    },
+    onComplete: function () {
+      gsap.to(camera.position, {
+        x: x,
+        y: y,
+        z: 60,
+        duration: dur,
+        onUpdate: function () {
+          controls.target.set(camera.position.x, camera.position.y, 0);
+        },
+        onComplete: function () {
+          gsap.to(camera.position, {
+            x: x,
+            y: y,
+            z: 15,
+            duration: 3,
+            onUpdate: function () {
+              controls.target.set(camera.position.x, camera.position.y, 0);
+            },
+            onComplete: function () {
+              //Figure out maybe auto showing the star label here?
+            },
+          });
+        },
+      });
+    },
+  });
 }

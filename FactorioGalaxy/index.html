@@ -43,7 +43,7 @@
         }
         return false;
       }
-      
+
       function findstar() {
         let user = $("#usernameinput").val();
         if (focusOnStar(user)) {
@@ -57,9 +57,10 @@
         const star = getUrlParameter("star");
         if (star !== false) {
           $("#usernameinput").val(star);
+          //Give the Galaxy a chance to actually load.
           setTimeout(() => {
             findstar();
-          }, 1000);
+          }, 100);
         }
       });
     </script>
