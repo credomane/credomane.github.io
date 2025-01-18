@@ -31,9 +31,9 @@ function updateEverything() {
     if (data.percentageShow) {
       const percentText = percent + "%";
       if (data.percentageSide === "L") {
-        textL += percentText;
+        textL += percentText + " ";
       } else {
-        textR += percentText;
+        textR += " " + percentText;
       }
     }
 
@@ -47,8 +47,8 @@ function updateEverything() {
       textPV = "<span style='color:" + color + "'>" + textL + " " + textM + " " + textR + "</span><br>";
       textBP = "[color=#FF" + color.substr(1) + "]" + textL + " " + textM + " " + textR + "[/color]";
     } else {
-      textPV = textL + " <span style='color:" + color + "'>" + textM + "</span> " + textR + "<br>";
-      textBP = textL + " [color=#FF" + color.substr(1) + "]" + textM + "[/color] " + textR;
+      textPV = textL + "<span style='color:" + color + "'>" + textM + "</span>" + textR + "<br>";
+      textBP = textL + "[color=#FF" + color.substr(1) + "]" + textM + "[/color]" + textR;
     }
 
     textBP = "[font=scenario-message-dialog]" + textBP + "[/font]";
@@ -157,7 +157,7 @@ const bp = {
         control_behavior: {
           parameters: [],
         },
-        text: "Warning: Circuit network wire found.",
+        text: "Please connect a circuit wire.",
         icon: {
           name: "parameter-0",
         },
