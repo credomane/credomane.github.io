@@ -2,10 +2,10 @@ const cheerio = require("cheerio");
 const fs = require("node:fs");
 
 const searchStr = "initSpacemapViewer";
-
+const starjson = __dirname + "/../stars.json";
 let hadStars = 0;
 try {
-  hadStars = JSON.parse(fs.readFileSync(__dirname + "/../stars.json", "utf8")).stars.users.length;
+  hadStars = JSON.parse(fs.readFileSync(starjson, "utf8")).stars.users.length;
 } catch (err) {
   console.log("Failed to load previous stars.json");
 }
@@ -19,5 +19,8 @@ cheerio.fromURL("https://factorio.com/galaxy").then((res) => {
   console.log("New", html.stars.users.length, "star count.");
   const diff = html.stars.users.length - hadStars;
   console.log("Difference of", (diff <= 0 ? "" : "+") + diff, "stars.");
-  fs.writeFileSync(__dirname + "/../stars.json", JSON.stringify(html));
+  html._credo = {};
+  html._credo.lastUpdate = new Date().getTime();
+  html._credo.diff = diff;
+  fs.writeFileSync(starjson, JSON.stringify(html));
 });
