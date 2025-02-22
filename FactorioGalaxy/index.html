@@ -113,9 +113,7 @@
               import { initSpacemapViewer, focusOnStar, totalStars } from "./libs/spacemap.js";
 
               addEventListener("DOMContentLoaded", () => {
-                //TODO: Try using this gist for automating stars.json updates.
-                //https://gist.githubusercontent.com/credomane/0db3a71cef7af45a4b3d1932c495ffe6/raw/stars.json
-                fetch("./stars.json?" + new Date().getTime()).then(async (response) => {
+                fetch("https://gist.githubusercontent.com/credomane/0db3a71cef7af45a4b3d1932c495ffe6/raw/stars.json?" + new Date().getTime()).then(async (response) => {
                   const stars = await response.json();
                   initSpacemapViewer(stars);
                   $("#errordiv").html("Loaded " + totalStars() + " stars. Last update " + timeSince(stars._credo.lastUpdate));
