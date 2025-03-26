@@ -11,57 +11,53 @@ var GalaxyOfFame = (() => {
   var __propIsEnum = Object.prototype.propertyIsEnumerable;
   var __reflectGet = Reflect.get;
   var __pow = Math.pow;
-  var __defNormalProp = (obj, key, value) => key in obj ? __defProp(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
+  var __defNormalProp = (obj, key, value) => (key in obj ? __defProp(obj, key, { enumerable: true, configurable: true, writable: true, value }) : (obj[key] = value));
   var __spreadValues = (a2, b2) => {
-    for (var prop in b2 || (b2 = {}))
-      if (__hasOwnProp.call(b2, prop))
-        __defNormalProp(a2, prop, b2[prop]);
+    for (var prop in b2 || (b2 = {})) if (__hasOwnProp.call(b2, prop)) __defNormalProp(a2, prop, b2[prop]);
     if (__getOwnPropSymbols)
       for (var prop of __getOwnPropSymbols(b2)) {
-        if (__propIsEnum.call(b2, prop))
-          __defNormalProp(a2, prop, b2[prop]);
+        if (__propIsEnum.call(b2, prop)) __defNormalProp(a2, prop, b2[prop]);
       }
     return a2;
   };
   var __spreadProps = (a2, b2) => __defProps(a2, __getOwnPropDescs(b2));
   var __objRest = (source2, exclude) => {
     var target = {};
-    for (var prop in source2)
-      if (__hasOwnProp.call(source2, prop) && exclude.indexOf(prop) < 0)
-        target[prop] = source2[prop];
+    for (var prop in source2) if (__hasOwnProp.call(source2, prop) && exclude.indexOf(prop) < 0) target[prop] = source2[prop];
     if (source2 != null && __getOwnPropSymbols)
       for (var prop of __getOwnPropSymbols(source2)) {
-        if (exclude.indexOf(prop) < 0 && __propIsEnum.call(source2, prop))
-          target[prop] = source2[prop];
+        if (exclude.indexOf(prop) < 0 && __propIsEnum.call(source2, prop)) target[prop] = source2[prop];
       }
     return target;
   };
-  var __esm = (fn, res) => function __init() {
-    return fn && (res = (0, fn[__getOwnPropNames(fn)[0]])(fn = 0)), res;
-  };
-  var __commonJS = (cb, mod) => function __require() {
-    return mod || (0, cb[__getOwnPropNames(cb)[0]])((mod = { exports: {} }).exports, mod), mod.exports;
-  };
+  var __esm = (fn, res) =>
+    function __init() {
+      return fn && (res = (0, fn[__getOwnPropNames(fn)[0]])((fn = 0))), res;
+    };
+  var __commonJS = (cb, mod) =>
+    function __require() {
+      return mod || (0, cb[__getOwnPropNames(cb)[0]])((mod = { exports: {} }).exports, mod), mod.exports;
+    };
   var __export = (target, all) => {
-    for (var name in all)
-      __defProp(target, name, { get: all[name], enumerable: true });
+    for (var name in all) __defProp(target, name, { get: all[name], enumerable: true });
   };
   var __copyProps = (to, from, except, desc) => {
-    if (from && typeof from === "object" || typeof from === "function") {
-      for (let key of __getOwnPropNames(from))
-        if (!__hasOwnProp.call(to, key) && key !== except)
-          __defProp(to, key, { get: () => from[key], enumerable: !(desc = __getOwnPropDesc(from, key)) || desc.enumerable });
+    if ((from && typeof from === "object") || typeof from === "function") {
+      for (let key of __getOwnPropNames(from)) if (!__hasOwnProp.call(to, key) && key !== except) __defProp(to, key, { get: () => from[key], enumerable: !(desc = __getOwnPropDesc(from, key)) || desc.enumerable });
     }
     return to;
   };
-  var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__getProtoOf(mod)) : {}, __copyProps(
-    // If the importer is in node compatibility mode or this is not an ESM
-    // file that has been converted to a CommonJS file using a Babel-
-    // compatible transform (i.e. "__esModule" has not been set), then set
-    // "default" to the CommonJS "module.exports" for node compatibility.
-    isNodeMode || !mod || !mod.__esModule ? __defProp(target, "default", { value: mod, enumerable: true }) : target,
-    mod
-  ));
+  var __toESM = (mod, isNodeMode, target) => (
+    (target = mod != null ? __create(__getProtoOf(mod)) : {}),
+    __copyProps(
+      // If the importer is in node compatibility mode or this is not an ESM
+      // file that has been converted to a CommonJS file using a Babel-
+      // compatible transform (i.e. "__esModule" has not been set), then set
+      // "default" to the CommonJS "module.exports" for node compatibility.
+      isNodeMode || !mod || !mod.__esModule ? __defProp(target, "default", { value: mod, enumerable: true }) : target,
+      mod
+    )
+  );
   var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
   var __superGet = (cls, obj, key) => __reflectGet(__getProtoOf(cls), key, obj);
   var __async = (__this, __arguments, generator) => {
@@ -80,7 +76,7 @@ var GalaxyOfFame = (() => {
           reject(e2);
         }
       };
-      var step = (x3) => x3.done ? resolve(x3.value) : Promise.resolve(x3.value).then(fulfilled, rejected);
+      var step = (x3) => (x3.done ? resolve(x3.value) : Promise.resolve(x3.value).then(fulfilled, rejected));
       step((generator = generator.apply(__this, __arguments)).next());
     });
   };
@@ -115,7 +111,7 @@ var GalaxyOfFame = (() => {
         return ExtensionType2;
       })(ExtensionType || {});
       normalizeExtension = (ext) => {
-        if (typeof ext === "function" || typeof ext === "object" && ext.extension) {
+        if (typeof ext === "function" || (typeof ext === "object" && ext.extension)) {
           if (!ext.extension) {
             throw new Error("Extension class must have an extension object");
           }
@@ -234,8 +230,7 @@ var GalaxyOfFame = (() => {
             type,
             (extension) => {
               const index = map.findIndex((item) => item.name === extension.name);
-              if (index >= 0)
-                return;
+              if (index >= 0) return;
               map.push({ name: extension.name, value: extension.ref });
               map.sort((a2, b2) => normalizeExtensionPriority(b2.value, defaultPriority) - normalizeExtensionPriority(a2.value, defaultPriority));
             },
@@ -281,9 +276,9 @@ var GalaxyOfFame = (() => {
           for (const source2 of sources2) {
             Object.defineProperties(Target.prototype, Object.getOwnPropertyDescriptors(source2));
           }
-        }
+        },
       };
-    }
+    },
   });
 
   // ../../../../node_modules/eventemitter3/index.js
@@ -292,8 +287,7 @@ var GalaxyOfFame = (() => {
       "use strict";
       var has = Object.prototype.hasOwnProperty;
       var prefix = "~";
-      function Events() {
-      }
+      function Events() {}
       if (Object.create) {
         Events.prototype = /* @__PURE__ */ Object.create(null);
         if (!new Events().__proto__) prefix = false;
@@ -307,8 +301,9 @@ var GalaxyOfFame = (() => {
         if (typeof fn !== "function") {
           throw new TypeError("The listener must be a function");
         }
-        var listener = new EE(fn, context2 || emitter, once), evt = prefix ? prefix + event : event;
-        if (!emitter._events[evt]) emitter._events[evt] = listener, emitter._eventsCount++;
+        var listener = new EE(fn, context2 || emitter, once),
+          evt = prefix ? prefix + event : event;
+        if (!emitter._events[evt]) (emitter._events[evt] = listener), emitter._eventsCount++;
         else if (!emitter._events[evt].fn) emitter._events[evt].push(listener);
         else emitter._events[evt] = [emitter._events[evt], listener];
         return emitter;
@@ -322,9 +317,11 @@ var GalaxyOfFame = (() => {
         this._eventsCount = 0;
       }
       EventEmitter2.prototype.eventNames = function eventNames() {
-        var names = [], events, name;
+        var names = [],
+          events,
+          name;
         if (this._eventsCount === 0) return names;
-        for (name in events = this._events) {
+        for (name in (events = this._events)) {
           if (has.call(events, name)) names.push(prefix ? name.slice(1) : name);
         }
         if (Object.getOwnPropertySymbols) {
@@ -333,7 +330,8 @@ var GalaxyOfFame = (() => {
         return names;
       };
       EventEmitter2.prototype.listeners = function listeners(event) {
-        var evt = prefix ? prefix + event : event, handlers = this._events[evt];
+        var evt = prefix ? prefix + event : event,
+          handlers = this._events[evt];
         if (!handlers) return [];
         if (handlers.fn) return [handlers.fn];
         for (var i2 = 0, l2 = handlers.length, ee = new Array(l2); i2 < l2; i2++) {
@@ -342,7 +340,8 @@ var GalaxyOfFame = (() => {
         return ee;
       };
       EventEmitter2.prototype.listenerCount = function listenerCount(event) {
-        var evt = prefix ? prefix + event : event, listeners = this._events[evt];
+        var evt = prefix ? prefix + event : event,
+          listeners = this._events[evt];
         if (!listeners) return 0;
         if (listeners.fn) return 1;
         return listeners.length;
@@ -350,7 +349,10 @@ var GalaxyOfFame = (() => {
       EventEmitter2.prototype.emit = function emit(event, a1, a2, a3, a4, a5) {
         var evt = prefix ? prefix + event : event;
         if (!this._events[evt]) return false;
-        var listeners = this._events[evt], len = arguments.length, args, i2;
+        var listeners = this._events[evt],
+          len = arguments.length,
+          args,
+          i2;
         if (listeners.fn) {
           if (listeners.once) this.removeListener(event, listeners.fn, void 0, true);
           switch (len) {
@@ -372,7 +374,8 @@ var GalaxyOfFame = (() => {
           }
           listeners.fn.apply(listeners.context, args);
         } else {
-          var length = listeners.length, j3;
+          var length = listeners.length,
+            j3;
           for (i2 = 0; i2 < length; i2++) {
             if (listeners[i2].once) this.removeListener(event, listeners[i2].fn, void 0, true);
             switch (len) {
@@ -389,9 +392,10 @@ var GalaxyOfFame = (() => {
                 listeners[i2].fn.call(listeners[i2].context, a1, a2, a3);
                 break;
               default:
-                if (!args) for (j3 = 1, args = new Array(len - 1); j3 < len; j3++) {
-                  args[j3 - 1] = arguments[j3];
-                }
+                if (!args)
+                  for (j3 = 1, args = new Array(len - 1); j3 < len; j3++) {
+                    args[j3 - 1] = arguments[j3];
+                  }
                 listeners[i2].fn.apply(listeners[i2].context, args);
             }
           }
@@ -418,7 +422,7 @@ var GalaxyOfFame = (() => {
           }
         } else {
           for (var i2 = 0, events = [], length = listeners.length; i2 < length; i2++) {
-            if (listeners[i2].fn !== fn || once && !listeners[i2].once || context2 && listeners[i2].context !== context2) {
+            if (listeners[i2].fn !== fn || (once && !listeners[i2].once) || (context2 && listeners[i2].context !== context2)) {
               events.push(listeners[i2]);
             }
           }
@@ -445,7 +449,7 @@ var GalaxyOfFame = (() => {
       if ("undefined" !== typeof module) {
         module.exports = EventEmitter2;
       }
-    }
+    },
   });
 
   // ../../../../node_modules/eventemitter3/index.mjs
@@ -454,7 +458,7 @@ var GalaxyOfFame = (() => {
     "../../../../node_modules/eventemitter3/index.mjs"() {
       import_index = __toESM(require_eventemitter3(), 1);
       eventemitter3_default = import_index.default;
-    }
+    },
   });
 
   // ../../../../node_modules/@pixi/colord/index.mjs
@@ -462,197 +466,442 @@ var GalaxyOfFame = (() => {
   var init_colord = __esm({
     "../../../../node_modules/@pixi/colord/index.mjs"() {
       r = { grad: 0.9, turn: 360, rad: 360 / (2 * Math.PI) };
-      t = function(r2) {
+      t = function (r2) {
         return "string" == typeof r2 ? r2.length > 0 : "number" == typeof r2;
       };
-      n = function(r2, t2, n2) {
+      n = function (r2, t2, n2) {
         return void 0 === t2 && (t2 = 0), void 0 === n2 && (n2 = Math.pow(10, t2)), Math.round(n2 * r2) / n2 + 0;
       };
-      e = function(r2, t2, n2) {
+      e = function (r2, t2, n2) {
         return void 0 === t2 && (t2 = 0), void 0 === n2 && (n2 = 1), r2 > n2 ? n2 : r2 > t2 ? r2 : t2;
       };
-      u = function(r2) {
+      u = function (r2) {
         return (r2 = isFinite(r2) ? r2 % 360 : 0) > 0 ? r2 : r2 + 360;
       };
-      a = function(r2) {
+      a = function (r2) {
         return { r: e(r2.r, 0, 255), g: e(r2.g, 0, 255), b: e(r2.b, 0, 255), a: e(r2.a) };
       };
-      o = function(r2) {
+      o = function (r2) {
         return { r: n(r2.r), g: n(r2.g), b: n(r2.b), a: n(r2.a, 3) };
       };
       i = /^#([0-9a-f]{3,8})$/i;
-      s = function(r2) {
+      s = function (r2) {
         var t2 = r2.toString(16);
         return t2.length < 2 ? "0" + t2 : t2;
       };
-      h = function(r2) {
-        var t2 = r2.r, n2 = r2.g, e2 = r2.b, u3 = r2.a, a2 = Math.max(t2, n2, e2), o2 = a2 - Math.min(t2, n2, e2), i2 = o2 ? a2 === t2 ? (n2 - e2) / o2 : a2 === n2 ? 2 + (e2 - t2) / o2 : 4 + (t2 - n2) / o2 : 0;
-        return { h: 60 * (i2 < 0 ? i2 + 6 : i2), s: a2 ? o2 / a2 * 100 : 0, v: a2 / 255 * 100, a: u3 };
+      h = function (r2) {
+        var t2 = r2.r,
+          n2 = r2.g,
+          e2 = r2.b,
+          u3 = r2.a,
+          a2 = Math.max(t2, n2, e2),
+          o2 = a2 - Math.min(t2, n2, e2),
+          i2 = o2 ? (a2 === t2 ? (n2 - e2) / o2 : a2 === n2 ? 2 + (e2 - t2) / o2 : 4 + (t2 - n2) / o2) : 0;
+        return { h: 60 * (i2 < 0 ? i2 + 6 : i2), s: a2 ? (o2 / a2) * 100 : 0, v: (a2 / 255) * 100, a: u3 };
       };
-      b = function(r2) {
-        var t2 = r2.h, n2 = r2.s, e2 = r2.v, u3 = r2.a;
-        t2 = t2 / 360 * 6, n2 /= 100, e2 /= 100;
-        var a2 = Math.floor(t2), o2 = e2 * (1 - n2), i2 = e2 * (1 - (t2 - a2) * n2), s2 = e2 * (1 - (1 - t2 + a2) * n2), h2 = a2 % 6;
+      b = function (r2) {
+        var t2 = r2.h,
+          n2 = r2.s,
+          e2 = r2.v,
+          u3 = r2.a;
+        (t2 = (t2 / 360) * 6), (n2 /= 100), (e2 /= 100);
+        var a2 = Math.floor(t2),
+          o2 = e2 * (1 - n2),
+          i2 = e2 * (1 - (t2 - a2) * n2),
+          s2 = e2 * (1 - (1 - t2 + a2) * n2),
+          h2 = a2 % 6;
         return { r: 255 * [e2, i2, o2, o2, s2, e2][h2], g: 255 * [s2, e2, e2, i2, o2, o2][h2], b: 255 * [o2, o2, s2, e2, e2, i2][h2], a: u3 };
       };
-      g = function(r2) {
+      g = function (r2) {
         return { h: u(r2.h), s: e(r2.s, 0, 100), l: e(r2.l, 0, 100), a: e(r2.a) };
       };
-      d = function(r2) {
+      d = function (r2) {
         return { h: n(r2.h), s: n(r2.s), l: n(r2.l), a: n(r2.a, 3) };
       };
-      f = function(r2) {
-        return b((n2 = (t2 = r2).s, { h: t2.h, s: (n2 *= ((e2 = t2.l) < 50 ? e2 : 100 - e2) / 100) > 0 ? 2 * n2 / (e2 + n2) * 100 : 0, v: e2 + n2, a: t2.a }));
+      f = function (r2) {
+        return b(((n2 = (t2 = r2).s), { h: t2.h, s: (n2 *= ((e2 = t2.l) < 50 ? e2 : 100 - e2) / 100) > 0 ? ((2 * n2) / (e2 + n2)) * 100 : 0, v: e2 + n2, a: t2.a }));
         var t2, n2, e2;
       };
-      c = function(r2) {
-        return { h: (t2 = h(r2)).h, s: (u3 = (200 - (n2 = t2.s)) * (e2 = t2.v) / 100) > 0 && u3 < 200 ? n2 * e2 / 100 / (u3 <= 100 ? u3 : 200 - u3) * 100 : 0, l: u3 / 2, a: t2.a };
+      c = function (r2) {
+        return { h: (t2 = h(r2)).h, s: (u3 = ((200 - (n2 = t2.s)) * (e2 = t2.v)) / 100) > 0 && u3 < 200 ? ((n2 * e2) / 100 / (u3 <= 100 ? u3 : 200 - u3)) * 100 : 0, l: u3 / 2, a: t2.a };
         var t2, n2, e2, u3;
       };
       l = /^hsla?\(\s*([+-]?\d*\.?\d+)(deg|rad|grad|turn)?\s*,\s*([+-]?\d*\.?\d+)%\s*,\s*([+-]?\d*\.?\d+)%\s*(?:,\s*([+-]?\d*\.?\d+)(%)?\s*)?\)$/i;
       p = /^hsla?\(\s*([+-]?\d*\.?\d+)(deg|rad|grad|turn)?\s+([+-]?\d*\.?\d+)%\s+([+-]?\d*\.?\d+)%\s*(?:\/\s*([+-]?\d*\.?\d+)(%)?\s*)?\)$/i;
       v = /^rgba?\(\s*([+-]?\d*\.?\d+)(%)?\s*,\s*([+-]?\d*\.?\d+)(%)?\s*,\s*([+-]?\d*\.?\d+)(%)?\s*(?:,\s*([+-]?\d*\.?\d+)(%)?\s*)?\)$/i;
       m = /^rgba?\(\s*([+-]?\d*\.?\d+)(%)?\s+([+-]?\d*\.?\d+)(%)?\s+([+-]?\d*\.?\d+)(%)?\s*(?:\/\s*([+-]?\d*\.?\d+)(%)?\s*)?\)$/i;
-      y = { string: [[function(r2) {
-        var t2 = i.exec(r2);
-        return t2 ? (r2 = t2[1]).length <= 4 ? { r: parseInt(r2[0] + r2[0], 16), g: parseInt(r2[1] + r2[1], 16), b: parseInt(r2[2] + r2[2], 16), a: 4 === r2.length ? n(parseInt(r2[3] + r2[3], 16) / 255, 2) : 1 } : 6 === r2.length || 8 === r2.length ? { r: parseInt(r2.substr(0, 2), 16), g: parseInt(r2.substr(2, 2), 16), b: parseInt(r2.substr(4, 2), 16), a: 8 === r2.length ? n(parseInt(r2.substr(6, 2), 16) / 255, 2) : 1 } : null : null;
-      }, "hex"], [function(r2) {
-        var t2 = v.exec(r2) || m.exec(r2);
-        return t2 ? t2[2] !== t2[4] || t2[4] !== t2[6] ? null : a({ r: Number(t2[1]) / (t2[2] ? 100 / 255 : 1), g: Number(t2[3]) / (t2[4] ? 100 / 255 : 1), b: Number(t2[5]) / (t2[6] ? 100 / 255 : 1), a: void 0 === t2[7] ? 1 : Number(t2[7]) / (t2[8] ? 100 : 1) }) : null;
-      }, "rgb"], [function(t2) {
-        var n2 = l.exec(t2) || p.exec(t2);
-        if (!n2) return null;
-        var e2, u3, a2 = g({ h: (e2 = n2[1], u3 = n2[2], void 0 === u3 && (u3 = "deg"), Number(e2) * (r[u3] || 1)), s: Number(n2[3]), l: Number(n2[4]), a: void 0 === n2[5] ? 1 : Number(n2[5]) / (n2[6] ? 100 : 1) });
-        return f(a2);
-      }, "hsl"]], object: [[function(r2) {
-        var n2 = r2.r, e2 = r2.g, u3 = r2.b, o2 = r2.a, i2 = void 0 === o2 ? 1 : o2;
-        return t(n2) && t(e2) && t(u3) ? a({ r: Number(n2), g: Number(e2), b: Number(u3), a: Number(i2) }) : null;
-      }, "rgb"], [function(r2) {
-        var n2 = r2.h, e2 = r2.s, u3 = r2.l, a2 = r2.a, o2 = void 0 === a2 ? 1 : a2;
-        if (!t(n2) || !t(e2) || !t(u3)) return null;
-        var i2 = g({ h: Number(n2), s: Number(e2), l: Number(u3), a: Number(o2) });
-        return f(i2);
-      }, "hsl"], [function(r2) {
-        var n2 = r2.h, a2 = r2.s, o2 = r2.v, i2 = r2.a, s2 = void 0 === i2 ? 1 : i2;
-        if (!t(n2) || !t(a2) || !t(o2)) return null;
-        var h2 = function(r3) {
-          return { h: u(r3.h), s: e(r3.s, 0, 100), v: e(r3.v, 0, 100), a: e(r3.a) };
-        }({ h: Number(n2), s: Number(a2), v: Number(o2), a: Number(s2) });
-        return b(h2);
-      }, "hsv"]] };
-      N = function(r2, t2) {
+      y = {
+        string: [
+          [
+            function (r2) {
+              var t2 = i.exec(r2);
+              return t2
+                ? (r2 = t2[1]).length <= 4
+                  ? { r: parseInt(r2[0] + r2[0], 16), g: parseInt(r2[1] + r2[1], 16), b: parseInt(r2[2] + r2[2], 16), a: 4 === r2.length ? n(parseInt(r2[3] + r2[3], 16) / 255, 2) : 1 }
+                  : 6 === r2.length || 8 === r2.length
+                  ? { r: parseInt(r2.substr(0, 2), 16), g: parseInt(r2.substr(2, 2), 16), b: parseInt(r2.substr(4, 2), 16), a: 8 === r2.length ? n(parseInt(r2.substr(6, 2), 16) / 255, 2) : 1 }
+                  : null
+                : null;
+            },
+            "hex",
+          ],
+          [
+            function (r2) {
+              var t2 = v.exec(r2) || m.exec(r2);
+              return t2
+                ? t2[2] !== t2[4] || t2[4] !== t2[6]
+                  ? null
+                  : a({ r: Number(t2[1]) / (t2[2] ? 100 / 255 : 1), g: Number(t2[3]) / (t2[4] ? 100 / 255 : 1), b: Number(t2[5]) / (t2[6] ? 100 / 255 : 1), a: void 0 === t2[7] ? 1 : Number(t2[7]) / (t2[8] ? 100 : 1) })
+                : null;
+            },
+            "rgb",
+          ],
+          [
+            function (t2) {
+              var n2 = l.exec(t2) || p.exec(t2);
+              if (!n2) return null;
+              var e2,
+                u3,
+                a2 = g({ h: ((e2 = n2[1]), (u3 = n2[2]), void 0 === u3 && (u3 = "deg"), Number(e2) * (r[u3] || 1)), s: Number(n2[3]), l: Number(n2[4]), a: void 0 === n2[5] ? 1 : Number(n2[5]) / (n2[6] ? 100 : 1) });
+              return f(a2);
+            },
+            "hsl",
+          ],
+        ],
+        object: [
+          [
+            function (r2) {
+              var n2 = r2.r,
+                e2 = r2.g,
+                u3 = r2.b,
+                o2 = r2.a,
+                i2 = void 0 === o2 ? 1 : o2;
+              return t(n2) && t(e2) && t(u3) ? a({ r: Number(n2), g: Number(e2), b: Number(u3), a: Number(i2) }) : null;
+            },
+            "rgb",
+          ],
+          [
+            function (r2) {
+              var n2 = r2.h,
+                e2 = r2.s,
+                u3 = r2.l,
+                a2 = r2.a,
+                o2 = void 0 === a2 ? 1 : a2;
+              if (!t(n2) || !t(e2) || !t(u3)) return null;
+              var i2 = g({ h: Number(n2), s: Number(e2), l: Number(u3), a: Number(o2) });
+              return f(i2);
+            },
+            "hsl",
+          ],
+          [
+            function (r2) {
+              var n2 = r2.h,
+                a2 = r2.s,
+                o2 = r2.v,
+                i2 = r2.a,
+                s2 = void 0 === i2 ? 1 : i2;
+              if (!t(n2) || !t(a2) || !t(o2)) return null;
+              var h2 = (function (r3) {
+                return { h: u(r3.h), s: e(r3.s, 0, 100), v: e(r3.v, 0, 100), a: e(r3.a) };
+              })({ h: Number(n2), s: Number(a2), v: Number(o2), a: Number(s2) });
+              return b(h2);
+            },
+            "hsv",
+          ],
+        ],
+      };
+      N = function (r2, t2) {
         for (var n2 = 0; n2 < t2.length; n2++) {
           var e2 = t2[n2][0](r2);
           if (e2) return [e2, t2[n2][1]];
         }
         return [null, void 0];
       };
-      x = function(r2) {
+      x = function (r2) {
         return "string" == typeof r2 ? N(r2.trim(), y.string) : "object" == typeof r2 && null !== r2 ? N(r2, y.object) : [null, void 0];
       };
-      M = function(r2, t2) {
+      M = function (r2, t2) {
         var n2 = c(r2);
         return { h: n2.h, s: e(n2.s + 100 * t2, 0, 100), l: n2.l, a: n2.a };
       };
-      H = function(r2) {
+      H = function (r2) {
         return (299 * r2.r + 587 * r2.g + 114 * r2.b) / 1e3 / 255;
       };
-      $ = function(r2, t2) {
+      $ = function (r2, t2) {
         var n2 = c(r2);
         return { h: n2.h, s: n2.s, l: e(n2.l + 100 * t2, 0, 100), a: n2.a };
       };
-      j = function() {
+      j = (function () {
         function r2(r3) {
-          this.parsed = x(r3)[0], this.rgba = this.parsed || { r: 0, g: 0, b: 0, a: 1 };
+          (this.parsed = x(r3)[0]), (this.rgba = this.parsed || { r: 0, g: 0, b: 0, a: 1 });
         }
-        return r2.prototype.isValid = function() {
-          return null !== this.parsed;
-        }, r2.prototype.brightness = function() {
-          return n(H(this.rgba), 2);
-        }, r2.prototype.isDark = function() {
-          return H(this.rgba) < 0.5;
-        }, r2.prototype.isLight = function() {
-          return H(this.rgba) >= 0.5;
-        }, r2.prototype.toHex = function() {
-          return r3 = o(this.rgba), t2 = r3.r, e2 = r3.g, u3 = r3.b, i2 = (a2 = r3.a) < 1 ? s(n(255 * a2)) : "", "#" + s(t2) + s(e2) + s(u3) + i2;
-          var r3, t2, e2, u3, a2, i2;
-        }, r2.prototype.toRgb = function() {
-          return o(this.rgba);
-        }, r2.prototype.toRgbString = function() {
-          return r3 = o(this.rgba), t2 = r3.r, n2 = r3.g, e2 = r3.b, (u3 = r3.a) < 1 ? "rgba(" + t2 + ", " + n2 + ", " + e2 + ", " + u3 + ")" : "rgb(" + t2 + ", " + n2 + ", " + e2 + ")";
-          var r3, t2, n2, e2, u3;
-        }, r2.prototype.toHsl = function() {
-          return d(c(this.rgba));
-        }, r2.prototype.toHslString = function() {
-          return r3 = d(c(this.rgba)), t2 = r3.h, n2 = r3.s, e2 = r3.l, (u3 = r3.a) < 1 ? "hsla(" + t2 + ", " + n2 + "%, " + e2 + "%, " + u3 + ")" : "hsl(" + t2 + ", " + n2 + "%, " + e2 + "%)";
-          var r3, t2, n2, e2, u3;
-        }, r2.prototype.toHsv = function() {
-          return r3 = h(this.rgba), { h: n(r3.h), s: n(r3.s), v: n(r3.v), a: n(r3.a, 3) };
-          var r3;
-        }, r2.prototype.invert = function() {
-          return w({ r: 255 - (r3 = this.rgba).r, g: 255 - r3.g, b: 255 - r3.b, a: r3.a });
-          var r3;
-        }, r2.prototype.saturate = function(r3) {
-          return void 0 === r3 && (r3 = 0.1), w(M(this.rgba, r3));
-        }, r2.prototype.desaturate = function(r3) {
-          return void 0 === r3 && (r3 = 0.1), w(M(this.rgba, -r3));
-        }, r2.prototype.grayscale = function() {
-          return w(M(this.rgba, -1));
-        }, r2.prototype.lighten = function(r3) {
-          return void 0 === r3 && (r3 = 0.1), w($(this.rgba, r3));
-        }, r2.prototype.darken = function(r3) {
-          return void 0 === r3 && (r3 = 0.1), w($(this.rgba, -r3));
-        }, r2.prototype.rotate = function(r3) {
-          return void 0 === r3 && (r3 = 15), this.hue(this.hue() + r3);
-        }, r2.prototype.alpha = function(r3) {
-          return "number" == typeof r3 ? w({ r: (t2 = this.rgba).r, g: t2.g, b: t2.b, a: r3 }) : n(this.rgba.a, 3);
-          var t2;
-        }, r2.prototype.hue = function(r3) {
-          var t2 = c(this.rgba);
-          return "number" == typeof r3 ? w({ h: r3, s: t2.s, l: t2.l, a: t2.a }) : n(t2.h);
-        }, r2.prototype.isEqual = function(r3) {
-          return this.toHex() === w(r3).toHex();
-        }, r2;
-      }();
-      w = function(r2) {
+        return (
+          (r2.prototype.isValid = function () {
+            return null !== this.parsed;
+          }),
+          (r2.prototype.brightness = function () {
+            return n(H(this.rgba), 2);
+          }),
+          (r2.prototype.isDark = function () {
+            return H(this.rgba) < 0.5;
+          }),
+          (r2.prototype.isLight = function () {
+            return H(this.rgba) >= 0.5;
+          }),
+          (r2.prototype.toHex = function () {
+            return (r3 = o(this.rgba)), (t2 = r3.r), (e2 = r3.g), (u3 = r3.b), (i2 = (a2 = r3.a) < 1 ? s(n(255 * a2)) : ""), "#" + s(t2) + s(e2) + s(u3) + i2;
+            var r3, t2, e2, u3, a2, i2;
+          }),
+          (r2.prototype.toRgb = function () {
+            return o(this.rgba);
+          }),
+          (r2.prototype.toRgbString = function () {
+            return (r3 = o(this.rgba)), (t2 = r3.r), (n2 = r3.g), (e2 = r3.b), (u3 = r3.a) < 1 ? "rgba(" + t2 + ", " + n2 + ", " + e2 + ", " + u3 + ")" : "rgb(" + t2 + ", " + n2 + ", " + e2 + ")";
+            var r3, t2, n2, e2, u3;
+          }),
+          (r2.prototype.toHsl = function () {
+            return d(c(this.rgba));
+          }),
+          (r2.prototype.toHslString = function () {
+            return (r3 = d(c(this.rgba))), (t2 = r3.h), (n2 = r3.s), (e2 = r3.l), (u3 = r3.a) < 1 ? "hsla(" + t2 + ", " + n2 + "%, " + e2 + "%, " + u3 + ")" : "hsl(" + t2 + ", " + n2 + "%, " + e2 + "%)";
+            var r3, t2, n2, e2, u3;
+          }),
+          (r2.prototype.toHsv = function () {
+            return (r3 = h(this.rgba)), { h: n(r3.h), s: n(r3.s), v: n(r3.v), a: n(r3.a, 3) };
+            var r3;
+          }),
+          (r2.prototype.invert = function () {
+            return w({ r: 255 - (r3 = this.rgba).r, g: 255 - r3.g, b: 255 - r3.b, a: r3.a });
+            var r3;
+          }),
+          (r2.prototype.saturate = function (r3) {
+            return void 0 === r3 && (r3 = 0.1), w(M(this.rgba, r3));
+          }),
+          (r2.prototype.desaturate = function (r3) {
+            return void 0 === r3 && (r3 = 0.1), w(M(this.rgba, -r3));
+          }),
+          (r2.prototype.grayscale = function () {
+            return w(M(this.rgba, -1));
+          }),
+          (r2.prototype.lighten = function (r3) {
+            return void 0 === r3 && (r3 = 0.1), w($(this.rgba, r3));
+          }),
+          (r2.prototype.darken = function (r3) {
+            return void 0 === r3 && (r3 = 0.1), w($(this.rgba, -r3));
+          }),
+          (r2.prototype.rotate = function (r3) {
+            return void 0 === r3 && (r3 = 15), this.hue(this.hue() + r3);
+          }),
+          (r2.prototype.alpha = function (r3) {
+            return "number" == typeof r3 ? w({ r: (t2 = this.rgba).r, g: t2.g, b: t2.b, a: r3 }) : n(this.rgba.a, 3);
+            var t2;
+          }),
+          (r2.prototype.hue = function (r3) {
+            var t2 = c(this.rgba);
+            return "number" == typeof r3 ? w({ h: r3, s: t2.s, l: t2.l, a: t2.a }) : n(t2.h);
+          }),
+          (r2.prototype.isEqual = function (r3) {
+            return this.toHex() === w(r3).toHex();
+          }),
+          r2
+        );
+      })();
+      w = function (r2) {
         return r2 instanceof j ? r2 : new j(r2);
       };
       S = [];
-      k = function(r2) {
-        r2.forEach(function(r3) {
+      k = function (r2) {
+        r2.forEach(function (r3) {
           S.indexOf(r3) < 0 && (r3(j, y), S.push(r3));
         });
       };
-    }
+    },
   });
 
   // ../../../../node_modules/@pixi/colord/plugins/names.mjs
   function names_default(e2, f2) {
-    var a2 = { white: "#ffffff", bisque: "#ffe4c4", blue: "#0000ff", cadetblue: "#5f9ea0", chartreuse: "#7fff00", chocolate: "#d2691e", coral: "#ff7f50", antiquewhite: "#faebd7", aqua: "#00ffff", azure: "#f0ffff", whitesmoke: "#f5f5f5", papayawhip: "#ffefd5", plum: "#dda0dd", blanchedalmond: "#ffebcd", black: "#000000", gold: "#ffd700", goldenrod: "#daa520", gainsboro: "#dcdcdc", cornsilk: "#fff8dc", cornflowerblue: "#6495ed", burlywood: "#deb887", aquamarine: "#7fffd4", beige: "#f5f5dc", crimson: "#dc143c", cyan: "#00ffff", darkblue: "#00008b", darkcyan: "#008b8b", darkgoldenrod: "#b8860b", darkkhaki: "#bdb76b", darkgray: "#a9a9a9", darkgreen: "#006400", darkgrey: "#a9a9a9", peachpuff: "#ffdab9", darkmagenta: "#8b008b", darkred: "#8b0000", darkorchid: "#9932cc", darkorange: "#ff8c00", darkslateblue: "#483d8b", gray: "#808080", darkslategray: "#2f4f4f", darkslategrey: "#2f4f4f", deeppink: "#ff1493", deepskyblue: "#00bfff", wheat: "#f5deb3", firebrick: "#b22222", floralwhite: "#fffaf0", ghostwhite: "#f8f8ff", darkviolet: "#9400d3", magenta: "#ff00ff", green: "#008000", dodgerblue: "#1e90ff", grey: "#808080", honeydew: "#f0fff0", hotpink: "#ff69b4", blueviolet: "#8a2be2", forestgreen: "#228b22", lawngreen: "#7cfc00", indianred: "#cd5c5c", indigo: "#4b0082", fuchsia: "#ff00ff", brown: "#a52a2a", maroon: "#800000", mediumblue: "#0000cd", lightcoral: "#f08080", darkturquoise: "#00ced1", lightcyan: "#e0ffff", ivory: "#fffff0", lightyellow: "#ffffe0", lightsalmon: "#ffa07a", lightseagreen: "#20b2aa", linen: "#faf0e6", mediumaquamarine: "#66cdaa", lemonchiffon: "#fffacd", lime: "#00ff00", khaki: "#f0e68c", mediumseagreen: "#3cb371", limegreen: "#32cd32", mediumspringgreen: "#00fa9a", lightskyblue: "#87cefa", lightblue: "#add8e6", midnightblue: "#191970", lightpink: "#ffb6c1", mistyrose: "#ffe4e1", moccasin: "#ffe4b5", mintcream: "#f5fffa", lightslategray: "#778899", lightslategrey: "#778899", navajowhite: "#ffdead", navy: "#000080", mediumvioletred: "#c71585", powderblue: "#b0e0e6", palegoldenrod: "#eee8aa", oldlace: "#fdf5e6", paleturquoise: "#afeeee", mediumturquoise: "#48d1cc", mediumorchid: "#ba55d3", rebeccapurple: "#663399", lightsteelblue: "#b0c4de", mediumslateblue: "#7b68ee", thistle: "#d8bfd8", tan: "#d2b48c", orchid: "#da70d6", mediumpurple: "#9370db", purple: "#800080", pink: "#ffc0cb", skyblue: "#87ceeb", springgreen: "#00ff7f", palegreen: "#98fb98", red: "#ff0000", yellow: "#ffff00", slateblue: "#6a5acd", lavenderblush: "#fff0f5", peru: "#cd853f", palevioletred: "#db7093", violet: "#ee82ee", teal: "#008080", slategray: "#708090", slategrey: "#708090", aliceblue: "#f0f8ff", darkseagreen: "#8fbc8f", darkolivegreen: "#556b2f", greenyellow: "#adff2f", seagreen: "#2e8b57", seashell: "#fff5ee", tomato: "#ff6347", silver: "#c0c0c0", sienna: "#a0522d", lavender: "#e6e6fa", lightgreen: "#90ee90", orange: "#ffa500", orangered: "#ff4500", steelblue: "#4682b4", royalblue: "#4169e1", turquoise: "#40e0d0", yellowgreen: "#9acd32", salmon: "#fa8072", saddlebrown: "#8b4513", sandybrown: "#f4a460", rosybrown: "#bc8f8f", darksalmon: "#e9967a", lightgoldenrodyellow: "#fafad2", snow: "#fffafa", lightgrey: "#d3d3d3", lightgray: "#d3d3d3", dimgray: "#696969", dimgrey: "#696969", olivedrab: "#6b8e23", olive: "#808000" }, r2 = {};
+    var a2 = {
+        white: "#ffffff",
+        bisque: "#ffe4c4",
+        blue: "#0000ff",
+        cadetblue: "#5f9ea0",
+        chartreuse: "#7fff00",
+        chocolate: "#d2691e",
+        coral: "#ff7f50",
+        antiquewhite: "#faebd7",
+        aqua: "#00ffff",
+        azure: "#f0ffff",
+        whitesmoke: "#f5f5f5",
+        papayawhip: "#ffefd5",
+        plum: "#dda0dd",
+        blanchedalmond: "#ffebcd",
+        black: "#000000",
+        gold: "#ffd700",
+        goldenrod: "#daa520",
+        gainsboro: "#dcdcdc",
+        cornsilk: "#fff8dc",
+        cornflowerblue: "#6495ed",
+        burlywood: "#deb887",
+        aquamarine: "#7fffd4",
+        beige: "#f5f5dc",
+        crimson: "#dc143c",
+        cyan: "#00ffff",
+        darkblue: "#00008b",
+        darkcyan: "#008b8b",
+        darkgoldenrod: "#b8860b",
+        darkkhaki: "#bdb76b",
+        darkgray: "#a9a9a9",
+        darkgreen: "#006400",
+        darkgrey: "#a9a9a9",
+        peachpuff: "#ffdab9",
+        darkmagenta: "#8b008b",
+        darkred: "#8b0000",
+        darkorchid: "#9932cc",
+        darkorange: "#ff8c00",
+        darkslateblue: "#483d8b",
+        gray: "#808080",
+        darkslategray: "#2f4f4f",
+        darkslategrey: "#2f4f4f",
+        deeppink: "#ff1493",
+        deepskyblue: "#00bfff",
+        wheat: "#f5deb3",
+        firebrick: "#b22222",
+        floralwhite: "#fffaf0",
+        ghostwhite: "#f8f8ff",
+        darkviolet: "#9400d3",
+        magenta: "#ff00ff",
+        green: "#008000",
+        dodgerblue: "#1e90ff",
+        grey: "#808080",
+        honeydew: "#f0fff0",
+        hotpink: "#ff69b4",
+        blueviolet: "#8a2be2",
+        forestgreen: "#228b22",
+        lawngreen: "#7cfc00",
+        indianred: "#cd5c5c",
+        indigo: "#4b0082",
+        fuchsia: "#ff00ff",
+        brown: "#a52a2a",
+        maroon: "#800000",
+        mediumblue: "#0000cd",
+        lightcoral: "#f08080",
+        darkturquoise: "#00ced1",
+        lightcyan: "#e0ffff",
+        ivory: "#fffff0",
+        lightyellow: "#ffffe0",
+        lightsalmon: "#ffa07a",
+        lightseagreen: "#20b2aa",
+        linen: "#faf0e6",
+        mediumaquamarine: "#66cdaa",
+        lemonchiffon: "#fffacd",
+        lime: "#00ff00",
+        khaki: "#f0e68c",
+        mediumseagreen: "#3cb371",
+        limegreen: "#32cd32",
+        mediumspringgreen: "#00fa9a",
+        lightskyblue: "#87cefa",
+        lightblue: "#add8e6",
+        midnightblue: "#191970",
+        lightpink: "#ffb6c1",
+        mistyrose: "#ffe4e1",
+        moccasin: "#ffe4b5",
+        mintcream: "#f5fffa",
+        lightslategray: "#778899",
+        lightslategrey: "#778899",
+        navajowhite: "#ffdead",
+        navy: "#000080",
+        mediumvioletred: "#c71585",
+        powderblue: "#b0e0e6",
+        palegoldenrod: "#eee8aa",
+        oldlace: "#fdf5e6",
+        paleturquoise: "#afeeee",
+        mediumturquoise: "#48d1cc",
+        mediumorchid: "#ba55d3",
+        rebeccapurple: "#663399",
+        lightsteelblue: "#b0c4de",
+        mediumslateblue: "#7b68ee",
+        thistle: "#d8bfd8",
+        tan: "#d2b48c",
+        orchid: "#da70d6",
+        mediumpurple: "#9370db",
+        purple: "#800080",
+        pink: "#ffc0cb",
+        skyblue: "#87ceeb",
+        springgreen: "#00ff7f",
+        palegreen: "#98fb98",
+        red: "#ff0000",
+        yellow: "#ffff00",
+        slateblue: "#6a5acd",
+        lavenderblush: "#fff0f5",
+        peru: "#cd853f",
+        palevioletred: "#db7093",
+        violet: "#ee82ee",
+        teal: "#008080",
+        slategray: "#708090",
+        slategrey: "#708090",
+        aliceblue: "#f0f8ff",
+        darkseagreen: "#8fbc8f",
+        darkolivegreen: "#556b2f",
+        greenyellow: "#adff2f",
+        seagreen: "#2e8b57",
+        seashell: "#fff5ee",
+        tomato: "#ff6347",
+        silver: "#c0c0c0",
+        sienna: "#a0522d",
+        lavender: "#e6e6fa",
+        lightgreen: "#90ee90",
+        orange: "#ffa500",
+        orangered: "#ff4500",
+        steelblue: "#4682b4",
+        royalblue: "#4169e1",
+        turquoise: "#40e0d0",
+        yellowgreen: "#9acd32",
+        salmon: "#fa8072",
+        saddlebrown: "#8b4513",
+        sandybrown: "#f4a460",
+        rosybrown: "#bc8f8f",
+        darksalmon: "#e9967a",
+        lightgoldenrodyellow: "#fafad2",
+        snow: "#fffafa",
+        lightgrey: "#d3d3d3",
+        lightgray: "#d3d3d3",
+        dimgray: "#696969",
+        dimgrey: "#696969",
+        olivedrab: "#6b8e23",
+        olive: "#808000",
+      },
+      r2 = {};
     for (var d3 in a2) r2[a2[d3]] = d3;
     var l2 = {};
-    e2.prototype.toName = function(f3) {
+    e2.prototype.toName = function (f3) {
       if (!(this.rgba.a || this.rgba.r || this.rgba.g || this.rgba.b)) return "transparent";
-      var d4, i2, n2 = r2[this.toHex()];
+      var d4,
+        i2,
+        n2 = r2[this.toHex()];
       if (n2) return n2;
       if (null == f3 ? void 0 : f3.closest) {
-        var o2 = this.toRgb(), t2 = 1 / 0, b2 = "black";
+        var o2 = this.toRgb(),
+          t2 = 1 / 0,
+          b2 = "black";
         if (!l2.length) for (var c2 in a2) l2[c2] = new e2(a2[c2]).toRgb();
         for (var g2 in a2) {
-          var u3 = (d4 = o2, i2 = l2[g2], Math.pow(d4.r - i2.r, 2) + Math.pow(d4.g - i2.g, 2) + Math.pow(d4.b - i2.b, 2));
-          u3 < t2 && (t2 = u3, b2 = g2);
+          var u3 = ((d4 = o2), (i2 = l2[g2]), Math.pow(d4.r - i2.r, 2) + Math.pow(d4.g - i2.g, 2) + Math.pow(d4.b - i2.b, 2));
+          u3 < t2 && ((t2 = u3), (b2 = g2));
         }
         return b2;
       }
     };
-    f2.string.push([function(f3) {
-      var r3 = f3.toLowerCase(), d4 = "transparent" === r3 ? "#0000" : a2[r3];
-      return d4 ? new e2(d4).toRgb() : null;
-    }, "name"]);
+    f2.string.push([
+      function (f3) {
+        var r3 = f3.toLowerCase(),
+          d4 = "transparent" === r3 ? "#0000" : a2[r3];
+        return d4 ? new e2(d4).toRgb() : null;
+      },
+      "name",
+    ]);
   }
   var init_names = __esm({
-    "../../../../node_modules/@pixi/colord/plugins/names.mjs"() {
-    }
+    "../../../../node_modules/@pixi/colord/plugins/names.mjs"() {},
   });
 
   // ../../../../node_modules/pixi.js/lib/color/Color.mjs
@@ -756,7 +1005,7 @@ var GalaxyOfFame = (() => {
             return false;
           } else if (type1 === "number" || type1 === "string" || value1 instanceof Number) {
             return value1 === value2;
-          } else if (Array.isArray(value1) && Array.isArray(value2) || ArrayBuffer.isView(value1) && ArrayBuffer.isView(value2)) {
+          } else if ((Array.isArray(value1) && Array.isArray(value2)) || (ArrayBuffer.isView(value1) && ArrayBuffer.isView(value2))) {
             if (value1.length !== value2.length) {
               return false;
             }
@@ -906,15 +1155,15 @@ var GalaxyOfFame = (() => {
           if (alpha === 0) {
             return applyToRGB ? 0 : this._int;
           }
-          let r2 = this._int >> 16 & 255;
-          let g2 = this._int >> 8 & 255;
+          let r2 = (this._int >> 16) & 255;
+          let g2 = (this._int >> 8) & 255;
           let b2 = this._int & 255;
           if (applyToRGB) {
-            r2 = r2 * alpha + 0.5 | 0;
-            g2 = g2 * alpha + 0.5 | 0;
-            b2 = b2 * alpha + 0.5 | 0;
+            r2 = (r2 * alpha + 0.5) | 0;
+            g2 = (g2 * alpha + 0.5) | 0;
+            b2 = (b2 * alpha + 0.5) | 0;
           }
-          return (alpha * 255 << 24) + (r2 << 16) + (g2 << 8) + b2;
+          return ((alpha * 255) << 24) + (r2 << 16) + (g2 << 8) + b2;
         }
         /**
          * Convert to a hexadecimal string.
@@ -956,8 +1205,8 @@ var GalaxyOfFame = (() => {
           let a2;
           if ((typeof value === "number" || value instanceof Number) && value >= 0 && value <= 16777215) {
             const int = value;
-            r2 = (int >> 16 & 255) / 255;
-            g2 = (int >> 8 & 255) / 255;
+            r2 = ((int >> 16) & 255) / 255;
+            g2 = ((int >> 8) & 255) / 255;
             b2 = (int & 255) / 255;
             a2 = 1;
           } else if ((Array.isArray(value) || value instanceof Float32Array) && value.length >= 3 && value.length <= 4) {
@@ -999,7 +1248,7 @@ var GalaxyOfFame = (() => {
         _refreshInt() {
           this._clamp(this._components);
           const [r2, g2, b2] = this._components;
-          this._int = (r2 * 255 << 16) + (g2 * 255 << 8) + (b2 * 255 | 0);
+          this._int = ((r2 * 255) << 16) + ((g2 * 255) << 8) + ((b2 * 255) | 0);
         }
         /**
          * Clamps values to a range. Will override original values
@@ -1028,14 +1277,29 @@ var GalaxyOfFame = (() => {
          * Color.isColorLike([1, 1, 1]); // returns true
          */
         static isColorLike(value) {
-          return typeof value === "number" || typeof value === "string" || value instanceof Number || value instanceof _Color2 || Array.isArray(value) || value instanceof Uint8Array || value instanceof Uint8ClampedArray || value instanceof Float32Array || value.r !== void 0 && value.g !== void 0 && value.b !== void 0 || value.r !== void 0 && value.g !== void 0 && value.b !== void 0 && value.a !== void 0 || value.h !== void 0 && value.s !== void 0 && value.l !== void 0 || value.h !== void 0 && value.s !== void 0 && value.l !== void 0 && value.a !== void 0 || value.h !== void 0 && value.s !== void 0 && value.v !== void 0 || value.h !== void 0 && value.s !== void 0 && value.v !== void 0 && value.a !== void 0;
+          return (
+            typeof value === "number" ||
+            typeof value === "string" ||
+            value instanceof Number ||
+            value instanceof _Color2 ||
+            Array.isArray(value) ||
+            value instanceof Uint8Array ||
+            value instanceof Uint8ClampedArray ||
+            value instanceof Float32Array ||
+            (value.r !== void 0 && value.g !== void 0 && value.b !== void 0) ||
+            (value.r !== void 0 && value.g !== void 0 && value.b !== void 0 && value.a !== void 0) ||
+            (value.h !== void 0 && value.s !== void 0 && value.l !== void 0) ||
+            (value.h !== void 0 && value.s !== void 0 && value.l !== void 0 && value.a !== void 0) ||
+            (value.h !== void 0 && value.s !== void 0 && value.v !== void 0) ||
+            (value.h !== void 0 && value.s !== void 0 && value.v !== void 0 && value.a !== void 0)
+          );
         }
       };
       _Color.shared = new _Color();
       _Color._temp = new _Color();
       _Color.HEX_PATTERN = /^(#|0x)?(([a-f0-9]{3}){1,2}([a-f0-9]{2})?)$/i;
       Color = _Color;
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/culling/cullingMixin.mjs
@@ -1046,9 +1310,9 @@ var GalaxyOfFame = (() => {
       cullingMixin = {
         cullArea: null,
         cullable: false,
-        cullableChildren: true
+        cullableChildren: true,
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/maths/misc/const.mjs
@@ -1059,7 +1323,7 @@ var GalaxyOfFame = (() => {
       PI_2 = Math.PI * 2;
       RAD_TO_DEG = 180 / Math.PI;
       DEG_TO_RAD = Math.PI / 180;
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/maths/point/Point.mjs
@@ -1138,7 +1402,7 @@ var GalaxyOfFame = (() => {
         }
       };
       tempPoint = new Point();
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/maths/matrix/Matrix.mjs
@@ -1541,7 +1805,7 @@ var GalaxyOfFame = (() => {
       };
       tempMatrix = new Matrix();
       identityMatrix = new Matrix();
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/maths/point/ObservablePoint.mjs
@@ -1638,7 +1902,7 @@ var GalaxyOfFame = (() => {
           }
         }
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/utils/data/uid.mjs
@@ -1653,9 +1917,9 @@ var GalaxyOfFame = (() => {
     "../../../../node_modules/pixi.js/lib/utils/data/uid.mjs"() {
       "use strict";
       uidCache = {
-        default: -1
+        default: -1,
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/utils/logging/deprecation.mjs
@@ -1665,8 +1929,11 @@ var GalaxyOfFame = (() => {
     }
     let stack = new Error().stack;
     if (typeof stack === "undefined") {
-      console.warn("PixiJS Deprecation Warning: ", `${message}
-Deprecated since v${version}`);
+      console.warn(
+        "PixiJS Deprecation Warning: ",
+        `${message}
+Deprecated since v${version}`
+      );
     } else {
       stack = stack.split("\n").splice(ignoreDepth).join("\n");
       if (console.groupCollapsed) {
@@ -1680,8 +1947,11 @@ Deprecated since v${version}`
         console.warn(stack);
         console.groupEnd();
       } else {
-        console.warn("PixiJS Deprecation Warning: ", `${message}
-Deprecated since v${version}`);
+        console.warn(
+          "PixiJS Deprecation Warning: ",
+          `${message}
+Deprecated since v${version}`
+        );
         console.warn(stack);
       }
     }
@@ -1694,7 +1964,7 @@ Deprecated since v${version}`);
       warnings = {};
       v8_0_0 = "8.0.0";
       v8_3_4 = "8.3.4";
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/utils/pool/Pool.mjs
@@ -1783,7 +2053,7 @@ Deprecated since v${version}`);
           this._index = 0;
         }
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/utils/pool/PoolGroup.mjs
@@ -1844,14 +2114,14 @@ Deprecated since v${version}`);
             stats[name] = {
               free: pool.totalFree,
               used: pool.totalUsed,
-              size: pool.totalSize
+              size: pool.totalSize,
             };
           });
           return stats;
         }
       };
       BigPool = new PoolGroupClass();
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/container/container-mixins/cacheAsTextureMixin.mjs
@@ -1900,9 +2170,9 @@ Deprecated since v${version}`);
         set cacheAsBitmap(val) {
           deprecation("v8.6.0", "cacheAsBitmap is deprecated, use cacheAsTexture instead.");
           this.cacheAsTexture(val);
-        }
+        },
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/utils/data/removeItems.mjs
@@ -1922,7 +2192,7 @@ Deprecated since v${version}`);
   var init_removeItems = __esm({
     "../../../../node_modules/pixi.js/lib/utils/data/removeItems.mjs"() {
       "use strict";
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/container/container-mixins/childrenHelperMixin.mjs
@@ -1947,8 +2217,7 @@ Deprecated since v${version}`);
           if (range > 0 && range <= end) {
             for (let i2 = end - 1; i2 >= beginIndex; i2--) {
               const child = this.children[i2];
-              if (!child)
-                continue;
+              if (!child) continue;
               removed.push(child);
               child.parent = null;
             }
@@ -2055,8 +2324,7 @@ Deprecated since v${version}`);
           if (renderGroup) {
             renderGroup.addChild(child);
           }
-          if (this.sortableChildren)
-            this.sortDirty = true;
+          if (this.sortableChildren) this.sortDirty = true;
           this.emit("childAdded", child, this, index);
           child.emit("added", this);
           return child;
@@ -2121,9 +2389,9 @@ Deprecated since v${version}`);
           childMat.prepend(newMatrix);
           child.setFromMatrix(childMat);
           return child;
-        }
+        },
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/container/container-mixins/collectRenderablesMixin.mjs
@@ -2141,8 +2409,7 @@ Deprecated since v${version}`);
          * @memberof scene.Container#
          */
         collectRenderables(instructionSet, renderer, currentLayer) {
-          if (this.parentRenderLayer && this.parentRenderLayer !== currentLayer || this.globalDisplayStatus < 7 || !this.includeInBuild)
-            return;
+          if ((this.parentRenderLayer && this.parentRenderLayer !== currentLayer) || this.globalDisplayStatus < 7 || !this.includeInBuild) return;
           if (this.sortableChildren) {
             this.sortChildren();
           }
@@ -2190,9 +2457,9 @@ Deprecated since v${version}`);
             const pipe = renderPipes3[effect.pipe];
             pipe.pop(effect, this, instructionSet);
           }
-        }
+        },
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/filters/FilterEffect.mjs
@@ -2213,7 +2480,7 @@ Deprecated since v${version}`);
           this.filterArea = null;
         }
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/mask/MaskEffectManager.mjs
@@ -2229,13 +2496,12 @@ Deprecated since v${version}`);
           this._initialized = false;
         }
         init() {
-          if (this._initialized)
-            return;
+          if (this._initialized) return;
           this._initialized = true;
           this._effectClasses.forEach((test) => {
             this.add({
               test: test.test,
-              maskClass: test
+              maskClass: test,
             });
           });
         }
@@ -2243,8 +2509,7 @@ Deprecated since v${version}`);
           this._tests.push(test);
         }
         getMaskEffect(item) {
-          if (!this._initialized)
-            this.init();
+          if (!this._initialized) this.init();
           for (let i2 = 0; i2 < this._tests.length; i2++) {
             const test = this._tests[i2];
             if (test.test(item)) {
@@ -2259,7 +2524,7 @@ Deprecated since v${version}`);
       };
       MaskEffectManager = new MaskEffectManagerClass();
       extensions.handleByList(ExtensionType.MaskEffect, MaskEffectManager._effectClasses);
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/container/container-mixins/effectsMixin.mjs
@@ -2271,7 +2536,7 @@ Deprecated since v${version}`);
       effectsMixin = {
         _maskEffect: null,
         _maskOptions: {
-          inverse: false
+          inverse: false,
         },
         _filterEffect: null,
         /**
@@ -2294,8 +2559,7 @@ Deprecated since v${version}`);
          */
         addEffect(effect) {
           const index = this.effects.indexOf(effect);
-          if (index !== -1)
-            return;
+          if (index !== -1) return;
           this.effects.push(effect);
           this.effects.sort((a2, b2) => a2.priority - b2.priority);
           this._markStructureAsChanged();
@@ -2309,23 +2573,20 @@ Deprecated since v${version}`);
          */
         removeEffect(effect) {
           const index = this.effects.indexOf(effect);
-          if (index === -1)
-            return;
+          if (index === -1) return;
           this.effects.splice(index, 1);
           this._markStructureAsChanged();
           this._updateIsSimple();
         },
         set mask(value) {
           const effect = this._maskEffect;
-          if ((effect == null ? void 0 : effect.mask) === value)
-            return;
+          if ((effect == null ? void 0 : effect.mask) === value) return;
           if (effect) {
             this.removeEffect(effect);
             MaskEffectManager.returnMaskEffect(effect);
             this._maskEffect = null;
           }
-          if (value === null || value === void 0)
-            return;
+          if (value === null || value === void 0) return;
           this._maskEffect = MaskEffectManager.getMaskEffect(value);
           this.addEffect(this._maskEffect);
         },
@@ -2381,8 +2642,7 @@ Deprecated since v${version}`);
         },
         set filters(value) {
           var _a2;
-          if (!Array.isArray(value) && value)
-            value = [value];
+          if (!Array.isArray(value) && value) value = [value];
           const effect = this._filterEffect || (this._filterEffect = new FilterEffect());
           value = value;
           const hasFilters = (value == null ? void 0 : value.length) > 0;
@@ -2423,9 +2683,9 @@ Deprecated since v${version}`);
         get filterArea() {
           var _a2;
           return (_a2 = this._filterEffect) == null ? void 0 : _a2.filterArea;
-        }
+        },
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/container/container-mixins/findMixin.mjs
@@ -2480,8 +2740,7 @@ Deprecated since v${version}`);
           const children = this.children;
           for (let i2 = 0; i2 < children.length; i2++) {
             const child = children[i2];
-            if (child.label === label || label instanceof RegExp && label.test(child.label))
-              return child;
+            if (child.label === label || (label instanceof RegExp && label.test(child.label))) return child;
           }
           if (deep) {
             for (let i2 = 0; i2 < children.length; i2++) {
@@ -2506,7 +2765,7 @@ Deprecated since v${version}`);
           const children = this.children;
           for (let i2 = 0; i2 < children.length; i2++) {
             const child = children[i2];
-            if (child.label === label || label instanceof RegExp && label.test(child.label)) {
+            if (child.label === label || (label instanceof RegExp && label.test(child.label))) {
               out2.push(child);
             }
           }
@@ -2516,9 +2775,9 @@ Deprecated since v${version}`);
             }
           }
           return out2;
-        }
+        },
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/maths/shapes/Rectangle.mjs
@@ -2632,8 +2891,7 @@ Deprecated since v${version}`);
          */
         strokeContains(x3, y2, strokeWidth, alignment = 0.5) {
           const { width, height } = this;
-          if (width <= 0 || height <= 0)
-            return false;
+          if (width <= 0 || height <= 0) return false;
           const _x = this.x;
           const _y = this.y;
           const strokeWidthOuter = strokeWidth * (1 - alignment);
@@ -2805,8 +3063,7 @@ Deprecated since v${version}`);
          * @returns True if the other rectangle is fully contained within this one
          */
         containsRect(other) {
-          if (this.width <= 0 || this.height <= 0)
-            return false;
+          if (this.width <= 0 || this.height <= 0) return false;
           const x1 = other.x;
           const y1 = other.y;
           const x22 = other.x + other.width;
@@ -2817,7 +3074,7 @@ Deprecated since v${version}`);
           return `[pixi.js/math:Rectangle x=${this.x} y=${this.y} width=${this.width} height=${this.height}]`;
         }
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/container/bounds/Bounds.mjs
@@ -2906,44 +3163,28 @@ Deprecated since v${version}`);
           let maxY = this.maxY;
           let x3 = a2 * x0 + c2 * y0 + tx;
           let y2 = b2 * x0 + d3 * y0 + ty;
-          if (x3 < minX)
-            minX = x3;
-          if (y2 < minY)
-            minY = y2;
-          if (x3 > maxX)
-            maxX = x3;
-          if (y2 > maxY)
-            maxY = y2;
+          if (x3 < minX) minX = x3;
+          if (y2 < minY) minY = y2;
+          if (x3 > maxX) maxX = x3;
+          if (y2 > maxY) maxY = y2;
           x3 = a2 * x1 + c2 * y0 + tx;
           y2 = b2 * x1 + d3 * y0 + ty;
-          if (x3 < minX)
-            minX = x3;
-          if (y2 < minY)
-            minY = y2;
-          if (x3 > maxX)
-            maxX = x3;
-          if (y2 > maxY)
-            maxY = y2;
+          if (x3 < minX) minX = x3;
+          if (y2 < minY) minY = y2;
+          if (x3 > maxX) maxX = x3;
+          if (y2 > maxY) maxY = y2;
           x3 = a2 * x0 + c2 * y1 + tx;
           y2 = b2 * x0 + d3 * y1 + ty;
-          if (x3 < minX)
-            minX = x3;
-          if (y2 < minY)
-            minY = y2;
-          if (x3 > maxX)
-            maxX = x3;
-          if (y2 > maxY)
-            maxY = y2;
+          if (x3 < minX) minX = x3;
+          if (y2 < minY) minY = y2;
+          if (x3 > maxX) maxX = x3;
+          if (y2 > maxY) maxY = y2;
           x3 = a2 * x1 + c2 * y1 + tx;
           y2 = b2 * x1 + d3 * y1 + ty;
-          if (x3 < minX)
-            minX = x3;
-          if (y2 < minY)
-            minY = y2;
-          if (x3 > maxX)
-            maxX = x3;
-          if (y2 > maxY)
-            maxY = y2;
+          if (x3 < minX) minX = x3;
+          if (y2 < minY) minY = y2;
+          if (x3 > maxX) maxX = x3;
+          if (y2 > maxY) maxY = y2;
           this.minX = minX;
           this.minY = minY;
           this.maxX = maxX;
@@ -3015,14 +3256,10 @@ Deprecated since v${version}`);
          * @param rect - The rectangle to be included.
          */
         fit(rect) {
-          if (this.minX < rect.left)
-            this.minX = rect.left;
-          if (this.maxX > rect.right)
-            this.maxX = rect.right;
-          if (this.minY < rect.top)
-            this.minY = rect.top;
-          if (this.maxY > rect.bottom)
-            this.maxY = rect.bottom;
+          if (this.minX < rect.left) this.minX = rect.left;
+          if (this.maxX > rect.right) this.maxX = rect.right;
+          if (this.minY < rect.top) this.minY = rect.top;
+          if (this.maxY > rect.bottom) this.maxY = rect.bottom;
           return this;
         }
         /**
@@ -3033,14 +3270,10 @@ Deprecated since v${version}`);
          * @param bottom - The bottom value of the bounds.
          */
         fitBounds(left, right, top, bottom) {
-          if (this.minX < left)
-            this.minX = left;
-          if (this.maxX > right)
-            this.maxX = right;
-          if (this.minY < top)
-            this.minY = top;
-          if (this.maxY > bottom)
-            this.maxY = bottom;
+          if (this.minX < left) this.minX = left;
+          if (this.maxX > right) this.maxX = right;
+          if (this.minY < top) this.minY = top;
+          if (this.maxY > bottom) this.maxY = bottom;
           return this;
         }
         /**
@@ -3196,7 +3429,7 @@ Deprecated since v${version}`);
           return this;
         }
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/container/bounds/utils/matrixAndBoundsPool.mjs
@@ -3208,7 +3441,7 @@ Deprecated since v${version}`);
       init_Bounds();
       matrixPool = new Pool(Matrix);
       boundsPool = new Pool(Bounds);
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/container/container-mixins/getFastGlobalBoundsMixin.mjs
@@ -3251,8 +3484,7 @@ Deprecated since v${version}`);
          */
         _getGlobalBoundsRecursive(factorRenderLayers, bounds, currentLayer) {
           let localBounds = bounds;
-          if (factorRenderLayers && this.parentRenderLayer && this.parentRenderLayer !== currentLayer)
-            return;
+          if (factorRenderLayers && this.parentRenderLayer && this.parentRenderLayer !== currentLayer) return;
           if (this.localDisplayStatus !== 7 || !this.measurable) {
             return;
           }
@@ -3265,13 +3497,7 @@ Deprecated since v${version}`);
           } else {
             if (this.renderPipeId) {
               const viewBounds = this.bounds;
-              localBounds.addFrame(
-                viewBounds.minX,
-                viewBounds.minY,
-                viewBounds.maxX,
-                viewBounds.maxY,
-                this.groupTransform
-              );
+              localBounds.addFrame(viewBounds.minX, viewBounds.minY, viewBounds.maxX, viewBounds.maxY, this.groupTransform);
             }
             const children = this.children;
             for (let i2 = 0; i2 < children.length; i2++) {
@@ -3300,9 +3526,9 @@ Deprecated since v${version}`);
             bounds.addBounds(localBounds, this.relativeGroupTransform);
             boundsPool.return(localBounds);
           }
-        }
+        },
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/container/bounds/getGlobalBounds.mjs
@@ -3331,8 +3557,7 @@ Deprecated since v${version}`);
   }
   function _getGlobalBounds(target, bounds, parentTransform, skipUpdateTransform) {
     var _a2, _b;
-    if (!target.visible || !target.measurable)
-      return;
+    if (!target.visible || !target.measurable) return;
     let worldTransform;
     if (!skipUpdateTransform) {
       target.updateLocalTransform();
@@ -3381,30 +3606,28 @@ Deprecated since v${version}`);
     "../../../../node_modules/pixi.js/lib/scene/container/bounds/getGlobalBounds.mjs"() {
       init_Matrix();
       init_matrixAndBoundsPool();
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/container/utils/multiplyHexColors.mjs
   function multiplyHexColors(color1, color2) {
-    if (color1 === 16777215 || !color2)
-      return color2;
-    if (color2 === 16777215 || !color1)
-      return color1;
-    const r1 = color1 >> 16 & 255;
-    const g1 = color1 >> 8 & 255;
+    if (color1 === 16777215 || !color2) return color2;
+    if (color2 === 16777215 || !color1) return color1;
+    const r1 = (color1 >> 16) & 255;
+    const g1 = (color1 >> 8) & 255;
     const b1 = color1 & 255;
-    const r2 = color2 >> 16 & 255;
-    const g2 = color2 >> 8 & 255;
+    const r2 = (color2 >> 16) & 255;
+    const g2 = (color2 >> 8) & 255;
     const b2 = color2 & 255;
-    const r3 = r1 * r2 / 255 | 0;
-    const g3 = g1 * g2 / 255 | 0;
-    const b3 = b1 * b2 / 255 | 0;
+    const r3 = ((r1 * r2) / 255) | 0;
+    const g3 = ((g1 * g2) / 255) | 0;
+    const b3 = ((b1 * b2) / 255) | 0;
     return (r3 << 16) + (g3 << 8) + b3;
   }
   var init_multiplyHexColors = __esm({
     "../../../../node_modules/pixi.js/lib/scene/container/utils/multiplyHexColors.mjs"() {
       "use strict";
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/container/utils/multiplyColors.mjs
@@ -3422,12 +3645,12 @@ Deprecated since v${version}`);
     "../../../../node_modules/pixi.js/lib/scene/container/utils/multiplyColors.mjs"() {
       init_multiplyHexColors();
       WHITE_BGR = 16777215;
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/container/container-mixins/getGlobalMixin.mjs
   function bgr2rgb(color) {
-    return ((color & 255) << 16) + (color & 65280) + (color >> 16 & 255);
+    return ((color & 255) << 16) + (color & 65280) + ((color >> 16) & 255);
   }
   var getGlobalMixin;
   var init_getGlobalMixin = __esm({
@@ -3514,9 +3737,7 @@ Deprecated since v${version}`);
               return bgr2rgb(this.renderGroup.worldColor);
             }
             if (this.parentRenderGroup) {
-              return bgr2rgb(
-                multiplyColors(this.localColor, this.parentRenderGroup.worldColor)
-              );
+              return bgr2rgb(multiplyColors(this.localColor, this.parentRenderGroup.worldColor));
             }
             return this.tint;
           }
@@ -3527,15 +3748,14 @@ Deprecated since v${version}`);
             parent = parent.parent;
           }
           return bgr2rgb(color);
-        }
+        },
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/utils/logging/warn.mjs
   function warn(...args) {
-    if (warnCount === maxWarnings)
-      return;
+    if (warnCount === maxWarnings) return;
     warnCount++;
     if (warnCount === maxWarnings) {
       console.warn("PixiJS Warning: too many warnings, no more warnings will be reported to the console by PixiJS.");
@@ -3549,7 +3769,7 @@ Deprecated since v${version}`);
       "use strict";
       warnCount = 0;
       maxWarnings = 500;
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/container/bounds/getLocalBounds.mjs
@@ -3566,8 +3786,7 @@ Deprecated since v${version}`);
     var _a2, _b;
     let relativeTransform;
     if (!isRoot) {
-      if (!target.visible || !target.measurable)
-        return;
+      if (!target.visible || !target.measurable) return;
       target.updateLocalTransform();
       const localTransform = target.localTransform;
       relativeTransform = matrixPool.get();
@@ -3606,7 +3825,7 @@ Deprecated since v${version}`);
     "../../../../node_modules/pixi.js/lib/scene/container/bounds/getLocalBounds.mjs"() {
       init_Matrix();
       init_matrixAndBoundsPool();
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/container/utils/checkChildrenDidChange.mjs
@@ -3615,7 +3834,7 @@ Deprecated since v${version}`);
     for (let i2 = 0; i2 < children.length; i2++) {
       const child = children[i2];
       const uid3 = child.uid;
-      const didChange = (child._didViewChangeTick & 65535) << 16 | child._didContainerChangeTick & 65535;
+      const didChange = ((child._didViewChangeTick & 65535) << 16) | (child._didContainerChangeTick & 65535);
       const index = previousData.index;
       if (previousData.data[index] !== uid3 || previousData.data[index + 1] !== didChange) {
         previousData.data[previousData.index] = uid3;
@@ -3632,7 +3851,7 @@ Deprecated since v${version}`);
   var init_checkChildrenDidChange = __esm({
     "../../../../node_modules/pixi.js/lib/scene/container/utils/checkChildrenDidChange.mjs"() {
       "use strict";
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/container/container-mixins/measureMixin.mjs
@@ -3651,7 +3870,7 @@ Deprecated since v${version}`);
         _setWidth(value, localWidth) {
           const sign = Math.sign(this.scale.x) || 1;
           if (localWidth !== 0) {
-            this.scale.x = value / localWidth * sign;
+            this.scale.x = (value / localWidth) * sign;
           } else {
             this.scale.x = sign;
           }
@@ -3659,7 +3878,7 @@ Deprecated since v${version}`);
         _setHeight(value, localHeight) {
           const sign = Math.sign(this.scale.y) || 1;
           if (localHeight !== 0) {
-            this.scale.y = value / localHeight * sign;
+            this.scale.y = (value / localHeight) * sign;
           } else {
             this.scale.y = sign;
           }
@@ -3675,7 +3894,7 @@ Deprecated since v${version}`);
               data: [],
               index: 1,
               didChange: false,
-              localBounds: new Bounds()
+              localBounds: new Bounds(),
             };
           }
           const localBoundsCacheData = this._localBoundsCacheData;
@@ -3702,9 +3921,9 @@ Deprecated since v${version}`);
          */
         getBounds(skipUpdate, bounds) {
           return getGlobalBounds(this, skipUpdate, bounds || new Bounds());
-        }
+        },
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/container/container-mixins/onRenderMixin.mjs
@@ -3743,9 +3962,9 @@ Deprecated since v${version}`);
          */
         get onRender() {
           return this._onRender;
-        }
+        },
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/container/container-mixins/sortMixin.mjs
@@ -3793,8 +4012,7 @@ Deprecated since v${version}`);
           return this._zIndex;
         },
         set zIndex(value) {
-          if (this._zIndex === value)
-            return;
+          if (this._zIndex === value) return;
           this._zIndex = value;
           this.depthOfChildModified();
         },
@@ -3812,13 +4030,12 @@ Deprecated since v${version}`);
          * @memberof scene.Container#
          */
         sortChildren() {
-          if (!this.sortDirty)
-            return;
+          if (!this.sortDirty) return;
           this.sortDirty = false;
           this.children.sort(sortChildren);
-        }
+        },
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/container/container-mixins/toLocalGlobalMixin.mjs
@@ -3877,9 +4094,9 @@ Deprecated since v${version}`);
           point = globalMatrix.applyInverse(position, point);
           matrixPool.return(globalMatrix);
           return point;
-        }
+        },
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/shared/instructions/InstructionSet.mjs
@@ -3916,7 +4133,7 @@ Deprecated since v${version}`);
           console.table(this.instructions, ["type", "action"]);
         }
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/maths/misc/pow2.mjs
@@ -3931,12 +4148,12 @@ Deprecated since v${version}`);
     return v3 + 1;
   }
   function isPow2(v3) {
-    return !(v3 & v3 - 1) && !!v3;
+    return !(v3 & (v3 - 1)) && !!v3;
   }
   var init_pow2 = __esm({
     "../../../../node_modules/pixi.js/lib/maths/misc/pow2.mjs"() {
       "use strict";
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/container/utils/definedProps.mjs
@@ -3952,7 +4169,7 @@ Deprecated since v${version}`);
   var init_definedProps = __esm({
     "../../../../node_modules/pixi.js/lib/scene/container/utils/definedProps.mjs"() {
       "use strict";
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/shared/texture/TextureStyle.mjs
@@ -4053,10 +4270,10 @@ Deprecated since v${version}`);
       };
       _TextureStyle.defaultOptions = {
         addressMode: "clamp-to-edge",
-        scaleMode: "linear"
+        scaleMode: "linear",
       };
       TextureStyle = _TextureStyle;
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/shared/texture/sources/TextureSource.mjs
@@ -4102,12 +4319,12 @@ Deprecated since v${version}`);
           if (options.width) {
             this.pixelWidth = options.width * this._resolution;
           } else {
-            this.pixelWidth = this.resource ? (_b = this.resourceWidth) != null ? _b : 1 : 1;
+            this.pixelWidth = this.resource ? ((_b = this.resourceWidth) != null ? _b : 1) : 1;
           }
           if (options.height) {
             this.pixelHeight = options.height * this._resolution;
           } else {
-            this.pixelHeight = this.resource ? (_c = this.resourceHeight) != null ? _c : 1 : 1;
+            this.pixelHeight = this.resource ? ((_c = this.resourceHeight) != null ? _c : 1) : 1;
           }
           this.width = this.pixelWidth / this._resolution;
           this.height = this.pixelHeight / this._resolution;
@@ -4132,8 +4349,7 @@ Deprecated since v${version}`);
         }
         set style(value) {
           var _a2, _b;
-          if (this.style === value)
-            return;
+          if (this.style === value) return;
           (_a2 = this._style) == null ? void 0 : _a2.off("change", this._onStyleChange, this);
           this._style = value;
           (_b = this._style) == null ? void 0 : _b.on("change", this._onStyleChange, this);
@@ -4196,8 +4412,7 @@ Deprecated since v${version}`);
           if (this.resource) {
             const resolution = this._resolution;
             const didResize = this.resize(this.resourceWidth / resolution, this.resourceHeight / resolution);
-            if (didResize)
-              return;
+            if (didResize) return;
           }
           this.emit("update", this);
         }
@@ -4244,8 +4459,7 @@ Deprecated since v${version}`);
           return this._resolution;
         }
         set resolution(resolution) {
-          if (this._resolution === resolution)
-            return;
+          if (this._resolution === resolution) return;
           this._resolution = resolution;
           this.width = this.pixelWidth / resolution;
           this.height = this.pixelHeight / resolution;
@@ -4325,10 +4539,10 @@ Deprecated since v${version}`);
         autoGenerateMipmaps: false,
         sampleCount: 1,
         antialias: false,
-        autoGarbageCollect: false
+        autoGarbageCollect: false,
       };
       TextureSource = _TextureSource;
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/maths/matrix/groupD8.mjs
@@ -4590,9 +4804,9 @@ Deprecated since v${version}`);
           mat.tx = tx;
           mat.ty = ty;
           matrix.append(mat);
-        }
+        },
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/utils/misc/NOOP.mjs
@@ -4600,9 +4814,8 @@ Deprecated since v${version}`);
   var init_NOOP = __esm({
     "../../../../node_modules/pixi.js/lib/utils/misc/NOOP.mjs"() {
       "use strict";
-      NOOP = () => {
-      };
-    }
+      NOOP = () => {};
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/shared/texture/sources/BufferImageSource.mjs
@@ -4632,18 +4845,29 @@ Deprecated since v${version}`);
               format = "bgra8unorm";
             }
           }
-          super(__spreadProps(__spreadValues({}, options), {
-            resource: buffer,
-            format
-          }));
+          super(
+            __spreadProps(__spreadValues({}, options), {
+              resource: buffer,
+              format,
+            })
+          );
           this.uploadMethodId = "buffer";
         }
         static test(resource) {
-          return resource instanceof Int8Array || resource instanceof Uint8Array || resource instanceof Uint8ClampedArray || resource instanceof Int16Array || resource instanceof Uint16Array || resource instanceof Int32Array || resource instanceof Uint32Array || resource instanceof Float32Array;
+          return (
+            resource instanceof Int8Array ||
+            resource instanceof Uint8Array ||
+            resource instanceof Uint8ClampedArray ||
+            resource instanceof Int16Array ||
+            resource instanceof Uint16Array ||
+            resource instanceof Int32Array ||
+            resource instanceof Uint32Array ||
+            resource instanceof Float32Array
+          );
         }
       };
       BufferImageSource.extension = ExtensionType.TextureSource;
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/shared/texture/TextureMatrix.mjs
@@ -4678,8 +4902,7 @@ Deprecated since v${version}`);
         }
         set texture(value) {
           var _a2;
-          if (this.texture === value)
-            return;
+          if (this.texture === value) return;
           (_a2 = this._texture) == null ? void 0 : _a2.removeListener("update", this.update, this);
           this._texture = value;
           this._texture.addListener("update", this.update, this);
@@ -4716,14 +4939,7 @@ Deprecated since v${version}`);
           const orig = tex.orig;
           const trim = tex.trim;
           if (trim) {
-            tempMat.set(
-              orig.width / trim.width,
-              0,
-              0,
-              orig.height / trim.height,
-              -trim.x / trim.width,
-              -trim.y / trim.height
-            );
+            tempMat.set(orig.width / trim.width, 0, 0, orig.height / trim.height, -trim.x / trim.width, -trim.y / trim.height);
             this.mapCoord.append(tempMat);
           }
           const texBase = tex.source;
@@ -4740,7 +4956,7 @@ Deprecated since v${version}`);
           return true;
         }
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/shared/texture/Texture.mjs
@@ -4760,17 +4976,7 @@ Deprecated since v${version}`);
         /**
          * @param {rendering.TextureOptions} options - Options for the texture
          */
-        constructor({
-          source: source2,
-          label,
-          frame,
-          orig,
-          trim,
-          defaultAnchor,
-          defaultBorders,
-          rotate,
-          dynamic
-        } = {}) {
+        constructor({ source: source2, label, frame, orig, trim, defaultAnchor, defaultBorders, rotate, dynamic } = {}) {
           var _a2;
           super();
           this.uid = uid("texture");
@@ -4900,8 +5106,8 @@ Deprecated since v${version}`);
       Texture.EMPTY = new Texture({
         label: "EMPTY",
         source: new TextureSource({
-          label: "EMPTY"
-        })
+          label: "EMPTY",
+        }),
       });
       Texture.EMPTY.destroy = NOOP;
       Texture.WHITE = new Texture({
@@ -4910,12 +5116,12 @@ Deprecated since v${version}`);
           width: 1,
           height: 1,
           alphaMode: "premultiply-alpha-on-upload",
-          label: "WHITE"
+          label: "WHITE",
         }),
-        label: "WHITE"
+        label: "WHITE",
       });
       Texture.WHITE.destroy = NOOP;
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/shared/texture/TexturePool.mjs
@@ -4944,16 +5150,18 @@ Deprecated since v${version}`);
          * @param antialias
          */
         createTexture(pixelWidth, pixelHeight, antialias) {
-          const textureSource = new TextureSource(__spreadProps(__spreadValues({}, this.textureOptions), {
-            width: pixelWidth,
-            height: pixelHeight,
-            resolution: 1,
-            antialias,
-            autoGarbageCollect: false
-          }));
+          const textureSource = new TextureSource(
+            __spreadProps(__spreadValues({}, this.textureOptions), {
+              width: pixelWidth,
+              height: pixelHeight,
+              resolution: 1,
+              antialias,
+              autoGarbageCollect: false,
+            })
+          );
           return new Texture({
             source: textureSource,
-            label: `texturePool_${count++}`
+            label: `texturePool_${count++}`,
           });
         }
         /**
@@ -5028,7 +5236,7 @@ Deprecated since v${version}`);
         }
       };
       TexturePool = new TexturePoolClass();
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/container/RenderGroup.mjs
@@ -5062,8 +5270,7 @@ Deprecated since v${version}`);
         }
         init(root) {
           this.root = root;
-          if (root._onRender)
-            this.addOnRender(root);
+          if (root._onRender) this.addOnRender(root);
           root.didChange = true;
           const children = root.children;
           for (let i2 = 0; i2 < children.length; i2++) {
@@ -5135,8 +5342,7 @@ Deprecated since v${version}`);
             this.addRenderGroupChild(child.renderGroup);
             return;
           }
-          if (child._onRender)
-            this.addOnRender(child);
+          if (child._onRender) this.addOnRender(child);
           const children = child.children;
           for (let i2 = 0; i2 < children.length; i2++) {
             this.addChild(children[i2]);
@@ -5169,14 +5375,13 @@ Deprecated since v${version}`);
           if (!childrenToUpdate) {
             childrenToUpdate = this.childrenToUpdate[child.relativeRenderGroupDepth] = {
               index: 0,
-              list: []
+              list: [],
             };
           }
           childrenToUpdate.list[childrenToUpdate.index++] = child;
         }
         updateRenderable(renderable) {
-          if (renderable.globalDisplayStatus < 7)
-            return;
+          if (renderable.globalDisplayStatus < 7) return;
           this.instructionSet.renderPipes[renderable.renderPipeId].updateRenderable(renderable);
           renderable.didViewUpdate = false;
         }
@@ -5221,8 +5426,7 @@ Deprecated since v${version}`);
         }
         _getChildren(container, out2 = []) {
           out2.push(container);
-          if (container.renderGroup)
-            return out2;
+          if (container.renderGroup) return out2;
           const children = container.children;
           for (let i2 = 0; i2 < children.length; i2++) {
             this._getChildren(children[i2], out2);
@@ -5237,8 +5441,7 @@ Deprecated since v${version}`);
          * @returns {Matrix} The inverse of the world transform matrix.
          */
         get inverseWorldTransform() {
-          if ((this._matrixDirty & 1) === 0)
-            return this._inverseWorldTransform;
+          if ((this._matrixDirty & 1) === 0) return this._inverseWorldTransform;
           this._matrixDirty &= ~1;
           this._inverseWorldTransform || (this._inverseWorldTransform = new Matrix());
           return this._inverseWorldTransform.copyFrom(this.worldTransform).invert();
@@ -5248,14 +5451,10 @@ Deprecated since v${version}`);
          * @returns {Matrix} The inverse of the texture offset transform matrix.
          */
         get textureOffsetInverseTransform() {
-          if ((this._matrixDirty & 2) === 0)
-            return this._textureOffsetInverseTransform;
+          if ((this._matrixDirty & 2) === 0) return this._textureOffsetInverseTransform;
           this._matrixDirty &= ~2;
           this._textureOffsetInverseTransform || (this._textureOffsetInverseTransform = new Matrix());
-          return this._textureOffsetInverseTransform.copyFrom(this.inverseWorldTransform).translate(
-            -this._textureBounds.x,
-            -this._textureBounds.y
-          );
+          return this._textureOffsetInverseTransform.copyFrom(this.inverseWorldTransform).translate(-this._textureBounds.x, -this._textureBounds.y);
         }
         /**
          * Returns the inverse of the parent texture transform matrix.
@@ -5263,16 +5462,12 @@ Deprecated since v${version}`);
          * @returns {Matrix} The inverse of the parent texture transform matrix.
          */
         get inverseParentTextureTransform() {
-          if ((this._matrixDirty & 4) === 0)
-            return this._inverseParentTextureTransform;
+          if ((this._matrixDirty & 4) === 0) return this._inverseParentTextureTransform;
           this._matrixDirty &= ~4;
           const parentCacheAsTexture = this._parentCacheAsTextureRenderGroup;
           if (parentCacheAsTexture) {
             this._inverseParentTextureTransform || (this._inverseParentTextureTransform = new Matrix());
-            return this._inverseParentTextureTransform.copyFrom(this.worldTransform).prepend(parentCacheAsTexture.inverseWorldTransform).translate(
-              -parentCacheAsTexture._textureBounds.x,
-              -parentCacheAsTexture._textureBounds.y
-            );
+            return this._inverseParentTextureTransform.copyFrom(this.worldTransform).prepend(parentCacheAsTexture.inverseWorldTransform).translate(-parentCacheAsTexture._textureBounds.x, -parentCacheAsTexture._textureBounds.y);
           }
           return this.worldTransform;
         }
@@ -5283,12 +5478,11 @@ Deprecated since v${version}`);
          * or null if no parent is cached as texture.
          */
         get cacheToLocalTransform() {
-          if (!this._parentCacheAsTextureRenderGroup)
-            return null;
+          if (!this._parentCacheAsTextureRenderGroup) return null;
           return this._parentCacheAsTextureRenderGroup.textureOffsetInverseTransform;
         }
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/container/utils/assignWithIgnore.mjs
@@ -5302,7 +5496,7 @@ Deprecated since v${version}`);
   var init_assignWithIgnore = __esm({
     "../../../../node_modules/pixi.js/lib/scene/container/utils/assignWithIgnore.mjs"() {
       "use strict";
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/container/Container.mjs
@@ -5385,7 +5579,7 @@ Deprecated since v${version}`);
           assignWithIgnore(this, options, {
             children: true,
             parent: true,
-            effects: true
+            effects: true,
           });
           (_a2 = options.children) == null ? void 0 : _a2.forEach((child) => this.addChild(child));
           (_b = options.parent) == null ? void 0 : _b.addChild(this);
@@ -5406,11 +5600,11 @@ Deprecated since v${version}`);
          * @ignore
          */
         set _didChangeId(value) {
-          this._didViewChangeTick = value >> 12 & 4095;
+          this._didViewChangeTick = (value >> 12) & 4095;
           this._didContainerChangeTick = value & 4095;
         }
         get _didChangeId() {
-          return this._didContainerChangeTick & 4095 | (this._didViewChangeTick & 4095) << 12;
+          return (this._didContainerChangeTick & 4095) | ((this._didViewChangeTick & 4095) << 12);
         }
         /**
          * Adds one or more children to the container.
@@ -5443,8 +5637,7 @@ Deprecated since v${version}`);
             child.parent.removeChild(child);
           }
           this.children.push(child);
-          if (this.sortableChildren)
-            this.sortDirty = true;
+          if (this.sortableChildren) this.sortDirty = true;
           child.parent = this;
           child.didChange = true;
           child._updateFlags = 15;
@@ -5498,16 +5691,14 @@ Deprecated since v${version}`);
             }
           }
           this._didContainerChangeTick++;
-          if (this.didChange)
-            return;
+          if (this.didChange) return;
           this.didChange = true;
           if (this.parentRenderGroup) {
             this.parentRenderGroup.onChildUpdate(this);
           }
         }
         set isRenderGroup(value) {
-          if (!!this.renderGroup === value)
-            return;
+          if (!!this.renderGroup === value) return;
           if (value) {
             this.enableRenderGroup();
           } else {
@@ -5527,8 +5718,7 @@ Deprecated since v${version}`);
          * The transform of the container will also be handled on the GPU rather than the CPU.
          */
         enableRenderGroup() {
-          if (this.renderGroup)
-            return;
+          if (this.renderGroup) return;
           const parentRenderGroup = this.parentRenderGroup;
           parentRenderGroup == null ? void 0 : parentRenderGroup.removeChild(this);
           this.renderGroup = BigPool.get(RenderGroup, this);
@@ -5538,8 +5728,7 @@ Deprecated since v${version}`);
         }
         /** This will disable the render group for this container. */
         disableRenderGroup() {
-          if (!this.renderGroup)
-            return;
+          if (!this.renderGroup) return;
           const parentRenderGroup = this.parentRenderGroup;
           parentRenderGroup == null ? void 0 : parentRenderGroup.removeChild(this);
           BigPool.return(this.renderGroup);
@@ -5723,7 +5912,7 @@ Deprecated since v${version}`);
             height = (_a2 = value.height) != null ? _a2 : value.width;
             value = value.width;
           } else {
-            height != null ? height : height = value;
+            height != null ? height : (height = value);
           }
           value !== void 0 && this._setWidth(value, size.width);
           height !== void 0 && this._setHeight(height, size.height);
@@ -5751,23 +5940,11 @@ Deprecated since v${version}`);
          * @param {number} opts.pivotY - The y coordinate of the pivot point.
          */
         updateTransform(opts) {
-          this.position.set(
-            typeof opts.x === "number" ? opts.x : this.position.x,
-            typeof opts.y === "number" ? opts.y : this.position.y
-          );
-          this.scale.set(
-            typeof opts.scaleX === "number" ? opts.scaleX || 1 : this.scale.x,
-            typeof opts.scaleY === "number" ? opts.scaleY || 1 : this.scale.y
-          );
+          this.position.set(typeof opts.x === "number" ? opts.x : this.position.x, typeof opts.y === "number" ? opts.y : this.position.y);
+          this.scale.set(typeof opts.scaleX === "number" ? opts.scaleX || 1 : this.scale.x, typeof opts.scaleY === "number" ? opts.scaleY || 1 : this.scale.y);
           this.rotation = typeof opts.rotation === "number" ? opts.rotation : this.rotation;
-          this.skew.set(
-            typeof opts.skewX === "number" ? opts.skewX : this.skew.x,
-            typeof opts.skewY === "number" ? opts.skewY : this.skew.y
-          );
-          this.pivot.set(
-            typeof opts.pivotX === "number" ? opts.pivotX : this.pivot.x,
-            typeof opts.pivotY === "number" ? opts.pivotY : this.pivot.y
-          );
+          this.skew.set(typeof opts.skewX === "number" ? opts.skewX : this.skew.x, typeof opts.skewY === "number" ? opts.skewY : this.skew.y);
+          this.pivot.set(typeof opts.pivotX === "number" ? opts.pivotX : this.pivot.x, typeof opts.pivotY === "number" ? opts.pivotY : this.pivot.y);
           return this;
         }
         /**
@@ -5780,8 +5957,7 @@ Deprecated since v${version}`);
         /** Updates the local transform. */
         updateLocalTransform() {
           const localTransformChangeId = this._didContainerChangeTick;
-          if (this._didLocalTransformChangeId === localTransformChangeId)
-            return;
+          if (this._didLocalTransformChangeId === localTransformChangeId) return;
           this._didLocalTransformChangeId = localTransformChangeId;
           const lt = this.localTransform;
           const scale = this._scale;
@@ -5800,8 +5976,7 @@ Deprecated since v${version}`);
         }
         // / ///// color related stuff
         set alpha(value) {
-          if (value === this.localAlpha)
-            return;
+          if (value === this.localAlpha) return;
           this.localAlpha = value;
           this._updateFlags |= UPDATE_COLOR;
           this._onUpdate();
@@ -5813,8 +5988,7 @@ Deprecated since v${version}`);
         set tint(value) {
           const tempColor = Color.shared.setValue(value != null ? value : 16777215);
           const bgr = tempColor.toBgrNumber();
-          if (bgr === this.localColor)
-            return;
+          if (bgr === this.localColor) return;
           this.localColor = bgr;
           this._updateFlags |= UPDATE_COLOR;
           this._onUpdate();
@@ -5830,8 +6004,7 @@ Deprecated since v${version}`);
         }
         // / //////////////// blend related stuff
         set blendMode(value) {
-          if (this.localBlendMode === value)
-            return;
+          if (this.localBlendMode === value) return;
           if (this.parentRenderGroup) {
             this.parentRenderGroup.structureDidChange = true;
           }
@@ -5853,8 +6026,7 @@ Deprecated since v${version}`);
         }
         set visible(value) {
           const valueNumber = value ? 2 : 0;
-          if ((this.localDisplayStatus & 2) === valueNumber)
-            return;
+          if ((this.localDisplayStatus & 2) === valueNumber) return;
           if (this.parentRenderGroup) {
             this.parentRenderGroup.structureDidChange = true;
           }
@@ -5869,8 +6041,7 @@ Deprecated since v${version}`);
         /** @ignore */
         set culled(value) {
           const valueNumber = value ? 0 : 4;
-          if ((this.localDisplayStatus & 4) === valueNumber)
-            return;
+          if ((this.localDisplayStatus & 4) === valueNumber) return;
           if (this.parentRenderGroup) {
             this.parentRenderGroup.structureDidChange = true;
           }
@@ -5884,8 +6055,7 @@ Deprecated since v${version}`);
         }
         set renderable(value) {
           const valueNumber = value ? 1 : 0;
-          if ((this.localDisplayStatus & 1) === valueNumber)
-            return;
+          if ((this.localDisplayStatus & 1) === valueNumber) return;
           this._updateFlags |= UPDATE_VISIBLE;
           this.localDisplayStatus ^= 1;
           if (this.parentRenderGroup) {
@@ -5913,8 +6083,7 @@ Deprecated since v${version}`);
          */
         destroy(options = false) {
           var _a2;
-          if (this.destroyed)
-            return;
+          if (this.destroyed) return;
           this.destroyed = true;
           let oldChildren;
           if (this.children.length) {
@@ -5941,22 +6110,8 @@ Deprecated since v${version}`);
           this.renderGroup = null;
         }
       };
-      extensions.mixin(
-        Container,
-        childrenHelperMixin,
-        getFastGlobalBoundsMixin,
-        toLocalGlobalMixin,
-        onRenderMixin,
-        measureMixin,
-        effectsMixin,
-        findMixin,
-        sortMixin,
-        cullingMixin,
-        cacheAsTextureMixin,
-        getGlobalMixin,
-        collectRenderablesMixin
-      );
-    }
+      extensions.mixin(Container, childrenHelperMixin, getFastGlobalBoundsMixin, toLocalGlobalMixin, onRenderMixin, measureMixin, effectsMixin, findMixin, sortMixin, cullingMixin, cacheAsTextureMixin, getGlobalMixin, collectRenderablesMixin);
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/events/FederatedEvent.mjs
@@ -6061,12 +6216,12 @@ Deprecated since v${version}`);
           this.propagationStopped = true;
         }
       };
-    }
+    },
   });
 
   // ../../../../node_modules/ismobilejs/esm/isMobile.js
   function createMatch(userAgent) {
-    return function(regex) {
+    return function (regex) {
       return regex.test(userAgent);
     };
   }
@@ -6074,13 +6229,13 @@ Deprecated since v${version}`);
     var nav = {
       userAgent: "",
       platform: "",
-      maxTouchPoints: 0
+      maxTouchPoints: 0,
     };
     if (!param && typeof navigator !== "undefined") {
       nav = {
         userAgent: navigator.userAgent,
         platform: navigator.platform,
-        maxTouchPoints: navigator.maxTouchPoints || 0
+        maxTouchPoints: navigator.maxTouchPoints || 0,
       };
     } else if (typeof param === "string") {
       nav.userAgent = param;
@@ -6088,7 +6243,7 @@ Deprecated since v${version}`);
       nav = {
         userAgent: param.userAgent,
         platform: param.platform,
-        maxTouchPoints: param.maxTouchPoints || 0
+        maxTouchPoints: param.maxTouchPoints || 0,
       };
     }
     var userAgent = nav.userAgent;
@@ -6107,22 +6262,22 @@ Deprecated since v${version}`);
         ipod: match(appleIpod),
         tablet: !match(appleIphone) && (match(appleTablet) || isAppleTabletOnIos13(nav)) && !match(windowsPhone),
         universal: match(appleUniversal),
-        device: (match(appleIphone) || match(appleIpod) || match(appleTablet) || match(appleUniversal) || isAppleTabletOnIos13(nav)) && !match(windowsPhone)
+        device: (match(appleIphone) || match(appleIpod) || match(appleTablet) || match(appleUniversal) || isAppleTabletOnIos13(nav)) && !match(windowsPhone),
       },
       amazon: {
         phone: match(amazonPhone),
         tablet: !match(amazonPhone) && match(amazonTablet),
-        device: match(amazonPhone) || match(amazonTablet)
+        device: match(amazonPhone) || match(amazonTablet),
       },
       android: {
-        phone: !match(windowsPhone) && match(amazonPhone) || !match(windowsPhone) && match(androidPhone),
+        phone: (!match(windowsPhone) && match(amazonPhone)) || (!match(windowsPhone) && match(androidPhone)),
         tablet: !match(windowsPhone) && !match(amazonPhone) && !match(androidPhone) && (match(amazonTablet) || match(androidTablet)),
-        device: !match(windowsPhone) && (match(amazonPhone) || match(amazonTablet) || match(androidPhone) || match(androidTablet)) || match(/\bokhttp\b/i)
+        device: (!match(windowsPhone) && (match(amazonPhone) || match(amazonTablet) || match(androidPhone) || match(androidTablet))) || match(/\bokhttp\b/i),
       },
       windows: {
         phone: match(windowsPhone),
         tablet: match(windowsTablet),
-        device: match(windowsPhone) || match(windowsTablet)
+        device: match(windowsPhone) || match(windowsTablet),
       },
       other: {
         blackberry: match(otherBlackBerry),
@@ -6130,11 +6285,11 @@ Deprecated since v${version}`);
         opera: match(otherOpera),
         firefox: match(otherFirefox),
         chrome: match(otherChrome),
-        device: match(otherBlackBerry) || match(otherBlackBerry10) || match(otherOpera) || match(otherFirefox) || match(otherChrome)
+        device: match(otherBlackBerry) || match(otherBlackBerry10) || match(otherOpera) || match(otherFirefox) || match(otherChrome),
       },
       any: false,
       phone: false,
-      tablet: false
+      tablet: false,
     };
     result.any = result.apple.device || result.android.device || result.windows.device || result.other.device;
     result.phone = result.apple.phone || result.android.phone || result.windows.phone;
@@ -6159,10 +6314,10 @@ Deprecated since v${version}`);
       otherOpera = /Opera Mini/i;
       otherChrome = /\b(CriOS|Chrome)(?:.+)Mobile/i;
       otherFirefox = /Mobile(?:.+)Firefox\b/i;
-      isAppleTabletOnIos13 = function(navigator2) {
+      isAppleTabletOnIos13 = function (navigator2) {
         return typeof navigator2 !== "undefined" && navigator2.platform === "MacIntel" && typeof navigator2.maxTouchPoints === "number" && navigator2.maxTouchPoints > 1 && typeof MSStream === "undefined";
       };
-    }
+    },
   });
 
   // ../../../../node_modules/ismobilejs/esm/index.js
@@ -6170,7 +6325,7 @@ Deprecated since v${version}`);
     "../../../../node_modules/ismobilejs/esm/index.js"() {
       init_isMobile();
       init_isMobile();
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/utils/browser/isMobile.mjs
@@ -6180,7 +6335,7 @@ Deprecated since v${version}`);
       init_esm();
       isMobileCall = (_a = isMobile.default) != null ? _a : isMobile;
       isMobile2 = isMobileCall(globalThis.navigator);
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/accessibility/AccessibilitySystem.mjs
@@ -6388,7 +6543,7 @@ Deprecated since v${version}`);
         init(options) {
           const defaultOpts = _AccessibilitySystem2.defaultOptions;
           const mergedOptions = {
-            accessibilityOptions: __spreadValues(__spreadValues({}, defaultOpts), (options == null ? void 0 : options.accessibilityOptions) || {})
+            accessibilityOptions: __spreadValues(__spreadValues({}, defaultOpts), (options == null ? void 0 : options.accessibilityOptions) || {}),
           };
           this.debug = mergedOptions.accessibilityOptions.debug;
           this._activateOnTab = mergedOptions.accessibilityOptions.activateOnTab;
@@ -6666,11 +6821,8 @@ Deprecated since v${version}`);
         }
       };
       _AccessibilitySystem.extension = {
-        type: [
-          ExtensionType.WebGLSystem,
-          ExtensionType.WebGPUSystem
-        ],
-        name: "accessibility"
+        type: [ExtensionType.WebGLSystem, ExtensionType.WebGPUSystem],
+        name: "accessibility",
       };
       _AccessibilitySystem.defaultOptions = {
         /**
@@ -6692,10 +6844,10 @@ Deprecated since v${version}`);
          * Whether to deactivate accessibility when mouse moves
          * @default true
          */
-        deactivateOnMouseMove: true
+        deactivateOnMouseMove: true,
       };
       AccessibilitySystem = _AccessibilitySystem;
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/accessibility/accessibilityTarget.mjs
@@ -6776,9 +6928,9 @@ Deprecated since v${version}`);
          * @memberof scene.Container#
          * @private
          */
-        _renderId: -1
+        _renderId: -1,
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/accessibility/init.mjs
@@ -6790,7 +6942,7 @@ Deprecated since v${version}`);
       init_accessibilityTarget();
       extensions.add(AccessibilitySystem);
       extensions.mixin(Container, accessibilityTarget);
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/app/ResizePlugin.mjs
@@ -6827,7 +6979,7 @@ Deprecated since v${version}`);
               },
               get() {
                 return this._resizeTo;
-              }
+              },
             }
           );
           this.queueResize = () => {
@@ -6880,7 +7032,7 @@ Deprecated since v${version}`);
         }
       };
       ResizePlugin.extension = ExtensionType.Application;
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/ticker/const.mjs
@@ -6889,14 +7041,14 @@ Deprecated since v${version}`);
     "../../../../node_modules/pixi.js/lib/ticker/const.mjs"() {
       "use strict";
       UPDATE_PRIORITY = /* @__PURE__ */ ((UPDATE_PRIORITY2) => {
-        UPDATE_PRIORITY2[UPDATE_PRIORITY2["INTERACTION"] = 50] = "INTERACTION";
-        UPDATE_PRIORITY2[UPDATE_PRIORITY2["HIGH"] = 25] = "HIGH";
-        UPDATE_PRIORITY2[UPDATE_PRIORITY2["NORMAL"] = 0] = "NORMAL";
-        UPDATE_PRIORITY2[UPDATE_PRIORITY2["LOW"] = -25] = "LOW";
-        UPDATE_PRIORITY2[UPDATE_PRIORITY2["UTILITY"] = -50] = "UTILITY";
+        UPDATE_PRIORITY2[(UPDATE_PRIORITY2["INTERACTION"] = 50)] = "INTERACTION";
+        UPDATE_PRIORITY2[(UPDATE_PRIORITY2["HIGH"] = 25)] = "HIGH";
+        UPDATE_PRIORITY2[(UPDATE_PRIORITY2["NORMAL"] = 0)] = "NORMAL";
+        UPDATE_PRIORITY2[(UPDATE_PRIORITY2["LOW"] = -25)] = "LOW";
+        UPDATE_PRIORITY2[(UPDATE_PRIORITY2["UTILITY"] = -50)] = "UTILITY";
         return UPDATE_PRIORITY2;
       })(UPDATE_PRIORITY || {});
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/ticker/TickerListener.mjs
@@ -6987,7 +7139,7 @@ Deprecated since v${version}`);
           return redirect;
         }
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/ticker/Ticker.mjs
@@ -7142,7 +7294,7 @@ Deprecated since v${version}`);
           }
           let count2 = 0;
           let current = this._head;
-          while (current = current.next) {
+          while ((current = current.next)) {
             count2++;
           }
           return count2;
@@ -7194,11 +7346,11 @@ Deprecated since v${version}`);
             }
             elapsedMS *= this.speed;
             if (this._minElapsedMS) {
-              const delta = currentTime - this._lastFrame | 0;
+              const delta = (currentTime - this._lastFrame) | 0;
               if (delta < this._minElapsedMS) {
                 return;
               }
-              this._lastFrame = currentTime - delta % this._minElapsedMS;
+              this._lastFrame = currentTime - (delta % this._minElapsedMS);
             }
             this.deltaMS = elapsedMS;
             this.deltaTime = this.deltaMS * _Ticker2.targetFPMS;
@@ -7314,7 +7466,7 @@ Deprecated since v${version}`);
          */
         static get shared() {
           if (!_Ticker2._shared) {
-            const shared = _Ticker2._shared = new _Ticker2();
+            const shared = (_Ticker2._shared = new _Ticker2());
             shared.autoStart = true;
             shared._protected = true;
           }
@@ -7332,7 +7484,7 @@ Deprecated since v${version}`);
          */
         static get system() {
           if (!_Ticker2._system) {
-            const system = _Ticker2._system = new _Ticker2();
+            const system = (_Ticker2._system = new _Ticker2());
             system.autoStart = true;
             system._protected = true;
           }
@@ -7341,7 +7493,7 @@ Deprecated since v${version}`);
       };
       _Ticker.targetFPMS = 0.06;
       Ticker = _Ticker;
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/app/TickerPlugin.mjs
@@ -7359,28 +7511,27 @@ Deprecated since v${version}`);
          * @param {object} [options] - See application options
          */
         static init(options) {
-          options = Object.assign({
-            autoStart: true,
-            sharedTicker: false
-          }, options);
-          Object.defineProperty(
-            this,
-            "ticker",
+          options = Object.assign(
             {
-              set(ticker) {
-                if (this._ticker) {
-                  this._ticker.remove(this.render, this);
-                }
-                this._ticker = ticker;
-                if (ticker) {
-                  ticker.add(this.render, this, UPDATE_PRIORITY.LOW);
-                }
-              },
-              get() {
-                return this._ticker;
-              }
-            }
+              autoStart: true,
+              sharedTicker: false,
+            },
+            options
           );
+          Object.defineProperty(this, "ticker", {
+            set(ticker) {
+              if (this._ticker) {
+                this._ticker.remove(this.render, this);
+              }
+              this._ticker = ticker;
+              if (ticker) {
+                ticker.add(this.render, this, UPDATE_PRIORITY.LOW);
+              }
+            },
+            get() {
+              return this._ticker;
+            },
+          });
           this.stop = () => {
             this._ticker.stop();
           };
@@ -7407,7 +7558,7 @@ Deprecated since v${version}`);
         }
       };
       TickerPlugin.extension = ExtensionType.Application;
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/app/init.mjs
@@ -7418,7 +7569,7 @@ Deprecated since v${version}`);
       init_TickerPlugin();
       extensions.add(ResizePlugin);
       extensions.add(TickerPlugin);
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/events/EventTicker.mjs
@@ -7488,12 +7639,14 @@ Deprecated since v${version}`);
           if (this.events.supportsTouchEvents && rootPointerEvent.pointerType === "touch") {
             return;
           }
-          globalThis.document.dispatchEvent(new PointerEvent("pointermove", {
-            clientX: rootPointerEvent.clientX,
-            clientY: rootPointerEvent.clientY,
-            pointerType: rootPointerEvent.pointerType,
-            pointerId: rootPointerEvent.pointerId
-          }));
+          globalThis.document.dispatchEvent(
+            new PointerEvent("pointermove", {
+              clientX: rootPointerEvent.clientX,
+              clientY: rootPointerEvent.clientY,
+              pointerType: rootPointerEvent.pointerType,
+              pointerId: rootPointerEvent.pointerId,
+            })
+          );
         }
         /**
          * Updates the state of interactive objects if at least {@link interactionFrequency}
@@ -7512,7 +7665,7 @@ Deprecated since v${version}`);
         }
       };
       EventsTicker = new EventsTickerClass();
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/events/FederatedMouseEvent.mjs
@@ -7635,7 +7788,7 @@ Deprecated since v${version}`);
           throw new Error("Method not implemented.");
         }
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/events/FederatedPointerEvent.mjs
@@ -7662,7 +7815,7 @@ Deprecated since v${version}`);
           throw new Error("getPredictedEvents is not supported!");
         }
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/events/FederatedWheelEvent.mjs
@@ -7681,7 +7834,7 @@ Deprecated since v${version}`);
       FederatedWheelEvent.DOM_DELTA_PIXEL = 0;
       FederatedWheelEvent.DOM_DELTA_LINE = 1;
       FederatedWheelEvent.DOM_DELTA_PAGE = 2;
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/events/EventBoundary.mjs
@@ -7707,7 +7860,7 @@ Deprecated since v${version}`);
           this.moveOnAll = false;
           this.enableGlobalMoveEvents = true;
           this.mappingState = {
-            trackingData: {}
+            trackingData: {},
           };
           this.eventPool = /* @__PURE__ */ new Map();
           this._allInteractiveElements = [];
@@ -7751,7 +7904,7 @@ Deprecated since v${version}`);
           }
           this.mappingTable[type].push({
             fn,
-            priority: 0
+            priority: 0,
           });
           this.mappingTable[type].sort((a2, b2) => a2.priority - b2.priority);
         }
@@ -7794,13 +7947,7 @@ Deprecated since v${version}`);
           EventsTicker.pauseUpdate = true;
           const useMove = this._isPointerMoveEvent && this.enableGlobalMoveEvents;
           const fn = useMove ? "hitTestMoveRecursive" : "hitTestRecursive";
-          const invertedPath = this[fn](
-            this.rootTarget,
-            this.rootTarget.eventMode,
-            tempHitLocation.set(x3, y2),
-            this.hitTestFn,
-            this.hitPruneFn
-          );
+          const invertedPath = this[fn](this.rootTarget, this.rootTarget.eventMode, tempHitLocation.set(x3, y2), this.hitTestFn, this.hitPruneFn);
           return invertedPath && invertedPath[0];
         }
         /**
@@ -7818,20 +7965,17 @@ Deprecated since v${version}`);
           for (let i2 = 0, j3 = composedPath.length - 1; i2 < j3; i2++) {
             e2.currentTarget = composedPath[i2];
             this.notifyTarget(e2, type);
-            if (e2.propagationStopped || e2.propagationImmediatelyStopped)
-              return;
+            if (e2.propagationStopped || e2.propagationImmediatelyStopped) return;
           }
           e2.eventPhase = e2.AT_TARGET;
           e2.currentTarget = e2.target;
           this.notifyTarget(e2, type);
-          if (e2.propagationStopped || e2.propagationImmediatelyStopped)
-            return;
+          if (e2.propagationStopped || e2.propagationImmediatelyStopped) return;
           e2.eventPhase = e2.BUBBLING_PHASE;
           for (let i2 = composedPath.length - 2; i2 >= 0; i2--) {
             e2.currentTarget = composedPath[i2];
             this.notifyTarget(e2, type);
-            if (e2.propagationStopped || e2.propagationImmediatelyStopped)
-              return;
+            if (e2.propagationStopped || e2.propagationImmediatelyStopped) return;
           }
         }
         /**
@@ -7843,8 +7987,7 @@ Deprecated since v${version}`);
          * @param targets - The targets to notify.
          */
         all(e2, type, targets = this._allInteractiveElements) {
-          if (targets.length === 0)
-            return;
+          if (targets.length === 0) return;
           e2.eventPhase = e2.BUBBLING_PHASE;
           const events = Array.isArray(type) ? type : [type];
           for (let i2 = targets.length - 1; i2 >= 0; i2--) {
@@ -7861,7 +8004,7 @@ Deprecated since v${version}`);
          */
         propagationPath(target) {
           const propagationPath = [target];
-          for (let i2 = 0; i2 < PROPAGATION_LIMIT && (target !== this.rootTarget && target.parent); i2++) {
+          for (let i2 = 0; i2 < PROPAGATION_LIMIT && target !== this.rootTarget && target.parent; i2++) {
             if (!target.parent) {
               throw new Error("Cannot find propagation path to disconnected target");
             }
@@ -7873,8 +8016,7 @@ Deprecated since v${version}`);
         }
         hitTestMoveRecursive(currentTarget, eventMode, location, testFn, pruneFn, ignore = false) {
           let shouldReturn = false;
-          if (this._interactivePrune(currentTarget))
-            return null;
+          if (this._interactivePrune(currentTarget)) return null;
           if (currentTarget.eventMode === "dynamic" || eventMode === "dynamic") {
             EventsTicker.pauseUpdate = false;
           }
@@ -7882,39 +8024,27 @@ Deprecated since v${version}`);
             const children = currentTarget.children;
             for (let i2 = children.length - 1; i2 >= 0; i2--) {
               const child = children[i2];
-              const nestedHit = this.hitTestMoveRecursive(
-                child,
-                this._isInteractive(eventMode) ? eventMode : child.eventMode,
-                location,
-                testFn,
-                pruneFn,
-                ignore || pruneFn(currentTarget, location)
-              );
+              const nestedHit = this.hitTestMoveRecursive(child, this._isInteractive(eventMode) ? eventMode : child.eventMode, location, testFn, pruneFn, ignore || pruneFn(currentTarget, location));
               if (nestedHit) {
                 if (nestedHit.length > 0 && !nestedHit[nestedHit.length - 1].parent) {
                   continue;
                 }
                 const isInteractive = currentTarget.isInteractive();
                 if (nestedHit.length > 0 || isInteractive) {
-                  if (isInteractive)
-                    this._allInteractiveElements.push(currentTarget);
+                  if (isInteractive) this._allInteractiveElements.push(currentTarget);
                   nestedHit.push(currentTarget);
                 }
-                if (this._hitElements.length === 0)
-                  this._hitElements = nestedHit;
+                if (this._hitElements.length === 0) this._hitElements = nestedHit;
                 shouldReturn = true;
               }
             }
           }
           const isInteractiveMode = this._isInteractive(eventMode);
           const isInteractiveTarget = currentTarget.isInteractive();
-          if (isInteractiveTarget && isInteractiveTarget)
-            this._allInteractiveElements.push(currentTarget);
-          if (ignore || this._hitElements.length > 0)
-            return null;
-          if (shouldReturn)
-            return this._hitElements;
-          if (isInteractiveMode && (!pruneFn(currentTarget, location) && testFn(currentTarget, location))) {
+          if (isInteractiveTarget && isInteractiveTarget) this._allInteractiveElements.push(currentTarget);
+          if (ignore || this._hitElements.length > 0) return null;
+          if (shouldReturn) return this._hitElements;
+          if (isInteractiveMode && !pruneFn(currentTarget, location) && testFn(currentTarget, location)) {
             return isInteractiveTarget ? [currentTarget] : [];
           }
           return null;
@@ -7945,20 +8075,13 @@ Deprecated since v${version}`);
             const relativeLocation = location;
             for (let i2 = children.length - 1; i2 >= 0; i2--) {
               const child = children[i2];
-              const nestedHit = this.hitTestRecursive(
-                child,
-                this._isInteractive(eventMode) ? eventMode : child.eventMode,
-                relativeLocation,
-                testFn,
-                pruneFn
-              );
+              const nestedHit = this.hitTestRecursive(child, this._isInteractive(eventMode) ? eventMode : child.eventMode, relativeLocation, testFn, pruneFn);
               if (nestedHit) {
                 if (nestedHit.length > 0 && !nestedHit[nestedHit.length - 1].parent) {
                   continue;
                 }
                 const isInteractive = currentTarget.isInteractive();
-                if (nestedHit.length > 0 || isInteractive)
-                  nestedHit.push(currentTarget);
+                if (nestedHit.length > 0 || isInteractive) nestedHit.push(currentTarget);
                 return nestedHit;
               }
             }
@@ -8042,7 +8165,7 @@ Deprecated since v${version}`);
           if (!e2.currentTarget.isInteractive()) {
             return;
           }
-          type != null ? type : type = e2.type;
+          type != null ? type : (type = e2.type);
           const handlerKey = `on${type}`;
           (_b = (_a2 = e2.currentTarget)[handlerKey]) == null ? void 0 : _b.call(_a2, e2);
           const key = e2.eventPhase === e2.CAPTURING_PHASE || e2.eventPhase === e2.AT_TARGET ? `${type}capture` : type;
@@ -8099,16 +8222,14 @@ Deprecated since v${version}`);
             const outType = from.type === "mousemove" ? "mouseout" : "pointerout";
             const outEvent = this.createPointerEvent(from, outType, outTarget);
             this.dispatchEvent(outEvent, "pointerout");
-            if (isMouse)
-              this.dispatchEvent(outEvent, "mouseout");
+            if (isMouse) this.dispatchEvent(outEvent, "mouseout");
             if (!e2.composedPath().includes(outTarget)) {
               const leaveEvent = this.createPointerEvent(from, "pointerleave", outTarget);
               leaveEvent.eventPhase = leaveEvent.AT_TARGET;
               while (leaveEvent.target && !e2.composedPath().includes(leaveEvent.target)) {
                 leaveEvent.currentTarget = leaveEvent.target;
                 this.notifyTarget(leaveEvent);
-                if (isMouse)
-                  this.notifyTarget(leaveEvent, "mouseleave");
+                if (isMouse) this.notifyTarget(leaveEvent, "mouseleave");
                 leaveEvent.target = leaveEvent.target.parent;
               }
               this.freeEvent(leaveEvent);
@@ -8119,12 +8240,10 @@ Deprecated since v${version}`);
             const overType = from.type === "mousemove" ? "mouseover" : "pointerover";
             const overEvent = this.clonePointerEvent(e2, overType);
             this.dispatchEvent(overEvent, "pointerover");
-            if (isMouse)
-              this.dispatchEvent(overEvent, "mouseover");
+            if (isMouse) this.dispatchEvent(overEvent, "mouseover");
             let overTargetAncestor = outTarget == null ? void 0 : outTarget.parent;
             while (overTargetAncestor && overTargetAncestor !== this.rootTarget.parent) {
-              if (overTargetAncestor === e2.target)
-                break;
+              if (overTargetAncestor === e2.target) break;
               overTargetAncestor = overTargetAncestor.parent;
             }
             const didPointerEnter = !overTargetAncestor || overTargetAncestor === this.rootTarget.parent;
@@ -8134,8 +8253,7 @@ Deprecated since v${version}`);
               while (enterEvent.target && enterEvent.target !== outTarget && enterEvent.target !== this.rootTarget.parent) {
                 enterEvent.currentTarget = enterEvent.target;
                 this.notifyTarget(enterEvent);
-                if (isMouse)
-                  this.notifyTarget(enterEvent, "mouseenter");
+                if (isMouse) this.notifyTarget(enterEvent, "mouseenter");
                 enterEvent.target = enterEvent.target.parent;
               }
               this.freeEvent(enterEvent);
@@ -8179,17 +8297,14 @@ Deprecated since v${version}`);
           const e2 = this.createPointerEvent(from);
           const isMouse = e2.pointerType === "mouse" || e2.pointerType === "pen";
           this.dispatchEvent(e2, "pointerover");
-          if (isMouse)
-            this.dispatchEvent(e2, "mouseover");
-          if (e2.pointerType === "mouse")
-            this.cursor = (_a2 = e2.target) == null ? void 0 : _a2.cursor;
+          if (isMouse) this.dispatchEvent(e2, "mouseover");
+          if (e2.pointerType === "mouse") this.cursor = (_a2 = e2.target) == null ? void 0 : _a2.cursor;
           const enterEvent = this.clonePointerEvent(e2, "pointerenter");
           enterEvent.eventPhase = enterEvent.AT_TARGET;
           while (enterEvent.target && enterEvent.target !== this.rootTarget.parent) {
             enterEvent.currentTarget = enterEvent.target;
             this.notifyTarget(enterEvent);
-            if (isMouse)
-              this.notifyTarget(enterEvent, "mouseenter");
+            if (isMouse) this.notifyTarget(enterEvent, "mouseenter");
             enterEvent.target = enterEvent.target.parent;
           }
           trackingData.overTargets = e2.composedPath();
@@ -8213,15 +8328,13 @@ Deprecated since v${version}`);
             const outTarget = this.findMountedTarget(trackingData.overTargets);
             const outEvent = this.createPointerEvent(from, "pointerout", outTarget);
             this.dispatchEvent(outEvent);
-            if (isMouse)
-              this.dispatchEvent(outEvent, "mouseout");
+            if (isMouse) this.dispatchEvent(outEvent, "mouseout");
             const leaveEvent = this.createPointerEvent(from, "pointerleave", outTarget);
             leaveEvent.eventPhase = leaveEvent.AT_TARGET;
             while (leaveEvent.target && leaveEvent.target !== this.rootTarget.parent) {
               leaveEvent.currentTarget = leaveEvent.target;
               this.notifyTarget(leaveEvent);
-              if (isMouse)
-                this.notifyTarget(leaveEvent, "mouseleave");
+              if (isMouse) this.notifyTarget(leaveEvent, "mouseleave");
               leaveEvent.target = leaveEvent.target.parent;
             }
             trackingData.overTargets = null;
@@ -8281,7 +8394,7 @@ Deprecated since v${version}`);
               trackingData.clicksByButton[from.button] = {
                 clickCount: 0,
                 target: clickEvent.target,
-                timeStamp: now
+                timeStamp: now,
               };
             }
             const clickHistory = trackingData.clicksByButton[from.button];
@@ -8465,8 +8578,7 @@ Deprecated since v${version}`);
          * @param to - The event to copy data into.
          */
         copyPointerData(from, to) {
-          if (!(from instanceof FederatedPointerEvent && to instanceof FederatedPointerEvent))
-            return;
+          if (!(from instanceof FederatedPointerEvent && to instanceof FederatedPointerEvent)) return;
           to.pointerId = from.pointerId;
           to.width = from.width;
           to.height = from.height;
@@ -8501,8 +8613,7 @@ Deprecated since v${version}`);
          * @param to - The event to copy data into.
          */
         copyMouseData(from, to) {
-          if (!(from instanceof FederatedMouseEvent && to instanceof FederatedMouseEvent))
-            return;
+          if (!(from instanceof FederatedMouseEvent && to instanceof FederatedMouseEvent)) return;
           to.altKey = from.altKey;
           to.button = from.button;
           to.buttons = from.buttons;
@@ -8546,7 +8657,7 @@ Deprecated since v${version}`);
             this.mappingState.trackingData[id] = {
               pressTargetsByButton: {},
               clicksByButton: {},
-              overTarget: null
+              overTarget: null,
             };
           }
           return this.mappingState.trackingData[id];
@@ -8582,8 +8693,7 @@ Deprecated since v${version}`);
          * @throws Error if the event is managed by another event boundary.
          */
         freeEvent(event) {
-          if (event.manager !== this)
-            throw new Error("It is illegal to free an event not managed by this EventBoundary!");
+          if (event.manager !== this) throw new Error("It is illegal to free an event not managed by this EventBoundary!");
           const constructor = event.constructor;
           if (!this.eventPool.has(constructor)) {
             this.eventPool.set(constructor, []);
@@ -8598,22 +8708,19 @@ Deprecated since v${version}`);
          */
         _notifyListeners(e2, type) {
           const listeners = e2.currentTarget._events[type];
-          if (!listeners)
-            return;
+          if (!listeners) return;
           if ("fn" in listeners) {
-            if (listeners.once)
-              e2.currentTarget.removeListener(type, listeners.fn, void 0, true);
+            if (listeners.once) e2.currentTarget.removeListener(type, listeners.fn, void 0, true);
             listeners.fn.call(listeners.context, e2);
           } else {
             for (let i2 = 0, j3 = listeners.length; i2 < j3 && !e2.propagationImmediatelyStopped; i2++) {
-              if (listeners[i2].once)
-                e2.currentTarget.removeListener(type, listeners[i2].fn, void 0, true);
+              if (listeners[i2].once) e2.currentTarget.removeListener(type, listeners[i2].fn, void 0, true);
               listeners[i2].fn.call(listeners[i2].context, e2);
             }
           }
         }
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/events/EventSystem.mjs
@@ -8631,7 +8738,7 @@ Deprecated since v${version}`);
         touchend: "pointerup",
         touchendoutside: "pointerupoutside",
         touchmove: "pointermove",
-        touchcancel: "pointercancel"
+        touchcancel: "pointercancel",
       };
       _EventSystem = class _EventSystem2 {
         /**
@@ -8651,7 +8758,7 @@ Deprecated since v${version}`);
           this._rootWheelEvent = new FederatedWheelEvent(null);
           this.cursorStyles = {
             default: "inherit",
-            pointer: "pointer"
+            pointer: "pointer",
           };
           this.features = new Proxy(__spreadValues({}, _EventSystem2.defaultEventFeatures), {
             set: (target, key, value) => {
@@ -8660,7 +8767,7 @@ Deprecated since v${version}`);
               }
               target[key] = value;
               return true;
-            }
+            },
           });
           this._onPointerDown = this._onPointerDown.bind(this);
           this._onPointerMove = this._onPointerMove.bind(this);
@@ -8752,8 +8859,7 @@ Deprecated since v${version}`);
          * @param nativeEvent - The native mouse/pointer/touch event.
          */
         _onPointerDown(nativeEvent) {
-          if (!this.features.click)
-            return;
+          if (!this.features.click) return;
           this.rootBoundary.rootTarget = this.renderer.lastObjectRendered;
           const events = this._normalizeToPointerData(nativeEvent);
           if (this.autoPreventDefault && events[0].isNormalized) {
@@ -8774,8 +8880,7 @@ Deprecated since v${version}`);
          * @param nativeEvent - The native mouse/pointer/touch events.
          */
         _onPointerMove(nativeEvent) {
-          if (!this.features.move)
-            return;
+          if (!this.features.move) return;
           this.rootBoundary.rootTarget = this.renderer.lastObjectRendered;
           EventsTicker.pointerMoved();
           const normalizedEvents = this._normalizeToPointerData(nativeEvent);
@@ -8790,8 +8895,7 @@ Deprecated since v${version}`);
          * @param nativeEvent - The native mouse/pointer/touch event.
          */
         _onPointerUp(nativeEvent) {
-          if (!this.features.click)
-            return;
+          if (!this.features.click) return;
           this.rootBoundary.rootTarget = this.renderer.lastObjectRendered;
           let target = nativeEvent.target;
           if (nativeEvent.composedPath && nativeEvent.composedPath().length > 0) {
@@ -8811,8 +8915,7 @@ Deprecated since v${version}`);
          * @param nativeEvent - The native mouse/pointer/touch event.
          */
         _onPointerOverOut(nativeEvent) {
-          if (!this.features.click)
-            return;
+          if (!this.features.click) return;
           this.rootBoundary.rootTarget = this.renderer.lastObjectRendered;
           const normalizedEvents = this._normalizeToPointerData(nativeEvent);
           for (let i2 = 0, j3 = normalizedEvents.length; i2 < j3; i2++) {
@@ -8826,8 +8929,7 @@ Deprecated since v${version}`);
          * @param nativeEvent - The native wheel event.
          */
         onWheel(nativeEvent) {
-          if (!this.features.wheel)
-            return;
+          if (!this.features.wheel) return;
           const wheelEvent = this.normalizeWheelEvent(nativeEvent);
           this.rootBoundary.rootTarget = this.renderer.lastObjectRendered;
           this.rootBoundary.mapEvent(wheelEvent);
@@ -8879,7 +8981,7 @@ Deprecated since v${version}`);
           }
           this.domElement.addEventListener("wheel", this.onWheel, {
             passive: true,
-            capture: true
+            capture: true,
           });
           this._eventsAdded = true;
         }
@@ -8929,14 +9031,16 @@ Deprecated since v${version}`);
          * @param  {number} y - the y coord of the position to map
          */
         mapPositionToPoint(point, x3, y2) {
-          const rect = this.domElement.isConnected ? this.domElement.getBoundingClientRect() : {
-            x: 0,
-            y: 0,
-            width: this.domElement.width,
-            height: this.domElement.height,
-            left: 0,
-            top: 0
-          };
+          const rect = this.domElement.isConnected
+            ? this.domElement.getBoundingClientRect()
+            : {
+                x: 0,
+                y: 0,
+                width: this.domElement.width,
+                height: this.domElement.height,
+                left: 0,
+                top: 0,
+              };
           const resolutionMultiplier = 1 / this.resolution;
           point.x = (x3 - rect.left) * (this.domElement.width / rect.width) * resolutionMultiplier;
           point.y = (y2 - rect.top) * (this.domElement.height / rect.height) * resolutionMultiplier;
@@ -8952,61 +9056,38 @@ Deprecated since v${version}`);
           if (this.supportsTouchEvents && event instanceof TouchEvent) {
             for (let i2 = 0, li = event.changedTouches.length; i2 < li; i2++) {
               const touch = event.changedTouches[i2];
-              if (typeof touch.button === "undefined")
-                touch.button = 0;
-              if (typeof touch.buttons === "undefined")
-                touch.buttons = 1;
+              if (typeof touch.button === "undefined") touch.button = 0;
+              if (typeof touch.buttons === "undefined") touch.buttons = 1;
               if (typeof touch.isPrimary === "undefined") {
                 touch.isPrimary = event.touches.length === 1 && event.type === "touchstart";
               }
-              if (typeof touch.width === "undefined")
-                touch.width = touch.radiusX || 1;
-              if (typeof touch.height === "undefined")
-                touch.height = touch.radiusY || 1;
-              if (typeof touch.tiltX === "undefined")
-                touch.tiltX = 0;
-              if (typeof touch.tiltY === "undefined")
-                touch.tiltY = 0;
-              if (typeof touch.pointerType === "undefined")
-                touch.pointerType = "touch";
-              if (typeof touch.pointerId === "undefined")
-                touch.pointerId = touch.identifier || 0;
-              if (typeof touch.pressure === "undefined")
-                touch.pressure = touch.force || 0.5;
-              if (typeof touch.twist === "undefined")
-                touch.twist = 0;
-              if (typeof touch.tangentialPressure === "undefined")
-                touch.tangentialPressure = 0;
-              if (typeof touch.layerX === "undefined")
-                touch.layerX = touch.offsetX = touch.clientX;
-              if (typeof touch.layerY === "undefined")
-                touch.layerY = touch.offsetY = touch.clientY;
+              if (typeof touch.width === "undefined") touch.width = touch.radiusX || 1;
+              if (typeof touch.height === "undefined") touch.height = touch.radiusY || 1;
+              if (typeof touch.tiltX === "undefined") touch.tiltX = 0;
+              if (typeof touch.tiltY === "undefined") touch.tiltY = 0;
+              if (typeof touch.pointerType === "undefined") touch.pointerType = "touch";
+              if (typeof touch.pointerId === "undefined") touch.pointerId = touch.identifier || 0;
+              if (typeof touch.pressure === "undefined") touch.pressure = touch.force || 0.5;
+              if (typeof touch.twist === "undefined") touch.twist = 0;
+              if (typeof touch.tangentialPressure === "undefined") touch.tangentialPressure = 0;
+              if (typeof touch.layerX === "undefined") touch.layerX = touch.offsetX = touch.clientX;
+              if (typeof touch.layerY === "undefined") touch.layerY = touch.offsetY = touch.clientY;
               touch.isNormalized = true;
               touch.type = event.type;
               normalizedEvents.push(touch);
             }
-          } else if (!globalThis.MouseEvent || event instanceof MouseEvent && (!this.supportsPointerEvents || !(event instanceof globalThis.PointerEvent))) {
+          } else if (!globalThis.MouseEvent || (event instanceof MouseEvent && (!this.supportsPointerEvents || !(event instanceof globalThis.PointerEvent)))) {
             const tempEvent = event;
-            if (typeof tempEvent.isPrimary === "undefined")
-              tempEvent.isPrimary = true;
-            if (typeof tempEvent.width === "undefined")
-              tempEvent.width = 1;
-            if (typeof tempEvent.height === "undefined")
-              tempEvent.height = 1;
-            if (typeof tempEvent.tiltX === "undefined")
-              tempEvent.tiltX = 0;
-            if (typeof tempEvent.tiltY === "undefined")
-              tempEvent.tiltY = 0;
-            if (typeof tempEvent.pointerType === "undefined")
-              tempEvent.pointerType = "mouse";
-            if (typeof tempEvent.pointerId === "undefined")
-              tempEvent.pointerId = MOUSE_POINTER_ID;
-            if (typeof tempEvent.pressure === "undefined")
-              tempEvent.pressure = 0.5;
-            if (typeof tempEvent.twist === "undefined")
-              tempEvent.twist = 0;
-            if (typeof tempEvent.tangentialPressure === "undefined")
-              tempEvent.tangentialPressure = 0;
+            if (typeof tempEvent.isPrimary === "undefined") tempEvent.isPrimary = true;
+            if (typeof tempEvent.width === "undefined") tempEvent.width = 1;
+            if (typeof tempEvent.height === "undefined") tempEvent.height = 1;
+            if (typeof tempEvent.tiltX === "undefined") tempEvent.tiltX = 0;
+            if (typeof tempEvent.tiltY === "undefined") tempEvent.tiltY = 0;
+            if (typeof tempEvent.pointerType === "undefined") tempEvent.pointerType = "mouse";
+            if (typeof tempEvent.pointerId === "undefined") tempEvent.pointerId = MOUSE_POINTER_ID;
+            if (typeof tempEvent.pressure === "undefined") tempEvent.pressure = 0.5;
+            if (typeof tempEvent.twist === "undefined") tempEvent.twist = 0;
+            if (typeof tempEvent.tangentialPressure === "undefined") tempEvent.tangentialPressure = 0;
             tempEvent.isNormalized = true;
             normalizedEvents.push(tempEvent);
           } else {
@@ -9097,12 +9178,8 @@ Deprecated since v${version}`);
       };
       _EventSystem.extension = {
         name: "events",
-        type: [
-          ExtensionType.WebGLSystem,
-          ExtensionType.CanvasSystem,
-          ExtensionType.WebGPUSystem
-        ],
-        priority: -1
+        type: [ExtensionType.WebGLSystem, ExtensionType.CanvasSystem, ExtensionType.WebGPUSystem],
+        priority: -1,
       };
       _EventSystem.defaultEventFeatures = {
         /** Enables pointer events associated with pointer movement. */
@@ -9112,10 +9189,10 @@ Deprecated since v${version}`);
         /** Enables pointer events associated with clicking. */
         click: true,
         /** Enables wheel events. */
-        wheel: true
+        wheel: true,
       };
       EventSystem = _EventSystem;
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/events/FederatedEventTarget.mjs
@@ -9576,7 +9653,7 @@ Deprecated since v${version}`);
          * });
          */
         addEventListener(type, listener, options) {
-          const capture = typeof options === "boolean" && options || typeof options === "object" && options.capture;
+          const capture = (typeof options === "boolean" && options) || (typeof options === "object" && options.capture);
           const signal = typeof options === "object" ? options.signal : void 0;
           const once = typeof options === "object" ? options.once === true : false;
           const context2 = typeof listener === "function" ? void 0 : listener;
@@ -9603,7 +9680,7 @@ Deprecated since v${version}`);
          * @param options - The original listener options. This is required to deregister a capture phase listener.
          */
         removeEventListener(type, listener, options) {
-          const capture = typeof options === "boolean" && options || typeof options === "object" && options.capture;
+          const capture = (typeof options === "boolean" && options) || (typeof options === "object" && options.capture);
           const context2 = typeof listener === "function" ? void 0 : listener;
           type = capture ? `${type}capture` : type;
           listener = typeof listener === "function" ? listener : listener.handleEvent;
@@ -9629,9 +9706,9 @@ Deprecated since v${version}`);
           e2.target = this;
           e2.manager.dispatchEvent(e2);
           return !e2.defaultPrevented;
-        }
+        },
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/events/init.mjs
@@ -9643,7 +9720,7 @@ Deprecated since v${version}`);
       init_FederatedEventTarget();
       extensions.add(EventSystem);
       extensions.mixin(Container, FederatedContainer);
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/assets/loader/parsers/LoaderParser.mjs
@@ -9652,12 +9729,12 @@ Deprecated since v${version}`);
     "../../../../node_modules/pixi.js/lib/assets/loader/parsers/LoaderParser.mjs"() {
       "use strict";
       LoaderParserPriority = /* @__PURE__ */ ((LoaderParserPriority2) => {
-        LoaderParserPriority2[LoaderParserPriority2["Low"] = 0] = "Low";
-        LoaderParserPriority2[LoaderParserPriority2["Normal"] = 1] = "Normal";
-        LoaderParserPriority2[LoaderParserPriority2["High"] = 2] = "High";
+        LoaderParserPriority2[(LoaderParserPriority2["Low"] = 0)] = "Low";
+        LoaderParserPriority2[(LoaderParserPriority2["Normal"] = 1)] = "Normal";
+        LoaderParserPriority2[(LoaderParserPriority2["High"] = 2)] = "High";
         return LoaderParserPriority2;
       })(LoaderParserPriority || {});
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/environment-browser/BrowserAdapter.mjs
@@ -9684,9 +9761,9 @@ Deprecated since v${version}`);
         parseXML: (xml) => {
           const parser = new DOMParser();
           return parser.parseFromString(xml, "text/xml");
-        }
+        },
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/environment/adapter.mjs
@@ -9709,9 +9786,9 @@ Deprecated since v${version}`);
          */
         set(adapter) {
           currentAdapter = adapter;
-        }
+        },
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/utils/path.mjs
@@ -9865,8 +9942,7 @@ Deprecated since v${version}`);
          */
         toAbsolute(url, customBaseUrl, customRootUrl) {
           assertPath(url);
-          if (this.isDataUrl(url) || this.isBlobUrl(url))
-            return url;
+          if (this.isDataUrl(url) || this.isBlobUrl(url)) return url;
           const baseUrl = removeUrlParams(this.toPosix(customBaseUrl != null ? customBaseUrl : DOMAdapter.get().getBaseUrl()));
           const rootUrl = removeUrlParams(this.toPosix(customRootUrl != null ? customRootUrl : this.rootname(baseUrl)));
           url = this.toPosix(url);
@@ -9882,10 +9958,8 @@ Deprecated since v${version}`);
          */
         normalize(path2) {
           assertPath(path2);
-          if (path2.length === 0)
-            return ".";
-          if (this.isDataUrl(path2) || this.isBlobUrl(path2))
-            return path2;
+          if (path2.length === 0) return ".";
+          if (this.isDataUrl(path2) || this.isBlobUrl(path2)) return path2;
           path2 = this.toPosix(path2);
           let protocol = "";
           const isAbsolute = path2.startsWith("/");
@@ -9895,10 +9969,8 @@ Deprecated since v${version}`);
           }
           const trailingSeparator = path2.endsWith("/");
           path2 = normalizeStringPosix(path2, false);
-          if (path2.length > 0 && trailingSeparator)
-            path2 += "/";
-          if (isAbsolute)
-            return `/${path2}`;
+          if (path2.length > 0 && trailingSeparator) path2 += "/";
+          if (isAbsolute) return `/${path2}`;
           return protocol + path2;
         },
         /**
@@ -9909,8 +9981,7 @@ Deprecated since v${version}`);
         isAbsolute(path2) {
           assertPath(path2);
           path2 = this.toPosix(path2);
-          if (this.hasProtocol(path2))
-            return true;
+          if (this.hasProtocol(path2)) return true;
           return path2.startsWith("/");
         },
         /**
@@ -9928,8 +9999,7 @@ Deprecated since v${version}`);
             const arg = segments[i2];
             assertPath(arg);
             if (arg.length > 0) {
-              if (joined === void 0)
-                joined = arg;
+              if (joined === void 0) joined = arg;
               else {
                 const prevArg = (_a2 = segments[i2 - 1]) != null ? _a2 : "";
                 if (this.joinExtensions.includes(this.extname(prevArg).toLowerCase())) {
@@ -9951,8 +10021,7 @@ Deprecated since v${version}`);
          */
         dirname(path2) {
           assertPath(path2);
-          if (path2.length === 0)
-            return ".";
+          if (path2.length === 0) return ".";
           path2 = this.toPosix(path2);
           let code = path2.charCodeAt(0);
           const hasRoot = code === 47;
@@ -9972,10 +10041,8 @@ Deprecated since v${version}`);
               matchedSlash = false;
             }
           }
-          if (end === -1)
-            return hasRoot ? "/" : this.isUrl(origpath) ? proto + path2 : proto;
-          if (hasRoot && end === 1)
-            return "//";
+          if (end === -1) return hasRoot ? "/" : this.isUrl(origpath) ? proto + path2 : proto;
+          if (hasRoot && end === 1) return "//";
           return proto + path2.slice(0, end);
         },
         /**
@@ -9986,8 +10053,7 @@ Deprecated since v${version}`);
           assertPath(path2);
           path2 = this.toPosix(path2);
           let root = "";
-          if (path2.startsWith("/"))
-            root = "/";
+          if (path2.startsWith("/")) root = "/";
           else {
             root = this.getProtocol(path2);
           }
@@ -9995,10 +10061,8 @@ Deprecated since v${version}`);
             const index = path2.indexOf("/", root.length);
             if (index !== -1) {
               root = path2.slice(0, index);
-            } else
-              root = path2;
-            if (!root.endsWith("/"))
-              root += "/";
+            } else root = path2;
+            if (!root.endsWith("/")) root += "/";
           }
           return root;
         },
@@ -10009,16 +10073,14 @@ Deprecated since v${version}`);
          */
         basename(path2, ext) {
           assertPath(path2);
-          if (ext)
-            assertPath(ext);
+          if (ext) assertPath(ext);
           path2 = removeUrlParams(this.toPosix(path2));
           let start = 0;
           let end = -1;
           let matchedSlash = true;
           let i2;
           if (ext !== void 0 && ext.length > 0 && ext.length <= path2.length) {
-            if (ext.length === path2.length && ext === path2)
-              return "";
+            if (ext.length === path2.length && ext === path2) return "";
             let extIdx = ext.length - 1;
             let firstNonSlashEnd = -1;
             for (i2 = path2.length - 1; i2 >= 0; --i2) {
@@ -10045,10 +10107,8 @@ Deprecated since v${version}`);
                 }
               }
             }
-            if (start === end)
-              end = firstNonSlashEnd;
-            else if (end === -1)
-              end = path2.length;
+            if (start === end) end = firstNonSlashEnd;
+            else if (end === -1) end = path2.length;
             return path2.slice(start, end);
           }
           for (i2 = path2.length - 1; i2 >= 0; --i2) {
@@ -10062,8 +10122,7 @@ Deprecated since v${version}`);
               end = i2 + 1;
             }
           }
-          if (end === -1)
-            return "";
+          if (end === -1) return "";
           return path2.slice(start, end);
         },
         /**
@@ -10094,15 +10153,13 @@ Deprecated since v${version}`);
               end = i2 + 1;
             }
             if (code === 46) {
-              if (startDot === -1)
-                startDot = i2;
-              else if (preDotState !== 1)
-                preDotState = 1;
+              if (startDot === -1) startDot = i2;
+              else if (preDotState !== 1) preDotState = 1;
             } else if (startDot !== -1) {
               preDotState = -1;
             }
           }
-          if (startDot === -1 || end === -1 || preDotState === 0 || preDotState === 1 && startDot === end - 1 && startDot === startPart + 1) {
+          if (startDot === -1 || end === -1 || preDotState === 0 || (preDotState === 1 && startDot === end - 1 && startDot === startPart + 1)) {
             return "";
           }
           return path2.slice(startDot, end);
@@ -10114,8 +10171,7 @@ Deprecated since v${version}`);
         parse(path2) {
           assertPath(path2);
           const ret = { root: "", dir: "", base: "", ext: "", name: "" };
-          if (path2.length === 0)
-            return ret;
+          if (path2.length === 0) return ret;
           path2 = removeUrlParams(this.toPosix(path2));
           let code = path2.charCodeAt(0);
           const isAbsolute = this.isAbsolute(path2);
@@ -10147,20 +10203,16 @@ Deprecated since v${version}`);
               end = i2 + 1;
             }
             if (code === 46) {
-              if (startDot === -1)
-                startDot = i2;
-              else if (preDotState !== 1)
-                preDotState = 1;
+              if (startDot === -1) startDot = i2;
+              else if (preDotState !== 1) preDotState = 1;
             } else if (startDot !== -1) {
               preDotState = -1;
             }
           }
-          if (startDot === -1 || end === -1 || preDotState === 0 || preDotState === 1 && startDot === end - 1 && startDot === startPart + 1) {
+          if (startDot === -1 || end === -1 || preDotState === 0 || (preDotState === 1 && startDot === end - 1 && startDot === startPart + 1)) {
             if (end !== -1) {
-              if (startPart === 0 && isAbsolute)
-                ret.base = ret.name = path2.slice(1, end);
-              else
-                ret.base = ret.name = path2.slice(startPart, end);
+              if (startPart === 0 && isAbsolute) ret.base = ret.name = path2.slice(1, end);
+              else ret.base = ret.name = path2.slice(startPart, end);
             }
           } else {
             if (startPart === 0 && isAbsolute) {
@@ -10173,15 +10225,14 @@ Deprecated since v${version}`);
             ret.ext = path2.slice(startDot, end);
           }
           ret.dir = this.dirname(path2);
-          if (protocol)
-            ret.dir = protocol + ret.dir;
+          if (protocol) ret.dir = protocol + ret.dir;
           return ret;
         },
         sep: "/",
         delimiter: ":",
-        joinExtensions: [".html"]
+        joinExtensions: [".html"],
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/assets/utils/convertToList.mjs
@@ -10203,7 +10254,7 @@ Deprecated since v${version}`);
           return item;
         });
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/assets/utils/createStringVariations.mjs
@@ -10237,7 +10288,7 @@ Deprecated since v${version}`);
   var init_createStringVariations = __esm({
     "../../../../node_modules/pixi.js/lib/assets/utils/createStringVariations.mjs"() {
       "use strict";
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/assets/utils/isSingleItem.mjs
@@ -10246,7 +10297,7 @@ Deprecated since v${version}`);
     "../../../../node_modules/pixi.js/lib/assets/utils/isSingleItem.mjs"() {
       "use strict";
       isSingleItem = (item) => !Array.isArray(item);
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/assets/resolver/Resolver.mjs
@@ -10266,7 +10317,7 @@ Deprecated since v${version}`);
           this._defaultBundleIdentifierOptions = {
             connector: "-",
             createBundleAssetId: (bundleId, assetId) => `${bundleId}${this._bundleIdConnector}${assetId}`,
-            extractAssetIdFromBundle: (bundleId, assetBundleId) => assetBundleId.replace(`${bundleId}${this._bundleIdConnector}`, "")
+            extractAssetIdFromBundle: (bundleId, assetBundleId) => assetBundleId.replace(`${bundleId}${this._bundleIdConnector}`, ""),
           };
           this._bundleIdConnector = this._defaultBundleIdentifierOptions.connector;
           this._createBundleAssetId = this._defaultBundleIdentifierOptions.createBundleAssetId;
@@ -10408,7 +10459,9 @@ Deprecated since v${version}`);
             this._defaultSearchParams = searchParams;
           } else {
             const queryValues = searchParams;
-            this._defaultSearchParams = Object.keys(queryValues).map((key) => `${encodeURIComponent(key)}=${encodeURIComponent(queryValues[key])}`).join("&");
+            this._defaultSearchParams = Object.keys(queryValues)
+              .map((key) => `${encodeURIComponent(key)}=${encodeURIComponent(queryValues[key])}`)
+              .join("&");
           }
         }
         /**
@@ -10420,15 +10473,13 @@ Deprecated since v${version}`);
           const aliasesToUse = convertToList(
             alias || src,
             (value) => {
-              if (typeof value === "string")
-                return value;
+              if (typeof value === "string") return value;
               if (Array.isArray(value))
                 return value.map((v3) => {
                   var _a2;
                   return (_a2 = v3 == null ? void 0 : v3.src) != null ? _a2 : v3;
                 });
-              if (value == null ? void 0 : value.src)
-                return value.src;
+              if (value == null ? void 0 : value.src) return value.src;
               return value;
             },
             true
@@ -10493,10 +10544,12 @@ Deprecated since v${version}`);
               assetNames.push(...bundleIds);
               ids = [...aliases, ...bundleIds];
             }
-            this.add(__spreadValues(__spreadValues({}, asset), {
-              alias: ids,
-              src: srcs
-            }));
+            this.add(
+              __spreadValues(__spreadValues({}, asset), {
+                alias: ids,
+                src: srcs,
+              })
+            );
           });
           this._bundles[bundleId] = assetNames;
         }
@@ -10579,7 +10632,7 @@ Deprecated since v${version}`);
                   aliases: aliasesToUse,
                   data,
                   format,
-                  loadParser
+                  loadParser,
                 });
                 resolvedAssets.push(formattedAsset);
               });
@@ -10674,25 +10727,30 @@ Deprecated since v${version}`);
               if (this._assetMap[key]) {
                 let assets = this._assetMap[key];
                 const preferredOrder = this._getPreferredOrder(assets);
-                preferredOrder == null ? void 0 : preferredOrder.priority.forEach((priorityKey) => {
-                  preferredOrder.params[priorityKey].forEach((value) => {
-                    const filteredAssets = assets.filter((asset) => {
-                      if (asset[priorityKey]) {
-                        return asset[priorityKey] === value;
-                      }
-                      return false;
+                preferredOrder == null
+                  ? void 0
+                  : preferredOrder.priority.forEach((priorityKey) => {
+                      preferredOrder.params[priorityKey].forEach((value) => {
+                        const filteredAssets = assets.filter((asset) => {
+                          if (asset[priorityKey]) {
+                            return asset[priorityKey] === value;
+                          }
+                          return false;
+                        });
+                        if (filteredAssets.length) {
+                          assets = filteredAssets;
+                        }
+                      });
                     });
-                    if (filteredAssets.length) {
-                      assets = filteredAssets;
-                    }
-                  });
-                });
                 this._resolverHash[key] = assets[0];
               } else {
-                this._resolverHash[key] = this._buildResolvedAsset({
-                  alias: [key],
-                  src: key
-                }, {});
+                this._resolverHash[key] = this._buildResolvedAsset(
+                  {
+                    alias: [key],
+                    src: key,
+                  },
+                  {}
+                );
               }
             }
             result[key] = this._resolverHash[key];
@@ -10733,8 +10791,7 @@ Deprecated since v${version}`);
          * @returns - The url with the default parameters appended
          */
         _appendDefaultSearchParams(url) {
-          if (!this._defaultSearchParams)
-            return url;
+          if (!this._defaultSearchParams) return url;
           const paramConnector = /\?/.test(url) ? "&" : "?";
           return `${url}${paramConnector}${this._defaultSearchParams}`;
         }
@@ -10753,7 +10810,7 @@ Deprecated since v${version}`);
         }
       };
       Resolver.RETINA_PREFIX = /@([0-9\.]+)x/;
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/assets/utils/copySearchParams.mjs
@@ -10768,7 +10825,7 @@ Deprecated since v${version}`);
         }
         return targetUrl;
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/spritesheet/Spritesheet.mjs
@@ -10833,34 +10890,14 @@ Deprecated since v${version}`);
               let frame = null;
               let trim = null;
               const sourceSize = data.trimmed !== false && data.sourceSize ? data.sourceSize : data.frame;
-              const orig = new Rectangle(
-                0,
-                0,
-                Math.floor(sourceSize.w) / this.resolution,
-                Math.floor(sourceSize.h) / this.resolution
-              );
+              const orig = new Rectangle(0, 0, Math.floor(sourceSize.w) / this.resolution, Math.floor(sourceSize.h) / this.resolution);
               if (data.rotated) {
-                frame = new Rectangle(
-                  Math.floor(rect.x) / this.resolution,
-                  Math.floor(rect.y) / this.resolution,
-                  Math.floor(rect.h) / this.resolution,
-                  Math.floor(rect.w) / this.resolution
-                );
+                frame = new Rectangle(Math.floor(rect.x) / this.resolution, Math.floor(rect.y) / this.resolution, Math.floor(rect.h) / this.resolution, Math.floor(rect.w) / this.resolution);
               } else {
-                frame = new Rectangle(
-                  Math.floor(rect.x) / this.resolution,
-                  Math.floor(rect.y) / this.resolution,
-                  Math.floor(rect.w) / this.resolution,
-                  Math.floor(rect.h) / this.resolution
-                );
+                frame = new Rectangle(Math.floor(rect.x) / this.resolution, Math.floor(rect.y) / this.resolution, Math.floor(rect.w) / this.resolution, Math.floor(rect.h) / this.resolution);
               }
               if (data.trimmed !== false && data.spriteSourceSize) {
-                trim = new Rectangle(
-                  Math.floor(data.spriteSourceSize.x) / this.resolution,
-                  Math.floor(data.spriteSourceSize.y) / this.resolution,
-                  Math.floor(rect.w) / this.resolution,
-                  Math.floor(rect.h) / this.resolution
-                );
+                trim = new Rectangle(Math.floor(data.spriteSourceSize.x) / this.resolution, Math.floor(data.spriteSourceSize.y) / this.resolution, Math.floor(rect.w) / this.resolution, Math.floor(rect.h) / this.resolution);
               }
               this.textures[i2] = new Texture({
                 source: this.textureSource,
@@ -10870,7 +10907,7 @@ Deprecated since v${version}`);
                 rotate: data.rotated ? 2 : 0,
                 defaultAnchor: data.anchor,
                 defaultBorders: data.borders,
-                label: i2.toString()
+                label: i2.toString(),
               });
             }
             frameIndex++;
@@ -10931,7 +10968,7 @@ Deprecated since v${version}`);
       };
       _Spritesheet.BATCH_SIZE = 1e3;
       Spritesheet = _Spritesheet;
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/spritesheet/spritesheetAsset.mjs
@@ -10962,36 +10999,19 @@ Deprecated since v${version}`);
       init_Texture();
       init_path();
       init_Spritesheet();
-      validImages = [
-        "jpg",
-        "png",
-        "jpeg",
-        "avif",
-        "webp",
-        "basis",
-        "etc2",
-        "bc7",
-        "bc6h",
-        "bc5",
-        "bc4",
-        "bc3",
-        "bc2",
-        "bc1",
-        "eac",
-        "astc"
-      ];
+      validImages = ["jpg", "png", "jpeg", "avif", "webp", "basis", "etc2", "bc7", "bc6h", "bc5", "bc4", "bc3", "bc2", "bc1", "eac", "astc"];
       spritesheetAsset = {
         extension: ExtensionType.Asset,
         /** Handle the caching of the related Spritesheet Textures */
         cache: {
           test: (asset) => asset instanceof Spritesheet,
-          getCacheableAssets: (keys, asset) => getCacheableAssets(keys, asset, false)
+          getCacheableAssets: (keys, asset) => getCacheableAssets(keys, asset, false),
         },
         /** Resolve the resolution of the asset. */
         resolver: {
           extension: {
             type: ExtensionType.ResolveParser,
-            name: "resolveSpritesheet"
+            name: "resolveSpritesheet",
           },
           test: (value) => {
             const tempURL = value.split("?")[0];
@@ -11006,9 +11026,9 @@ Deprecated since v${version}`);
             return {
               resolution: parseFloat((_b = (_a2 = Resolver.RETINA_PREFIX.exec(value)) == null ? void 0 : _a2[1]) != null ? _b : "1"),
               format: split[split.length - 2],
-              src: value
+              src: value,
             };
-          }
+          },
         },
         /**
          * Loader plugin that parses sprite sheets!
@@ -11021,7 +11041,7 @@ Deprecated since v${version}`);
           extension: {
             type: ExtensionType.LoadParser,
             priority: LoaderParserPriority.Normal,
-            name: "spritesheetLoader"
+            name: "spritesheetLoader",
           },
           testParse(asset, options) {
             return __async(this, null, function* () {
@@ -11036,7 +11056,7 @@ Deprecated since v${version}`);
                 // if user need to use preloaded texture
                 imageFilename,
                 // if user need to use custom filename (not from jsonFile.meta.image)
-                textureOptions
+                textureOptions,
                 // if user need to set texture options on texture
               } = (_a2 = options == null ? void 0 : options.data) != null ? _a2 : {};
               let basePath = path.dirname(options.src);
@@ -11051,10 +11071,7 @@ Deprecated since v${version}`);
                 const assets = yield loader.load([{ src: imagePath, data: textureOptions }]);
                 texture = assets[imagePath];
               }
-              const spritesheet = new Spritesheet(
-                texture.source,
-                asset
-              );
+              const spritesheet = new Spritesheet(texture.source, asset);
               yield spritesheet.parse();
               const multiPacks = (_b = asset == null ? void 0 : asset.meta) == null ? void 0 : _b.related_multi_packs;
               if (Array.isArray(multiPacks)) {
@@ -11068,13 +11085,15 @@ Deprecated since v${version}`);
                     continue;
                   }
                   itemUrl = copySearchParams(itemUrl, options.src);
-                  promises.push(loader.load({
-                    src: itemUrl,
-                    data: {
-                      textureOptions,
-                      ignoreMultiPack: true
-                    }
-                  }));
+                  promises.push(
+                    loader.load({
+                      src: itemUrl,
+                      data: {
+                        textureOptions,
+                        ignoreMultiPack: true,
+                      },
+                    })
+                  );
                 }
                 const res = yield Promise.all(promises);
                 spritesheet.linkedSheets = res;
@@ -11090,10 +11109,10 @@ Deprecated since v${version}`);
               yield loader.unload(spritesheet.textureSource._sourceOrigin);
               spritesheet.destroy(false);
             });
-          }
-        }
+          },
+        },
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/spritesheet/init.mjs
@@ -11102,7 +11121,7 @@ Deprecated since v${version}`);
       init_Extensions();
       init_spritesheetAsset();
       extensions.add(spritesheetAsset);
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/utils/data/updateQuadBounds.mjs
@@ -11126,7 +11145,7 @@ Deprecated since v${version}`);
   var init_updateQuadBounds = __esm({
     "../../../../node_modules/pixi.js/lib/utils/data/updateQuadBounds.mjs"() {
       "use strict";
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/view/ViewContainer.mjs
@@ -11151,8 +11170,7 @@ Deprecated since v${version}`);
          * @type {rendering.Bounds}
          */
         get bounds() {
-          if (!this._boundsDirty)
-            return this._bounds;
+          if (!this._boundsDirty) return this._bounds;
           this.updateBounds();
           this._boundsDirty = false;
           return this._bounds;
@@ -11180,8 +11198,7 @@ Deprecated since v${version}`);
         onViewUpdate() {
           this._didViewChangeTick++;
           this._boundsDirty = true;
-          if (this.didViewUpdate)
-            return;
+          if (this.didViewUpdate) return;
           this.didViewUpdate = true;
           const renderGroup = this.renderGroup || this.parentRenderGroup;
           if (renderGroup) {
@@ -11206,7 +11223,7 @@ Deprecated since v${version}`);
           }
         }
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/sprite/Sprite.mjs
@@ -11226,20 +11243,25 @@ Deprecated since v${version}`);
           if (options instanceof Texture) {
             options = { texture: options };
           }
-          const _a2 = options, { texture = Texture.EMPTY, anchor, roundPixels, width, height } = _a2, rest = __objRest(_a2, ["texture", "anchor", "roundPixels", "width", "height"]);
-          super(__spreadValues({
-            label: "Sprite"
-          }, rest));
+          const _a2 = options,
+            { texture = Texture.EMPTY, anchor, roundPixels, width, height } = _a2,
+            rest = __objRest(_a2, ["texture", "anchor", "roundPixels", "width", "height"]);
+          super(
+            __spreadValues(
+              {
+                label: "Sprite",
+              },
+              rest
+            )
+          );
           this.renderPipeId = "sprite";
           this.batched = true;
           this._visualBounds = { minX: 0, maxX: 1, minY: 0, maxY: 0 };
-          this._anchor = new ObservablePoint(
-            {
-              _onUpdate: () => {
-                this.onViewUpdate();
-              }
-            }
-          );
+          this._anchor = new ObservablePoint({
+            _onUpdate: () => {
+              this.onViewUpdate();
+            },
+          });
           if (anchor) {
             this.anchor = anchor;
           } else if (texture.defaultAnchor) {
@@ -11248,10 +11270,8 @@ Deprecated since v${version}`);
           this.texture = texture;
           this.allowChildren = false;
           this.roundPixels = roundPixels != null ? roundPixels : false;
-          if (width !== void 0)
-            this.width = width;
-          if (height !== void 0)
-            this.height = height;
+          if (width !== void 0) this.width = width;
+          if (height !== void 0) this.height = height;
         }
         /**
          * Helper function that creates a new sprite based on the source you provide.
@@ -11269,12 +11289,9 @@ Deprecated since v${version}`);
         set texture(value) {
           value || (value = Texture.EMPTY);
           const currentTexture = this._texture;
-          if (currentTexture === value)
-            return;
-          if (currentTexture && currentTexture.dynamic)
-            currentTexture.off("update", this.onViewUpdate, this);
-          if (value.dynamic)
-            value.on("update", this.onViewUpdate, this);
+          if (currentTexture === value) return;
+          if (currentTexture && currentTexture.dynamic) currentTexture.off("update", this.onViewUpdate, this);
+          if (value.dynamic) value.on("update", this.onViewUpdate, this);
           this._texture = value;
           if (this._width) {
             this._setWidth(this._width, this._texture.orig.width);
@@ -11396,13 +11413,13 @@ Deprecated since v${version}`);
             height = (_a2 = value.height) != null ? _a2 : value.width;
             value = value.width;
           } else {
-            height != null ? height : height = value;
+            height != null ? height : (height = value);
           }
           value !== void 0 && this._setWidth(value, this._texture.orig.width);
           height !== void 0 && this._setHeight(height, this._texture.orig.height);
         }
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/mask/utils/addMaskBounds.mjs
@@ -11419,7 +11436,7 @@ Deprecated since v${version}`);
       init_Bounds();
       init_getGlobalBounds();
       tempBounds = new Bounds();
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/mask/utils/addMaskLocalBounds.mjs
@@ -11451,7 +11468,7 @@ Deprecated since v${version}`);
       init_getLocalBounds();
       init_matrixAndBoundsPool();
       init_warn();
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/mask/alpha/AlphaMask.mjs
@@ -11502,7 +11519,7 @@ Deprecated since v${version}`);
         }
       };
       AlphaMask.extension = ExtensionType.MaskEffect;
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/mask/color/ColorMask.mjs
@@ -11521,14 +11538,13 @@ Deprecated since v${version}`);
         init(mask) {
           this.mask = mask;
         }
-        destroy() {
-        }
+        destroy() {}
         static test(mask) {
           return typeof mask === "number";
         }
       };
       ColorMask.extension = ExtensionType.MaskEffect;
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/mask/stencil/StencilMask.mjs
@@ -11575,7 +11591,7 @@ Deprecated since v${version}`);
         }
       };
       StencilMask.extension = ExtensionType.MaskEffect;
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/shared/texture/sources/CanvasSource.mjs
@@ -11626,7 +11642,7 @@ Deprecated since v${version}`);
           return didResize;
         }
         static test(resource) {
-          return globalThis.HTMLCanvasElement && resource instanceof HTMLCanvasElement || globalThis.OffscreenCanvas && resource instanceof OffscreenCanvas;
+          return (globalThis.HTMLCanvasElement && resource instanceof HTMLCanvasElement) || (globalThis.OffscreenCanvas && resource instanceof OffscreenCanvas);
         }
         /**
          * Returns the 2D rendering context for the canvas.
@@ -11638,7 +11654,7 @@ Deprecated since v${version}`);
         }
       };
       CanvasSource.extension = ExtensionType.TextureSource;
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/shared/texture/sources/ImageSource.mjs
@@ -11651,7 +11667,7 @@ Deprecated since v${version}`);
       init_TextureSource();
       ImageSource = class extends TextureSource {
         constructor(options) {
-          if (options.resource && (globalThis.HTMLImageElement && options.resource instanceof HTMLImageElement)) {
+          if (options.resource && globalThis.HTMLImageElement && options.resource instanceof HTMLImageElement) {
             const canvas = DOMAdapter.get().createCanvas(options.resource.width, options.resource.height);
             const context2 = canvas.getContext("2d");
             context2.drawImage(options.resource, 0, 0, options.resource.width, options.resource.height);
@@ -11663,57 +11679,55 @@ Deprecated since v${version}`);
           this.autoGarbageCollect = true;
         }
         static test(resource) {
-          return globalThis.HTMLImageElement && resource instanceof HTMLImageElement || typeof ImageBitmap !== "undefined" && resource instanceof ImageBitmap || globalThis.VideoFrame && resource instanceof VideoFrame;
+          return (globalThis.HTMLImageElement && resource instanceof HTMLImageElement) || (typeof ImageBitmap !== "undefined" && resource instanceof ImageBitmap) || (globalThis.VideoFrame && resource instanceof VideoFrame);
         }
       };
       ImageSource.extension = ExtensionType.TextureSource;
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/utils/browser/detectVideoAlphaMode.mjs
   function detectVideoAlphaMode() {
     return __async(this, null, function* () {
-      promise != null ? promise : promise = (() => __async(this, null, function* () {
-        var _a2;
-        const canvas = document.createElement("canvas");
-        const gl = canvas.getContext("webgl");
-        if (!gl) {
-          return "premultiply-alpha-on-upload";
-        }
-        const video = yield new Promise((resolve) => {
-          const video2 = document.createElement("video");
-          video2.onloadeddata = () => resolve(video2);
-          video2.onerror = () => resolve(null);
-          video2.autoplay = false;
-          video2.crossOrigin = "anonymous";
-          video2.preload = "auto";
-          video2.src = "data:video/webm;base64,GkXfo59ChoEBQveBAULygQRC84EIQoKEd2VibUKHgQJChYECGFOAZwEAAAAAAAHTEU2bdLpNu4tTq4QVSalmU6yBoU27i1OrhBZUrmtTrIHGTbuMU6uEElTDZ1OsggEXTbuMU6uEHFO7a1OsggG97AEAAAAAAABZAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAVSalmoCrXsYMPQkBNgIRMYXZmV0GETGF2ZkSJiEBEAAAAAAAAFlSua8yuAQAAAAAAAEPXgQFzxYgAAAAAAAAAAZyBACK1nIN1bmSIgQCGhVZfVlA5g4EBI+ODhAJiWgDglLCBArqBApqBAlPAgQFVsIRVuYEBElTDZ9Vzc9JjwItjxYgAAAAAAAAAAWfInEWjh0VOQ09ERVJEh49MYXZjIGxpYnZweC12cDlnyKJFo4hEVVJBVElPTkSHlDAwOjAwOjAwLjA0MDAwMDAwMAAAH0O2dcfngQCgwqGggQAAAIJJg0IAABAAFgA4JBwYSgAAICAAEb///4r+AAB1oZ2mm+6BAaWWgkmDQgAAEAAWADgkHBhKAAAgIABIQBxTu2uRu4+zgQC3iveBAfGCAXHwgQM=";
-          video2.load();
-        });
-        if (!video) {
-          return "premultiply-alpha-on-upload";
-        }
-        const texture = gl.createTexture();
-        gl.bindTexture(gl.TEXTURE_2D, texture);
-        const framebuffer = gl.createFramebuffer();
-        gl.bindFramebuffer(gl.FRAMEBUFFER, framebuffer);
-        gl.framebufferTexture2D(
-          gl.FRAMEBUFFER,
-          gl.COLOR_ATTACHMENT0,
-          gl.TEXTURE_2D,
-          texture,
-          0
-        );
-        gl.pixelStorei(gl.UNPACK_PREMULTIPLY_ALPHA_WEBGL, false);
-        gl.pixelStorei(gl.UNPACK_COLORSPACE_CONVERSION_WEBGL, gl.NONE);
-        gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, video);
-        const pixel = new Uint8Array(4);
-        gl.readPixels(0, 0, 1, 1, gl.RGBA, gl.UNSIGNED_BYTE, pixel);
-        gl.deleteFramebuffer(framebuffer);
-        gl.deleteTexture(texture);
-        (_a2 = gl.getExtension("WEBGL_lose_context")) == null ? void 0 : _a2.loseContext();
-        return pixel[0] <= pixel[3] ? "premultiplied-alpha" : "premultiply-alpha-on-upload";
-      }))();
+      promise != null
+        ? promise
+        : (promise = (() =>
+            __async(this, null, function* () {
+              var _a2;
+              const canvas = document.createElement("canvas");
+              const gl = canvas.getContext("webgl");
+              if (!gl) {
+                return "premultiply-alpha-on-upload";
+              }
+              const video = yield new Promise((resolve) => {
+                const video2 = document.createElement("video");
+                video2.onloadeddata = () => resolve(video2);
+                video2.onerror = () => resolve(null);
+                video2.autoplay = false;
+                video2.crossOrigin = "anonymous";
+                video2.preload = "auto";
+                video2.src =
+                  "data:video/webm;base64,GkXfo59ChoEBQveBAULygQRC84EIQoKEd2VibUKHgQJChYECGFOAZwEAAAAAAAHTEU2bdLpNu4tTq4QVSalmU6yBoU27i1OrhBZUrmtTrIHGTbuMU6uEElTDZ1OsggEXTbuMU6uEHFO7a1OsggG97AEAAAAAAABZAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAVSalmoCrXsYMPQkBNgIRMYXZmV0GETGF2ZkSJiEBEAAAAAAAAFlSua8yuAQAAAAAAAEPXgQFzxYgAAAAAAAAAAZyBACK1nIN1bmSIgQCGhVZfVlA5g4EBI+ODhAJiWgDglLCBArqBApqBAlPAgQFVsIRVuYEBElTDZ9Vzc9JjwItjxYgAAAAAAAAAAWfInEWjh0VOQ09ERVJEh49MYXZjIGxpYnZweC12cDlnyKJFo4hEVVJBVElPTkSHlDAwOjAwOjAwLjA0MDAwMDAwMAAAH0O2dcfngQCgwqGggQAAAIJJg0IAABAAFgA4JBwYSgAAICAAEb///4r+AAB1oZ2mm+6BAaWWgkmDQgAAEAAWADgkHBhKAAAgIABIQBxTu2uRu4+zgQC3iveBAfGCAXHwgQM=";
+                video2.load();
+              });
+              if (!video) {
+                return "premultiply-alpha-on-upload";
+              }
+              const texture = gl.createTexture();
+              gl.bindTexture(gl.TEXTURE_2D, texture);
+              const framebuffer = gl.createFramebuffer();
+              gl.bindFramebuffer(gl.FRAMEBUFFER, framebuffer);
+              gl.framebufferTexture2D(gl.FRAMEBUFFER, gl.COLOR_ATTACHMENT0, gl.TEXTURE_2D, texture, 0);
+              gl.pixelStorei(gl.UNPACK_PREMULTIPLY_ALPHA_WEBGL, false);
+              gl.pixelStorei(gl.UNPACK_COLORSPACE_CONVERSION_WEBGL, gl.NONE);
+              gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, video);
+              const pixel = new Uint8Array(4);
+              gl.readPixels(0, 0, 1, 1, gl.RGBA, gl.UNSIGNED_BYTE, pixel);
+              gl.deleteFramebuffer(framebuffer);
+              gl.deleteTexture(texture);
+              (_a2 = gl.getExtension("WEBGL_lose_context")) == null ? void 0 : _a2.loseContext();
+              return pixel[0] <= pixel[3] ? "premultiplied-alpha" : "premultiply-alpha-on-upload";
+            }))());
       return promise;
     });
   }
@@ -11721,7 +11735,7 @@ Deprecated since v${version}`);
   var init_detectVideoAlphaMode = __esm({
     "../../../../node_modules/pixi.js/lib/utils/browser/detectVideoAlphaMode.mjs"() {
       "use strict";
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/shared/texture/sources/VideoSource.mjs
@@ -11782,9 +11796,7 @@ Deprecated since v${version}`);
           if (this.destroyed) {
             this._videoFrameRequestCallbackHandle = null;
           } else {
-            this._videoFrameRequestCallbackHandle = this.resource.requestVideoFrameCallback(
-              this._videoFrameRequestCallback
-            );
+            this._videoFrameRequestCallbackHandle = this.resource.requestVideoFrameCallback(this._videoFrameRequestCallback);
           }
         }
         /**
@@ -11983,9 +11995,7 @@ Deprecated since v${version}`);
                 this._msToNextUpdate = 0;
               }
               if (this._videoFrameRequestCallbackHandle === null) {
-                this._videoFrameRequestCallbackHandle = this.resource.requestVideoFrameCallback(
-                  this._videoFrameRequestCallback
-                );
+                this._videoFrameRequestCallbackHandle = this.resource.requestVideoFrameCallback(this._videoFrameRequestCallback);
               }
             } else {
               if (this._videoFrameRequestCallbackHandle !== null) {
@@ -12031,15 +12041,15 @@ Deprecated since v${version}`);
         /** If true, the video will play inline. */
         playsinline: true,
         /** If true, the video will be preloaded. */
-        preload: false
+        preload: false,
       });
       _VideoSource.MIME_TYPES = {
         ogv: "video/ogg",
         mov: "video/quicktime",
-        m4v: "video/mp4"
+        m4v: "video/mp4",
       };
       VideoSource = _VideoSource;
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/assets/cache/Cache.mjs
@@ -12101,7 +12111,7 @@ Deprecated since v${version}`);
           const cacheKeys = [...cacheableMap.keys()];
           const cachedAssets = {
             cacheKeys,
-            keys
+            keys,
           };
           keys.forEach((key2) => {
             this._cacheMap.set(key2, cachedAssets);
@@ -12140,7 +12150,7 @@ Deprecated since v${version}`);
         }
       };
       Cache = new CacheClass();
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/shared/texture/utils/textureFrom.mjs
@@ -12193,7 +12203,7 @@ Deprecated since v${version}`);
       extensions.handleByList(ExtensionType.TextureSource, sources);
       Texture.from = textureFrom;
       TextureSource.from = textureSourceFrom;
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/init.mjs
@@ -12209,7 +12219,7 @@ Deprecated since v${version}`);
       init_VideoSource();
       init_textureFrom();
       extensions.add(AlphaMask, ColorMask, StencilMask, VideoSource, ImageSource, CanvasSource, BufferImageSource);
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/gpu/shader/BindGroup.mjs
@@ -12239,8 +12249,7 @@ Deprecated since v${version}`);
          * @ignore
          */
         _updateKey() {
-          if (!this._dirty)
-            return;
+          if (!this._dirty) return;
           this._dirty = false;
           const keyParts = [];
           let index = 0;
@@ -12259,8 +12268,7 @@ Deprecated since v${version}`);
         setResource(resource, index) {
           var _a2, _b;
           const currentResource = this.resources[index];
-          if (resource === currentResource)
-            return;
+          if (resource === currentResource) return;
           if (currentResource) {
             (_a2 = resource.off) == null ? void 0 : _a2.call(resource, "change", this.onResourceChange, this);
           }
@@ -12313,7 +12321,7 @@ Deprecated since v${version}`);
           }
         }
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/gl/shader/program/getTestContext.mjs
@@ -12328,7 +12336,7 @@ Deprecated since v${version}`);
   var init_getTestContext = __esm({
     "../../../../node_modules/pixi.js/lib/rendering/renderers/gl/shader/program/getTestContext.mjs"() {
       init_adapter();
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/batcher/gl/utils/checkMaxIfStatementsInShader.mjs
@@ -12355,7 +12363,7 @@ Deprecated since v${version}`);
         gl.shaderSource(shader, fragmentSrc);
         gl.compileShader(shader);
         if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
-          maxIfs = maxIfs / 2 | 0;
+          maxIfs = (maxIfs / 2) | 0;
         } else {
           break;
         }
@@ -12369,28 +12377,17 @@ Deprecated since v${version}`);
   var init_checkMaxIfStatementsInShader = __esm({
     "../../../../node_modules/pixi.js/lib/rendering/batcher/gl/utils/checkMaxIfStatementsInShader.mjs"() {
       "use strict";
-      fragTemplate = [
-        "precision mediump float;",
-        "void main(void){",
-        "float test = 0.1;",
-        "%forloop%",
-        "gl_FragColor = vec4(0.0);",
-        "}"
-      ].join("\n");
-    }
+      fragTemplate = ["precision mediump float;", "void main(void){", "float test = 0.1;", "%forloop%", "gl_FragColor = vec4(0.0);", "}"].join("\n");
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/batcher/gl/utils/maxRecommendedTextures.mjs
   function getMaxTexturesPerBatch() {
     var _a2;
-    if (maxTexturesPerBatchCache)
-      return maxTexturesPerBatchCache;
+    if (maxTexturesPerBatchCache) return maxTexturesPerBatchCache;
     const gl = getTestContext();
     maxTexturesPerBatchCache = gl.getParameter(gl.MAX_TEXTURE_IMAGE_UNITS);
-    maxTexturesPerBatchCache = checkMaxIfStatementsInShader(
-      maxTexturesPerBatchCache,
-      gl
-    );
+    maxTexturesPerBatchCache = checkMaxIfStatementsInShader(maxTexturesPerBatchCache, gl);
     (_a2 = gl.getExtension("WEBGL_lose_context")) == null ? void 0 : _a2.loseContext();
     return maxTexturesPerBatchCache;
   }
@@ -12400,7 +12397,7 @@ Deprecated since v${version}`);
       init_getTestContext();
       init_checkMaxIfStatementsInShader();
       maxTexturesPerBatchCache = null;
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/batcher/gpu/getTextureBatchBindGroup.mjs
@@ -12416,8 +12413,7 @@ Deprecated since v${version}`);
   function generateTextureBatchBindGroup(textures, size, key) {
     const bindGroupResources = {};
     let bindIndex = 0;
-    if (!maxTextures)
-      maxTextures = getMaxTexturesPerBatch();
+    if (!maxTextures) maxTextures = getMaxTexturesPerBatch();
     for (let i2 = 0; i2 < maxTextures; i2++) {
       const texture = i2 < size ? textures[i2] : Texture.EMPTY.source;
       bindGroupResources[bindIndex++] = texture.source;
@@ -12435,7 +12431,7 @@ Deprecated since v${version}`);
       init_maxRecommendedTextures();
       cachedGroups = {};
       maxTextures = 0;
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/utils/data/ViewableBuffer.mjs
@@ -12541,12 +12537,12 @@ Deprecated since v${version}`);
           }
         }
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/shared/buffer/utils/fastCopy.mjs
   function fastCopy(sourceBuffer, destinationBuffer) {
-    const lengthDouble = sourceBuffer.byteLength / 8 | 0;
+    const lengthDouble = (sourceBuffer.byteLength / 8) | 0;
     const sourceFloat64View = new Float64Array(sourceBuffer, 0, lengthDouble);
     const destinationFloat64View = new Float64Array(destinationBuffer, 0, lengthDouble);
     destinationFloat64View.set(sourceFloat64View);
@@ -12560,7 +12556,7 @@ Deprecated since v${version}`);
   var init_fastCopy = __esm({
     "../../../../node_modules/pixi.js/lib/rendering/renderers/shared/buffer/utils/fastCopy.mjs"() {
       "use strict";
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/shared/state/const.mjs
@@ -12571,18 +12567,18 @@ Deprecated since v${version}`);
       BLEND_TO_NPM = {
         normal: "normal-npm",
         add: "add-npm",
-        screen: "screen-npm"
+        screen: "screen-npm",
       };
       STENCIL_MODES = /* @__PURE__ */ ((STENCIL_MODES2) => {
-        STENCIL_MODES2[STENCIL_MODES2["DISABLED"] = 0] = "DISABLED";
-        STENCIL_MODES2[STENCIL_MODES2["RENDERING_MASK_ADD"] = 1] = "RENDERING_MASK_ADD";
-        STENCIL_MODES2[STENCIL_MODES2["MASK_ACTIVE"] = 2] = "MASK_ACTIVE";
-        STENCIL_MODES2[STENCIL_MODES2["INVERSE_MASK_ACTIVE"] = 3] = "INVERSE_MASK_ACTIVE";
-        STENCIL_MODES2[STENCIL_MODES2["RENDERING_MASK_REMOVE"] = 4] = "RENDERING_MASK_REMOVE";
-        STENCIL_MODES2[STENCIL_MODES2["NONE"] = 5] = "NONE";
+        STENCIL_MODES2[(STENCIL_MODES2["DISABLED"] = 0)] = "DISABLED";
+        STENCIL_MODES2[(STENCIL_MODES2["RENDERING_MASK_ADD"] = 1)] = "RENDERING_MASK_ADD";
+        STENCIL_MODES2[(STENCIL_MODES2["MASK_ACTIVE"] = 2)] = "MASK_ACTIVE";
+        STENCIL_MODES2[(STENCIL_MODES2["INVERSE_MASK_ACTIVE"] = 3)] = "INVERSE_MASK_ACTIVE";
+        STENCIL_MODES2[(STENCIL_MODES2["RENDERING_MASK_REMOVE"] = 4)] = "RENDERING_MASK_REMOVE";
+        STENCIL_MODES2[(STENCIL_MODES2["NONE"] = 5)] = "NONE";
         return STENCIL_MODES2;
       })(STENCIL_MODES || {});
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/shared/state/getAdjustedBlendModeBlend.mjs
@@ -12595,7 +12591,7 @@ Deprecated since v${version}`);
   var init_getAdjustedBlendModeBlend = __esm({
     "../../../../node_modules/pixi.js/lib/rendering/renderers/shared/state/getAdjustedBlendModeBlend.mjs"() {
       init_const3();
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/batcher/shared/BatchTextureArray.mjs
@@ -12619,7 +12615,7 @@ Deprecated since v${version}`);
           this.count = 0;
         }
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/batcher/shared/Batcher.mjs
@@ -12697,8 +12693,7 @@ Deprecated since v${version}`);
         }
         checkAndUpdateTexture(batchableObject, texture) {
           const textureId = batchableObject._batch.textures.ids[texture._source.uid];
-          if (!textureId && textureId !== 0)
-            return false;
+          if (!textureId && textureId !== 0) return false;
           batchableObject._textureId = textureId;
           batchableObject.texture = texture;
           return true;
@@ -12707,21 +12702,9 @@ Deprecated since v${version}`);
           this.dirty = true;
           const attributeBuffer = this.attributeBuffer;
           if (batchableObject.packAsQuad) {
-            this.packQuadAttributes(
-              batchableObject,
-              attributeBuffer.float32View,
-              attributeBuffer.uint32View,
-              batchableObject._attributeStart,
-              batchableObject._textureId
-            );
+            this.packQuadAttributes(batchableObject, attributeBuffer.float32View, attributeBuffer.uint32View, batchableObject._attributeStart, batchableObject._textureId);
           } else {
-            this.packAttributes(
-              batchableObject,
-              attributeBuffer.float32View,
-              attributeBuffer.uint32View,
-              batchableObject._attributeStart,
-              batchableObject._textureId
-            );
+            this.packAttributes(batchableObject, attributeBuffer.float32View, attributeBuffer.uint32View, batchableObject._attributeStart, batchableObject._textureId);
           }
         }
         /**
@@ -12731,8 +12714,7 @@ Deprecated since v${version}`);
          */
         break(instructionSet) {
           const elements = this._elements;
-          if (!elements[this.elementStart])
-            return;
+          if (!elements[this.elementStart]) return;
           let batch = getBatchFromPool();
           let textureBatch = batch.textures;
           textureBatch.clear();
@@ -12763,48 +12745,18 @@ Deprecated since v${version}`);
               element._textureId = source2._textureBindLocation;
               size += element.indexSize;
               if (element.packAsQuad) {
-                this.packQuadAttributes(
-                  element,
-                  f32,
-                  u32,
-                  element._attributeStart,
-                  element._textureId
-                );
-                this.packQuadIndex(
-                  indexBuffer,
-                  element._indexStart,
-                  element._attributeStart / this.vertexSize
-                );
+                this.packQuadAttributes(element, f32, u32, element._attributeStart, element._textureId);
+                this.packQuadIndex(indexBuffer, element._indexStart, element._attributeStart / this.vertexSize);
               } else {
-                this.packAttributes(
-                  element,
-                  f32,
-                  u32,
-                  element._attributeStart,
-                  element._textureId
-                );
-                this.packIndex(
-                  element,
-                  indexBuffer,
-                  element._indexStart,
-                  element._attributeStart / this.vertexSize
-                );
+                this.packAttributes(element, f32, u32, element._attributeStart, element._textureId);
+                this.packIndex(element, indexBuffer, element._indexStart, element._attributeStart / this.vertexSize);
               }
               element._batch = batch;
               continue;
             }
             source2._batchTick = BATCH_TICK;
             if (textureBatch.count >= maxTextures2 || breakRequired) {
-              this._finishBatch(
-                batch,
-                start,
-                size - start,
-                textureBatch,
-                blendMode,
-                topology,
-                instructionSet,
-                action
-              );
+              this._finishBatch(batch, start, size - start, textureBatch, blendMode, topology, instructionSet, action);
               action = "renderBatch";
               start = size;
               blendMode = adjustedBlendMode;
@@ -12820,45 +12772,15 @@ Deprecated since v${version}`);
             element._batch = batch;
             size += element.indexSize;
             if (element.packAsQuad) {
-              this.packQuadAttributes(
-                element,
-                f32,
-                u32,
-                element._attributeStart,
-                element._textureId
-              );
-              this.packQuadIndex(
-                indexBuffer,
-                element._indexStart,
-                element._attributeStart / this.vertexSize
-              );
+              this.packQuadAttributes(element, f32, u32, element._attributeStart, element._textureId);
+              this.packQuadIndex(indexBuffer, element._indexStart, element._attributeStart / this.vertexSize);
             } else {
-              this.packAttributes(
-                element,
-                f32,
-                u32,
-                element._attributeStart,
-                element._textureId
-              );
-              this.packIndex(
-                element,
-                indexBuffer,
-                element._indexStart,
-                element._attributeStart / this.vertexSize
-              );
+              this.packAttributes(element, f32, u32, element._attributeStart, element._textureId);
+              this.packIndex(element, indexBuffer, element._indexStart, element._attributeStart / this.vertexSize);
             }
           }
           if (textureBatch.count > 0) {
-            this._finishBatch(
-              batch,
-              start,
-              size - start,
-              textureBatch,
-              blendMode,
-              topology,
-              instructionSet,
-              action
-            );
+            this._finishBatch(batch, start, size - start, textureBatch, blendMode, topology, instructionSet, action);
             start = size;
             ++BATCH_TICK;
           }
@@ -12888,8 +12810,7 @@ Deprecated since v${version}`);
          * @param size - the size in vertices to ensure (not bytes!)
          */
         ensureAttributeBuffer(size) {
-          if (size * 4 <= this.attributeBuffer.size)
-            return;
+          if (size * 4 <= this.attributeBuffer.size) return;
           this._resizeAttributeBuffer(size * 4);
         }
         /**
@@ -12897,8 +12818,7 @@ Deprecated since v${version}`);
          * @param size - the size in vertices to ensure (not bytes!)
          */
         ensureIndexBuffer(size) {
-          if (size <= this.indexBuffer.length)
-            return;
+          if (size <= this.indexBuffer.length) return;
           this._resizeIndexBuffer(size);
         }
         _resizeAttributeBuffer(size) {
@@ -12955,10 +12875,10 @@ Deprecated since v${version}`);
       _Batcher.defaultOptions = {
         maxTextures: null,
         attributesInitialSize: 4,
-        indicesInitialSize: 6
+        indicesInitialSize: 6,
       };
       Batcher = _Batcher;
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/shared/buffer/const.mjs
@@ -12967,20 +12887,20 @@ Deprecated since v${version}`);
     "../../../../node_modules/pixi.js/lib/rendering/renderers/shared/buffer/const.mjs"() {
       "use strict";
       BufferUsage = /* @__PURE__ */ ((BufferUsage2) => {
-        BufferUsage2[BufferUsage2["MAP_READ"] = 1] = "MAP_READ";
-        BufferUsage2[BufferUsage2["MAP_WRITE"] = 2] = "MAP_WRITE";
-        BufferUsage2[BufferUsage2["COPY_SRC"] = 4] = "COPY_SRC";
-        BufferUsage2[BufferUsage2["COPY_DST"] = 8] = "COPY_DST";
-        BufferUsage2[BufferUsage2["INDEX"] = 16] = "INDEX";
-        BufferUsage2[BufferUsage2["VERTEX"] = 32] = "VERTEX";
-        BufferUsage2[BufferUsage2["UNIFORM"] = 64] = "UNIFORM";
-        BufferUsage2[BufferUsage2["STORAGE"] = 128] = "STORAGE";
-        BufferUsage2[BufferUsage2["INDIRECT"] = 256] = "INDIRECT";
-        BufferUsage2[BufferUsage2["QUERY_RESOLVE"] = 512] = "QUERY_RESOLVE";
-        BufferUsage2[BufferUsage2["STATIC"] = 1024] = "STATIC";
+        BufferUsage2[(BufferUsage2["MAP_READ"] = 1)] = "MAP_READ";
+        BufferUsage2[(BufferUsage2["MAP_WRITE"] = 2)] = "MAP_WRITE";
+        BufferUsage2[(BufferUsage2["COPY_SRC"] = 4)] = "COPY_SRC";
+        BufferUsage2[(BufferUsage2["COPY_DST"] = 8)] = "COPY_DST";
+        BufferUsage2[(BufferUsage2["INDEX"] = 16)] = "INDEX";
+        BufferUsage2[(BufferUsage2["VERTEX"] = 32)] = "VERTEX";
+        BufferUsage2[(BufferUsage2["UNIFORM"] = 64)] = "UNIFORM";
+        BufferUsage2[(BufferUsage2["STORAGE"] = 128)] = "STORAGE";
+        BufferUsage2[(BufferUsage2["INDIRECT"] = 256)] = "INDIRECT";
+        BufferUsage2[(BufferUsage2["QUERY_RESOLVE"] = 512)] = "QUERY_RESOLVE";
+        BufferUsage2[(BufferUsage2["STATIC"] = 1024)] = "STATIC";
         return BufferUsage2;
       })(BufferUsage || {});
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/shared/buffer/Buffer.mjs
@@ -13011,13 +12931,13 @@ Deprecated since v${version}`);
             data = new Float32Array(data);
           }
           this._data = data;
-          size != null ? size : size = data == null ? void 0 : data.byteLength;
+          size != null ? size : (size = data == null ? void 0 : data.byteLength);
           const mappedAtCreation = !!data;
           this.descriptor = {
             size,
             usage,
             mappedAtCreation,
-            label
+            label,
           };
           this.shrinkToFit = shrinkToFit != null ? shrinkToFit : true;
         }
@@ -13056,8 +12976,7 @@ Deprecated since v${version}`);
           this._updateID++;
           this._updateSize = size * value.BYTES_PER_ELEMENT;
           if (this._data === value) {
-            if (syncGPU)
-              this.emit("update", this);
+            if (syncGPU) this.emit("update", this);
             return;
           }
           const oldData = this._data;
@@ -13065,8 +12984,7 @@ Deprecated since v${version}`);
           this._dataInt32 = null;
           if (!oldData || oldData.length !== value.length) {
             if (!this.shrinkToFit && oldData && value.byteLength < oldData.byteLength) {
-              if (syncGPU)
-                this.emit("update", this);
+              if (syncGPU) this.emit("update", this);
             } else {
               this.descriptor.size = value.byteLength;
               this._resourceId = uid("resource");
@@ -13074,8 +12992,7 @@ Deprecated since v${version}`);
             }
             return;
           }
-          if (syncGPU)
-            this.emit("update", this);
+          if (syncGPU) this.emit("update", this);
         }
         /**
          * updates the buffer on the GPU to reflect the data in the buffer.
@@ -13098,7 +13015,7 @@ Deprecated since v${version}`);
           this.removeAllListeners();
         }
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/shared/geometry/utils/ensureIsBuffer.mjs
@@ -13117,7 +13034,7 @@ Deprecated since v${version}`);
       buffer = new Buffer2({
         data: buffer,
         label: index ? "index-mesh-buffer" : "vertex-mesh-buffer",
-        usage
+        usage,
       });
     }
     return buffer;
@@ -13126,7 +13043,7 @@ Deprecated since v${version}`);
     "../../../../node_modules/pixi.js/lib/rendering/renderers/shared/geometry/utils/ensureIsBuffer.mjs"() {
       init_Buffer();
       init_const4();
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/shared/geometry/utils/getGeometryBounds.mjs
@@ -13150,14 +13067,10 @@ Deprecated since v${version}`);
     for (let i2 = offset; i2 < data.length; i2 += stride) {
       const x3 = data[i2];
       const y2 = data[i2 + 1];
-      if (x3 > maxX)
-        maxX = x3;
-      if (y2 > maxY)
-        maxY = y2;
-      if (x3 < minX)
-        minX = x3;
-      if (y2 < minY)
-        minY = y2;
+      if (x3 > maxX) maxX = x3;
+      if (y2 > maxY) maxY = y2;
+      if (x3 < minX) minX = x3;
+      if (y2 < minY) minY = y2;
     }
     bounds.minX = minX;
     bounds.minY = minY;
@@ -13168,14 +13081,14 @@ Deprecated since v${version}`);
   var init_getGeometryBounds = __esm({
     "../../../../node_modules/pixi.js/lib/rendering/renderers/shared/geometry/utils/getGeometryBounds.mjs"() {
       "use strict";
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/shared/geometry/Geometry.mjs
   function ensureIsAttribute(attribute) {
     if (attribute instanceof Buffer2 || Array.isArray(attribute) || attribute.BYTES_PER_ELEMENT) {
       attribute = {
-        buffer: attribute
+        buffer: attribute,
       };
     }
     attribute.buffer = ensureIsBuffer(attribute.buffer, false);
@@ -13281,8 +13194,7 @@ Deprecated since v${version}`);
         }
         /** Returns the bounds of the geometry. */
         get bounds() {
-          if (!this._boundsDirty)
-            return this._bounds;
+          if (!this._boundsDirty) return this._bounds;
           this._boundsDirty = false;
           return getGeometryBounds(this, "aPosition", this._bounds);
         }
@@ -13302,7 +13214,7 @@ Deprecated since v${version}`);
           this._bounds = null;
         }
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/batcher/shared/BatchGeometry.mjs
@@ -13321,14 +13233,14 @@ Deprecated since v${version}`);
             data: placeHolderBufferData,
             label: "attribute-batch-buffer",
             usage: BufferUsage.VERTEX | BufferUsage.COPY_DST,
-            shrinkToFit: false
+            shrinkToFit: false,
           });
           const indexBuffer = new Buffer2({
             data: placeHolderIndexData,
             label: "index-batch-buffer",
             usage: BufferUsage.INDEX | BufferUsage.COPY_DST,
             // | BufferUsage.STATIC,
-            shrinkToFit: false
+            shrinkToFit: false,
           });
           const stride = vertexSize * 4;
           super({
@@ -13337,32 +13249,32 @@ Deprecated since v${version}`);
                 buffer: attributeBuffer,
                 format: "float32x2",
                 stride,
-                offset: 0
+                offset: 0,
               },
               aUV: {
                 buffer: attributeBuffer,
                 format: "float32x2",
                 stride,
-                offset: 2 * 4
+                offset: 2 * 4,
               },
               aColor: {
                 buffer: attributeBuffer,
                 format: "unorm8x4",
                 stride,
-                offset: 4 * 4
+                offset: 4 * 4,
               },
               aTextureIdAndRound: {
                 buffer: attributeBuffer,
                 format: "uint16x2",
                 stride,
-                offset: 5 * 4
-              }
+                offset: 5 * 4,
+              },
             },
-            indexBuffer
+            indexBuffer,
           });
         }
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/shared/utils/createIdFromString.mjs
@@ -13382,7 +13294,7 @@ Deprecated since v${version}`);
       "use strict";
       idCounts = /* @__PURE__ */ Object.create(null);
       idHash2 = /* @__PURE__ */ Object.create(null);
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/gl/shader/program/getMaxFragmentPrecision.mjs
@@ -13403,13 +13315,12 @@ Deprecated since v${version}`);
   var init_getMaxFragmentPrecision = __esm({
     "../../../../node_modules/pixi.js/lib/rendering/renderers/gl/shader/program/getMaxFragmentPrecision.mjs"() {
       init_getTestContext();
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/gl/shader/program/preprocessors/addProgramDefines.mjs
   function addProgramDefines(src, isES300, isFragment) {
-    if (isES300)
-      return src;
+    if (isES300) return src;
     if (isFragment) {
       src = src.replace("out vec4 finalColor;", "");
       return `
@@ -13434,7 +13345,7 @@ Deprecated since v${version}`);
   var init_addProgramDefines = __esm({
     "../../../../node_modules/pixi.js/lib/rendering/renderers/gl/shader/program/preprocessors/addProgramDefines.mjs"() {
       "use strict";
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/gl/shader/program/preprocessors/ensurePrecision.mjs
@@ -13455,20 +13366,19 @@ ${src}`;
   var init_ensurePrecision = __esm({
     "../../../../node_modules/pixi.js/lib/rendering/renderers/gl/shader/program/preprocessors/ensurePrecision.mjs"() {
       "use strict";
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/gl/shader/program/preprocessors/insertVersion.mjs
   function insertVersion(src, isES300) {
-    if (!isES300)
-      return src;
+    if (!isES300) return src;
     return `#version 300 es
 ${src}`;
   }
   var init_insertVersion = __esm({
     "../../../../node_modules/pixi.js/lib/rendering/renderers/gl/shader/program/preprocessors/insertVersion.mjs"() {
       "use strict";
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/gl/shader/program/preprocessors/setProgramName.mjs
@@ -13482,8 +13392,7 @@ ${src}`;
     } else {
       nameCache[name] = 1;
     }
-    if (src.indexOf("#define SHADER_NAME") !== -1)
-      return src;
+    if (src.indexOf("#define SHADER_NAME") !== -1) return src;
     const shaderName = `#define SHADER_NAME ${name}`;
     return `${shaderName}
 ${src}`;
@@ -13494,19 +13403,18 @@ ${src}`;
       "use strict";
       fragmentNameCache = {};
       VertexNameCache = {};
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/gl/shader/program/preprocessors/stripVersion.mjs
   function stripVersion(src, isES300) {
-    if (!isES300)
-      return src;
+    if (!isES300) return src;
     return src.replace("#version 300 es", "");
   }
   var init_stripVersion = __esm({
     "../../../../node_modules/pixi.js/lib/rendering/renderers/gl/shader/program/preprocessors/stripVersion.mjs"() {
       "use strict";
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/gl/shader/GlProgram.mjs
@@ -13530,7 +13438,7 @@ ${src}`;
         // add the program name to the shader
         setProgramName,
         // add the version string to the shader header
-        insertVersion
+        insertVersion,
       };
       programCache = /* @__PURE__ */ Object.create(null);
       _GlProgram = class _GlProgram2 {
@@ -13547,13 +13455,13 @@ ${src}`;
               requestedFragmentPrecision: options.preferredFragmentPrecision,
               requestedVertexPrecision: options.preferredVertexPrecision,
               maxSupportedVertexPrecision: "highp",
-              maxSupportedFragmentPrecision: getMaxFragmentPrecision()
+              maxSupportedFragmentPrecision: getMaxFragmentPrecision(),
             },
             setProgramName: {
-              name: options.name
+              name: options.name,
             },
             addProgramDefines: isES300,
-            insertVersion: isES300
+            insertVersion: isES300,
           };
           let fragment4 = options.fragment;
           let vertex4 = options.vertex;
@@ -13593,10 +13501,10 @@ ${src}`;
       };
       _GlProgram.defaultOptions = {
         preferredVertexPrecision: "highp",
-        preferredFragmentPrecision: "mediump"
+        preferredFragmentPrecision: "mediump",
       };
       GlProgram = _GlProgram;
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/shared/geometry/utils/getAttributeInfoFromFormat.mjs
@@ -13638,9 +13546,9 @@ ${src}`;
         sint32: { size: 1, stride: 4, normalised: false },
         sint32x2: { size: 2, stride: 8, normalised: false },
         sint32x3: { size: 3, stride: 12, normalised: false },
-        sint32x4: { size: 4, stride: 16, normalised: false }
+        sint32x4: { size: 4, stride: 16, normalised: false },
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/gpu/shader/utils/extractAttributesFromGpuProgram.mjs
@@ -13662,7 +13570,7 @@ ${src}`;
             stride: getAttributeInfoFromFormat(format).stride,
             offset: 0,
             instance: false,
-            start: 0
+            start: 0,
           };
         }
       }
@@ -13692,9 +13600,9 @@ ${src}`;
         bool: "uint32",
         "vec2<bool>": "uint32x2",
         "vec3<bool>": "uint32x3",
-        "vec4<bool>": "uint32x4"
+        "vec4<bool>": "uint32x4",
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/gpu/shader/utils/extractStructAndGroups.mjs
@@ -13708,40 +13616,51 @@ ${src}`;
     const structPattern = /struct\s+(\w+)\s*{([^}]+)}/g;
     const structMemberPattern = /(\w+)\s*:\s*([\w\<\>]+)/g;
     const structName = /struct\s+(\w+)/;
-    const groups = (_a2 = wgsl2.match(linePattern)) == null ? void 0 : _a2.map((item) => ({
-      group: parseInt(item.match(groupPattern)[1], 10),
-      binding: parseInt(item.match(bindingPattern)[1], 10),
-      name: item.match(namePattern)[2],
-      isUniform: item.match(namePattern)[1] === "<uniform>",
-      type: item.match(typePattern)[1]
-    }));
+    const groups =
+      (_a2 = wgsl2.match(linePattern)) == null
+        ? void 0
+        : _a2.map((item) => ({
+            group: parseInt(item.match(groupPattern)[1], 10),
+            binding: parseInt(item.match(bindingPattern)[1], 10),
+            name: item.match(namePattern)[2],
+            isUniform: item.match(namePattern)[1] === "<uniform>",
+            type: item.match(typePattern)[1],
+          }));
     if (!groups) {
       return {
         groups: [],
-        structs: []
+        structs: [],
       };
     }
-    const structs = (_c = (_b = wgsl2.match(structPattern)) == null ? void 0 : _b.map((struct) => {
-      const name = struct.match(structName)[1];
-      const members = struct.match(structMemberPattern).reduce((acc, member) => {
-        const [name2, type] = member.split(":");
-        acc[name2.trim()] = type.trim();
-        return acc;
-      }, {});
-      if (!members) {
-        return null;
-      }
-      return { name, members };
-    }).filter(({ name }) => groups.some((group) => group.type === name))) != null ? _c : [];
+    const structs =
+      (_c =
+        (_b = wgsl2.match(structPattern)) == null
+          ? void 0
+          : _b
+              .map((struct) => {
+                const name = struct.match(structName)[1];
+                const members = struct.match(structMemberPattern).reduce((acc, member) => {
+                  const [name2, type] = member.split(":");
+                  acc[name2.trim()] = type.trim();
+                  return acc;
+                }, {});
+                if (!members) {
+                  return null;
+                }
+                return { name, members };
+              })
+              .filter(({ name }) => groups.some((group) => group.type === name))) != null
+        ? _c
+        : [];
     return {
       groups,
-      structs
+      structs,
     };
   }
   var init_extractStructAndGroups = __esm({
     "../../../../node_modules/pixi.js/lib/rendering/renderers/gpu/shader/utils/extractStructAndGroups.mjs"() {
       "use strict";
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/shared/shader/const.mjs
@@ -13750,12 +13669,12 @@ ${src}`;
     "../../../../node_modules/pixi.js/lib/rendering/renderers/shared/shader/const.mjs"() {
       "use strict";
       ShaderStage = /* @__PURE__ */ ((ShaderStage2) => {
-        ShaderStage2[ShaderStage2["VERTEX"] = 1] = "VERTEX";
-        ShaderStage2[ShaderStage2["FRAGMENT"] = 2] = "FRAGMENT";
-        ShaderStage2[ShaderStage2["COMPUTE"] = 4] = "COMPUTE";
+        ShaderStage2[(ShaderStage2["VERTEX"] = 1)] = "VERTEX";
+        ShaderStage2[(ShaderStage2["FRAGMENT"] = 2)] = "FRAGMENT";
+        ShaderStage2[(ShaderStage2["COMPUTE"] = 4)] = "COMPUTE";
         return ShaderStage2;
       })(ShaderStage || {});
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/gpu/shader/utils/generateGpuLayoutGroups.mjs
@@ -13771,16 +13690,16 @@ ${src}`;
           binding: group.binding,
           visibility: ShaderStage.VERTEX | ShaderStage.FRAGMENT,
           buffer: {
-            type: "uniform"
-          }
+            type: "uniform",
+          },
         });
       } else if (group.type === "sampler") {
         layout[group.group].push({
           binding: group.binding,
           visibility: ShaderStage.FRAGMENT,
           sampler: {
-            type: "filtering"
-          }
+            type: "filtering",
+          },
         });
       } else if (group.type === "texture_2d") {
         layout[group.group].push({
@@ -13789,8 +13708,8 @@ ${src}`;
           texture: {
             sampleType: "float",
             viewDimension: "2d",
-            multisampled: false
-          }
+            multisampled: false,
+          },
         });
       }
     }
@@ -13799,7 +13718,7 @@ ${src}`;
   var init_generateGpuLayoutGroups = __esm({
     "../../../../node_modules/pixi.js/lib/rendering/renderers/gpu/shader/utils/generateGpuLayoutGroups.mjs"() {
       init_const5();
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/gpu/shader/utils/generateLayoutHash.mjs
@@ -13817,7 +13736,7 @@ ${src}`;
   var init_generateLayoutHash = __esm({
     "../../../../node_modules/pixi.js/lib/rendering/renderers/gpu/shader/utils/generateLayoutHash.mjs"() {
       "use strict";
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/gpu/shader/utils/removeStructAndGroupDuplicates.mjs
@@ -13844,7 +13763,7 @@ ${src}`;
   var init_removeStructAndGroupDuplicates = __esm({
     "../../../../node_modules/pixi.js/lib/rendering/renderers/gpu/shader/utils/removeStructAndGroupDuplicates.mjs"() {
       "use strict";
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/gpu/shader/GpuProgram.mjs
@@ -13893,7 +13812,7 @@ ${src}`;
         }
         get attributeData() {
           var _a2;
-          (_a2 = this._attributeData) != null ? _a2 : this._attributeData = extractAttributesFromGpuProgram(this.vertex);
+          (_a2 = this._attributeData) != null ? _a2 : (this._attributeData = extractAttributesFromGpuProgram(this.vertex));
           return this._attributeData;
         }
         /** destroys the program */
@@ -13919,7 +13838,7 @@ ${src}`;
           return programCache2[key];
         }
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/high-shader/compiler/utils/addBits.mjs
@@ -13946,7 +13865,7 @@ ${src}`;
   var init_addBits = __esm({
     "../../../../node_modules/pixi.js/lib/rendering/high-shader/compiler/utils/addBits.mjs"() {
       init_warn();
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/high-shader/compiler/utils/compileHooks.mjs
@@ -13964,7 +13883,7 @@ ${src}`;
     "../../../../node_modules/pixi.js/lib/rendering/high-shader/compiler/utils/compileHooks.mjs"() {
       "use strict";
       findHooksRx = /\{\{(.*?)\}\}/g;
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/high-shader/compiler/utils/compileInputs.mjs
@@ -13989,15 +13908,18 @@ ${src}`;
     }
     const finalString = mainInput.map((inValue, i2) => `       @location(${i2}) ${inValue},`).join("\n");
     let cleanedString = template.replace(/@in\s+[^;]+;\s*/g, "");
-    cleanedString = cleanedString.replace("{{in}}", `
+    cleanedString = cleanedString.replace(
+      "{{in}}",
+      `
 ${finalString}
-`);
+`
+    );
     return cleanedString;
   }
   var init_compileInputs = __esm({
     "../../../../node_modules/pixi.js/lib/rendering/high-shader/compiler/utils/compileInputs.mjs"() {
       "use strict";
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/high-shader/compiler/utils/compileOutputs.mjs
@@ -14026,31 +13948,49 @@ ${finalString}
       }
     });
     let index = 0;
-    const mainStruct = results.sort().map((inValue) => {
-      if (inValue.indexOf("builtin") > -1) {
-        return inValue;
-      }
-      return `@location(${index++}) ${inValue}`;
-    }).join(",\n");
-    const mainStart = results.sort().map((inValue) => `       var ${stripVariable(inValue)};`).join("\n");
+    const mainStruct = results
+      .sort()
+      .map((inValue) => {
+        if (inValue.indexOf("builtin") > -1) {
+          return inValue;
+        }
+        return `@location(${index++}) ${inValue}`;
+      })
+      .join(",\n");
+    const mainStart = results
+      .sort()
+      .map((inValue) => `       var ${stripVariable(inValue)};`)
+      .join("\n");
     const mainEnd = `return VSOutput(
-            ${results.sort().map((inValue) => ` ${extractVariableName(inValue)}`).join(",\n")});`;
+            ${results
+              .sort()
+              .map((inValue) => ` ${extractVariableName(inValue)}`)
+              .join(",\n")});`;
     let compiledCode = template.replace(/@out\s+[^;]+;\s*/g, "");
-    compiledCode = compiledCode.replace("{{struct}}", `
+    compiledCode = compiledCode.replace(
+      "{{struct}}",
+      `
 ${mainStruct}
-`);
-    compiledCode = compiledCode.replace("{{start}}", `
+`
+    );
+    compiledCode = compiledCode.replace(
+      "{{start}}",
+      `
 ${mainStart}
-`);
-    compiledCode = compiledCode.replace("{{return}}", `
+`
+    );
+    compiledCode = compiledCode.replace(
+      "{{return}}",
+      `
 ${mainEnd}
-`);
+`
+    );
     return compiledCode;
   }
   var init_compileOutputs = __esm({
     "../../../../node_modules/pixi.js/lib/rendering/high-shader/compiler/utils/compileOutputs.mjs"() {
       "use strict";
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/high-shader/compiler/utils/injectBits.mjs
@@ -14060,9 +14000,12 @@ ${mainEnd}
       const parts = fragmentParts[i2];
       const toInject = parts.join("\n");
       if (toInject.length) {
-        out2 = out2.replace(`{{${i2}}}`, `//-----${i2} START-----//
+        out2 = out2.replace(
+          `{{${i2}}}`,
+          `//-----${i2} START-----//
 ${parts.join("\n")}
-//----${i2} FINISH----//`);
+//----${i2} FINISH----//`
+        );
       } else {
         out2 = out2.replace(`{{${i2}}}`, "");
       }
@@ -14072,28 +14015,20 @@ ${parts.join("\n")}
   var init_injectBits = __esm({
     "../../../../node_modules/pixi.js/lib/rendering/high-shader/compiler/utils/injectBits.mjs"() {
       "use strict";
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/high-shader/compiler/compileHighShader.mjs
-  function compileHighShader({
-    template,
-    bits
-  }) {
+  function compileHighShader({ template, bits }) {
     const cacheId = generateCacheId(template, bits);
-    if (cacheMap[cacheId])
-      return cacheMap[cacheId];
+    if (cacheMap[cacheId]) return cacheMap[cacheId];
     const { vertex: vertex4, fragment: fragment4 } = compileInputsAndOutputs(template, bits);
     cacheMap[cacheId] = compileBits(vertex4, fragment4, bits);
     return cacheMap[cacheId];
   }
-  function compileHighShaderGl({
-    template,
-    bits
-  }) {
+  function compileHighShaderGl({ template, bits }) {
     const cacheId = generateCacheId(template, bits);
-    if (cacheMap[cacheId])
-      return cacheMap[cacheId];
+    if (cacheMap[cacheId]) return cacheMap[cacheId];
     cacheMap[cacheId] = compileBits(template.vertex, template.fragment, bits);
     return cacheMap[cacheId];
   }
@@ -14105,16 +14040,23 @@ ${parts.join("\n")}
     const compiledFragment = compileInputs(fragmentFragments, template.fragment, true);
     return {
       vertex: compiledVertex,
-      fragment: compiledFragment
+      fragment: compiledFragment,
     };
   }
   function generateCacheId(template, bits) {
-    return bits.map((highFragment) => {
-      if (!bitCacheMap.has(highFragment)) {
-        bitCacheMap.set(highFragment, CACHE_UID++);
-      }
-      return bitCacheMap.get(highFragment);
-    }).sort((a2, b2) => a2 - b2).join("-") + template.vertex + template.fragment;
+    return (
+      bits
+        .map((highFragment) => {
+          if (!bitCacheMap.has(highFragment)) {
+            bitCacheMap.set(highFragment, CACHE_UID++);
+          }
+          return bitCacheMap.get(highFragment);
+        })
+        .sort((a2, b2) => a2 - b2)
+        .join("-") +
+      template.vertex +
+      template.fragment
+    );
   }
   function compileBits(vertex4, fragment4, bits) {
     const vertexParts = compileHooks(vertex4);
@@ -14125,7 +14067,7 @@ ${parts.join("\n")}
     });
     return {
       vertex: injectBits(vertex4, vertexParts),
-      fragment: injectBits(fragment4, fragmentParts)
+      fragment: injectBits(fragment4, fragmentParts),
     };
   }
   var cacheMap, bitCacheMap, CACHE_UID;
@@ -14139,7 +14081,7 @@ ${parts.join("\n")}
       cacheMap = /* @__PURE__ */ Object.create(null);
       bitCacheMap = /* @__PURE__ */ new Map();
       CACHE_UID = 0;
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/high-shader/defaultProgramTemplate.mjs
@@ -14147,8 +14089,9 @@ ${parts.join("\n")}
   var init_defaultProgramTemplate = __esm({
     "../../../../node_modules/pixi.js/lib/rendering/high-shader/defaultProgramTemplate.mjs"() {
       "use strict";
-      vertexGPUTemplate = /* wgsl */
-      `
+      vertexGPUTemplate =
+        /* wgsl */
+        `
     @in aPosition: vec2<f32>;
     @in aUV: vec2<f32>;
 
@@ -14193,8 +14136,9 @@ ${parts.join("\n")}
         {{return}}
     };
 `;
-      fragmentGPUTemplate = /* wgsl */
-      `
+      fragmentGPUTemplate =
+        /* wgsl */
+        `
     @in vUV : vec2<f32>;
     @in vColor : vec4<f32>;
    
@@ -14218,8 +14162,9 @@ ${parts.join("\n")}
         return finalColor;
       };
 `;
-      vertexGlTemplate = /* glsl */
-      `
+      vertexGlTemplate =
+        /* glsl */
+        `
     in vec2 aPosition;
     in vec2 aUV;
 
@@ -14256,8 +14201,9 @@ ${parts.join("\n")}
         {{end}}
     }
 `;
-      fragmentGlTemplate = /* glsl */
-      `
+      fragmentGlTemplate =
+        /* glsl */
+        `
    
     in vec4 vColor;
     in vec2 vUV;
@@ -14279,7 +14225,7 @@ ${parts.join("\n")}
         {{end}}
     }
 `;
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/high-shader/shader-bits/globalUniformsBit.mjs
@@ -14290,7 +14236,7 @@ ${parts.join("\n")}
       globalUniformsBit = {
         name: "global-uniforms-bit",
         vertex: {
-          header: (
+          header:
             /* wgsl */
             `
         struct GlobalUniforms {
@@ -14301,25 +14247,23 @@ ${parts.join("\n")}
         }
 
         @group(0) @binding(0) var<uniform> globalUniforms : GlobalUniforms;
-        `
-          )
-        }
+        `,
+        },
       };
       globalUniformsBitGl = {
         name: "global-uniforms-bit",
         vertex: {
-          header: (
+          header:
             /* glsl */
             `
           uniform mat3 uProjectionMatrix;
           uniform mat3 uWorldTransformMatrix;
           uniform vec4 uWorldColorAlpha;
           uniform vec2 uResolution;
-        `
-          )
-        }
+        `,
+        },
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/high-shader/compileHighShaderToProgram.mjs
@@ -14327,38 +14271,37 @@ ${parts.join("\n")}
     const source2 = compileHighShader({
       template: {
         fragment: fragmentGPUTemplate,
-        vertex: vertexGPUTemplate
+        vertex: vertexGPUTemplate,
       },
-      bits: [
-        globalUniformsBit,
-        ...bits
-      ]
+      bits: [globalUniformsBit, ...bits],
     });
     return GpuProgram.from({
       name,
       vertex: {
         source: source2.vertex,
-        entryPoint: "main"
+        entryPoint: "main",
       },
       fragment: {
         source: source2.fragment,
-        entryPoint: "main"
-      }
+        entryPoint: "main",
+      },
     });
   }
   function compileHighShaderGlProgram({ bits, name }) {
-    return new GlProgram(__spreadValues({
-      name
-    }, compileHighShaderGl({
-      template: {
-        vertex: vertexGlTemplate,
-        fragment: fragmentGlTemplate
-      },
-      bits: [
-        globalUniformsBitGl,
-        ...bits
-      ]
-    })));
+    return new GlProgram(
+      __spreadValues(
+        {
+          name,
+        },
+        compileHighShaderGl({
+          template: {
+            vertex: vertexGlTemplate,
+            fragment: fragmentGlTemplate,
+          },
+          bits: [globalUniformsBitGl, ...bits],
+        })
+      )
+    );
   }
   var init_compileHighShaderToProgram = __esm({
     "../../../../node_modules/pixi.js/lib/rendering/high-shader/compileHighShaderToProgram.mjs"() {
@@ -14367,7 +14310,7 @@ ${parts.join("\n")}
       init_compileHighShader();
       init_defaultProgramTemplate();
       init_globalUniformsBit();
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/high-shader/shader-bits/colorBit.mjs
@@ -14378,38 +14321,34 @@ ${parts.join("\n")}
       colorBit = {
         name: "color-bit",
         vertex: {
-          header: (
+          header:
             /* wgsl */
             `
             @in aColor: vec4<f32>;
-        `
-          ),
-          main: (
+        `,
+          main:
             /* wgsl */
             `
             vColor *= vec4<f32>(aColor.rgb * aColor.a, aColor.a);
-        `
-          )
-        }
+        `,
+        },
       };
       colorBitGl = {
         name: "color-bit",
         vertex: {
-          header: (
+          header:
             /* glsl */
             `
             in vec4 aColor;
-        `
-          ),
-          main: (
+        `,
+          main:
             /* glsl */
             `
             vColor *= vec4(aColor.rgb * aColor.a, aColor.a);
-        `
-          )
-        }
+        `,
+        },
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/high-shader/shader-bits/generateTextureBatchBit.mjs
@@ -14463,7 +14402,7 @@ ${parts.join("\n")}
                 {
                     vPosition = vec4<f32>(roundPixels(vPosition.xy, globalUniforms.uResolution), vPosition.zw);
                 }
-            `
+            `,
         },
         fragment: {
           header: `
@@ -14476,8 +14415,8 @@ ${parts.join("\n")}
                 var uvDy = dpdy(vUV);
 
                 ${generateSampleSrc(maxTextures2)}
-            `
-        }
+            `,
+        },
       };
     }
     return textureBatchBitGpuCache[maxTextures2];
@@ -14515,7 +14454,7 @@ ${parts.join("\n")}
                 {
                     gl_Position.xy = roundPixels(gl_Position.xy, uResolution);
                 }
-            `
+            `,
         },
         fragment: {
           header: `
@@ -14527,8 +14466,8 @@ ${parts.join("\n")}
           main: `
 
                 ${generateSampleGlSrc(maxTextures2)}
-            `
-        }
+            `,
+        },
       };
     }
     return textureBatchBitGlCache[maxTextures2];
@@ -14539,7 +14478,7 @@ ${parts.join("\n")}
       "use strict";
       textureBatchBitGpuCache = {};
       textureBatchBitGlCache = {};
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/high-shader/shader-bits/roundPixelsBit.mjs
@@ -14550,32 +14489,30 @@ ${parts.join("\n")}
       roundPixelsBit = {
         name: "round-pixels-bit",
         vertex: {
-          header: (
+          header:
             /* wgsl */
             `
             fn roundPixels(position: vec2<f32>, targetSize: vec2<f32>) -> vec2<f32> 
             {
                 return (floor(((position * 0.5 + 0.5) * targetSize) + 0.5) / targetSize) * 2.0 - 1.0;
             }
-        `
-          )
-        }
+        `,
+        },
       };
       roundPixelsBitGl = {
         name: "round-pixels-bit",
         vertex: {
-          header: (
+          header:
             /* glsl */
             `   
             vec2 roundPixels(vec2 position, vec2 targetSize)
             {       
                 return (floor(((position * 0.5 + 0.5) * targetSize) + 0.5) / targetSize) * 2.0 - 1.0;
             }
-        `
-          )
-        }
+        `,
+        },
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/shared/shader/types.mjs
@@ -14600,13 +14537,13 @@ ${parts.join("\n")}
         "mat3x4<f32>",
         "vec2<i32>",
         "vec3<i32>",
-        "vec4<i32>"
+        "vec4<i32>",
       ];
       UNIFORM_TYPES_MAP = UNIFORM_TYPES_VALUES.reduce((acc, type) => {
         acc[type] = true;
         return acc;
       }, {});
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/shared/shader/utils/getDefaultUniformValue.mjs
@@ -14621,50 +14558,18 @@ ${parts.join("\n")}
       case "vec4<f32>":
         return new Float32Array(4 * size);
       case "mat2x2<f32>":
-        return new Float32Array([
-          1,
-          0,
-          0,
-          1
-        ]);
+        return new Float32Array([1, 0, 0, 1]);
       case "mat3x3<f32>":
-        return new Float32Array([
-          1,
-          0,
-          0,
-          0,
-          1,
-          0,
-          0,
-          0,
-          1
-        ]);
+        return new Float32Array([1, 0, 0, 0, 1, 0, 0, 0, 1]);
       case "mat4x4<f32>":
-        return new Float32Array([
-          1,
-          0,
-          0,
-          0,
-          0,
-          1,
-          0,
-          0,
-          0,
-          0,
-          1,
-          0,
-          0,
-          0,
-          0,
-          1
-        ]);
+        return new Float32Array([1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1]);
     }
     return null;
   }
   var init_getDefaultUniformValue = __esm({
     "../../../../node_modules/pixi.js/lib/rendering/renderers/shared/shader/utils/getDefaultUniformValue.mjs"() {
       "use strict";
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/shared/shader/UniformGroup.mjs
@@ -14700,16 +14605,19 @@ ${parts.join("\n")}
             if (!UNIFORM_TYPES_MAP[uniformData.type]) {
               throw new Error(`Uniform type ${uniformData.type} is not supported. Supported uniform types are: ${UNIFORM_TYPES_VALUES.join(", ")}`);
             }
-            (_b = uniformData.value) != null ? _b : uniformData.value = getDefaultUniformValue(uniformData.type, uniformData.size);
+            (_b = uniformData.value) != null ? _b : (uniformData.value = getDefaultUniformValue(uniformData.type, uniformData.size));
             uniforms[i2] = uniformData.value;
           }
           this.uniforms = uniforms;
           this._dirtyId = 1;
           this.ubo = options.ubo;
           this.isStatic = options.isStatic;
-          this._signature = createIdFromString(Object.keys(uniforms).map(
-            (i2) => `${i2}-${uniformStructures[i2].type}`
-          ).join("-"), "uniform-group");
+          this._signature = createIdFromString(
+            Object.keys(uniforms)
+              .map((i2) => `${i2}-${uniformStructures[i2].type}`)
+              .join("-"),
+            "uniform-group"
+          );
         }
         /** Call this if you want the uniform groups data to be uploaded to the GPU only useful if `isStatic` is true. */
         update() {
@@ -14720,24 +14628,26 @@ ${parts.join("\n")}
         /** if true the UniformGroup is handled as an Uniform buffer object. */
         ubo: false,
         /** if true, then you are responsible for when the data is uploaded to the GPU by calling `update()` */
-        isStatic: false
+        isStatic: false,
       };
       UniformGroup = _UniformGroup;
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/gl/shader/getBatchSamplersUniformGroup.mjs
   function getBatchSamplersUniformGroup(maxTextures2) {
     let batchSamplersUniformGroup = batchSamplersUniformGroupHash[maxTextures2];
-    if (batchSamplersUniformGroup)
-      return batchSamplersUniformGroup;
+    if (batchSamplersUniformGroup) return batchSamplersUniformGroup;
     const sampleValues = new Int32Array(maxTextures2);
     for (let i2 = 0; i2 < maxTextures2; i2++) {
       sampleValues[i2] = i2;
     }
-    batchSamplersUniformGroup = batchSamplersUniformGroupHash[maxTextures2] = new UniformGroup({
-      uTextures: { value: sampleValues, type: `i32`, size: maxTextures2 }
-    }, { isStatic: true });
+    batchSamplersUniformGroup = batchSamplersUniformGroupHash[maxTextures2] = new UniformGroup(
+      {
+        uTextures: { value: sampleValues, type: `i32`, size: maxTextures2 },
+      },
+      { isStatic: true }
+    );
     return batchSamplersUniformGroup;
   }
   var batchSamplersUniformGroupHash;
@@ -14745,7 +14655,7 @@ ${parts.join("\n")}
     "../../../../node_modules/pixi.js/lib/rendering/renderers/gl/shader/getBatchSamplersUniformGroup.mjs"() {
       init_UniformGroup();
       batchSamplersUniformGroupHash = {};
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/types.mjs
@@ -14754,12 +14664,12 @@ ${parts.join("\n")}
     "../../../../node_modules/pixi.js/lib/rendering/renderers/types.mjs"() {
       "use strict";
       RendererType = /* @__PURE__ */ ((RendererType2) => {
-        RendererType2[RendererType2["WEBGL"] = 1] = "WEBGL";
-        RendererType2[RendererType2["WEBGPU"] = 2] = "WEBGPU";
-        RendererType2[RendererType2["BOTH"] = 3] = "BOTH";
+        RendererType2[(RendererType2["WEBGL"] = 1)] = "WEBGL";
+        RendererType2[(RendererType2["WEBGPU"] = 2)] = "WEBGPU";
+        RendererType2[(RendererType2["BOTH"] = 3)] = "BOTH";
         return RendererType2;
       })(RendererType || {});
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/shared/shader/Shader.mjs
@@ -14779,22 +14689,13 @@ ${parts.join("\n")}
           this.uid = uid("shader");
           this._uniformBindMap = /* @__PURE__ */ Object.create(null);
           this._ownedBindGroups = [];
-          let {
-            gpuProgram: gpuProgram3,
-            glProgram: glProgram3,
-            groups,
-            resources,
-            compatibleRenderers,
-            groupMap
-          } = options;
+          let { gpuProgram: gpuProgram3, glProgram: glProgram3, groups, resources, compatibleRenderers, groupMap } = options;
           this.gpuProgram = gpuProgram3;
           this.glProgram = glProgram3;
           if (compatibleRenderers === void 0) {
             compatibleRenderers = 0;
-            if (gpuProgram3)
-              compatibleRenderers |= RendererType.WEBGPU;
-            if (glProgram3)
-              compatibleRenderers |= RendererType.WEBGL;
+            if (gpuProgram3) compatibleRenderers |= RendererType.WEBGPU;
+            if (glProgram3) compatibleRenderers |= RendererType.WEBGL;
           }
           this.compatibleRenderers = compatibleRenderers;
           const nameHash = {};
@@ -14812,7 +14713,7 @@ ${parts.join("\n")}
                 nameHash[uniformName] = {
                   group: i2,
                   binding: j3,
-                  name: uniformName
+                  name: uniformName,
                 };
               }
             }
@@ -14837,8 +14738,7 @@ ${parts.join("\n")}
             }
             let bindTick = 0;
             for (const i2 in resources) {
-              if (nameHash[i2])
-                continue;
+              if (nameHash[i2]) continue;
               if (!groups[99]) {
                 groups[99] = new BindGroup();
                 this._ownedBindGroups.push(groups[99]);
@@ -14894,7 +14794,7 @@ ${parts.join("\n")}
               },
               set(value) {
                 groups[data.group].setResource(value, data.binding);
-              }
+              },
             });
           }
           return uniformsOut;
@@ -14924,7 +14824,9 @@ ${parts.join("\n")}
           this.groups = null;
         }
         static from(options) {
-          const _a2 = options, { gpu, gl } = _a2, rest = __objRest(_a2, ["gpu", "gl"]);
+          const _a2 = options,
+            { gpu, gl } = _a2,
+            rest = __objRest(_a2, ["gpu", "gl"]);
           let gpuProgram3;
           let glProgram3;
           if (gpu) {
@@ -14933,13 +14835,18 @@ ${parts.join("\n")}
           if (gl) {
             glProgram3 = GlProgram.from(gl);
           }
-          return new _Shader(__spreadValues({
-            gpuProgram: gpuProgram3,
-            glProgram: glProgram3
-          }, rest));
+          return new _Shader(
+            __spreadValues(
+              {
+                gpuProgram: gpuProgram3,
+                glProgram: glProgram3,
+              },
+              rest
+            )
+          );
         }
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/batcher/shared/DefaultShader.mjs
@@ -14956,30 +14863,22 @@ ${parts.join("\n")}
         constructor(maxTextures2) {
           const glProgram3 = compileHighShaderGlProgram({
             name: "batch",
-            bits: [
-              colorBitGl,
-              generateTextureBatchBitGl(maxTextures2),
-              roundPixelsBitGl
-            ]
+            bits: [colorBitGl, generateTextureBatchBitGl(maxTextures2), roundPixelsBitGl],
           });
           const gpuProgram3 = compileHighShaderGpuProgram({
             name: "batch",
-            bits: [
-              colorBit,
-              generateTextureBatchBit(maxTextures2),
-              roundPixelsBit
-            ]
+            bits: [colorBit, generateTextureBatchBit(maxTextures2), roundPixelsBit],
           });
           super({
             glProgram: glProgram3,
             gpuProgram: gpuProgram3,
             resources: {
-              batchSamplers: getBatchSamplersUniformGroup(maxTextures2)
-            }
+              batchSamplers: getBatchSamplersUniformGroup(maxTextures2),
+            },
           });
         }
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/batcher/shared/DefaultBatcher.mjs
@@ -15008,7 +14907,7 @@ ${parts.join("\n")}
          * @param textureId - The texture ID to use.
          */
         packAttributes(element, float32View, uint32View, index, textureId) {
-          const textureIdAndRound = textureId << 16 | element.roundPixels & 65535;
+          const textureIdAndRound = (textureId << 16) | (element.roundPixels & 65535);
           const wt = element.transform;
           const a2 = wt.a;
           const b2 = wt.b;
@@ -15056,7 +14955,7 @@ ${parts.join("\n")}
           const h1 = bounds.minY;
           const uvs = texture.uvs;
           const argb = element.color;
-          const textureIdAndRound = textureId << 16 | element.roundPixels & 65535;
+          const textureIdAndRound = (textureId << 16) | (element.roundPixels & 65535);
           float32View[index + 0] = a2 * w1 + c2 * h1 + tx;
           float32View[index + 1] = d3 * h1 + b2 * w1 + ty;
           float32View[index + 2] = uvs.x0;
@@ -15084,13 +14983,11 @@ ${parts.join("\n")}
         }
       };
       _DefaultBatcher.extension = {
-        type: [
-          ExtensionType.Batcher
-        ],
-        name: "default"
+        type: [ExtensionType.Batcher],
+        name: "default",
       };
       DefaultBatcher = _DefaultBatcher;
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/shared/geometry/utils/buildUvs.mjs
@@ -15127,7 +15024,7 @@ ${parts.join("\n")}
   var init_buildUvs = __esm({
     "../../../../node_modules/pixi.js/lib/rendering/renderers/shared/geometry/utils/buildUvs.mjs"() {
       "use strict";
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/shared/geometry/utils/transformVertices.mjs
@@ -15153,7 +15050,7 @@ ${parts.join("\n")}
   var init_transformVertices = __esm({
     "../../../../node_modules/pixi.js/lib/rendering/renderers/shared/geometry/utils/transformVertices.mjs"() {
       "use strict";
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/graphics/shared/BatchableGraphics.mjs
@@ -15190,12 +15087,12 @@ ${parts.join("\n")}
         }
         get color() {
           const rgb = this.baseColor;
-          const bgr = rgb >> 16 | rgb & 65280 | (rgb & 255) << 16;
+          const bgr = (rgb >> 16) | (rgb & 65280) | ((rgb & 255) << 16);
           const renderable = this.renderable;
           if (renderable) {
-            return multiplyHexColors(bgr, renderable.groupColor) + (this.alpha * renderable.groupAlpha * 255 << 24);
+            return multiplyHexColors(bgr, renderable.groupColor) + ((this.alpha * renderable.groupAlpha * 255) << 24);
           }
-          return bgr + (this.alpha * 255 << 24);
+          return bgr + ((this.alpha * 255) << 24);
         }
         get transform() {
           var _a2;
@@ -15218,7 +15115,7 @@ ${parts.join("\n")}
           this.topology = "triangle-list";
         }
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/graphics/shared/buildCommands/buildCircle.mjs
@@ -15229,7 +15126,7 @@ ${parts.join("\n")}
       buildCircle = {
         extension: {
           type: ExtensionType.ShapeBuilder,
-          name: "circle"
+          name: "circle",
         },
         build(shape, points) {
           let x3;
@@ -15297,7 +15194,7 @@ ${parts.join("\n")}
             points[--j4] = x1;
           }
           for (let i2 = 1; i2 < n2; i2++) {
-            const a2 = Math.PI / 2 * (i2 / n2);
+            const a2 = (Math.PI / 2) * (i2 / n2);
             const x02 = dx + Math.cos(a2) * rx;
             const y02 = dy + Math.sin(a2) * ry;
             const x12 = x3 + x02;
@@ -15360,11 +15257,11 @@ ${parts.join("\n")}
           indices[indicesOffset++] = centerIndex + 1;
           indices[indicesOffset++] = centerIndex;
           indices[indicesOffset++] = count2 - 1;
-        }
+        },
       };
       buildEllipse = __spreadProps(__spreadValues({}, buildCircle), { extension: __spreadProps(__spreadValues({}, buildCircle.extension), { name: "ellipse" }) });
       buildRoundedRectangle = __spreadProps(__spreadValues({}, buildCircle), { extension: __spreadProps(__spreadValues({}, buildCircle.extension), { name: "roundedRectangle" }) });
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/graphics/shared/const.mjs
@@ -15374,7 +15271,7 @@ ${parts.join("\n")}
       "use strict";
       closePointEps = 1e-4;
       curveEps = 1e-4;
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/graphics/shared/utils/getOrientationOfPoints.mjs
@@ -15399,7 +15296,7 @@ ${parts.join("\n")}
   var init_getOrientationOfPoints = __esm({
     "../../../../node_modules/pixi.js/lib/scene/graphics/shared/utils/getOrientationOfPoints.mjs"() {
       "use strict";
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/graphics/shared/buildCommands/buildLine.mjs
@@ -15439,7 +15336,7 @@ ${parts.join("\n")}
     const angleDiff = angle1 - angle0;
     const absAngleDiff = Math.abs(angleDiff);
     const radius = Math.sqrt(cx2p0x * cx2p0x + cy2p0y * cy2p0y);
-    const segCount = (15 * absAngleDiff * Math.sqrt(radius) / Math.PI >> 0) + 1;
+    const segCount = (((15 * absAngleDiff * Math.sqrt(radius)) / Math.PI) >> 0) + 1;
     const angleInc = angleDiff / segCount;
     startAngle += angleInc;
     if (clockwise) {
@@ -15447,10 +15344,7 @@ ${parts.join("\n")}
       verts.push(sx, sy);
       for (let i2 = 1, angle = startAngle; i2 < segCount; i2++, angle += angleInc) {
         verts.push(cx, cy);
-        verts.push(
-          cx + Math.sin(angle) * radius,
-          cy + Math.cos(angle) * radius
-        );
+        verts.push(cx + Math.sin(angle) * radius, cy + Math.cos(angle) * radius);
       }
       verts.push(cx, cy);
       verts.push(ex, ey);
@@ -15458,10 +15352,7 @@ ${parts.join("\n")}
       verts.push(sx, sy);
       verts.push(cx, cy);
       for (let i2 = 1, angle = startAngle; i2 < segCount; i2++, angle += angleInc) {
-        verts.push(
-          cx + Math.sin(angle) * radius,
-          cy + Math.cos(angle) * radius
-        );
+        verts.push(cx + Math.sin(angle) * radius, cy + Math.cos(angle) * radius);
         verts.push(cx, cy);
       }
       verts.push(ex, ey);
@@ -15478,8 +15369,7 @@ ${parts.join("\n")}
     let alignment = style.alignment;
     if (lineStyle.alignment !== 0.5) {
       let orientation = getOrientationOfPoints(points);
-      if (flipAlignment)
-        orientation *= -1;
+      if (flipAlignment) orientation *= -1;
       alignment = (alignment - 0.5) * orientation + 0.5;
     }
     const firstPoint = new Point(points[0], points[1]);
@@ -15525,28 +15415,13 @@ ${parts.join("\n")}
     const outerWeight = ratio * 2;
     if (!closedShape) {
       if (style.cap === "round") {
-        indexCount += round(
-          x0 - perpX * (innerWeight - outerWeight) * 0.5,
-          y0 - perpY * (innerWeight - outerWeight) * 0.5,
-          x0 - perpX * innerWeight,
-          y0 - perpY * innerWeight,
-          x0 + perpX * outerWeight,
-          y0 + perpY * outerWeight,
-          verts,
-          true
-        ) + 2;
+        indexCount += round(x0 - perpX * (innerWeight - outerWeight) * 0.5, y0 - perpY * (innerWeight - outerWeight) * 0.5, x0 - perpX * innerWeight, y0 - perpY * innerWeight, x0 + perpX * outerWeight, y0 + perpY * outerWeight, verts, true) + 2;
       } else if (style.cap === "square") {
         indexCount += square(x0, y0, perpX, perpY, innerWeight, outerWeight, true, verts);
       }
     }
-    verts.push(
-      x0 - perpX * innerWeight,
-      y0 - perpY * innerWeight
-    );
-    verts.push(
-      x0 + perpX * outerWeight,
-      y0 + perpY * outerWeight
-    );
+    verts.push(x0 - perpX * innerWeight, y0 - perpY * innerWeight);
+    verts.push(x0 + perpX * outerWeight, y0 + perpY * outerWeight);
     for (let i2 = 1; i2 < length - 1; ++i2) {
       x0 = points[(i2 - 1) * 2];
       y0 = points[(i2 - 1) * 2 + 1];
@@ -15576,37 +15451,16 @@ ${parts.join("\n")}
       const cross = dy0 * dx1 - dy1 * dx0;
       const clockwise = cross < 0;
       if (Math.abs(cross) < 1e-3 * Math.abs(dot)) {
-        verts.push(
-          x1 - perpX * innerWeight,
-          y1 - perpY * innerWeight
-        );
-        verts.push(
-          x1 + perpX * outerWeight,
-          y1 + perpY * outerWeight
-        );
+        verts.push(x1 - perpX * innerWeight, y1 - perpY * innerWeight);
+        verts.push(x1 + perpX * outerWeight, y1 + perpY * outerWeight);
         if (dot >= 0) {
           if (style.join === "round") {
-            indexCount += round(
-              x1,
-              y1,
-              x1 - perpX * innerWeight,
-              y1 - perpY * innerWeight,
-              x1 - perp1x * innerWeight,
-              y1 - perp1y * innerWeight,
-              verts,
-              false
-            ) + 4;
+            indexCount += round(x1, y1, x1 - perpX * innerWeight, y1 - perpY * innerWeight, x1 - perp1x * innerWeight, y1 - perp1y * innerWeight, verts, false) + 4;
           } else {
             indexCount += 2;
           }
-          verts.push(
-            x1 - perp1x * outerWeight,
-            y1 - perp1y * outerWeight
-          );
-          verts.push(
-            x1 + perp1x * innerWeight,
-            y1 + perp1y * innerWeight
-          );
+          verts.push(x1 - perp1x * outerWeight, y1 - perp1y * outerWeight);
+          verts.push(x1 + perp1x * innerWeight, y1 + perp1y * innerWeight);
         }
         continue;
       }
@@ -15641,31 +15495,13 @@ ${parts.join("\n")}
           if (clockwise) {
             verts.push(imx, imy);
             verts.push(x1 + perpX * outerWeight, y1 + perpY * outerWeight);
-            indexCount += round(
-              x1,
-              y1,
-              x1 + perpX * outerWeight,
-              y1 + perpY * outerWeight,
-              x1 + perp1x * outerWeight,
-              y1 + perp1y * outerWeight,
-              verts,
-              true
-            ) + 4;
+            indexCount += round(x1, y1, x1 + perpX * outerWeight, y1 + perpY * outerWeight, x1 + perp1x * outerWeight, y1 + perp1y * outerWeight, verts, true) + 4;
             verts.push(imx, imy);
             verts.push(x1 + perp1x * outerWeight, y1 + perp1y * outerWeight);
           } else {
             verts.push(x1 - perpX * innerWeight, y1 - perpY * innerWeight);
             verts.push(omx, omy);
-            indexCount += round(
-              x1,
-              y1,
-              x1 - perpX * innerWeight,
-              y1 - perpY * innerWeight,
-              x1 - perp1x * innerWeight,
-              y1 - perp1y * innerWeight,
-              verts,
-              false
-            ) + 4;
+            indexCount += round(x1, y1, x1 - perpX * innerWeight, y1 - perpY * innerWeight, x1 - perp1x * innerWeight, y1 - perp1y * innerWeight, verts, false) + 4;
             verts.push(x1 - perp1x * innerWeight, y1 - perp1y * innerWeight);
             verts.push(omx, omy);
           }
@@ -15678,27 +15514,9 @@ ${parts.join("\n")}
         verts.push(x1 + perpX * outerWeight, y1 + perpY * outerWeight);
         if (style.join === "round") {
           if (clockwise) {
-            indexCount += round(
-              x1,
-              y1,
-              x1 + perpX * outerWeight,
-              y1 + perpY * outerWeight,
-              x1 + perp1x * outerWeight,
-              y1 + perp1y * outerWeight,
-              verts,
-              true
-            ) + 2;
+            indexCount += round(x1, y1, x1 + perpX * outerWeight, y1 + perpY * outerWeight, x1 + perp1x * outerWeight, y1 + perp1y * outerWeight, verts, true) + 2;
           } else {
-            indexCount += round(
-              x1,
-              y1,
-              x1 - perpX * innerWeight,
-              y1 - perpY * innerWeight,
-              x1 - perp1x * innerWeight,
-              y1 - perp1y * innerWeight,
-              verts,
-              false
-            ) + 2;
+            indexCount += round(x1, y1, x1 - perpX * innerWeight, y1 - perpY * innerWeight, x1 - perp1x * innerWeight, y1 - perp1y * innerWeight, verts, false) + 2;
           }
         } else if (style.join === "miter" && pDist / widthSquared <= miterLimitSquared) {
           if (clockwise) {
@@ -15730,16 +15548,7 @@ ${parts.join("\n")}
     verts.push(x1 + perpX * outerWeight, y1 + perpY * outerWeight);
     if (!closedShape) {
       if (style.cap === "round") {
-        indexCount += round(
-          x1 - perpX * (innerWeight - outerWeight) * 0.5,
-          y1 - perpY * (innerWeight - outerWeight) * 0.5,
-          x1 - perpX * innerWeight,
-          y1 - perpY * innerWeight,
-          x1 + perpX * outerWeight,
-          y1 + perpY * outerWeight,
-          verts,
-          false
-        ) + 2;
+        indexCount += round(x1 - perpX * (innerWeight - outerWeight) * 0.5, y1 - perpY * (innerWeight - outerWeight) * 0.5, x1 - perpX * innerWeight, y1 - perpY * innerWeight, x1 + perpX * outerWeight, y1 + perpY * outerWeight, verts, false) + 2;
       } else if (style.cap === "square") {
         indexCount += square(x1, y1, perpX, perpY, innerWeight, outerWeight, false, verts);
       }
@@ -15763,7 +15572,7 @@ ${parts.join("\n")}
       init_Point();
       init_const6();
       init_getOrientationOfPoints();
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/graphics/shared/buildCommands/buildPixelLine.mjs
@@ -15776,7 +15585,7 @@ ${parts.join("\n")}
     const fy = points[1];
     const lx = points[points.length - 2];
     const ly = points[points.length - 1];
-    const closePath = closed || Math.abs(fx - lx) < eps && Math.abs(fy - ly) < eps;
+    const closePath = closed || (Math.abs(fx - lx) < eps && Math.abs(fy - ly) < eps);
     const verts = vertices;
     const length = points.length / 2;
     const indexStart = verts.length / 2;
@@ -15794,7 +15603,7 @@ ${parts.join("\n")}
   var init_buildPixelLine = __esm({
     "../../../../node_modules/pixi.js/lib/scene/graphics/shared/buildCommands/buildPixelLine.mjs"() {
       init_const6();
-    }
+    },
   });
 
   // ../../../../node_modules/earcut/src/earcut.js
@@ -15805,7 +15614,10 @@ ${parts.join("\n")}
       module.exports.default = earcut2;
       function earcut2(data, holeIndices, dim) {
         dim = dim || 2;
-        var hasHoles = holeIndices && holeIndices.length, outerLen = hasHoles ? holeIndices[0] * dim : data.length, outerNode = linkedList(data, 0, outerLen, dim, true), triangles = [];
+        var hasHoles = holeIndices && holeIndices.length,
+          outerLen = hasHoles ? holeIndices[0] * dim : data.length,
+          outerNode = linkedList(data, 0, outerLen, dim, true),
+          triangles = [];
         if (!outerNode || outerNode.next === outerNode.prev) return triangles;
         var minX, minY, maxX, maxY, x3, y2, invSize;
         if (hasHoles) outerNode = eliminateHoles(data, holeIndices, outerNode, dim);
@@ -15842,7 +15654,8 @@ ${parts.join("\n")}
       function filterPoints(start, end) {
         if (!start) return start;
         if (!end) end = start;
-        var p2 = start, again;
+        var p2 = start,
+          again;
         do {
           again = false;
           if (!p2.steiner && (equals(p2, p2.next) || area(p2.prev, p2, p2.next) === 0)) {
@@ -15859,14 +15672,16 @@ ${parts.join("\n")}
       function earcutLinked(ear, triangles, dim, minX, minY, invSize, pass) {
         if (!ear) return;
         if (!pass && invSize) indexCurve(ear, minX, minY, invSize);
-        var stop = ear, prev, next;
+        var stop = ear,
+          prev,
+          next;
         while (ear.prev !== ear.next) {
           prev = ear.prev;
           next = ear.next;
           if (invSize ? isEarHashed(ear, minX, minY, invSize) : isEar(ear)) {
-            triangles.push(prev.i / dim | 0);
-            triangles.push(ear.i / dim | 0);
-            triangles.push(next.i / dim | 0);
+            triangles.push((prev.i / dim) | 0);
+            triangles.push((ear.i / dim) | 0);
+            triangles.push((next.i / dim) | 0);
             removeNode(ear);
             ear = next.next;
             stop = next.next;
@@ -15887,10 +15702,20 @@ ${parts.join("\n")}
         }
       }
       function isEar(ear) {
-        var a2 = ear.prev, b2 = ear, c2 = ear.next;
+        var a2 = ear.prev,
+          b2 = ear,
+          c2 = ear.next;
         if (area(a2, b2, c2) >= 0) return false;
-        var ax = a2.x, bx = b2.x, cx = c2.x, ay = a2.y, by = b2.y, cy = c2.y;
-        var x0 = ax < bx ? ax < cx ? ax : cx : bx < cx ? bx : cx, y0 = ay < by ? ay < cy ? ay : cy : by < cy ? by : cy, x1 = ax > bx ? ax > cx ? ax : cx : bx > cx ? bx : cx, y1 = ay > by ? ay > cy ? ay : cy : by > cy ? by : cy;
+        var ax = a2.x,
+          bx = b2.x,
+          cx = c2.x,
+          ay = a2.y,
+          by = b2.y,
+          cy = c2.y;
+        var x0 = ax < bx ? (ax < cx ? ax : cx) : bx < cx ? bx : cx,
+          y0 = ay < by ? (ay < cy ? ay : cy) : by < cy ? by : cy,
+          x1 = ax > bx ? (ax > cx ? ax : cx) : bx > cx ? bx : cx,
+          y1 = ay > by ? (ay > cy ? ay : cy) : by > cy ? by : cy;
         var p2 = c2.next;
         while (p2 !== a2) {
           if (p2.x >= x0 && p2.x <= x1 && p2.y >= y0 && p2.y <= y1 && pointInTriangle2(ax, ay, bx, by, cx, cy, p2.x, p2.y) && area(p2.prev, p2, p2.next) >= 0) return false;
@@ -15899,12 +15724,24 @@ ${parts.join("\n")}
         return true;
       }
       function isEarHashed(ear, minX, minY, invSize) {
-        var a2 = ear.prev, b2 = ear, c2 = ear.next;
+        var a2 = ear.prev,
+          b2 = ear,
+          c2 = ear.next;
         if (area(a2, b2, c2) >= 0) return false;
-        var ax = a2.x, bx = b2.x, cx = c2.x, ay = a2.y, by = b2.y, cy = c2.y;
-        var x0 = ax < bx ? ax < cx ? ax : cx : bx < cx ? bx : cx, y0 = ay < by ? ay < cy ? ay : cy : by < cy ? by : cy, x1 = ax > bx ? ax > cx ? ax : cx : bx > cx ? bx : cx, y1 = ay > by ? ay > cy ? ay : cy : by > cy ? by : cy;
-        var minZ = zOrder(x0, y0, minX, minY, invSize), maxZ = zOrder(x1, y1, minX, minY, invSize);
-        var p2 = ear.prevZ, n2 = ear.nextZ;
+        var ax = a2.x,
+          bx = b2.x,
+          cx = c2.x,
+          ay = a2.y,
+          by = b2.y,
+          cy = c2.y;
+        var x0 = ax < bx ? (ax < cx ? ax : cx) : bx < cx ? bx : cx,
+          y0 = ay < by ? (ay < cy ? ay : cy) : by < cy ? by : cy,
+          x1 = ax > bx ? (ax > cx ? ax : cx) : bx > cx ? bx : cx,
+          y1 = ay > by ? (ay > cy ? ay : cy) : by > cy ? by : cy;
+        var minZ = zOrder(x0, y0, minX, minY, invSize),
+          maxZ = zOrder(x1, y1, minX, minY, invSize);
+        var p2 = ear.prevZ,
+          n2 = ear.nextZ;
         while (p2 && p2.z >= minZ && n2 && n2.z <= maxZ) {
           if (p2.x >= x0 && p2.x <= x1 && p2.y >= y0 && p2.y <= y1 && p2 !== a2 && p2 !== c2 && pointInTriangle2(ax, ay, bx, by, cx, cy, p2.x, p2.y) && area(p2.prev, p2, p2.next) >= 0) return false;
           p2 = p2.prevZ;
@@ -15924,11 +15761,12 @@ ${parts.join("\n")}
       function cureLocalIntersections(start, triangles, dim) {
         var p2 = start;
         do {
-          var a2 = p2.prev, b2 = p2.next.next;
+          var a2 = p2.prev,
+            b2 = p2.next.next;
           if (!equals(a2, b2) && intersects(a2, p2, p2.next, b2) && locallyInside(a2, b2) && locallyInside(b2, a2)) {
-            triangles.push(a2.i / dim | 0);
-            triangles.push(p2.i / dim | 0);
-            triangles.push(b2.i / dim | 0);
+            triangles.push((a2.i / dim) | 0);
+            triangles.push((p2.i / dim) | 0);
+            triangles.push((b2.i / dim) | 0);
             removeNode(p2);
             removeNode(p2.next);
             p2 = start = b2;
@@ -15956,7 +15794,12 @@ ${parts.join("\n")}
         } while (a2 !== start);
       }
       function eliminateHoles(data, holeIndices, outerNode, dim) {
-        var queue = [], i2, len, start, end, list;
+        var queue = [],
+          i2,
+          len,
+          start,
+          end,
+          list;
         for (i2 = 0, len = holeIndices.length; i2 < len; i2++) {
           start = holeIndices[i2] * dim;
           end = i2 < len - 1 ? holeIndices[i2 + 1] * dim : data.length;
@@ -15983,10 +15826,14 @@ ${parts.join("\n")}
         return filterPoints(bridge, bridge.next);
       }
       function findHoleBridge(hole, outerNode) {
-        var p2 = outerNode, hx = hole.x, hy = hole.y, qx = -Infinity, m3;
+        var p2 = outerNode,
+          hx = hole.x,
+          hy = hole.y,
+          qx = -Infinity,
+          m3;
         do {
           if (hy <= p2.y && hy >= p2.next.y && p2.next.y !== p2.y) {
-            var x3 = p2.x + (hy - p2.y) * (p2.next.x - p2.x) / (p2.next.y - p2.y);
+            var x3 = p2.x + ((hy - p2.y) * (p2.next.x - p2.x)) / (p2.next.y - p2.y);
             if (x3 <= hx && x3 > qx) {
               qx = x3;
               m3 = p2.x < p2.next.x ? p2 : p2.next;
@@ -15996,12 +15843,16 @@ ${parts.join("\n")}
           p2 = p2.next;
         } while (p2 !== outerNode);
         if (!m3) return null;
-        var stop = m3, mx = m3.x, my = m3.y, tanMin = Infinity, tan;
+        var stop = m3,
+          mx = m3.x,
+          my = m3.y,
+          tanMin = Infinity,
+          tan;
         p2 = m3;
         do {
           if (hx >= p2.x && p2.x >= mx && hx !== p2.x && pointInTriangle2(hy < my ? hx : qx, hy, mx, my, hy < my ? qx : hx, hy, p2.x, p2.y)) {
             tan = Math.abs(hy - p2.y) / (hx - p2.x);
-            if (locallyInside(p2, hole) && (tan < tanMin || tan === tanMin && (p2.x > m3.x || p2.x === m3.x && sectorContainsSector(m3, p2)))) {
+            if (locallyInside(p2, hole) && (tan < tanMin || (tan === tanMin && (p2.x > m3.x || (p2.x === m3.x && sectorContainsSector(m3, p2)))))) {
               m3 = p2;
               tanMin = tan;
             }
@@ -16026,7 +15877,15 @@ ${parts.join("\n")}
         sortLinked(p2);
       }
       function sortLinked(list) {
-        var i2, p2, q2, e2, tail, numMerges, pSize, qSize, inSize = 1;
+        var i2,
+          p2,
+          q2,
+          e2,
+          tail,
+          numMerges,
+          pSize,
+          qSize,
+          inSize = 1;
         do {
           p2 = list;
           list = null;
@@ -16042,7 +15901,7 @@ ${parts.join("\n")}
               if (!q2) break;
             }
             qSize = inSize;
-            while (pSize > 0 || qSize > 0 && q2) {
+            while (pSize > 0 || (qSize > 0 && q2)) {
               if (pSize !== 0 && (qSize === 0 || !q2 || p2.z <= q2.z)) {
                 e2 = p2;
                 p2 = p2.nextZ;
@@ -16065,22 +15924,23 @@ ${parts.join("\n")}
         return list;
       }
       function zOrder(x3, y2, minX, minY, invSize) {
-        x3 = (x3 - minX) * invSize | 0;
-        y2 = (y2 - minY) * invSize | 0;
-        x3 = (x3 | x3 << 8) & 16711935;
-        x3 = (x3 | x3 << 4) & 252645135;
-        x3 = (x3 | x3 << 2) & 858993459;
-        x3 = (x3 | x3 << 1) & 1431655765;
-        y2 = (y2 | y2 << 8) & 16711935;
-        y2 = (y2 | y2 << 4) & 252645135;
-        y2 = (y2 | y2 << 2) & 858993459;
-        y2 = (y2 | y2 << 1) & 1431655765;
-        return x3 | y2 << 1;
+        x3 = ((x3 - minX) * invSize) | 0;
+        y2 = ((y2 - minY) * invSize) | 0;
+        x3 = (x3 | (x3 << 8)) & 16711935;
+        x3 = (x3 | (x3 << 4)) & 252645135;
+        x3 = (x3 | (x3 << 2)) & 858993459;
+        x3 = (x3 | (x3 << 1)) & 1431655765;
+        y2 = (y2 | (y2 << 8)) & 16711935;
+        y2 = (y2 | (y2 << 4)) & 252645135;
+        y2 = (y2 | (y2 << 2)) & 858993459;
+        y2 = (y2 | (y2 << 1)) & 1431655765;
+        return x3 | (y2 << 1);
       }
       function getLeftmost(start) {
-        var p2 = start, leftmost = start;
+        var p2 = start,
+          leftmost = start;
         do {
-          if (p2.x < leftmost.x || p2.x === leftmost.x && p2.y < leftmost.y) leftmost = p2;
+          if (p2.x < leftmost.x || (p2.x === leftmost.x && p2.y < leftmost.y)) leftmost = p2;
           p2 = p2.next;
         } while (p2 !== start);
         return leftmost;
@@ -16089,10 +15949,16 @@ ${parts.join("\n")}
         return (cx - px) * (ay - py) >= (ax - px) * (cy - py) && (ax - px) * (by - py) >= (bx - px) * (ay - py) && (bx - px) * (cy - py) >= (cx - px) * (by - py);
       }
       function isValidDiagonal(a2, b2) {
-        return a2.next.i !== b2.i && a2.prev.i !== b2.i && !intersectsPolygon(a2, b2) && // dones't intersect other edges
-        (locallyInside(a2, b2) && locallyInside(b2, a2) && middleInside(a2, b2) && // locally visible
-        (area(a2.prev, a2, b2.prev) || area(a2, b2.prev, b2)) || // does not create opposite-facing sectors
-        equals(a2, b2) && area(a2.prev, a2, a2.next) > 0 && area(b2.prev, b2, b2.next) > 0);
+        return (
+          a2.next.i !== b2.i &&
+          a2.prev.i !== b2.i &&
+          !intersectsPolygon(a2, b2) && // dones't intersect other edges
+          ((locallyInside(a2, b2) &&
+            locallyInside(b2, a2) &&
+            middleInside(a2, b2) && // locally visible
+            (area(a2.prev, a2, b2.prev) || area(a2, b2.prev, b2))) || // does not create opposite-facing sectors
+            (equals(a2, b2) && area(a2.prev, a2, a2.next) > 0 && area(b2.prev, b2, b2.next) > 0))
+        );
       }
       function area(p2, q2, r2) {
         return (q2.y - p2.y) * (r2.x - q2.x) - (q2.x - p2.x) * (r2.y - q2.y);
@@ -16130,16 +15996,21 @@ ${parts.join("\n")}
         return area(a2.prev, a2, a2.next) < 0 ? area(a2, b2, a2.next) >= 0 && area(a2, a2.prev, b2) >= 0 : area(a2, b2, a2.prev) < 0 || area(a2, a2.next, b2) < 0;
       }
       function middleInside(a2, b2) {
-        var p2 = a2, inside = false, px = (a2.x + b2.x) / 2, py = (a2.y + b2.y) / 2;
+        var p2 = a2,
+          inside = false,
+          px = (a2.x + b2.x) / 2,
+          py = (a2.y + b2.y) / 2;
         do {
-          if (p2.y > py !== p2.next.y > py && p2.next.y !== p2.y && px < (p2.next.x - p2.x) * (py - p2.y) / (p2.next.y - p2.y) + p2.x)
-            inside = !inside;
+          if (p2.y > py !== p2.next.y > py && p2.next.y !== p2.y && px < ((p2.next.x - p2.x) * (py - p2.y)) / (p2.next.y - p2.y) + p2.x) inside = !inside;
           p2 = p2.next;
         } while (p2 !== a2);
         return inside;
       }
       function splitPolygon(a2, b2) {
-        var a22 = new Node(a2.i, a2.x, a2.y), b22 = new Node(b2.i, b2.x, b2.y), an = a2.next, bp = b2.prev;
+        var a22 = new Node(a2.i, a2.x, a2.y),
+          b22 = new Node(b2.i, b2.x, b2.y),
+          an = a2.next,
+          bp = b2.prev;
         a2.next = b2;
         b2.prev = a2;
         a22.next = an;
@@ -16180,7 +16051,7 @@ ${parts.join("\n")}
         this.nextZ = null;
         this.steiner = false;
       }
-      earcut2.deviation = function(data, holeIndices, dim, triangles) {
+      earcut2.deviation = function (data, holeIndices, dim, triangles) {
         var hasHoles = holeIndices && holeIndices.length;
         var outerLen = hasHoles ? holeIndices[0] * dim : data.length;
         var polygonArea = Math.abs(signedArea(data, 0, outerLen, dim));
@@ -16196,9 +16067,7 @@ ${parts.join("\n")}
           var a2 = triangles[i2] * dim;
           var b2 = triangles[i2 + 1] * dim;
           var c2 = triangles[i2 + 2] * dim;
-          trianglesArea += Math.abs(
-            (data[a2] - data[c2]) * (data[b2 + 1] - data[a2 + 1]) - (data[a2] - data[b2]) * (data[c2 + 1] - data[a2 + 1])
-          );
+          trianglesArea += Math.abs((data[a2] - data[c2]) * (data[b2 + 1] - data[a2 + 1]) - (data[a2] - data[b2]) * (data[c2 + 1] - data[a2 + 1]));
         }
         return polygonArea === 0 && trianglesArea === 0 ? 0 : Math.abs((trianglesArea - polygonArea) / polygonArea);
       };
@@ -16210,8 +16079,10 @@ ${parts.join("\n")}
         }
         return sum;
       }
-      earcut2.flatten = function(data) {
-        var dim = data[0][0].length, result = { vertices: [], holes: [], dimensions: dim }, holeIndex = 0;
+      earcut2.flatten = function (data) {
+        var dim = data[0][0].length,
+          result = { vertices: [], holes: [], dimensions: dim },
+          holeIndex = 0;
         for (var i2 = 0; i2 < data.length; i2++) {
           for (var j3 = 0; j3 < data[i2].length; j3++) {
             for (var d3 = 0; d3 < dim; d3++) result.vertices.push(data[i2][j3][d3]);
@@ -16223,7 +16094,7 @@ ${parts.join("\n")}
         }
         return result;
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/graphics/shared/utils/triangulateWithHoles.mjs
@@ -16248,7 +16119,7 @@ ${parts.join("\n")}
   var init_triangulateWithHoles = __esm({
     "../../../../node_modules/pixi.js/lib/scene/graphics/shared/utils/triangulateWithHoles.mjs"() {
       import_earcut = __toESM(require_earcut(), 1);
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/graphics/shared/buildCommands/buildPolygon.mjs
@@ -16261,7 +16132,7 @@ ${parts.join("\n")}
       buildPolygon = {
         extension: {
           type: ExtensionType.ShapeBuilder,
-          name: "polygon"
+          name: "polygon",
         },
         build(shape, points) {
           for (let i2 = 0; i2 < shape.points.length; i2++) {
@@ -16271,9 +16142,9 @@ ${parts.join("\n")}
         },
         triangulate(points, vertices, verticesStride, verticesOffset, indices, indicesOffset) {
           triangulateWithHoles(points, emptyArray, vertices, verticesStride, verticesOffset, indices, indicesOffset);
-        }
+        },
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/graphics/shared/buildCommands/buildRectangle.mjs
@@ -16284,7 +16155,7 @@ ${parts.join("\n")}
       buildRectangle = {
         extension: {
           type: ExtensionType.ShapeBuilder,
-          name: "rectangle"
+          name: "rectangle",
         },
         build(shape, points) {
           const rectData = shape;
@@ -16327,9 +16198,9 @@ ${parts.join("\n")}
           indices[indicesOffset++] = verticesIndex + 1;
           indices[indicesOffset++] = verticesIndex + 3;
           indices[indicesOffset++] = verticesIndex + 2;
-        }
+        },
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/graphics/shared/buildCommands/buildTriangle.mjs
@@ -16340,7 +16211,7 @@ ${parts.join("\n")}
       buildTriangle = {
         extension: {
           type: ExtensionType.ShapeBuilder,
-          name: "triangle"
+          name: "triangle",
         },
         build(shape, points) {
           points[0] = shape.x;
@@ -16366,9 +16237,9 @@ ${parts.join("\n")}
           indices[indicesOffset++] = verticesIndex;
           indices[indicesOffset++] = verticesIndex + 1;
           indices[indicesOffset++] = verticesIndex + 2;
-        }
+        },
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/graphics/shared/utils/generateTextureFillMatrix.mjs
@@ -16399,7 +16270,7 @@ ${parts.join("\n")}
       init_Rectangle();
       tempTextureMatrix = new Matrix();
       tempRect = new Rectangle();
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/graphics/shared/utils/buildContextBatches.mjs
@@ -16447,16 +16318,7 @@ ${parts.join("\n")}
     }
     build.triangulate(points, vertices, 2, vertOffset, indices, indexOffset);
     const textureUvs = texture.uvs;
-    uvs.push(
-      textureUvs.x0,
-      textureUvs.y0,
-      textureUvs.x1,
-      textureUvs.y1,
-      textureUvs.x3,
-      textureUvs.y3,
-      textureUvs.x2,
-      textureUvs.y2
-    );
+    uvs.push(textureUvs.x0, textureUvs.y0, textureUvs.x1, textureUvs.y1, textureUvs.x3, textureUvs.y3, textureUvs.x2, textureUvs.y2);
     const graphicsBatch = BigPool.get(BatchableGraphics);
     graphicsBatch.indexOffset = indexOffset;
     graphicsBatch.indexSize = indices.length - indexOffset;
@@ -16560,7 +16422,7 @@ ${parts.join("\n")}
       extensions.add(buildRectangle, buildPolygon, buildTriangle, buildCircle, buildEllipse, buildRoundedRectangle);
       tempRect2 = new Rectangle();
       tempTextureMatrix2 = new Matrix();
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/graphics/shared/GraphicsContextSystem.mjs
@@ -16580,7 +16442,7 @@ ${parts.join("\n")}
           this.geometryData = {
             vertices: [],
             uvs: [],
-            indices: []
+            indices: [],
           };
         }
       };
@@ -16706,22 +16568,18 @@ ${parts.join("\n")}
         }
       };
       _GraphicsContextSystem.extension = {
-        type: [
-          ExtensionType.WebGLSystem,
-          ExtensionType.WebGPUSystem,
-          ExtensionType.CanvasSystem
-        ],
-        name: "graphicsContext"
+        type: [ExtensionType.WebGLSystem, ExtensionType.WebGPUSystem, ExtensionType.CanvasSystem],
+        name: "graphicsContext",
       };
       _GraphicsContextSystem.defaultOptions = {
         /**
          * A value from 0 to 1 that controls the smoothness of bezier curves (the higher the smoother)
          * @default 0.5
          */
-        bezierSmoothness: 0.5
+        bezierSmoothness: 0.5,
       };
       GraphicsContextSystem = _GraphicsContextSystem;
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/shared/state/State.mjs
@@ -16740,7 +16598,7 @@ ${parts.join("\n")}
         "add-npm": 7,
         "screen-npm": 8,
         min: 9,
-        max: 10
+        max: 10,
       };
       BLEND = 0;
       OFFSET = 1;
@@ -16761,10 +16619,10 @@ ${parts.join("\n")}
          * @default true
          */
         get blend() {
-          return !!(this.data & 1 << BLEND);
+          return !!(this.data & (1 << BLEND));
         }
         set blend(value) {
-          if (!!(this.data & 1 << BLEND) !== value) {
+          if (!!(this.data & (1 << BLEND)) !== value) {
             this.data ^= 1 << BLEND;
           }
         }
@@ -16773,10 +16631,10 @@ ${parts.join("\n")}
          * @default false
          */
         get offsets() {
-          return !!(this.data & 1 << OFFSET);
+          return !!(this.data & (1 << OFFSET));
         }
         set offsets(value) {
-          if (!!(this.data & 1 << OFFSET) !== value) {
+          if (!!(this.data & (1 << OFFSET)) !== value) {
             this.data ^= 1 << OFFSET;
           }
         }
@@ -16800,10 +16658,10 @@ ${parts.join("\n")}
          * @default false
          */
         get culling() {
-          return !!(this.data & 1 << CULLING);
+          return !!(this.data & (1 << CULLING));
         }
         set culling(value) {
-          if (!!(this.data & 1 << CULLING) !== value) {
+          if (!!(this.data & (1 << CULLING)) !== value) {
             this.data ^= 1 << CULLING;
           }
         }
@@ -16812,10 +16670,10 @@ ${parts.join("\n")}
          * @default false
          */
         get depthTest() {
-          return !!(this.data & 1 << DEPTH_TEST);
+          return !!(this.data & (1 << DEPTH_TEST));
         }
         set depthTest(value) {
-          if (!!(this.data & 1 << DEPTH_TEST) !== value) {
+          if (!!(this.data & (1 << DEPTH_TEST)) !== value) {
             this.data ^= 1 << DEPTH_TEST;
           }
         }
@@ -16824,10 +16682,10 @@ ${parts.join("\n")}
          * @default true
          */
         get depthMask() {
-          return !!(this.data & 1 << DEPTH_MASK);
+          return !!(this.data & (1 << DEPTH_MASK));
         }
         set depthMask(value) {
-          if (!!(this.data & 1 << DEPTH_MASK) !== value) {
+          if (!!(this.data & (1 << DEPTH_MASK)) !== value) {
             this.data ^= 1 << DEPTH_MASK;
           }
         }
@@ -16836,10 +16694,10 @@ ${parts.join("\n")}
          * @default false
          */
         get clockwiseFrontFace() {
-          return !!(this.data & 1 << WINDING);
+          return !!(this.data & (1 << WINDING));
         }
         set clockwiseFrontFace(value) {
-          if (!!(this.data & 1 << WINDING) !== value) {
+          if (!!(this.data & (1 << WINDING)) !== value) {
             this.data ^= 1 << WINDING;
           }
         }
@@ -16883,21 +16741,21 @@ ${parts.join("\n")}
       };
       _State.default2d = _State.for2d();
       State = _State;
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/graphics/gpu/colorToUniform.mjs
   function color32BitToUniform(abgr, out2, offset) {
-    const alpha = (abgr >> 24 & 255) / 255;
-    out2[offset++] = (abgr & 255) / 255 * alpha;
-    out2[offset++] = (abgr >> 8 & 255) / 255 * alpha;
-    out2[offset++] = (abgr >> 16 & 255) / 255 * alpha;
+    const alpha = ((abgr >> 24) & 255) / 255;
+    out2[offset++] = ((abgr & 255) / 255) * alpha;
+    out2[offset++] = (((abgr >> 8) & 255) / 255) * alpha;
+    out2[offset++] = (((abgr >> 16) & 255) / 255) * alpha;
     out2[offset++] = alpha;
   }
   var init_colorToUniform = __esm({
     "../../../../node_modules/pixi.js/lib/scene/graphics/gpu/colorToUniform.mjs"() {
       "use strict";
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/graphics/shared/GraphicsPipe.mjs
@@ -16956,8 +16814,7 @@ ${parts.join("\n")}
           graphics.off("destroyed", this._destroyRenderableBound);
         }
         execute(graphics) {
-          if (!graphics.isRenderable)
-            return;
+          if (!graphics.isRenderable) return;
           const renderer = this.renderer;
           const context2 = graphics.context;
           const contextSystem = renderer.graphicsContext;
@@ -16969,11 +16826,7 @@ ${parts.join("\n")}
           const localUniforms = shader.resources.localUniforms.uniforms;
           localUniforms.uTransformMatrix = graphics.groupTransform;
           localUniforms.uRound = renderer._roundPixels | graphics._roundPixels;
-          color32BitToUniform(
-            graphics.groupColorAlpha,
-            localUniforms.uColor,
-            0
-          );
+          color32BitToUniform(graphics.groupColorAlpha, localUniforms.uColor, 0);
           this._adaptor.execute(this, graphics);
         }
         _rebuild(graphics) {
@@ -17033,14 +16886,10 @@ ${parts.join("\n")}
         }
       };
       GraphicsPipe.extension = {
-        type: [
-          ExtensionType.WebGLPipes,
-          ExtensionType.WebGPUPipes,
-          ExtensionType.CanvasPipes
-        ],
-        name: "graphics"
+        type: [ExtensionType.WebGLPipes, ExtensionType.WebGPUPipes, ExtensionType.CanvasPipes],
+        name: "graphics",
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/graphics/init.mjs
@@ -17051,7 +16900,7 @@ ${parts.join("\n")}
       init_GraphicsPipe();
       extensions.add(GraphicsPipe);
       extensions.add(GraphicsContextSystem);
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/mesh/shared/BatchableMesh.mjs
@@ -17096,8 +16945,7 @@ ${parts.join("\n")}
          * @param value - The texture to set.
          */
         setTexture(value) {
-          if (this.texture === value)
-            return;
+          if (this.texture === value) return;
           this.texture = value;
           this._textureMatrixUpdateId = -1;
         }
@@ -17139,7 +16987,7 @@ ${parts.join("\n")}
           return this.geometry.indices.length;
         }
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/mesh/shared/MeshPipe.mjs
@@ -17159,10 +17007,10 @@ ${parts.join("\n")}
           this.localUniforms = new UniformGroup({
             uTransformMatrix: { value: new Matrix(), type: "mat3x3<f32>" },
             uColor: { value: new Float32Array([1, 1, 1, 1]), type: "vec4<f32>" },
-            uRound: { value: 0, type: "f32" }
+            uRound: { value: 0, type: "f32" },
           });
           this.localUniformsBindGroup = new BindGroup({
-            0: this.localUniforms
+            0: this.localUniforms,
           });
           this._meshDataHash = /* @__PURE__ */ Object.create(null);
           this._gpuBatchableMeshHash = /* @__PURE__ */ Object.create(null);
@@ -17191,10 +17039,7 @@ ${parts.join("\n")}
             if (batchableMesh.texture.uid !== mesh._texture.uid) {
               batchableMesh._textureMatrixUpdateId = -1;
             }
-            return !batchableMesh._batcher.checkAndUpdateTexture(
-              batchableMesh,
-              mesh._texture
-            );
+            return !batchableMesh._batcher.checkAndUpdateTexture(batchableMesh, mesh._texture);
           }
           return false;
         }
@@ -17229,18 +17074,13 @@ ${parts.join("\n")}
           mesh.off("destroyed", this._destroyRenderableBound);
         }
         execute(mesh) {
-          if (!mesh.isRenderable)
-            return;
+          if (!mesh.isRenderable) return;
           mesh.state.blendMode = getAdjustedBlendModeBlend(mesh.groupBlendMode, mesh.texture._source);
           const localUniforms = this.localUniforms;
           localUniforms.uniforms.uTransformMatrix = mesh.groupTransform;
           localUniforms.uniforms.uRound = this.renderer._roundPixels | mesh._roundPixels;
           localUniforms.update();
-          color32BitToUniform(
-            mesh.groupColorAlpha,
-            localUniforms.uniforms.uColor,
-            0
-          );
+          color32BitToUniform(mesh.groupColorAlpha, localUniforms.uniforms.uColor, 0);
           this._adaptor.execute(this, mesh);
         }
         _getMeshData(mesh) {
@@ -17251,7 +17091,7 @@ ${parts.join("\n")}
           this._meshDataHash[mesh.uid] = {
             batched: mesh.batched,
             indexSize: (_a2 = mesh._geometry.indices) == null ? void 0 : _a2.length,
-            vertexSize: (_b = mesh._geometry.positions) == null ? void 0 : _b.length
+            vertexSize: (_b = mesh._geometry.positions) == null ? void 0 : _b.length,
           };
           mesh.on("destroyed", this._destroyRenderableBound);
           return this._meshDataHash[mesh.uid];
@@ -17284,14 +17124,10 @@ ${parts.join("\n")}
         }
       };
       MeshPipe.extension = {
-        type: [
-          ExtensionType.WebGLPipes,
-          ExtensionType.WebGPUPipes,
-          ExtensionType.CanvasPipes
-        ],
-        name: "mesh"
+        type: [ExtensionType.WebGLPipes, ExtensionType.WebGPUPipes, ExtensionType.CanvasPipes],
+        name: "mesh",
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/mesh/init.mjs
@@ -17300,7 +17136,7 @@ ${parts.join("\n")}
       init_Extensions();
       init_MeshPipe();
       extensions.add(MeshPipe);
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/particle-container/gl/GlParticleContainerAdaptor.mjs
@@ -17325,7 +17161,7 @@ ${parts.join("\n")}
           gl.drawElements(gl.TRIANGLES, container.particleChildren.length * 6, glType, 0);
         }
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/particle-container/shared/utils/createIndicesForQuads.mjs
@@ -17352,14 +17188,14 @@ ${parts.join("\n")}
   var init_createIndicesForQuads = __esm({
     "../../../../node_modules/pixi.js/lib/scene/particle-container/shared/utils/createIndicesForQuads.mjs"() {
       "use strict";
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/particle-container/shared/utils/generateParticleUpdateFunction.mjs
   function generateParticleUpdateFunction(properties) {
     return {
       dynamicUpdate: generateUpdateFunction(properties, true),
-      staticUpdate: generateUpdateFunction(properties, false)
+      staticUpdate: generateUpdateFunction(properties, false),
     };
   }
   function generateUpdateFunction(properties, dynamic) {
@@ -17376,8 +17212,7 @@ ${parts.join("\n")}
     let offset = 0;
     for (const i2 in properties) {
       const property = properties[i2];
-      if (dynamic !== property.dynamic)
-        continue;
+      if (dynamic !== property.dynamic) continue;
       funcFragments.push(`offset = index + ${offset}`);
       funcFragments.push(property.code);
       const attributeInfo = getAttributeInfoFromFormat(property.format);
@@ -17396,7 +17231,7 @@ ${parts.join("\n")}
   var init_generateParticleUpdateFunction = __esm({
     "../../../../node_modules/pixi.js/lib/scene/particle-container/shared/utils/generateParticleUpdateFunction.mjs"() {
       init_getAttributeInfoFromFormat();
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/particle-container/shared/ParticleBuffer.mjs
@@ -17423,7 +17258,7 @@ ${parts.join("\n")}
           var _a2;
           this._size = 0;
           this._generateParticleUpdateCache = {};
-          const size = this._size = (_a2 = options.size) != null ? _a2 : 1e3;
+          const size = (this._size = (_a2 = options.size) != null ? _a2 : 1e3);
           const properties = options.properties;
           let staticVertexSize = 0;
           let dynamicVertexSize = 0;
@@ -17448,13 +17283,13 @@ ${parts.join("\n")}
             data: new Float32Array(1),
             label: "static-particle-buffer",
             shrinkToFit: false,
-            usage: BufferUsage.VERTEX | BufferUsage.COPY_DST
+            usage: BufferUsage.VERTEX | BufferUsage.COPY_DST,
           });
           this._dynamicBuffer = new Buffer2({
             data: new Float32Array(1),
             label: "dynamic-particle-buffer",
             shrinkToFit: false,
-            usage: BufferUsage.VERTEX | BufferUsage.COPY_DST
+            usage: BufferUsage.VERTEX | BufferUsage.COPY_DST,
           });
           for (const i2 in properties) {
             const property = properties[i2];
@@ -17464,7 +17299,7 @@ ${parts.join("\n")}
                 buffer: this._dynamicBuffer,
                 stride: this._dynamicStride * 4,
                 offset: dynamicOffset * 4,
-                format: property.format
+                format: property.format,
               });
               dynamicOffset += attributeInfo.size;
             } else {
@@ -17472,7 +17307,7 @@ ${parts.join("\n")}
                 buffer: this._staticBuffer,
                 stride: this._staticStride * 4,
                 offset: staticOffset * 4,
-                format: property.format
+                format: property.format,
               });
               staticOffset += attributeInfo.size;
             }
@@ -17497,31 +17332,19 @@ ${parts.join("\n")}
         update(particles, uploadStatic) {
           if (particles.length > this._size) {
             uploadStatic = true;
-            this._size = Math.max(particles.length, this._size * 1.5 | 0);
+            this._size = Math.max(particles.length, (this._size * 1.5) | 0);
             this.staticAttributeBuffer = new ViewableBuffer(this._size * this._staticStride * 4 * 4);
             this.dynamicAttributeBuffer = new ViewableBuffer(this._size * this._dynamicStride * 4 * 4);
             this.indexBuffer = createIndicesForQuads(this._size);
-            this.geometry.indexBuffer.setDataWithSize(
-              this.indexBuffer,
-              this.indexBuffer.byteLength,
-              true
-            );
+            this.geometry.indexBuffer.setDataWithSize(this.indexBuffer, this.indexBuffer.byteLength, true);
           }
           const dynamicAttributeBuffer = this.dynamicAttributeBuffer;
           this._dynamicUpload(particles, dynamicAttributeBuffer.float32View, dynamicAttributeBuffer.uint32View);
-          this._dynamicBuffer.setDataWithSize(
-            this.dynamicAttributeBuffer.float32View,
-            particles.length * this._dynamicStride * 4,
-            true
-          );
+          this._dynamicBuffer.setDataWithSize(this.dynamicAttributeBuffer.float32View, particles.length * this._dynamicStride * 4, true);
           if (uploadStatic) {
             const staticAttributeBuffer = this.staticAttributeBuffer;
             this._staticUpload(particles, staticAttributeBuffer.float32View, staticAttributeBuffer.uint32View);
-            this._staticBuffer.setDataWithSize(
-              staticAttributeBuffer.float32View,
-              particles.length * this._staticStride * 4,
-              true
-            );
+            this._staticBuffer.setDataWithSize(staticAttributeBuffer.float32View, particles.length * this._staticStride * 4, true);
           }
         }
         destroy() {
@@ -17530,7 +17353,7 @@ ${parts.join("\n")}
           this.geometry.destroy();
         }
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/particle-container/shared/shader/particles.frag.mjs
@@ -17538,23 +17361,25 @@ ${parts.join("\n")}
   var init_particles_frag = __esm({
     "../../../../node_modules/pixi.js/lib/scene/particle-container/shared/shader/particles.frag.mjs"() {
       fragment = "varying vec2 vUV;\nvarying vec4 vColor;\n\nuniform sampler2D uTexture;\n\nvoid main(void){\n    vec4 color = texture2D(uTexture, vUV) * vColor;\n    gl_FragColor = color;\n}";
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/particle-container/shared/shader/particles.vert.mjs
   var vertex;
   var init_particles_vert = __esm({
     "../../../../node_modules/pixi.js/lib/scene/particle-container/shared/shader/particles.vert.mjs"() {
-      vertex = "attribute vec2 aVertex;\nattribute vec2 aUV;\nattribute vec4 aColor;\n\nattribute vec2 aPosition;\nattribute float aRotation;\n\nuniform mat3 uTranslationMatrix;\nuniform float uRound;\nuniform vec2 uResolution;\nuniform vec4 uColor;\n\nvarying vec2 vUV;\nvarying vec4 vColor;\n\nvec2 roundPixels(vec2 position, vec2 targetSize)\n{       \n    return (floor(((position * 0.5 + 0.5) * targetSize) + 0.5) / targetSize) * 2.0 - 1.0;\n}\n\nvoid main(void){\n    float cosRotation = cos(aRotation);\n    float sinRotation = sin(aRotation);\n    float x = aVertex.x * cosRotation - aVertex.y * sinRotation;\n    float y = aVertex.x * sinRotation + aVertex.y * cosRotation;\n\n    vec2 v = vec2(x, y);\n    v = v + aPosition;\n\n    gl_Position = vec4((uTranslationMatrix * vec3(v, 1.0)).xy, 0.0, 1.0);\n\n    if(uRound == 1.0)\n    {\n        gl_Position.xy = roundPixels(gl_Position.xy, uResolution);\n    }\n\n    vUV = aUV;\n    vColor = vec4(aColor.rgb * aColor.a, aColor.a) * uColor;\n}\n";
-    }
+      vertex =
+        "attribute vec2 aVertex;\nattribute vec2 aUV;\nattribute vec4 aColor;\n\nattribute vec2 aPosition;\nattribute float aRotation;\n\nuniform mat3 uTranslationMatrix;\nuniform float uRound;\nuniform vec2 uResolution;\nuniform vec4 uColor;\n\nvarying vec2 vUV;\nvarying vec4 vColor;\n\nvec2 roundPixels(vec2 position, vec2 targetSize)\n{       \n    return (floor(((position * 0.5 + 0.5) * targetSize) + 0.5) / targetSize) * 2.0 - 1.0;\n}\n\nvoid main(void){\n    float cosRotation = cos(aRotation);\n    float sinRotation = sin(aRotation);\n    float x = aVertex.x * cosRotation - aVertex.y * sinRotation;\n    float y = aVertex.x * sinRotation + aVertex.y * cosRotation;\n\n    vec2 v = vec2(x, y);\n    v = v + aPosition;\n\n    gl_Position = vec4((uTranslationMatrix * vec3(v, 1.0)).xy, 0.0, 1.0);\n\n    if(uRound == 1.0)\n    {\n        gl_Position.xy = roundPixels(gl_Position.xy, uResolution);\n    }\n\n    vUV = aUV;\n    vColor = vec4(aColor.rgb * aColor.a, aColor.a) * uColor;\n}\n";
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/particle-container/shared/shader/particles.wgsl.mjs
   var wgsl;
   var init_particles_wgsl = __esm({
     "../../../../node_modules/pixi.js/lib/scene/particle-container/shared/shader/particles.wgsl.mjs"() {
-      wgsl = "\nstruct ParticleUniforms {\n  uProjectionMatrix:mat3x3<f32>,\n  uColor:vec4<f32>,\n  uResolution:vec2<f32>,\n  uRoundPixels:f32,\n};\n\n@group(0) @binding(0) var<uniform> uniforms: ParticleUniforms;\n\n@group(1) @binding(0) var uTexture: texture_2d<f32>;\n@group(1) @binding(1) var uSampler : sampler;\n\nstruct VSOutput {\n    @builtin(position) position: vec4<f32>,\n    @location(0) uv : vec2<f32>,\n    @location(1) color : vec4<f32>,\n  };\n@vertex\nfn mainVertex(\n  @location(0) aVertex: vec2<f32>,\n  @location(1) aPosition: vec2<f32>,\n  @location(2) aUV: vec2<f32>,\n  @location(3) aColor: vec4<f32>,\n  @location(4) aRotation: f32,\n) -> VSOutput {\n  \n   let v = vec2(\n       aVertex.x * cos(aRotation) - aVertex.y * sin(aRotation),\n       aVertex.x * sin(aRotation) + aVertex.y * cos(aRotation)\n   ) + aPosition;\n\n   let position = vec4((uniforms.uProjectionMatrix * vec3(v, 1.0)).xy, 0.0, 1.0);\n\n    let vColor = vec4(aColor.rgb * aColor.a, aColor.a) * uniforms.uColor;\n\n  return VSOutput(\n   position,\n   aUV,\n   vColor,\n  );\n}\n\n@fragment\nfn mainFragment(\n  @location(0) uv: vec2<f32>,\n  @location(1) color: vec4<f32>,\n  @builtin(position) position: vec4<f32>,\n) -> @location(0) vec4<f32> {\n\n    var sample = textureSample(uTexture, uSampler, uv) * color;\n   \n    return sample;\n}";
-    }
+      wgsl =
+        "\nstruct ParticleUniforms {\n  uProjectionMatrix:mat3x3<f32>,\n  uColor:vec4<f32>,\n  uResolution:vec2<f32>,\n  uRoundPixels:f32,\n};\n\n@group(0) @binding(0) var<uniform> uniforms: ParticleUniforms;\n\n@group(1) @binding(0) var uTexture: texture_2d<f32>;\n@group(1) @binding(1) var uSampler : sampler;\n\nstruct VSOutput {\n    @builtin(position) position: vec4<f32>,\n    @location(0) uv : vec2<f32>,\n    @location(1) color : vec4<f32>,\n  };\n@vertex\nfn mainVertex(\n  @location(0) aVertex: vec2<f32>,\n  @location(1) aPosition: vec2<f32>,\n  @location(2) aUV: vec2<f32>,\n  @location(3) aColor: vec4<f32>,\n  @location(4) aRotation: f32,\n) -> VSOutput {\n  \n   let v = vec2(\n       aVertex.x * cos(aRotation) - aVertex.y * sin(aRotation),\n       aVertex.x * sin(aRotation) + aVertex.y * cos(aRotation)\n   ) + aPosition;\n\n   let position = vec4((uniforms.uProjectionMatrix * vec3(v, 1.0)).xy, 0.0, 1.0);\n\n    let vColor = vec4(aColor.rgb * aColor.a, aColor.a) * uniforms.uColor;\n\n  return VSOutput(\n   position,\n   aUV,\n   vColor,\n  );\n}\n\n@fragment\nfn mainFragment(\n  @location(0) uv: vec2<f32>,\n  @location(1) color: vec4<f32>,\n  @builtin(position) position: vec4<f32>,\n) -> @location(0) vec4<f32> {\n\n    var sample = textureSample(uTexture, uSampler, uv) * color;\n   \n    return sample;\n}";
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/particle-container/shared/shader/ParticleShader.mjs
@@ -17575,17 +17400,17 @@ ${parts.join("\n")}
         constructor() {
           const glProgram3 = GlProgram.from({
             vertex,
-            fragment
+            fragment,
           });
           const gpuProgram3 = GpuProgram.from({
             fragment: {
               source: wgsl,
-              entryPoint: "mainFragment"
+              entryPoint: "mainFragment",
             },
             vertex: {
               source: wgsl,
-              entryPoint: "mainVertex"
-            }
+              entryPoint: "mainVertex",
+            },
           });
           super({
             glProgram: glProgram3,
@@ -17600,13 +17425,13 @@ ${parts.join("\n")}
                 uTranslationMatrix: { value: new Matrix(), type: "mat3x3<f32>" },
                 uColor: { value: new Color(16777215), type: "vec4<f32>" },
                 uRound: { value: 1, type: "f32" },
-                uResolution: { value: [0, 0], type: "vec2<f32>" }
-              }
-            }
+                uResolution: { value: [0, 0], type: "vec2<f32>" },
+              },
+            },
           });
         }
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/particle-container/shared/ParticleContainerPipe.mjs
@@ -17633,7 +17458,7 @@ ${parts.join("\n")}
             uTranslationMatrix: { value: new Matrix(), type: "mat3x3<f32>" },
             uColor: { value: new Float32Array(4), type: "vec4<f32>" },
             uRound: { value: 1, type: "f32" },
-            uResolution: { value: [0, 0], type: "vec2<f32>" }
+            uResolution: { value: [0, 0], type: "vec2<f32>" },
           });
           this.renderer = renderer;
           this.adaptor = adaptor;
@@ -17653,13 +17478,12 @@ ${parts.join("\n")}
         _initBuffer(renderable) {
           this._gpuBufferHash[renderable.uid] = new ParticleBuffer({
             size: renderable.particleChildren.length,
-            properties: renderable._properties
+            properties: renderable._properties,
           });
           renderable.on("destroyed", this._destroyRenderableBound);
           return this._gpuBufferHash[renderable.uid];
         }
-        updateRenderable(_renderable) {
-        }
+        updateRenderable(_renderable) {}
         destroyRenderable(renderable) {
           const buffer = this._gpuBufferHash[renderable.uid];
           buffer.destroy();
@@ -17684,11 +17508,7 @@ ${parts.join("\n")}
           transformationMatrix.prepend(renderer.globalUniforms.globalUniformData.projectionMatrix);
           uniforms.uResolution = renderer.globalUniforms.globalUniformData.resolution;
           uniforms.uRound = renderer._roundPixels | container._roundPixels;
-          color32BitToUniform(
-            container.groupColorAlpha,
-            uniforms.uColor,
-            0
-          );
+          color32BitToUniform(container.groupColorAlpha, uniforms.uColor, 0);
           this.adaptor.execute(this, container);
         }
         /** Destroys the ParticleRenderer. */
@@ -17699,7 +17519,7 @@ ${parts.join("\n")}
           }
         }
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/particle-container/shared/GlParticleContainerPipe.mjs
@@ -17715,12 +17535,10 @@ ${parts.join("\n")}
         }
       };
       GlParticleContainerPipe.extension = {
-        type: [
-          ExtensionType.WebGLPipes
-        ],
-        name: "particle"
+        type: [ExtensionType.WebGLPipes],
+        name: "particle",
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/particle-container/gpu/GpuParticleContainerAdaptor.mjs
@@ -17740,11 +17558,11 @@ ${parts.join("\n")}
             geometry: buffer.geometry,
             shader: container.shader || particleContainerPipe.defaultShader,
             state,
-            size: container.particleChildren.length * 6
+            size: container.particleChildren.length * 6,
           });
         }
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/particle-container/shared/GpuParticleContainerPipe.mjs
@@ -17760,12 +17578,10 @@ ${parts.join("\n")}
         }
       };
       GpuParticleContainerPipe.extension = {
-        type: [
-          ExtensionType.WebGPUPipes
-        ],
-        name: "particle"
+        type: [ExtensionType.WebGPUPipes],
+        name: "particle",
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/particle-container/init.mjs
@@ -17776,7 +17592,7 @@ ${parts.join("\n")}
       init_GpuParticleContainerPipe();
       extensions.add(GlParticleContainerPipe);
       extensions.add(GpuParticleContainerPipe);
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/sprite/BatchableSprite.mjs
@@ -17810,7 +17626,7 @@ ${parts.join("\n")}
           this.bounds = null;
         }
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/text/utils/updateTextBounds.mjs
@@ -17826,7 +17642,7 @@ ${parts.join("\n")}
   var init_updateTextBounds = __esm({
     "../../../../node_modules/pixi.js/lib/scene/text/utils/updateTextBounds.mjs"() {
       init_updateQuadBounds();
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/text/canvas/CanvasTextPipe.mjs
@@ -17848,8 +17664,7 @@ ${parts.join("\n")}
         resolutionChange() {
           for (const i2 in this._gpuText) {
             const gpuText = this._gpuText[i2];
-            if (!gpuText)
-              continue;
+            if (!gpuText) continue;
             const text = gpuText.batchableSprite.renderable;
             if (text._autoResolution) {
               text._resolution = this._renderer.resolution;
@@ -17918,7 +17733,7 @@ ${parts.join("\n")}
           const gpuTextData = {
             texture: null,
             currentKey: "--",
-            batchableSprite: BigPool.get(BatchableSprite)
+            batchableSprite: BigPool.get(BatchableSprite),
           };
           gpuTextData.batchableSprite.renderable = text;
           gpuTextData.batchableSprite.transform = text.groupTransform;
@@ -17939,14 +17754,10 @@ ${parts.join("\n")}
         }
       };
       CanvasTextPipe.extension = {
-        type: [
-          ExtensionType.WebGLPipes,
-          ExtensionType.WebGPUPipes,
-          ExtensionType.CanvasPipes
-        ],
-        name: "text"
+        type: [ExtensionType.WebGLPipes, ExtensionType.WebGPUPipes, ExtensionType.CanvasPipes],
+        name: "text",
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/shared/texture/CanvasPool.mjs
@@ -18011,29 +17822,27 @@ ${parts.join("\n")}
         }
       };
       CanvasPool = new CanvasPoolClass();
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/utils/canvas/getCanvasBoundingBox.mjs
   function checkRow(data, width, y2) {
     for (let x3 = 0, index = 4 * y2 * width; x3 < width; ++x3, index += 4) {
-      if (data[index + 3] !== 0)
-        return false;
+      if (data[index + 3] !== 0) return false;
     }
     return true;
   }
   function checkColumn(data, width, x3, top, bottom) {
     const stride = 4 * width;
     for (let y2 = top, index = top * stride + 4 * x3; y2 <= bottom; ++y2, index += stride) {
-      if (data[index + 3] !== 0)
-        return false;
+      if (data[index + 3] !== 0) return false;
     }
     return true;
   }
   function getCanvasBoundingBox(canvas, resolution = 1) {
     const { width, height } = canvas;
     const context2 = canvas.getContext("2d", {
-      willReadFrequently: true
+      willReadFrequently: true,
     });
     if (context2 === null) {
       throw new TypeError("Failed to get canvas 2D context");
@@ -18044,16 +17853,11 @@ ${parts.join("\n")}
     let top = 0;
     let right = width - 1;
     let bottom = height - 1;
-    while (top < height && checkRow(data, width, top))
-      ++top;
-    if (top === height)
-      return Rectangle.EMPTY;
-    while (checkRow(data, width, bottom))
-      --bottom;
-    while (checkColumn(data, width, left, top, bottom))
-      ++left;
-    while (checkColumn(data, width, right, top, bottom))
-      --right;
+    while (top < height && checkRow(data, width, top)) ++top;
+    if (top === height) return Rectangle.EMPTY;
+    while (checkRow(data, width, bottom)) --bottom;
+    while (checkColumn(data, width, left, top, bottom)) ++left;
+    while (checkColumn(data, width, right, top, bottom)) --right;
     ++right;
     ++bottom;
     return new Rectangle(left / resolution, top / resolution, (right - left) / resolution, (bottom - top) / resolution);
@@ -18061,7 +17865,7 @@ ${parts.join("\n")}
   var init_getCanvasBoundingBox = __esm({
     "../../../../node_modules/pixi.js/lib/utils/canvas/getCanvasBoundingBox.mjs"() {
       init_Rectangle();
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/graphics/shared/fill/FillGradient.mjs
@@ -18086,7 +17890,7 @@ ${parts.join("\n")}
         start: { x: args[0], y: args[1] },
         end: { x: args[2], y: args[3] },
         textureSpace: args[4],
-        textureSize: (_b = args[5]) != null ? _b : FillGradient.defaultLinearOptions.textureSize
+        textureSize: (_b = args[5]) != null ? _b : FillGradient.defaultLinearOptions.textureSize,
       };
     }
     return options;
@@ -18102,7 +17906,10 @@ ${parts.join("\n")}
       init_uid();
       init_deprecation();
       init_definedProps();
-      emptyColorStops = [{ offset: 0, color: "white" }, { offset: 1, color: "black" }];
+      emptyColorStops = [
+        { offset: 0, color: "white" },
+        { offset: 1, color: "black" },
+      ];
       _FillGradient = class _FillGradient2 {
         constructor(...args) {
           var _a2;
@@ -18146,8 +17953,7 @@ ${parts.join("\n")}
          * @internal
          */
         buildLinearGradient() {
-          if (this.texture)
-            return;
+          if (this.texture) return;
           const colorStops = this.colorStops.length ? this.colorStops : emptyColorStops;
           const defaultSize = this._textureSize;
           const { canvas, context: context2 } = getCanvas(defaultSize, 1);
@@ -18157,8 +17963,8 @@ ${parts.join("\n")}
           context2.fillRect(0, 0, defaultSize, 1);
           this.texture = new Texture({
             source: new ImageSource({
-              resource: canvas
-            })
+              resource: canvas,
+            }),
           });
           const { x: x0, y: y0 } = this.start;
           const { x: x1, y: y1 } = this.end;
@@ -18183,8 +17989,7 @@ ${parts.join("\n")}
           }
         }
         buildRadialGradient() {
-          if (this.texture)
-            return;
+          if (this.texture) return;
           const colorStops = this.colorStops.length ? this.colorStops : emptyColorStops;
           const defaultSize = this._textureSize;
           const { canvas, context: context2 } = getCanvas(defaultSize, defaultSize);
@@ -18197,14 +18002,7 @@ ${parts.join("\n")}
           const scale = defaultSize / (r1 * 2);
           const cx = (x0 - ox) * scale;
           const cy = (y0 - oy) * scale;
-          const gradient = context2.createRadialGradient(
-            cx,
-            cy,
-            r0 * scale,
-            (x1 - ox) * scale,
-            (y1 - oy) * scale,
-            r1 * scale
-          );
+          const gradient = context2.createRadialGradient(cx, cy, r0 * scale, (x1 - ox) * scale, (y1 - oy) * scale, r1 * scale);
           addColorStops(gradient, colorStops);
           context2.fillStyle = colorStops[colorStops.length - 1].color;
           context2.fillRect(0, 0, defaultSize, defaultSize);
@@ -18218,8 +18016,8 @@ ${parts.join("\n")}
             source: new ImageSource({
               resource: canvas,
               addressModeU: "clamp-to-edge",
-              addressModeV: "clamp-to-edge"
-            })
+              addressModeV: "clamp-to-edge",
+            }),
           });
           const m3 = new Matrix();
           m3.scale(1 / scale, 1 / scale);
@@ -18249,7 +18047,7 @@ ${parts.join("\n")}
         colorStops: [],
         textureSpace: "local",
         type: "linear",
-        textureSize: 256
+        textureSize: 256,
       };
       _FillGradient.defaultRadialOptions = {
         center: { x: 0.5, y: 0.5 },
@@ -18259,10 +18057,10 @@ ${parts.join("\n")}
         scale: 1,
         textureSpace: "local",
         type: "radial",
-        textureSize: 256
+        textureSize: 256,
       };
       FillGradient = _FillGradient;
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/graphics/shared/fill/FillPattern.mjs
@@ -18274,20 +18072,20 @@ ${parts.join("\n")}
       repetitionMap = {
         repeat: {
           addressModeU: "repeat",
-          addressModeV: "repeat"
+          addressModeV: "repeat",
         },
         "repeat-x": {
           addressModeU: "repeat",
-          addressModeV: "clamp-to-edge"
+          addressModeV: "clamp-to-edge",
         },
         "repeat-y": {
           addressModeU: "clamp-to-edge",
-          addressModeV: "repeat"
+          addressModeV: "repeat",
         },
         "no-repeat": {
           addressModeU: "clamp-to-edge",
-          addressModeV: "clamp-to-edge"
-        }
+          addressModeV: "clamp-to-edge",
+        },
       };
       FillPattern = class {
         constructor(texture, repetition) {
@@ -18295,10 +18093,7 @@ ${parts.join("\n")}
           this.transform = new Matrix();
           this._styleKey = null;
           this.texture = texture;
-          this.transform.scale(
-            1 / texture.frame.width,
-            1 / texture.frame.height
-          );
+          this.transform.scale(1 / texture.frame.width, 1 / texture.frame.height);
           if (repetition) {
             texture.source.style.addressModeU = repetitionMap[repetition].addressModeU;
             texture.source.style.addressModeV = repetitionMap[repetition].addressModeV;
@@ -18308,20 +18103,16 @@ ${parts.join("\n")}
           const texture = this.texture;
           this.transform.copyFrom(transform2);
           this.transform.invert();
-          this.transform.scale(
-            1 / texture.frame.width,
-            1 / texture.frame.height
-          );
+          this.transform.scale(1 / texture.frame.width, 1 / texture.frame.height);
           this._styleKey = null;
         }
         get styleKey() {
-          if (this._styleKey)
-            return this._styleKey;
+          if (this._styleKey) return this._styleKey;
           this._styleKey = `fill-pattern-${this.uid}-${this.texture.uid}-${this.transform.toArray().join("-")}`;
           return this._styleKey;
         }
       };
-    }
+    },
   });
 
   // ../../../../node_modules/parse-svg-path/index.js
@@ -18329,10 +18120,10 @@ ${parts.join("\n")}
     "../../../../node_modules/parse-svg-path/index.js"(exports, module) {
       module.exports = parse2;
       var length = { a: 7, c: 6, h: 1, l: 2, m: 2, q: 4, s: 4, t: 2, v: 1, z: 0 };
-      var segment = /([astvzqmhlc])([^astvzqmhlc]*)/ig;
+      var segment = /([astvzqmhlc])([^astvzqmhlc]*)/gi;
       function parse2(path2) {
         var data = [];
-        path2.replace(segment, function(_2, command, args) {
+        path2.replace(segment, function (_2, command, args) {
           var type = command.toLowerCase();
           args = parseValues(args);
           if (type == "m" && args.length > 2) {
@@ -18351,12 +18142,12 @@ ${parts.join("\n")}
         });
         return data;
       }
-      var number = /-?[0-9]*\.?[0-9]+(?:e[-+]?\d+)?/ig;
+      var number = /-?[0-9]*\.?[0-9]+(?:e[-+]?\d+)?/gi;
       function parseValues(args) {
         var numbers = args.match(number);
         return numbers ? numbers.map(Number) : [];
       }
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/graphics/shared/svg/parseSVGPath.mjs
@@ -18573,7 +18364,7 @@ ${parts.join("\n")}
     "../../../../node_modules/pixi.js/lib/scene/graphics/shared/svg/parseSVGPath.mjs"() {
       import_parse_svg_path = __toESM(require_parse_svg_path(), 1);
       init_warn();
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/maths/shapes/Circle.mjs
@@ -18607,8 +18398,7 @@ ${parts.join("\n")}
          * @returns Whether the x/y coordinates are within this Circle
          */
         contains(x3, y2) {
-          if (this.radius <= 0)
-            return false;
+          if (this.radius <= 0) return false;
           const r2 = this.radius * this.radius;
           let dx = this.x - x3;
           let dy = this.y - y2;
@@ -18625,8 +18415,7 @@ ${parts.join("\n")}
          * @returns Whether the x/y coordinates are within this Circle
          */
         strokeContains(x3, y2, width, alignment = 0.5) {
-          if (this.radius === 0)
-            return false;
+          if (this.radius === 0) return false;
           const dx = this.x - x3;
           const dy = this.y - y2;
           const radius = this.radius;
@@ -18671,7 +18460,7 @@ ${parts.join("\n")}
           return `[pixi.js/math:Circle x=${this.x} y=${this.y} radius=${this.radius}]`;
         }
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/maths/shapes/Ellipse.mjs
@@ -18737,8 +18526,8 @@ ${parts.join("\n")}
           const outerVertical = halfHeight + strokeOuterWidth;
           const normalizedX = x3 - this.x;
           const normalizedY = y2 - this.y;
-          const innerEllipse = normalizedX * normalizedX / (innerHorizontal * innerHorizontal) + normalizedY * normalizedY / (innerVertical * innerVertical);
-          const outerEllipse = normalizedX * normalizedX / (outerHorizontal * outerHorizontal) + normalizedY * normalizedY / (outerVertical * outerVertical);
+          const innerEllipse = (normalizedX * normalizedX) / (innerHorizontal * innerHorizontal) + (normalizedY * normalizedY) / (innerVertical * innerVertical);
+          const outerEllipse = (normalizedX * normalizedX) / (outerHorizontal * outerHorizontal) + (normalizedY * normalizedY) / (outerVertical * outerVertical);
           return innerEllipse > 1 && outerEllipse <= 1;
         }
         /**
@@ -18779,7 +18568,7 @@ ${parts.join("\n")}
           return `[pixi.js/math:Ellipse x=${this.x} y=${this.y} halfWidth=${this.halfWidth} halfHeight=${this.halfHeight}]`;
         }
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/maths/misc/squaredDistanceToLineSegment.mjs
@@ -18813,7 +18602,7 @@ ${parts.join("\n")}
   var init_squaredDistanceToLineSegment = __esm({
     "../../../../node_modules/pixi.js/lib/maths/misc/squaredDistanceToLineSegment.mjs"() {
       "use strict";
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/maths/shapes/Polygon.mjs
@@ -19032,7 +18821,7 @@ ${parts.join("\n")}
           return this.points[this.points.length - 1];
         }
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/maths/shapes/RoundedRectangle.mjs
@@ -19116,7 +18905,7 @@ ${parts.join("\n")}
           if (x3 >= this.x && x3 <= this.x + this.width) {
             if (y2 >= this.y && y2 <= this.y + this.height) {
               const radius = Math.max(0, Math.min(this.radius, Math.min(this.width, this.height) / 2));
-              if (y2 >= this.y + radius && y2 <= this.y + this.height - radius || x3 >= this.x + radius && x3 <= this.x + this.width - radius) {
+              if ((y2 >= this.y + radius && y2 <= this.y + this.height - radius) || (x3 >= this.x + radius && x3 <= this.x + this.width - radius)) {
                 return true;
               }
               let dx = x3 - (this.x + radius);
@@ -19159,54 +18948,25 @@ ${parts.join("\n")}
           const innerHeight = height - radius * 2;
           const rightBound = x3 + width;
           const bottomBound = y2 + height;
-          if ((pX >= x3 - strokeWidthOuter && pX <= x3 + strokeWidthInner || pX >= rightBound - strokeWidthInner && pX <= rightBound + strokeWidthOuter) && pY >= innerY && pY <= innerY + innerHeight) {
+          if (((pX >= x3 - strokeWidthOuter && pX <= x3 + strokeWidthInner) || (pX >= rightBound - strokeWidthInner && pX <= rightBound + strokeWidthOuter)) && pY >= innerY && pY <= innerY + innerHeight) {
             return true;
           }
-          if ((pY >= y2 - strokeWidthOuter && pY <= y2 + strokeWidthInner || pY >= bottomBound - strokeWidthInner && pY <= bottomBound + strokeWidthOuter) && pX >= innerX && pX <= innerX + innerWidth) {
+          if (((pY >= y2 - strokeWidthOuter && pY <= y2 + strokeWidthInner) || (pY >= bottomBound - strokeWidthInner && pY <= bottomBound + strokeWidthOuter)) && pX >= innerX && pX <= innerX + innerWidth) {
             return true;
           }
           return (
             // Top-left
-            pX < innerX && pY < innerY && isCornerWithinStroke(
-              pX,
-              pY,
-              innerX,
-              innerY,
-              radius,
-              strokeWidthInner,
-              strokeWidthOuter
-            ) || pX > rightBound - radius && pY < innerY && isCornerWithinStroke(
-              pX,
-              pY,
-              rightBound - radius,
-              innerY,
-              radius,
-              strokeWidthInner,
-              strokeWidthOuter
-            ) || pX > rightBound - radius && pY > bottomBound - radius && isCornerWithinStroke(
-              pX,
-              pY,
-              rightBound - radius,
-              bottomBound - radius,
-              radius,
-              strokeWidthInner,
-              strokeWidthOuter
-            ) || pX < innerX && pY > bottomBound - radius && isCornerWithinStroke(
-              pX,
-              pY,
-              innerX,
-              bottomBound - radius,
-              radius,
-              strokeWidthInner,
-              strokeWidthOuter
-            )
+            (pX < innerX && pY < innerY && isCornerWithinStroke(pX, pY, innerX, innerY, radius, strokeWidthInner, strokeWidthOuter)) ||
+            (pX > rightBound - radius && pY < innerY && isCornerWithinStroke(pX, pY, rightBound - radius, innerY, radius, strokeWidthInner, strokeWidthOuter)) ||
+            (pX > rightBound - radius && pY > bottomBound - radius && isCornerWithinStroke(pX, pY, rightBound - radius, bottomBound - radius, radius, strokeWidthInner, strokeWidthOuter)) ||
+            (pX < innerX && pY > bottomBound - radius && isCornerWithinStroke(pX, pY, innerX, bottomBound - radius, radius, strokeWidthInner, strokeWidthOuter))
           );
         }
         toString() {
           return `[pixi.js/math:RoundedRectangle x=${this.x} y=${this.y}width=${this.width} height=${this.height} radius=${this.radius}]`;
         }
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/graphics/shared/buildCommands/buildAdaptiveBezier.mjs
@@ -19259,10 +19019,8 @@ ${parts.join("\n")}
           const a23 = Math.atan2(y3 - y2, x3 - x22);
           da1 = Math.abs(a23 - Math.atan2(y2 - y1, x22 - x1));
           da2 = Math.abs(Math.atan2(y4 - y3, x4 - x3) - a23);
-          if (da1 >= pi)
-            da1 = 2 * pi - da1;
-          if (da2 >= pi)
-            da2 = 2 * pi - da2;
+          if (da1 >= pi) da1 = 2 * pi - da1;
+          if (da2 >= pi) da2 = 2 * pi - da2;
           if (da1 + da2 < mAngleTolerance) {
             points.push(x1234, y1234);
             return;
@@ -19285,8 +19043,7 @@ ${parts.join("\n")}
             return;
           }
           da1 = Math.abs(Math.atan2(y3 - y2, x3 - x22) - Math.atan2(y2 - y1, x22 - x1));
-          if (da1 >= pi)
-            da1 = 2 * pi - da1;
+          if (da1 >= pi) da1 = 2 * pi - da1;
           if (da1 < mAngleTolerance) {
             points.push(x22, y2);
             points.push(x3, y3);
@@ -19306,8 +19063,7 @@ ${parts.join("\n")}
             return;
           }
           da1 = Math.abs(Math.atan2(y4 - y3, x4 - x3) - Math.atan2(y3 - y2, x3 - x22));
-          if (da1 >= pi)
-            da1 = 2 * pi - da1;
+          if (da1 >= pi) da1 = 2 * pi - da1;
           if (da1 < mAngleTolerance) {
             points.push(x22, y2);
             points.push(x3, y3);
@@ -19342,7 +19098,7 @@ ${parts.join("\n")}
       curveAngleToleranceEpsilon = 0.01;
       mAngleTolerance = 0;
       mCuspLimit = 0;
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/graphics/shared/buildCommands/buildAdaptiveQuadratic.mjs
@@ -19383,8 +19139,7 @@ ${parts.join("\n")}
           return;
         }
         let da = Math.abs(Math.atan2(y3 - y2, x3 - x22) - Math.atan2(y2 - y1, x22 - x1));
-        if (da >= pi)
-          da = 2 * pi - da;
+        if (da >= pi) da = 2 * pi - da;
         if (da < mAngleTolerance2) {
           points.push(x123, y123);
           return;
@@ -19410,7 +19165,7 @@ ${parts.join("\n")}
       PATH_DISTANCE_EPSILON2 = 1;
       curveAngleToleranceEpsilon2 = 0.01;
       mAngleTolerance2 = 0;
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/graphics/shared/buildCommands/buildArc.mjs
@@ -19438,7 +19193,7 @@ ${parts.join("\n")}
   var init_buildArc = __esm({
     "../../../../node_modules/pixi.js/lib/scene/graphics/shared/buildCommands/buildArc.mjs"() {
       "use strict";
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/graphics/shared/buildCommands/buildArcTo.mjs
@@ -19459,10 +19214,10 @@ ${parts.join("\n")}
     const dd = a1 * a1 + b1 * b1;
     const cc = a2 * a2 + b2 * b2;
     const tt2 = a1 * a2 + b1 * b2;
-    const k1 = radius * Math.sqrt(dd) / mm;
-    const k22 = radius * Math.sqrt(cc) / mm;
-    const j1 = k1 * tt2 / dd;
-    const j22 = k22 * tt2 / cc;
+    const k1 = (radius * Math.sqrt(dd)) / mm;
+    const k22 = (radius * Math.sqrt(cc)) / mm;
+    const j1 = (k1 * tt2) / dd;
+    const j22 = (k22 * tt2) / cc;
     const cx = k1 * b2 + k22 * b1;
     const cy = k1 * a2 + k22 * a1;
     const px = b1 * (k22 + j1);
@@ -19471,25 +19226,17 @@ ${parts.join("\n")}
     const qy = a2 * (k1 + j22);
     const startAngle = Math.atan2(py - cy, px - cx);
     const endAngle = Math.atan2(qy - cy, qx - cx);
-    buildArc(
-      points,
-      cx + x1,
-      cy + y1,
-      radius,
-      startAngle,
-      endAngle,
-      b1 * a2 > b2 * a1
-    );
+    buildArc(points, cx + x1, cy + y1, radius, startAngle, endAngle, b1 * a2 > b2 * a1);
   }
   var init_buildArcTo = __esm({
     "../../../../node_modules/pixi.js/lib/scene/graphics/shared/buildCommands/buildArcTo.mjs"() {
       init_buildArc();
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/graphics/shared/buildCommands/buildArcToSvg.mjs
   function approxUnitArc(ang1, ang2) {
-    const a1 = ang2 === -1.5707963267948966 ? -0.551915024494 : 4 / 3 * Math.tan(ang2 / 4);
+    const a1 = ang2 === -1.5707963267948966 ? -0.551915024494 : (4 / 3) * Math.tan(ang2 / 4);
     const a2 = ang2 === 1.5707963267948966 ? 0.551915024494 : a1;
     const x1 = Math.cos(ang1);
     const y1 = Math.sin(ang1);
@@ -19498,26 +19245,26 @@ ${parts.join("\n")}
     return [
       {
         x: x1 - y1 * a2,
-        y: y1 + x1 * a2
+        y: y1 + x1 * a2,
       },
       {
         x: x22 + y2 * a2,
-        y: y2 - x22 * a2
+        y: y2 - x22 * a2,
       },
       {
         x: x22,
-        y: y2
-      }
+        y: y2,
+      },
     ];
   }
   function buildArcToSvg(points, px, py, cx, cy, rx, ry, xAxisRotation = 0, largeArcFlag = 0, sweepFlag = 0) {
     if (rx === 0 || ry === 0) {
       return;
     }
-    const sinPhi = Math.sin(xAxisRotation * TAU / 360);
-    const cosPhi = Math.cos(xAxisRotation * TAU / 360);
-    const pxp = cosPhi * (px - cx) / 2 + sinPhi * (py - cy) / 2;
-    const pyp = -sinPhi * (px - cx) / 2 + cosPhi * (py - cy) / 2;
+    const sinPhi = Math.sin((xAxisRotation * TAU) / 360);
+    const cosPhi = Math.cos((xAxisRotation * TAU) / 360);
+    const pxp = (cosPhi * (px - cx)) / 2 + (sinPhi * (py - cy)) / 2;
+    const pyp = (-sinPhi * (px - cx)) / 2 + (cosPhi * (py - cy)) / 2;
     if (pxp === 0 && pyp === 0) {
       return;
     }
@@ -19528,21 +19275,7 @@ ${parts.join("\n")}
       rx *= Math.sqrt(lambda);
       ry *= Math.sqrt(lambda);
     }
-    getArcCenter(
-      px,
-      py,
-      cx,
-      cy,
-      rx,
-      ry,
-      largeArcFlag,
-      sweepFlag,
-      sinPhi,
-      cosPhi,
-      pxp,
-      pyp,
-      out
-    );
+    getArcCenter(px, py, cx, cy, rx, ry, largeArcFlag, sweepFlag, sinPhi, cosPhi, pxp, pyp, out);
     let { ang1, ang2 } = out;
     const { centerX, centerY } = out;
     let ratio = Math.abs(ang2) / (TAU / 4);
@@ -19559,17 +19292,7 @@ ${parts.join("\n")}
       const { x: x1, y: y1 } = mapToEllipse(curve[0], rx, ry, cosPhi, sinPhi, centerX, centerY, outCurvePoint);
       const { x: x22, y: y2 } = mapToEllipse(curve[1], rx, ry, cosPhi, sinPhi, centerX, centerY, outCurvePoint);
       const { x: x3, y: y3 } = mapToEllipse(curve[2], rx, ry, cosPhi, sinPhi, centerX, centerY, outCurvePoint);
-      buildAdaptiveBezier(
-        points,
-        lastX,
-        lastY,
-        x1,
-        y1,
-        x22,
-        y2,
-        x3,
-        y3
-      );
+      buildAdaptiveBezier(points, lastX, lastY, x1, y1, x22, y2, x3, y3);
       lastX = x3;
       lastY = y3;
       ang1 += ang2;
@@ -19584,7 +19307,7 @@ ${parts.join("\n")}
         centerX: 0,
         centerY: 0,
         ang1: 0,
-        ang2: 0
+        ang2: 0,
       };
       mapToEllipse = ({ x: x3, y: y2 }, rx, ry, cosPhi, sinPhi, centerX, centerY, out2) => {
         x3 *= rx;
@@ -19617,8 +19340,8 @@ ${parts.join("\n")}
         }
         radicant /= rxSq * pypSq + rySq * pxpSq;
         radicant = Math.sqrt(radicant) * (largeArcFlag === sweepFlag ? -1 : 1);
-        const centerXp = radicant * rx / ry * pyp;
-        const centerYp = radicant * -ry / rx * pxp;
+        const centerXp = ((radicant * rx) / ry) * pyp;
+        const centerYp = ((radicant * -ry) / rx) * pxp;
         const centerX = cosPhi * centerXp - sinPhi * centerYp + (px + cx) / 2;
         const centerY = sinPhi * centerXp + cosPhi * centerYp + (py + cy) / 2;
         const vx1 = (pxp - centerXp) / rx;
@@ -19638,7 +19361,7 @@ ${parts.join("\n")}
         out2.ang1 = ang1;
         out2.ang2 = ang2;
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/graphics/shared/path/roundShape.mjs
@@ -19693,24 +19416,19 @@ ${parts.join("\n")}
       }
       const halfAngle = angle / 2;
       let cRadius;
-      let lenOut = Math.abs(
-        Math.cos(halfAngle) * pRadius / Math.sin(halfAngle)
-      );
+      let lenOut = Math.abs((Math.cos(halfAngle) * pRadius) / Math.sin(halfAngle));
       if (lenOut > Math.min(v1.len / 2, v22.len / 2)) {
         lenOut = Math.min(v1.len / 2, v22.len / 2);
-        cRadius = Math.abs(lenOut * Math.sin(halfAngle) / Math.cos(halfAngle));
+        cRadius = Math.abs((lenOut * Math.sin(halfAngle)) / Math.cos(halfAngle));
       } else {
         cRadius = pRadius;
       }
       const cX = p2.x + v22.nx * lenOut + -v22.ny * cRadius * radDirection;
       const cY = p2.y + v22.ny * lenOut + v22.nx * cRadius * radDirection;
-      const startAngle = Math.atan2(v1.ny, v1.nx) + Math.PI / 2 * radDirection;
-      const endAngle = Math.atan2(v22.ny, v22.nx) - Math.PI / 2 * radDirection;
+      const startAngle = Math.atan2(v1.ny, v1.nx) + (Math.PI / 2) * radDirection;
+      const endAngle = Math.atan2(v22.ny, v22.nx) - (Math.PI / 2) * radDirection;
       if (i2 === 0) {
-        g2.moveTo(
-          cX + Math.cos(startAngle) * cRadius,
-          cY + Math.sin(startAngle) * cRadius
-        );
+        g2.moveTo(cX + Math.cos(startAngle) * cRadius, cY + Math.sin(startAngle) * cRadius);
       }
       g2.arc(cX, cY, cRadius, startAngle, endAngle, drawDirection);
       p1 = p2;
@@ -19721,7 +19439,7 @@ ${parts.join("\n")}
     const distance = (p1, p2) => Math.sqrt(__pow(p1.x - p2.x, 2) + __pow(p1.y - p2.y, 2));
     const pointLerp = (p1, p2, t2) => ({
       x: p1.x + (p2.x - p1.x) * t2,
-      y: p1.y + (p2.y - p1.y) * t2
+      y: p1.y + (p2.y - p1.y) * t2,
     });
     const numPoints = points.length;
     for (let i2 = 0; i2 < numPoints; i2++) {
@@ -19743,11 +19461,7 @@ ${parts.join("\n")}
         start = thisPoint;
       } else {
         const lastOffsetDistance = Math.min(lastEdgeLength / 2, pRadius);
-        start = pointLerp(
-          thisPoint,
-          lastPoint,
-          lastOffsetDistance / lastEdgeLength
-        );
+        start = pointLerp(thisPoint, lastPoint, lastOffsetDistance / lastEdgeLength);
       }
       const nextEdgeLength = distance(nextPoint, thisPoint);
       let end;
@@ -19755,11 +19469,7 @@ ${parts.join("\n")}
         end = thisPoint;
       } else {
         const nextOffsetDistance = Math.min(nextEdgeLength / 2, pRadius);
-        end = pointLerp(
-          thisPoint,
-          nextPoint,
-          nextOffsetDistance / nextEdgeLength
-        );
+        end = pointLerp(thisPoint, nextPoint, nextOffsetDistance / nextEdgeLength);
       }
       if (i2 === 0) {
         g2.moveTo(start.x, start.y);
@@ -19772,7 +19482,7 @@ ${parts.join("\n")}
   var init_roundShape = __esm({
     "../../../../node_modules/pixi.js/lib/scene/graphics/shared/path/roundShape.mjs"() {
       "use strict";
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/graphics/shared/path/ShapePath.mjs
@@ -19873,18 +19583,7 @@ ${parts.join("\n")}
          */
         arcToSvg(rx, ry, xAxisRotation, largeArcFlag, sweepFlag, x3, y2) {
           const points = this._currentPoly.points;
-          buildArcToSvg(
-            points,
-            this._currentPoly.lastX,
-            this._currentPoly.lastY,
-            x3,
-            y2,
-            rx,
-            ry,
-            xAxisRotation,
-            largeArcFlag,
-            sweepFlag
-          );
+          buildArcToSvg(points, this._currentPoly.lastX, this._currentPoly.lastY, x3, y2, rx, ry, xAxisRotation, largeArcFlag, sweepFlag);
           return this;
         }
         /**
@@ -19903,18 +19602,7 @@ ${parts.join("\n")}
         bezierCurveTo(cp1x, cp1y, cp2x, cp2y, x3, y2, smoothness) {
           this._ensurePoly();
           const currentPoly = this._currentPoly;
-          buildAdaptiveBezier(
-            this._currentPoly.points,
-            currentPoly.lastX,
-            currentPoly.lastY,
-            cp1x,
-            cp1y,
-            cp2x,
-            cp2y,
-            x3,
-            y2,
-            smoothness
-          );
+          buildAdaptiveBezier(this._currentPoly.points, currentPoly.lastX, currentPoly.lastY, cp1x, cp1y, cp2x, cp2y, x3, y2, smoothness);
           return this;
         }
         /**
@@ -19930,16 +19618,7 @@ ${parts.join("\n")}
         quadraticCurveTo(cp1x, cp1y, x3, y2, smoothing) {
           this._ensurePoly();
           const currentPoly = this._currentPoly;
-          buildAdaptiveQuadratic(
-            this._currentPoly.points,
-            currentPoly.lastX,
-            currentPoly.lastY,
-            cp1x,
-            cp1y,
-            x3,
-            y2,
-            smoothing
-          );
+          buildAdaptiveQuadratic(this._currentPoly.points, currentPoly.lastX, currentPoly.lastY, cp1x, cp1y, x3, y2, smoothing);
           return this;
         }
         /**
@@ -20048,15 +19727,12 @@ ${parts.join("\n")}
          */
         regularPoly(x3, y2, radius, sides, rotation = 0, transform2) {
           sides = Math.max(sides | 0, 3);
-          const startAngle = -1 * Math.PI / 2 + rotation;
-          const delta = Math.PI * 2 / sides;
+          const startAngle = (-1 * Math.PI) / 2 + rotation;
+          const delta = (Math.PI * 2) / sides;
           const polygon = [];
           for (let i2 = 0; i2 < sides; i2++) {
             const angle = startAngle - i2 * delta;
-            polygon.push(
-              x3 + radius * Math.cos(angle),
-              y2 + radius * Math.sin(angle)
-            );
+            polygon.push(x3 + radius * Math.cos(angle), y2 + radius * Math.sin(angle));
           }
           this.poly(polygon, true, transform2);
           return this;
@@ -20080,9 +19756,9 @@ ${parts.join("\n")}
           }
           const sideLength = radius * Math.sin(Math.PI / sides) - 1e-3;
           corner = Math.min(corner, sideLength);
-          const startAngle = -1 * Math.PI / 2 + rotation;
-          const delta = Math.PI * 2 / sides;
-          const internalAngle = (sides - 2) * Math.PI / sides / 2;
+          const startAngle = (-1 * Math.PI) / 2 + rotation;
+          const delta = (Math.PI * 2) / sides;
+          const internalAngle = ((sides - 2) * Math.PI) / sides / 2;
           for (let i2 = 0; i2 < sides; i2++) {
             const angle = i2 * delta + startAngle;
             const x0 = x3 + radius * Math.cos(angle);
@@ -20145,7 +19821,15 @@ ${parts.join("\n")}
           const bottom = y2 + height;
           const dir = inset < 0 ? -inset : 0;
           const size = Math.abs(inset);
-          return this.moveTo(x3, y2 + size).arcTo(x3 + dir, y2 + dir, x3 + size, y2, size).lineTo(right - size, y2).arcTo(right - dir, y2 + dir, right, y2 + size, size).lineTo(right, bottom - size).arcTo(right - dir, bottom - dir, x3 + width - size, bottom, size).lineTo(x3 + size, bottom).arcTo(x3 + dir, bottom - dir, x3, bottom - size, size).closePath();
+          return this.moveTo(x3, y2 + size)
+            .arcTo(x3 + dir, y2 + dir, x3 + size, y2, size)
+            .lineTo(right - size, y2)
+            .arcTo(right - dir, y2 + dir, right, y2 + size, size)
+            .lineTo(right, bottom - size)
+            .arcTo(right - dir, bottom - dir, x3 + width - size, bottom, size)
+            .lineTo(x3 + size, bottom)
+            .arcTo(x3 + dir, bottom - dir, x3, bottom - size, size)
+            .closePath();
         }
         /**
          * Draw Rectangle with chamfer corners. These are angled corners.
@@ -20163,24 +19847,7 @@ ${parts.join("\n")}
           const inset = Math.min(chamfer, Math.min(width, height) / 2);
           const right = x3 + width;
           const bottom = y2 + height;
-          const points = [
-            x3 + inset,
-            y2,
-            right - inset,
-            y2,
-            right,
-            y2 + inset,
-            right,
-            bottom - inset,
-            right - inset,
-            bottom,
-            x3 + inset,
-            bottom,
-            x3,
-            bottom - inset,
-            x3,
-            y2 + inset
-          ];
+          const points = [x3 + inset, y2, right - inset, y2, right, y2 + inset, right, bottom - inset, right - inset, bottom, x3 + inset, bottom, x3, bottom - inset, x3, y2 + inset];
           for (let i2 = points.length - 1; i2 >= 2; i2 -= 2) {
             if (points[i2] === points[i2 - 2] && points[i2 - 1] === points[i2 - 3]) {
               points.splice(i2 - 1, 2);
@@ -20267,8 +19934,7 @@ ${parts.join("\n")}
           return this;
         }
         _ensurePoly(start = true) {
-          if (this._currentPoly)
-            return;
+          if (this._currentPoly) return;
           this._currentPoly = new Polygon();
           if (start) {
             const lastShape = this.shapePrimitives[this.shapePrimitives.length - 1];
@@ -20315,7 +19981,7 @@ ${parts.join("\n")}
           return bounds;
         }
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/graphics/shared/path/GraphicsPath.mjs
@@ -20567,17 +20233,14 @@ ${parts.join("\n")}
         // eslint-disable-next-line max-len
         star(x3, y2, points, radius, innerRadius, rotation, transform2) {
           innerRadius || (innerRadius = radius / 2);
-          const startAngle = -1 * Math.PI / 2 + rotation;
+          const startAngle = (-1 * Math.PI) / 2 + rotation;
           const len = points * 2;
-          const delta = Math.PI * 2 / len;
+          const delta = (Math.PI * 2) / len;
           const polygon = [];
           for (let i2 = 0; i2 < len; i2++) {
             const r2 = i2 % 2 ? innerRadius : radius;
             const angle = i2 * delta + startAngle;
-            polygon.push(
-              x3 + r2 * Math.cos(angle),
-              y2 + r2 * Math.sin(angle)
-            );
+            polygon.push(x3 + r2 * Math.cos(angle), y2 + r2 * Math.sin(angle));
           }
           this.poly(polygon, true, transform2);
           return this;
@@ -20623,8 +20286,7 @@ ${parts.join("\n")}
          * @returns The instance of the current object for chaining further operations.
          */
         transform(matrix) {
-          if (matrix.isIdentity())
-            return this;
+          if (matrix.isIdentity()) return this;
           const a2 = matrix.a;
           const b2 = matrix.b;
           const c2 = matrix.c;
@@ -20770,7 +20432,7 @@ ${parts.join("\n")}
           return out2;
         }
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/graphics/shared/svg/parseSVGFloatAttribute.mjs
@@ -20781,7 +20443,7 @@ ${parts.join("\n")}
   var init_parseSVGFloatAttribute = __esm({
     "../../../../node_modules/pixi.js/lib/scene/graphics/shared/svg/parseSVGFloatAttribute.mjs"() {
       "use strict";
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/graphics/shared/svg/parseSVGDefinitions.mjs
@@ -20810,13 +20472,7 @@ ${parts.join("\n")}
     const x1 = parseSVGFloatAttribute(child, "x2", 1);
     const y1 = parseSVGFloatAttribute(child, "y2", 0);
     const gradientUnit = child.getAttribute("gradientUnits") || "objectBoundingBox";
-    const gradient = new FillGradient(
-      x0,
-      y0,
-      x1,
-      y1,
-      gradientUnit === "objectBoundingBox" ? "local" : "global"
-    );
+    const gradient = new FillGradient(x0, y0, x1, y1, gradientUnit === "objectBoundingBox" ? "local" : "global");
     for (let k3 = 0; k3 < child.children.length; k3++) {
       const stop = child.children[k3];
       const offset = parseSVGFloatAttribute(stop, "offset", 0);
@@ -20835,7 +20491,7 @@ ${parts.join("\n")}
       init_warn();
       init_FillGradient();
       init_parseSVGFloatAttribute();
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/graphics/shared/svg/utils/extractSvgUrlId.mjs
@@ -20846,7 +20502,7 @@ ${parts.join("\n")}
   var init_extractSvgUrlId = __esm({
     "../../../../node_modules/pixi.js/lib/scene/graphics/shared/svg/utils/extractSvgUrlId.mjs"() {
       "use strict";
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/graphics/shared/svg/parseSVGStyle.mjs
@@ -20858,7 +20514,7 @@ ${parts.join("\n")}
       strokeStyle,
       fillStyle,
       useFill: false,
-      useStroke: false
+      useStroke: false,
     };
     for (const key in styleAttributes) {
       const attribute = svg.getAttribute(key);
@@ -20880,7 +20536,7 @@ ${parts.join("\n")}
       strokeStyle: result.useStroke ? strokeStyle : null,
       fillStyle: result.useFill ? fillStyle : null,
       useFill: result.useFill,
-      useStroke: result.useStroke
+      useStroke: result.useStroke,
     };
   }
   function parseAttribute(session, result, id, value) {
@@ -20951,10 +20607,10 @@ ${parts.join("\n")}
         "stroke-dashoffset": { type: "number", default: 0 },
         // Offset for dash pattern
         // Global properties
-        opacity: { type: "number", default: 1 }
+        opacity: { type: "number", default: 1 },
         // Overall opacity
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/graphics/shared/svg/SVGParser.mjs
@@ -20967,15 +20623,14 @@ ${parts.join("\n")}
     const session = {
       context: graphicsContext,
       defs: {},
-      path: new GraphicsPath()
+      path: new GraphicsPath(),
     };
     parseSVGDefinitions(svg, session);
     const children = svg.children;
     const { fillStyle, strokeStyle } = parseSVGStyle(svg, session);
     for (let i2 = 0; i2 < children.length; i2++) {
       const child = children[i2];
-      if (child.nodeName.toLowerCase() === "defs")
-        continue;
+      if (child.nodeName.toLowerCase() === "defs") continue;
       renderChildren(child, session, fillStyle, strokeStyle);
     }
     return graphicsContext;
@@ -21022,20 +20677,16 @@ ${parts.join("\n")}
         }
         graphicsPath = new GraphicsPath(d3, true);
         session.context.path(graphicsPath);
-        if (fillStyle)
-          session.context.fill(fillStyle);
-        if (strokeStyle)
-          session.context.stroke(strokeStyle);
+        if (fillStyle) session.context.fill(fillStyle);
+        if (strokeStyle) session.context.stroke(strokeStyle);
         break;
       case "circle":
         cx = parseSVGFloatAttribute(svg, "cx", 0);
         cy = parseSVGFloatAttribute(svg, "cy", 0);
         r2 = parseSVGFloatAttribute(svg, "r", 0);
         session.context.ellipse(cx, cy, r2, r2);
-        if (fillStyle)
-          session.context.fill(fillStyle);
-        if (strokeStyle)
-          session.context.stroke(strokeStyle);
+        if (fillStyle) session.context.fill(fillStyle);
+        if (strokeStyle) session.context.stroke(strokeStyle);
         break;
       case "rect":
         x3 = parseSVGFloatAttribute(svg, "x", 0);
@@ -21049,10 +20700,8 @@ ${parts.join("\n")}
         } else {
           session.context.rect(x3, y2, width, height);
         }
-        if (fillStyle)
-          session.context.fill(fillStyle);
-        if (strokeStyle)
-          session.context.stroke(strokeStyle);
+        if (fillStyle) session.context.fill(fillStyle);
+        if (strokeStyle) session.context.stroke(strokeStyle);
         break;
       case "ellipse":
         cx = parseSVGFloatAttribute(svg, "cx", 0);
@@ -21061,10 +20710,8 @@ ${parts.join("\n")}
         ry = parseSVGFloatAttribute(svg, "ry", 0);
         session.context.beginPath();
         session.context.ellipse(cx, cy, rx, ry);
-        if (fillStyle)
-          session.context.fill(fillStyle);
-        if (strokeStyle)
-          session.context.stroke(strokeStyle);
+        if (fillStyle) session.context.fill(fillStyle);
+        if (strokeStyle) session.context.stroke(strokeStyle);
         break;
       case "line":
         x1 = parseSVGFloatAttribute(svg, "x1", 0);
@@ -21074,24 +20721,20 @@ ${parts.join("\n")}
         session.context.beginPath();
         session.context.moveTo(x1, y1);
         session.context.lineTo(x22, y22);
-        if (strokeStyle)
-          session.context.stroke(strokeStyle);
+        if (strokeStyle) session.context.stroke(strokeStyle);
         break;
       case "polygon":
         pointsString = svg.getAttribute("points");
         points = pointsString.match(/\d+/g).map((n2) => parseInt(n2, 10));
         session.context.poly(points, true);
-        if (fillStyle)
-          session.context.fill(fillStyle);
-        if (strokeStyle)
-          session.context.stroke(strokeStyle);
+        if (fillStyle) session.context.fill(fillStyle);
+        if (strokeStyle) session.context.stroke(strokeStyle);
         break;
       case "polyline":
         pointsString = svg.getAttribute("points");
         points = pointsString.match(/\d+/g).map((n2) => parseInt(n2, 10));
         session.context.poly(points, false);
-        if (strokeStyle)
-          session.context.stroke(strokeStyle);
+        if (strokeStyle) session.context.stroke(strokeStyle);
         break;
       case "g":
       case "svg":
@@ -21115,7 +20758,7 @@ ${parts.join("\n")}
       init_parseSVGDefinitions();
       init_parseSVGFloatAttribute();
       init_parseSVGStyle();
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/graphics/shared/utils/convertFillInputToFillStyle.mjs
@@ -21187,19 +20830,24 @@ ${parts.join("\n")}
     return handleFillObject(objectStyle, defaultStyle);
   }
   function toStrokeStyle(value, defaultStyle) {
-    const _a2 = defaultStyle, { width, alignment, miterLimit, cap, join, pixelLine } = _a2, rest = __objRest(_a2, ["width", "alignment", "miterLimit", "cap", "join", "pixelLine"]);
+    const _a2 = defaultStyle,
+      { width, alignment, miterLimit, cap, join, pixelLine } = _a2,
+      rest = __objRest(_a2, ["width", "alignment", "miterLimit", "cap", "join", "pixelLine"]);
     const fill = toFillStyle(value, rest);
     if (!fill) {
       return null;
     }
-    return __spreadValues({
-      width,
-      alignment,
-      miterLimit,
-      cap,
-      join,
-      pixelLine
-    }, fill);
+    return __spreadValues(
+      {
+        width,
+        alignment,
+        miterLimit,
+        cap,
+        join,
+        pixelLine,
+      },
+      fill
+    );
   }
   var init_convertFillInputToFillStyle = __esm({
     "../../../../node_modules/pixi.js/lib/scene/graphics/shared/utils/convertFillInputToFillStyle.mjs"() {
@@ -21207,7 +20855,7 @@ ${parts.join("\n")}
       init_Texture();
       init_FillGradient();
       init_FillPattern();
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/graphics/shared/GraphicsContext.mjs
@@ -21312,8 +20960,8 @@ ${parts.join("\n")}
               dh: dh || texture.frame.height,
               transform: this._transform.clone(),
               alpha: this._fillStyle.alpha,
-              style: tint ? Color.shared.setValue(tint).toNumber() : 16777215
-            }
+              style: tint ? Color.shared.setValue(tint).toNumber() : 16777215,
+            },
           });
           this.onUpdate();
           return this;
@@ -21335,8 +20983,7 @@ ${parts.join("\n")}
           } else {
             path2 = this._activePath.clone();
           }
-          if (!path2)
-            return this;
+          if (!path2) return this;
           if (style != null) {
             if (alpha !== void 0 && typeof style === "number") {
               deprecation(v8_0_0, "GraphicsContext.fill(color, alpha) is deprecated, use GraphicsContext.fill({ color, alpha }) instead");
@@ -21347,7 +20994,7 @@ ${parts.join("\n")}
           this.instructions.push({
             action: "fill",
             // TODO copy fill style!
-            data: { style: this.fillStyle, path: path2 }
+            data: { style: this.fillStyle, path: path2 },
           });
           this.onUpdate();
           this._initNextPathLocation();
@@ -21373,15 +21020,14 @@ ${parts.join("\n")}
           } else {
             path2 = this._activePath.clone();
           }
-          if (!path2)
-            return this;
+          if (!path2) return this;
           if (style != null) {
             this._strokeStyle = toStrokeStyle(style, _GraphicsContext2.defaultStrokeStyle);
           }
           this.instructions.push({
             action: "stroke",
             // TODO copy fill style!
-            data: { style: this.strokeStyle, path: path2 }
+            data: { style: this.strokeStyle, path: path2 },
           });
           this.onUpdate();
           this._initNextPathLocation();
@@ -21426,14 +21072,7 @@ ${parts.join("\n")}
         arc(x3, y2, radius, startAngle, endAngle, counterclockwise) {
           this._tick++;
           const t2 = this._transform;
-          this._activePath.arc(
-            t2.a * x3 + t2.c * y2 + t2.tx,
-            t2.b * x3 + t2.d * y2 + t2.ty,
-            radius,
-            startAngle,
-            endAngle,
-            counterclockwise
-          );
+          this._activePath.arc(t2.a * x3 + t2.c * y2 + t2.tx, t2.b * x3 + t2.d * y2 + t2.ty, radius, startAngle, endAngle, counterclockwise);
           return this;
         }
         /**
@@ -21449,13 +21088,7 @@ ${parts.join("\n")}
         arcTo(x1, y1, x22, y2, radius) {
           this._tick++;
           const t2 = this._transform;
-          this._activePath.arcTo(
-            t2.a * x1 + t2.c * y1 + t2.tx,
-            t2.b * x1 + t2.d * y1 + t2.ty,
-            t2.a * x22 + t2.c * y2 + t2.tx,
-            t2.b * x22 + t2.d * y2 + t2.ty,
-            radius
-          );
+          this._activePath.arcTo(t2.a * x1 + t2.c * y1 + t2.tx, t2.b * x1 + t2.d * y1 + t2.ty, t2.a * x22 + t2.c * y2 + t2.tx, t2.b * x22 + t2.d * y2 + t2.ty, radius);
           return this;
         }
         /**
@@ -21501,15 +21134,7 @@ ${parts.join("\n")}
         bezierCurveTo(cp1x, cp1y, cp2x, cp2y, x3, y2, smoothness) {
           this._tick++;
           const t2 = this._transform;
-          this._activePath.bezierCurveTo(
-            t2.a * cp1x + t2.c * cp1y + t2.tx,
-            t2.b * cp1x + t2.d * cp1y + t2.ty,
-            t2.a * cp2x + t2.c * cp2y + t2.tx,
-            t2.b * cp2x + t2.d * cp2y + t2.ty,
-            t2.a * x3 + t2.c * y2 + t2.tx,
-            t2.b * x3 + t2.d * y2 + t2.ty,
-            smoothness
-          );
+          this._activePath.bezierCurveTo(t2.a * cp1x + t2.c * cp1y + t2.tx, t2.b * cp1x + t2.d * cp1y + t2.ty, t2.a * cp2x + t2.c * cp2y + t2.tx, t2.b * cp2x + t2.d * cp2y + t2.ty, t2.a * x3 + t2.c * y2 + t2.tx, t2.b * x3 + t2.d * y2 + t2.ty, smoothness);
           return this;
         }
         /**
@@ -21568,10 +21193,7 @@ ${parts.join("\n")}
         lineTo(x3, y2) {
           this._tick++;
           const t2 = this._transform;
-          this._activePath.lineTo(
-            t2.a * x3 + t2.c * y2 + t2.tx,
-            t2.b * x3 + t2.d * y2 + t2.ty
-          );
+          this._activePath.lineTo(t2.a * x3 + t2.c * y2 + t2.tx, t2.b * x3 + t2.d * y2 + t2.ty);
           return this;
         }
         /**
@@ -21591,10 +21213,7 @@ ${parts.join("\n")}
             instructions[0].data[1] = transformedY;
             return this;
           }
-          this._activePath.moveTo(
-            transformedX,
-            transformedY
-          );
+          this._activePath.moveTo(transformedX, transformedY);
           return this;
         }
         /**
@@ -21610,13 +21229,7 @@ ${parts.join("\n")}
         quadraticCurveTo(cpx, cpy, x3, y2, smoothness) {
           this._tick++;
           const t2 = this._transform;
-          this._activePath.quadraticCurveTo(
-            t2.a * cpx + t2.c * cpy + t2.tx,
-            t2.b * cpx + t2.d * cpy + t2.ty,
-            t2.a * x3 + t2.c * y2 + t2.tx,
-            t2.b * x3 + t2.d * y2 + t2.ty,
-            smoothness
-          );
+          this._activePath.quadraticCurveTo(t2.a * cpx + t2.c * cpy + t2.tx, t2.b * cpx + t2.d * cpy + t2.ty, t2.a * x3 + t2.c * y2 + t2.tx, t2.b * x3 + t2.d * y2 + t2.ty, smoothness);
           return this;
         }
         /**
@@ -21787,7 +21400,7 @@ ${parts.join("\n")}
           this._stateStack.push({
             transform: this._transform.clone(),
             fillStyle: __spreadValues({}, this._fillStyle),
-            strokeStyle: __spreadValues({}, this._strokeStyle)
+            strokeStyle: __spreadValues({}, this._strokeStyle),
           });
           return this;
         }
@@ -21865,16 +21478,14 @@ ${parts.join("\n")}
           return this;
         }
         onUpdate() {
-          if (this.dirty)
-            return;
+          if (this.dirty) return;
           this.emit("update", this, 16);
           this.dirty = true;
           this._boundsDirty = true;
         }
         /** The bounds of the graphic shape. */
         get bounds() {
-          if (!this._boundsDirty)
-            return this._bounds;
+          if (!this._boundsDirty) return this._bounds;
           const bounds = this._bounds;
           bounds.clear();
           for (let i2 = 0; i2 < this.instructions.length; i2++) {
@@ -21892,12 +21503,7 @@ ${parts.join("\n")}
               const alignment = data.style.alignment;
               const outerPadding = data.style.width * (1 - alignment);
               const _bounds = data.path.bounds;
-              bounds.addFrame(
-                _bounds.minX - outerPadding,
-                _bounds.minY - outerPadding,
-                _bounds.maxX + outerPadding,
-                _bounds.maxY + outerPadding
-              );
+              bounds.addFrame(_bounds.minX - outerPadding, _bounds.minY - outerPadding, _bounds.maxX + outerPadding, _bounds.maxY + outerPadding);
             }
           }
           return bounds;
@@ -21909,22 +21515,19 @@ ${parts.join("\n")}
          */
         containsPoint(point) {
           var _a2;
-          if (!this.bounds.containsPoint(point.x, point.y))
-            return false;
+          if (!this.bounds.containsPoint(point.x, point.y)) return false;
           const instructions = this.instructions;
           let hasHit = false;
           for (let k3 = 0; k3 < instructions.length; k3++) {
             const instruction = instructions[k3];
             const data = instruction.data;
             const path2 = data.path;
-            if (!instruction.action || !path2)
-              continue;
+            if (!instruction.action || !path2) continue;
             const style = data.style;
             const shapes = path2.shapePath.shapePrimitives;
             for (let i2 = 0; i2 < shapes.length; i2++) {
               const shape = shapes[i2].shape;
-              if (!style || !shape)
-                continue;
+              if (!style || !shape) continue;
               const transform2 = shapes[i2].transform;
               const transformedPoint = transform2 ? transform2.applyInverse(point, tmpPoint) : point;
               if (instruction.action === "fill") {
@@ -21995,7 +21598,7 @@ ${parts.join("\n")}
         /** The fill pattern to use. */
         fill: null,
         /** Whether coordinates are 'global' or 'local' */
-        textureSpace: "local"
+        textureSpace: "local",
       };
       _GraphicsContext.defaultStrokeStyle = {
         /** The width of the stroke. */
@@ -22021,10 +21624,10 @@ ${parts.join("\n")}
         /** Whether coordinates are 'global' or 'local' */
         textureSpace: "local",
         /** If the stroke is a pixel line. */
-        pixelLine: false
+        pixelLine: false,
       };
       GraphicsContext = _GraphicsContext;
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/text/utils/generateTextStyleKey.mjs
@@ -22042,16 +21645,14 @@ ${parts.join("\n")}
   }
   function addFillStyleKey(fillStyle, key, index) {
     var _a2;
-    if (!fillStyle)
-      return index;
+    if (!fillStyle) return index;
     key[index++] = fillStyle.color;
     key[index++] = fillStyle.alpha;
     key[index++] = (_a2 = fillStyle.fill) == null ? void 0 : _a2.styleKey;
     return index;
   }
   function addStokeStyleKey(strokeStyle, key, index) {
-    if (!strokeStyle)
-      return index;
+    if (!strokeStyle) return index;
     index = addFillStyleKey(strokeStyle, key, index);
     key[index++] = strokeStyle.width;
     key[index++] = strokeStyle.alignment;
@@ -22061,8 +21662,7 @@ ${parts.join("\n")}
     return index;
   }
   function addDropShadowKey(dropShadow, key, index) {
-    if (!dropShadow)
-      return index;
+    if (!dropShadow) return index;
     key[index++] = dropShadow.alpha;
     key[index++] = dropShadow.angle;
     key[index++] = dropShadow.blur;
@@ -22091,9 +21691,9 @@ ${parts.join("\n")}
         "wordWrapWidth",
         "fontFamily",
         "fontStyle",
-        "fontSize"
+        "fontSize",
       ];
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/text/TextStyle.mjs
@@ -22107,7 +21707,7 @@ ${parts.join("\n")}
         angle: (_b = oldStyle.dropShadowAngle) != null ? _b : defaults.angle,
         blur: (_c = oldStyle.dropShadowBlur) != null ? _c : defaults.blur,
         color: (_d = oldStyle.dropShadowColor) != null ? _d : defaults.color,
-        distance: (_e = oldStyle.dropShadowDistance) != null ? _e : defaults.distance
+        distance: (_e = oldStyle.dropShadowDistance) != null ? _e : defaults.distance,
       };
     }
     if (oldStyle.strokeThickness !== void 0) {
@@ -22124,7 +21724,7 @@ ${parts.join("\n")}
         throw new Error("Invalid stroke value.");
       }
       style.stroke = __spreadProps(__spreadValues({}, obj), {
-        width: oldStyle.strokeThickness
+        width: oldStyle.strokeThickness,
       });
     }
     if (Array.isArray(oldStyle.fillGradientStops)) {
@@ -22139,7 +21739,7 @@ ${parts.join("\n")}
       }
       const gradientFill = new FillGradient({
         start: { x: 0, y: 0 },
-        end: { x: 0, y: (fontSize || 0) * 1.7 }
+        end: { x: 0, y: (fontSize || 0) * 1.7 },
       });
       const fills = oldStyle.fillGradientStops.map((color) => Color.shared.setValue(color).toNumber());
       fills.forEach((number, index) => {
@@ -22147,7 +21747,7 @@ ${parts.join("\n")}
         gradientFill.addColorStop(ratio, number);
       });
       style.fill = {
-        fill: gradientFill
+        fill: gradientFill,
       };
     }
   }
@@ -22374,21 +21974,14 @@ ${parts.join("\n")}
           return this._originalFill;
         }
         set fill(value) {
-          if (value === this._originalFill)
-            return;
+          if (value === this._originalFill) return;
           this._originalFill = value;
           if (this._isFillStyle(value)) {
             this._originalFill = this._createProxy(__spreadValues(__spreadValues({}, GraphicsContext.defaultFillStyle), value), () => {
-              this._fill = toFillStyle(
-                __spreadValues({}, this._originalFill),
-                GraphicsContext.defaultFillStyle
-              );
+              this._fill = toFillStyle(__spreadValues({}, this._originalFill), GraphicsContext.defaultFillStyle);
             });
           }
-          this._fill = toFillStyle(
-            value === 0 ? "black" : value,
-            GraphicsContext.defaultFillStyle
-          );
+          this._fill = toFillStyle(value === 0 ? "black" : value, GraphicsContext.defaultFillStyle);
           this.update();
         }
         /** A fillstyle that will be used on the text stroke, e.g., 'blue', '#FCFF00'. */
@@ -22396,15 +21989,11 @@ ${parts.join("\n")}
           return this._originalStroke;
         }
         set stroke(value) {
-          if (value === this._originalStroke)
-            return;
+          if (value === this._originalStroke) return;
           this._originalStroke = value;
           if (this._isFillStyle(value)) {
             this._originalStroke = this._createProxy(__spreadValues(__spreadValues({}, GraphicsContext.defaultStrokeStyle), value), () => {
-              this._stroke = toStrokeStyle(
-                __spreadValues({}, this._originalStroke),
-                GraphicsContext.defaultStrokeStyle
-              );
+              this._stroke = toStrokeStyle(__spreadValues({}, this._originalStroke), GraphicsContext.defaultStrokeStyle);
             });
           }
           this._stroke = toStrokeStyle(value, GraphicsContext.defaultStrokeStyle);
@@ -22451,7 +22040,7 @@ ${parts.join("\n")}
             textBaseline: this.textBaseline,
             whiteSpace: this.whiteSpace,
             wordWrap: this.wordWrap,
-            wordWrapWidth: this.wordWrapWidth
+            wordWrapWidth: this.wordWrapWidth,
           });
         }
         /**
@@ -22493,7 +22082,7 @@ ${parts.join("\n")}
               cb == null ? void 0 : cb(property, newValue);
               this.update();
               return true;
-            }
+            },
           });
         }
         _isFillStyle(value) {
@@ -22510,7 +22099,7 @@ ${parts.join("\n")}
         /** A fill style to be used on the  e.g., 'red', '#00FF00' */
         color: "black",
         /** Set a distance of the drop shadow */
-        distance: 5
+        distance: 5,
       };
       _TextStyle.defaultTextStyle = {
         /**
@@ -22580,10 +22169,10 @@ ${parts.join("\n")}
         /** See {@link TextStyle.wordWrap} */
         wordWrap: false,
         /** See {@link TextStyle.wordWrapWidth} */
-        wordWrapWidth: 100
+        wordWrapWidth: 100,
       };
       TextStyle = _TextStyle;
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/text/utils/getPo2TextureFromSource.mjs
@@ -22591,14 +22180,9 @@ ${parts.join("\n")}
     const bounds = tempBounds2;
     bounds.minX = 0;
     bounds.minY = 0;
-    bounds.maxX = image.width / resolution | 0;
-    bounds.maxY = image.height / resolution | 0;
-    const texture = TexturePool.getOptimalTexture(
-      bounds.width,
-      bounds.height,
-      resolution,
-      false
-    );
+    bounds.maxX = (image.width / resolution) | 0;
+    bounds.maxY = (image.height / resolution) | 0;
+    const texture = TexturePool.getOptimalTexture(bounds.width, bounds.height, resolution, false);
     texture.source.uploadMethodId = "image";
     texture.source.resource = image;
     texture.source.alphaMode = "premultiply-alpha-on-upload";
@@ -22614,7 +22198,7 @@ ${parts.join("\n")}
       init_TexturePool();
       init_Bounds();
       tempBounds2 = new Bounds();
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/text/canvas/utils/fontStringFromTextStyle.mjs
@@ -22637,15 +22221,8 @@ ${parts.join("\n")}
   var init_fontStringFromTextStyle = __esm({
     "../../../../node_modules/pixi.js/lib/scene/text/canvas/utils/fontStringFromTextStyle.mjs"() {
       "use strict";
-      genericFontFamilies = [
-        "serif",
-        "sans-serif",
-        "monospace",
-        "cursive",
-        "fantasy",
-        "system-ui"
-      ];
-    }
+      genericFontFamilies = ["serif", "sans-serif", "monospace", "cursive", "fantasy", "system-ui"];
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/text/canvas/CanvasTextMetrics.mjs
@@ -22656,7 +22233,7 @@ ${parts.join("\n")}
       init_fontStringFromTextStyle();
       contextSettings = {
         // TextMetrics requires getImageData readback for measuring fonts.
-        willReadFrequently: true
+        willReadFrequently: true,
       };
       _CanvasTextMetrics = class _CanvasTextMetrics2 {
         /**
@@ -22708,8 +22285,7 @@ ${parts.join("\n")}
         static measureText(text = " ", style, canvas = _CanvasTextMetrics2._canvas, wordWrap = style.wordWrap) {
           var _a2;
           const textKey = `${text}:${style.styleKey}`;
-          if (_CanvasTextMetrics2._measurementCache[textKey])
-            return _CanvasTextMetrics2._measurementCache[textKey];
+          if (_CanvasTextMetrics2._measurementCache[textKey]) return _CanvasTextMetrics2._measurementCache[textKey];
           const font = fontStringFromTextStyle(style);
           const fontProperties = _CanvasTextMetrics2.measureFont(font);
           if (fontProperties.fontSize === 0) {
@@ -22737,17 +22313,7 @@ ${parts.join("\n")}
           if (style.dropShadow) {
             height += style.dropShadow.distance;
           }
-          const measurements = new _CanvasTextMetrics2(
-            text,
-            style,
-            width,
-            height,
-            lines,
-            lineWidths,
-            lineHeight + style.leading,
-            maxLineWidth,
-            fontProperties
-          );
+          const measurements = new _CanvasTextMetrics2(text, style, width, height, lines, lineWidths, lineHeight + style.leading, maxLineWidth, fontProperties);
           return measurements;
         }
         static _measureText(text, letterSpacing, context2) {
@@ -22888,8 +22454,10 @@ ${parts.join("\n")}
          */
         static _addLine(line, newLine = true) {
           line = _CanvasTextMetrics2._trimRight(line);
-          line = newLine ? `${line}
-` : line;
+          line = newLine
+            ? `${line}
+`
+            : line;
           return line;
         }
         /**
@@ -23056,7 +22624,7 @@ ${parts.join("\n")}
           const properties = {
             ascent: metrics.actualBoundingBoxAscent,
             descent: metrics.actualBoundingBoxDescent,
-            fontSize: metrics.actualBoundingBoxAscent + metrics.actualBoundingBoxDescent
+            fontSize: metrics.actualBoundingBoxAscent + metrics.actualBoundingBoxDescent,
           };
           _CanvasTextMetrics2._fonts[font] = properties;
           return properties;
@@ -23123,7 +22691,7 @@ ${parts.join("\n")}
       _CanvasTextMetrics._newlines = [
         10,
         // line feed
-        13
+        13,
         // carriage return
       ];
       _CanvasTextMetrics._breakingSpaces = [
@@ -23153,19 +22721,22 @@ ${parts.join("\n")}
         // hair space
         8287,
         // medium mathematical space
-        12288
+        12288,
         // ideographic space
       ];
       _CanvasTextMetrics._measurementCache = {};
       CanvasTextMetrics = _CanvasTextMetrics;
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/text/canvas/utils/getCanvasFillStyle.mjs
   function getCanvasFillStyle(fillStyle, context2, textMetrics, padding = 0) {
     var _a2;
     if (fillStyle.texture === Texture.WHITE && !fillStyle.fill) {
-      return Color.shared.setValue(fillStyle.color).setAlpha((_a2 = fillStyle.alpha) != null ? _a2 : 1).toHexa();
+      return Color.shared
+        .setValue(fillStyle.color)
+        .setAlpha((_a2 = fillStyle.alpha) != null ? _a2 : 1)
+        .toHexa();
     } else if (!fillStyle.fill) {
       const pattern = context2.createPattern(fillStyle.texture.source.resource, "repeat");
       const tempMatrix7 = fillStyle.matrix.copyTo(Matrix.shared);
@@ -23176,10 +22747,7 @@ ${parts.join("\n")}
       const fillPattern = fillStyle.fill;
       const pattern = context2.createPattern(fillPattern.texture.source.resource, "repeat");
       const tempMatrix7 = fillPattern.transform.copyTo(Matrix.shared);
-      tempMatrix7.scale(
-        fillPattern.texture.frame.width,
-        fillPattern.texture.frame.height
-      );
+      tempMatrix7.scale(fillPattern.texture.frame.width, fillPattern.texture.frame.height);
       pattern.setTransform(tempMatrix7);
       return pattern;
     } else if (fillStyle.fill instanceof FillGradient) {
@@ -23196,23 +22764,11 @@ ${parts.join("\n")}
       let isNearlyVertical = false;
       if (isLinear) {
         const { start, end } = fillGradient;
-        gradient = context2.createLinearGradient(
-          start.x * width,
-          start.y * height,
-          end.x * width,
-          end.y * height
-        );
+        gradient = context2.createLinearGradient(start.x * width, start.y * height, end.x * width, end.y * height);
         isNearlyVertical = Math.abs(end.x - start.x) < Math.abs((end.y - start.y) * 0.1);
       } else {
         const { center, innerRadius, outerCenter, outerRadius } = fillGradient;
-        gradient = context2.createRadialGradient(
-          center.x * width,
-          center.y * height,
-          innerRadius * width,
-          outerCenter.x * width,
-          outerCenter.y * height,
-          outerRadius * width
-        );
+        gradient = context2.createRadialGradient(center.x * width, center.y * height, innerRadius * width, outerCenter.x * width, outerCenter.y * height, outerRadius * width);
       }
       if (isNearlyVertical && isLocal && textMetrics) {
         const ratio = textMetrics.lineHeight / height;
@@ -23247,7 +22803,7 @@ ${parts.join("\n")}
       init_FillGradient();
       init_FillPattern();
       PRECISION = 1e5;
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/text/canvas/CanvasTextSystem.mjs
@@ -23287,15 +22843,13 @@ ${parts.join("\n")}
             options = {
               text: options,
               style,
-              resolution
+              resolution,
             };
           }
           if (!(options.style instanceof TextStyle)) {
             options.style = new TextStyle(options.style);
           }
-          const { texture, canvasAndContext } = this.createTextureAndCanvas(
-            options
-          );
+          const { texture, canvasAndContext } = this.createTextureAndCanvas(options);
           this._renderer.texture.initSource(texture._source);
           CanvasPool.returnCanvasAndContext(canvasAndContext);
           return texture;
@@ -23329,7 +22883,7 @@ ${parts.join("\n")}
           this._activeTextures[textKey] = {
             canvasAndContext,
             texture,
-            usageCount: 1
+            usageCount: 1,
           };
           return texture;
         }
@@ -23434,23 +22988,10 @@ ${parts.join("\n")}
                 linePositionX += (maxLineWidth - lineWidths[i22]) / 2;
               }
               if ((_e = style._stroke) == null ? void 0 : _e.width) {
-                this._drawLetterSpacing(
-                  lines[i22],
-                  style,
-                  canvasAndContext,
-                  linePositionX + style.padding,
-                  linePositionY + style.padding - dsOffsetText,
-                  true
-                );
+                this._drawLetterSpacing(lines[i22], style, canvasAndContext, linePositionX + style.padding, linePositionY + style.padding - dsOffsetText, true);
               }
               if (style._fill !== void 0) {
-                this._drawLetterSpacing(
-                  lines[i22],
-                  style,
-                  canvasAndContext,
-                  linePositionX + style.padding,
-                  linePositionY + style.padding - dsOffsetText
-                );
+                this._drawLetterSpacing(lines[i22], style, canvasAndContext, linePositionX + style.padding, linePositionY + style.padding - dsOffsetText);
               }
             }
           }
@@ -23512,14 +23053,10 @@ ${parts.join("\n")}
         }
       };
       CanvasTextSystem.extension = {
-        type: [
-          ExtensionType.WebGLSystem,
-          ExtensionType.WebGPUSystem,
-          ExtensionType.CanvasSystem
-        ],
-        name: "canvasText"
+        type: [ExtensionType.WebGLSystem, ExtensionType.WebGPUSystem, ExtensionType.CanvasSystem],
+        name: "canvasText",
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/text/init.mjs
@@ -23530,7 +23067,7 @@ ${parts.join("\n")}
       init_CanvasTextSystem();
       extensions.add(CanvasTextSystem);
       extensions.add(CanvasTextPipe);
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/graphics/shared/Graphics.mjs
@@ -23548,10 +23085,17 @@ ${parts.join("\n")}
           if (options instanceof GraphicsContext) {
             options = { context: options };
           }
-          const _a2 = options || {}, { context: context2, roundPixels } = _a2, rest = __objRest(_a2, ["context", "roundPixels"]);
-          super(__spreadValues({
-            label: "Graphics"
-          }, rest));
+          const _a2 = options || {},
+            { context: context2, roundPixels } = _a2,
+            rest = __objRest(_a2, ["context", "roundPixels"]);
+          super(
+            __spreadValues(
+              {
+                label: "Graphics",
+              },
+              rest
+            )
+          );
           this.renderPipeId = "graphics";
           if (!context2) {
             this._context = this._ownedContext = new GraphicsContext();
@@ -23563,8 +23107,7 @@ ${parts.join("\n")}
           this.roundPixels = roundPixels != null ? roundPixels : false;
         }
         set context(context2) {
-          if (context2 === this._context)
-            return;
+          if (context2 === this._context) return;
           this._context.off("update", this.onViewUpdate, this);
           this._context = context2;
           this._context.on("update", this.onViewUpdate, this);
@@ -23584,8 +23127,7 @@ ${parts.join("\n")}
          * Graphics objects do not need to update their bounds as the context handles this.
          * @private
          */
-        updateBounds() {
-        }
+        updateBounds() {}
         /**
          * Checks if the object contains the given point.
          * @param point - The point to check
@@ -23848,10 +23390,8 @@ ${parts.join("\n")}
         beginFill(color, alpha) {
           deprecation(v8_0_0, "Graphics#beginFill is no longer needed. Use Graphics#fill to fill the shape with the desired style.");
           const fillStyle = {};
-          if (color !== void 0)
-            fillStyle.color = color;
-          if (alpha !== void 0)
-            fillStyle.alpha = alpha;
+          if (color !== void 0) fillStyle.color = color;
+          if (alpha !== void 0) fillStyle.alpha = alpha;
           this.context.fillStyle = fillStyle;
           return this;
         }
@@ -23916,7 +23456,7 @@ ${parts.join("\n")}
           return this._callContextMethod("star", args);
         }
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/text/sdfShader/shader-bits/localUniformMSDFBit.mjs
@@ -23927,7 +23467,7 @@ ${parts.join("\n")}
       localUniformMSDFBit = {
         name: "local-uniform-msdf-bit",
         vertex: {
-          header: (
+          header:
             /* wgsl */
             `
             struct LocalUniforms {
@@ -23938,27 +23478,24 @@ ${parts.join("\n")}
             }
 
             @group(2) @binding(0) var<uniform> localUniforms : LocalUniforms;
-        `
-          ),
-          main: (
+        `,
+          main:
             /* wgsl */
             `
             vColor *= localUniforms.uColor;
             modelMatrix *= localUniforms.uTransformMatrix;
-        `
-          ),
-          end: (
+        `,
+          end:
             /* wgsl */
             `
             if(localUniforms.uRound == 1)
             {
                 vPosition = vec4(roundPixels(vPosition.xy, globalUniforms.uResolution), vPosition.zw);
             }
-        `
-          )
+        `,
         },
         fragment: {
-          header: (
+          header:
             /* wgsl */
             `
             struct LocalUniforms {
@@ -23968,60 +23505,53 @@ ${parts.join("\n")}
             }
 
             @group(2) @binding(0) var<uniform> localUniforms : LocalUniforms;
-         `
-          ),
-          main: (
+         `,
+          main:
             /* wgsl */
             ` 
             outColor = vec4<f32>(calculateMSDFAlpha(outColor, localUniforms.uColor, localUniforms.uDistance));
-        `
-          )
-        }
+        `,
+        },
       };
       localUniformMSDFBitGl = {
         name: "local-uniform-msdf-bit",
         vertex: {
-          header: (
+          header:
             /* glsl */
             `
             uniform mat3 uTransformMatrix;
             uniform vec4 uColor;
             uniform float uRound;
-        `
-          ),
-          main: (
+        `,
+          main:
             /* glsl */
             `
             vColor *= uColor;
             modelMatrix *= uTransformMatrix;
-        `
-          ),
-          end: (
+        `,
+          end:
             /* glsl */
             `
             if(uRound == 1.)
             {
                 gl_Position.xy = roundPixels(gl_Position.xy, uResolution);
             }
-        `
-          )
+        `,
         },
         fragment: {
-          header: (
+          header:
             /* glsl */
             `
             uniform float uDistance;
-         `
-          ),
-          main: (
+         `,
+          main:
             /* glsl */
             ` 
             outColor = vec4(calculateMSDFAlpha(outColor, vColor, uDistance));
-        `
-          )
-        }
+        `,
+        },
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/text/sdfShader/shader-bits/mSDFBit.mjs
@@ -24032,7 +23562,7 @@ ${parts.join("\n")}
       mSDFBit = {
         name: "msdf-bit",
         fragment: {
-          header: (
+          header:
             /* wgsl */
             `
             fn calculateMSDFAlpha(msdfColor:vec4<f32>, shapeColor:vec4<f32>, distance:f32) -> f32 {
@@ -24061,14 +23591,13 @@ ${parts.join("\n")}
                 return coverage;
              
             }
-        `
-          )
-        }
+        `,
+        },
       };
       mSDFBitGl = {
         name: "msdf-bit",
         fragment: {
-          header: (
+          header:
             /* glsl */
             `
             float calculateMSDFAlpha(vec4 msdfColor, vec4 shapeColor, float distance) {
@@ -24097,11 +23626,10 @@ ${parts.join("\n")}
               
                 return coverage;
             }
-        `
-          )
-        }
+        `,
+        },
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/text/sdfShader/SdfShader.mjs
@@ -24125,40 +23653,32 @@ ${parts.join("\n")}
             uColor: { value: new Float32Array([1, 1, 1, 1]), type: "vec4<f32>" },
             uTransformMatrix: { value: new Matrix(), type: "mat3x3<f32>" },
             uDistance: { value: 4, type: "f32" },
-            uRound: { value: 0, type: "f32" }
+            uRound: { value: 0, type: "f32" },
           });
           const maxTextures2 = getMaxTexturesPerBatch();
-          gpuProgram != null ? gpuProgram : gpuProgram = compileHighShaderGpuProgram({
-            name: "sdf-shader",
-            bits: [
-              colorBit,
-              generateTextureBatchBit(maxTextures2),
-              localUniformMSDFBit,
-              mSDFBit,
-              roundPixelsBit
-            ]
-          });
-          glProgram != null ? glProgram : glProgram = compileHighShaderGlProgram({
-            name: "sdf-shader",
-            bits: [
-              colorBitGl,
-              generateTextureBatchBitGl(maxTextures2),
-              localUniformMSDFBitGl,
-              mSDFBitGl,
-              roundPixelsBitGl
-            ]
-          });
+          gpuProgram != null
+            ? gpuProgram
+            : (gpuProgram = compileHighShaderGpuProgram({
+                name: "sdf-shader",
+                bits: [colorBit, generateTextureBatchBit(maxTextures2), localUniformMSDFBit, mSDFBit, roundPixelsBit],
+              }));
+          glProgram != null
+            ? glProgram
+            : (glProgram = compileHighShaderGlProgram({
+                name: "sdf-shader",
+                bits: [colorBitGl, generateTextureBatchBitGl(maxTextures2), localUniformMSDFBitGl, mSDFBitGl, roundPixelsBitGl],
+              }));
           super({
             glProgram,
             gpuProgram,
             resources: {
               localUniforms: uniforms,
-              batchSamplers: getBatchSamplersUniformGroup(maxTextures2)
-            }
+              batchSamplers: getBatchSamplersUniformGroup(maxTextures2),
+            },
           });
         }
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/text-bitmap/AbstractBitmapFont.mjs
@@ -24235,7 +23755,7 @@ ${parts.join("\n")}
           }
         }
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/text-bitmap/utils/resolveCharacters.mjs
@@ -24276,7 +23796,7 @@ ${parts.join("\n")}
   var init_resolveCharacters = __esm({
     "../../../../node_modules/pixi.js/lib/scene/text-bitmap/utils/resolveCharacters.mjs"() {
       "use strict";
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/text-bitmap/DynamicBitmapFont.mjs
@@ -24341,9 +23861,10 @@ ${parts.join("\n")}
         }
         ensureCharacters(chars) {
           var _a2, _b, _c, _d;
-          const charList = resolveCharacters(chars).filter((char) => !this._currentChars.includes(char)).filter((char, index, self2) => self2.indexOf(char) === index);
-          if (!charList.length)
-            return;
+          const charList = resolveCharacters(chars)
+            .filter((char) => !this._currentChars.includes(char))
+            .filter((char, index, self2) => self2.indexOf(char) === index);
+          if (!charList.length) return;
           this._currentChars = [...this._currentChars, ...charList];
           let pageData;
           if (this._currentPageIndex === -1) {
@@ -24395,28 +23916,16 @@ ${parts.join("\n")}
               xOffset: -this._padding,
               yOffset: -this._padding,
               xAdvance,
-              kerning: {}
+              kerning: {},
             };
             if (skipTexture) {
-              this._drawGlyph(
-                context2,
-                metrics,
-                currentX + padding,
-                currentY + padding,
-                fontScale,
-                style
-              );
+              this._drawGlyph(context2, metrics, currentX + padding, currentY + padding, fontScale, style);
               const px = textureSource.width * fontScale;
               const py = textureSource.height * fontScale;
-              const frame = new Rectangle(
-                currentX / px * textureSource.width,
-                currentY / py * textureSource.height,
-                paddedWidth / px * textureSource.width,
-                paddedHeight / py * textureSource.height
-              );
+              const frame = new Rectangle((currentX / px) * textureSource.width, (currentY / py) * textureSource.height, (paddedWidth / px) * textureSource.width, (paddedHeight / py) * textureSource.height);
               this.chars[char].texture = new Texture({
                 source: textureSource,
-                frame
+                frame,
               });
               currentX += Math.ceil(paddedWidth);
             }
@@ -24441,11 +23950,9 @@ ${parts.join("\n")}
             for (let j3 = 0; j3 < this._currentChars.length; j3++) {
               const second = this._currentChars[j3];
               let c1 = measureCache[first];
-              if (!c1)
-                c1 = measureCache[first] = context2.measureText(first).width;
+              if (!c1) c1 = measureCache[first] = context2.measureText(first).width;
               let c2 = measureCache[second];
-              if (!c2)
-                c2 = measureCache[second] = context2.measureText(second).width;
+              if (!c2) c2 = measureCache[second] = context2.measureText(second).width;
               let total = context2.measureText(first + second).width;
               let amount = total - (c1 + c2);
               if (amount) {
@@ -24462,11 +23969,7 @@ ${parts.join("\n")}
         _nextPage() {
           this._currentPageIndex++;
           const textureResolution = this.resolution;
-          const canvasAndContext = CanvasPool.getOptimalCanvasAndContext(
-            this._textureSize,
-            this._textureSize,
-            textureResolution
-          );
+          const canvasAndContext = CanvasPool.getOptimalCanvasAndContext(this._textureSize, this._textureSize, textureResolution);
           this._setupContext(canvasAndContext.context, this._style, textureResolution);
           const resolution = textureResolution * (this.baseRenderedFontSize / this.baseMeasurementFontSize);
           const texture = new Texture({
@@ -24474,12 +23977,12 @@ ${parts.join("\n")}
               resource: canvasAndContext.canvas,
               resolution,
               alphaMode: "premultiply-alpha-on-upload",
-              autoGenerateMipmaps: this._mipmap
-            })
+              autoGenerateMipmaps: this._mipmap,
+            }),
           });
           const pageData = {
             canvasAndContext,
-            texture
+            texture,
           };
           this.pages[this._currentPageIndex] = pageData;
           return pageData;
@@ -24549,10 +24052,10 @@ ${parts.join("\n")}
       _DynamicBitmapFont.defaultOptions = {
         textureSize: 512,
         style: new TextStyle(),
-        mipmap: true
+        mipmap: true,
       };
       DynamicBitmapFont = _DynamicBitmapFont;
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/text-bitmap/utils/getBitmapTextLayout.mjs
@@ -24562,13 +24065,15 @@ ${parts.join("\n")}
       height: 0,
       offsetY: 0,
       scale: style.fontSize / font.baseMeasurementFontSize,
-      lines: [{
-        width: 0,
-        charPositions: [],
-        spaceWidth: 0,
-        spacesIndex: [],
-        chars: []
-      }]
+      lines: [
+        {
+          width: 0,
+          charPositions: [],
+          spaceWidth: 0,
+          spacesIndex: [],
+          chars: [],
+        },
+      ],
     };
     layoutData.offsetY = font.baseLineOffset;
     let currentLine = layoutData.lines[0];
@@ -24581,7 +24086,7 @@ ${parts.join("\n")}
       index: 0,
       // use index to not modify the array as we use it a lot!
       positions: [],
-      chars: []
+      chars: [],
     };
     const nextWord = (word) => {
       const start = currentLine.width;
@@ -24611,7 +24116,7 @@ ${parts.join("\n")}
         charPositions: [],
         chars: [],
         spaceWidth: 0,
-        spacesIndex: []
+        spacesIndex: [],
       };
       firstWord = true;
       layoutData.lines.push(currentLine);
@@ -24714,7 +24219,7 @@ ${parts.join("\n")}
   var init_getBitmapTextLayout = __esm({
     "../../../../node_modules/pixi.js/lib/scene/text-bitmap/utils/getBitmapTextLayout.mjs"() {
       "use strict";
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/text-bitmap/BitmapFontManager.mjs
@@ -24739,7 +24244,7 @@ ${parts.join("\n")}
             chars: this.ALPHANUMERIC,
             resolution: 1,
             padding: 4,
-            skipKerning: false
+            skipKerning: false,
           };
         }
         /**
@@ -24761,11 +24266,16 @@ ${parts.join("\n")}
             overrideFill = false;
           }
           if (!Cache.has(fontFamilyKey)) {
-            const fnt = new DynamicBitmapFont(__spreadValues({
-              style,
-              overrideFill,
-              overrideSize: true
-            }, this.defaultOptions));
+            const fnt = new DynamicBitmapFont(
+              __spreadValues(
+                {
+                  style,
+                  overrideFill,
+                  overrideSize: true,
+                },
+                this.defaultOptions
+              )
+            );
             fontCount++;
             if (fontCount > 50) {
               warn("BitmapText", `You have dynamically created ${fontCount} bitmap fonts, this can be inefficient. Try pre installing your font styles using \`BitmapFont.install({name:"style1", style})\``);
@@ -24774,10 +24284,7 @@ ${parts.join("\n")}
               fontCount--;
               Cache.remove(fontFamilyKey);
             });
-            Cache.set(
-              fontFamilyKey,
-              fnt
-            );
+            Cache.set(fontFamilyKey, fnt);
           }
           const dynamicFont = Cache.get(fontFamilyKey);
           (_a2 = dynamicFont.ensureCharacters) == null ? void 0 : _a2.call(dynamicFont, text);
@@ -24813,7 +24320,7 @@ ${parts.join("\n")}
               chars: (_a2 = args[2]) == null ? void 0 : _a2.chars,
               resolution: (_b = args[2]) == null ? void 0 : _b.resolution,
               padding: (_c = args[2]) == null ? void 0 : _c.padding,
-              skipKerning: (_d = args[2]) == null ? void 0 : _d.skipKerning
+              skipKerning: (_d = args[2]) == null ? void 0 : _d.skipKerning,
             };
             deprecation(v8_0_0, "BitmapFontManager.install(name, style, options) is deprecated, use BitmapFontManager.install({name, style, ...options})");
           }
@@ -24831,7 +24338,7 @@ ${parts.join("\n")}
             skipKerning: options.skipKerning,
             padding: options.padding,
             resolution: options.resolution,
-            overrideSize: false
+            overrideSize: false,
           });
           const flatChars = resolveCharacters(options.chars);
           font.ensureCharacters(flatChars.join(""));
@@ -24852,7 +24359,7 @@ ${parts.join("\n")}
         }
       };
       BitmapFontManager = new BitmapFontManagerClass();
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/text-bitmap/BitmapTextPipe.mjs
@@ -24955,12 +24462,7 @@ ${parts.join("\n")}
               const char = chars[index++];
               const charData = bitmapFont.chars[char];
               if (charData == null ? void 0 : charData.texture) {
-                context2.texture(
-                  charData.texture,
-                  tint ? tint : "black",
-                  Math.round(line.charPositions[j3] + charData.xOffset),
-                  Math.round(currentY + charData.yOffset)
-                );
+                context2.texture(charData.texture, tint ? tint : "black", Math.round(line.charPositions[j3] + charData.xOffset), Math.round(currentY + charData.yOffset));
               }
             }
             currentY += bitmapFont.lineHeight;
@@ -24997,14 +24499,10 @@ ${parts.join("\n")}
         }
       };
       BitmapTextPipe.extension = {
-        type: [
-          ExtensionType.WebGLPipes,
-          ExtensionType.WebGPUPipes,
-          ExtensionType.CanvasPipes
-        ],
-        name: "bitmapText"
+        type: [ExtensionType.WebGLPipes, ExtensionType.WebGPUPipes, ExtensionType.CanvasPipes],
+        name: "bitmapText",
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/text-bitmap/init.mjs
@@ -25013,7 +24511,7 @@ ${parts.join("\n")}
       init_Extensions();
       init_BitmapTextPipe();
       extensions.add(BitmapTextPipe);
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/text-html/HTMLTextPipe.mjs
@@ -25036,8 +24534,7 @@ ${parts.join("\n")}
         resolutionChange() {
           for (const i2 in this._gpuText) {
             const gpuText = this._gpuText[i2];
-            if (!gpuText)
-              continue;
+            if (!gpuText) continue;
             const text = gpuText.batchableSprite.renderable;
             if (text._autoResolution) {
               text._resolution = this._renderer.resolution;
@@ -25100,19 +24597,13 @@ ${parts.join("\n")}
             var _a2;
             htmlText._didTextUpdate = false;
             const gpuText = this._getGpuText(htmlText);
-            if (gpuText.generatingTexture)
-              return;
+            if (gpuText.generatingTexture) return;
             const newKey = htmlText._getKey();
             this._renderer.htmlText.decreaseReferenceCount(gpuText.currentKey);
             gpuText.generatingTexture = true;
             gpuText.currentKey = newKey;
             const resolution = (_a2 = htmlText.resolution) != null ? _a2 : this._renderer.resolution;
-            const texture = yield this._renderer.htmlText.getManagedTexture(
-              htmlText.text,
-              resolution,
-              htmlText._style,
-              htmlText._getKey()
-            );
+            const texture = yield this._renderer.htmlText.getManagedTexture(htmlText.text, resolution, htmlText._style, htmlText._getKey());
             const batchableSprite = gpuText.batchableSprite;
             batchableSprite.texture = gpuText.texture = texture;
             gpuText.generatingTexture = false;
@@ -25130,7 +24621,7 @@ ${parts.join("\n")}
             currentKey: "--",
             batchableSprite: BigPool.get(BatchableSprite),
             textureNeedsUploading: false,
-            generatingTexture: false
+            generatingTexture: false,
           };
           const batchableSprite = gpuTextData.batchableSprite;
           batchableSprite.renderable = htmlText;
@@ -25152,14 +24643,10 @@ ${parts.join("\n")}
         }
       };
       HTMLTextPipe.extension = {
-        type: [
-          ExtensionType.WebGLPipes,
-          ExtensionType.WebGPUPipes,
-          ExtensionType.CanvasPipes
-        ],
-        name: "htmlText"
+        type: [ExtensionType.WebGLPipes, ExtensionType.WebGPUPipes, ExtensionType.CanvasPipes],
+        name: "htmlText",
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/utils/browser/isSafari.mjs
@@ -25170,7 +24657,7 @@ ${parts.join("\n")}
   var init_isSafari = __esm({
     "../../../../node_modules/pixi.js/lib/utils/browser/isSafari.mjs"() {
       init_adapter();
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/text-html/HTMLTextRenderData.mjs
@@ -25196,7 +24683,7 @@ ${parts.join("\n")}
           foreignObject.appendChild(domElement);
         }
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/text-html/utils/textStyleToCSS.mjs
@@ -25214,14 +24701,11 @@ ${parts.join("\n")}
       `text-align: ${style.align}`,
       `padding: ${style.padding}px`,
       `white-space: ${style.whiteSpace === "pre" && style.wordWrap ? "pre-wrap" : style.whiteSpace}`,
-      ...style.lineHeight ? [`line-height: ${style.lineHeight}px`] : [],
-      ...style.wordWrap ? [
-        `word-wrap: ${style.breakWords ? "break-all" : "break-word"}`,
-        `max-width: ${style.wordWrapWidth}px`
-      ] : [],
-      ...stroke ? [strokeToCSS(stroke)] : [],
-      ...style.dropShadow ? [dropShadowToCSS(style.dropShadow)] : [],
-      ...style.cssOverrides
+      ...(style.lineHeight ? [`line-height: ${style.lineHeight}px`] : []),
+      ...(style.wordWrap ? [`word-wrap: ${style.breakWords ? "break-all" : "break-word"}`, `max-width: ${style.wordWrapWidth}px`] : []),
+      ...(stroke ? [strokeToCSS(stroke)] : []),
+      ...(style.dropShadow ? [dropShadowToCSS(style.dropShadow)] : []),
+      ...style.cssOverrides,
     ].join(";");
     const cssStyles = [`div { ${cssStyleString} }`];
     tagStyleToCSS(style.tagStyles, cssStyles);
@@ -25243,7 +24727,7 @@ ${parts.join("\n")}
       `-webkit-text-stroke-color: ${Color.shared.setValue(stroke.color).toHex()}`,
       `text-stroke-width: ${stroke.width}px`,
       `text-stroke-color: ${Color.shared.setValue(stroke.color).toHex()}`,
-      "paint-order: stroke"
+      "paint-order: stroke",
     ].join(";");
   }
   function tagStyleToCSS(tagStyles, out2) {
@@ -25275,15 +24759,15 @@ ${parts.join("\n")}
         padding: `padding: {{VALUE}}px`,
         whiteSpace: `white-space: {{VALUE}}`,
         lineHeight: `line-height: {{VALUE}}px`,
-        wordWrapWidth: `max-width: {{VALUE}}px`
+        wordWrapWidth: `max-width: {{VALUE}}px`,
       };
       transform = {
         fill: (value) => `color: ${Color.shared.setValue(value).toHex()}`,
         breakWords: (value) => `word-wrap: ${value ? "break-all" : "break-word"}`,
         stroke: strokeToCSS,
-        dropShadow: dropShadowToCSS
+        dropShadow: dropShadowToCSS,
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/text-html/HTMLTextStyle.mjs
@@ -25299,7 +24783,7 @@ ${parts.join("\n")}
           var _a2, _b;
           super(options);
           this._cssOverrides = [];
-          (_a2 = this.cssOverrides) != null ? _a2 : this.cssOverrides = options.cssOverrides;
+          (_a2 = this.cssOverrides) != null ? _a2 : (this.cssOverrides = options.cssOverrides);
           this.tagStyles = (_b = options.tagStyles) != null ? _b : {};
         }
         /** List of style overrides that will be applied to the HTML text. */
@@ -25340,7 +24824,7 @@ ${parts.join("\n")}
             whiteSpace: this.whiteSpace,
             wordWrap: this.wordWrap,
             wordWrapWidth: this.wordWrapWidth,
-            cssOverrides: this.cssOverrides
+            cssOverrides: this.cssOverrides,
           });
         }
         get cssStyle() {
@@ -25391,7 +24875,7 @@ ${parts.join("\n")}
           super.stroke = value;
         }
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/text-html/utils/extractFontFamilies.mjs
@@ -25429,7 +24913,7 @@ ${parts.join("\n")}
   var init_extractFontFamilies = __esm({
     "../../../../node_modules/pixi.js/lib/scene/text-html/utils/extractFontFamilies.mjs"() {
       "use strict";
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/text-html/utils/loadFontAsBase64.mjs
@@ -25449,7 +24933,7 @@ ${parts.join("\n")}
   var init_loadFontAsBase64 = __esm({
     "../../../../node_modules/pixi.js/lib/scene/text-html/utils/loadFontAsBase64.mjs"() {
       init_adapter();
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/text-html/utils/loadFontCSS.mjs
@@ -25467,31 +24951,45 @@ ${parts.join("\n")}
   var init_loadFontCSS = __esm({
     "../../../../node_modules/pixi.js/lib/scene/text-html/utils/loadFontCSS.mjs"() {
       init_loadFontAsBase64();
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/text-html/utils/getFontCss.mjs
   function getFontCss(fontFamilies, style, defaultOptions) {
     return __async(this, null, function* () {
-      const fontPromises = fontFamilies.filter((fontFamily) => Cache.has(`${fontFamily}-and-url`)).map((fontFamily, i2) => {
-        if (!FontStylePromiseCache.has(fontFamily)) {
-          const { url } = Cache.get(`${fontFamily}-and-url`);
-          if (i2 === 0) {
-            FontStylePromiseCache.set(fontFamily, loadFontCSS({
-              fontWeight: style.fontWeight,
-              fontStyle: style.fontStyle,
-              fontFamily
-            }, url));
-          } else {
-            FontStylePromiseCache.set(fontFamily, loadFontCSS({
-              fontWeight: defaultOptions.fontWeight,
-              fontStyle: defaultOptions.fontStyle,
-              fontFamily
-            }, url));
+      const fontPromises = fontFamilies
+        .filter((fontFamily) => Cache.has(`${fontFamily}-and-url`))
+        .map((fontFamily, i2) => {
+          if (!FontStylePromiseCache.has(fontFamily)) {
+            const { url } = Cache.get(`${fontFamily}-and-url`);
+            if (i2 === 0) {
+              FontStylePromiseCache.set(
+                fontFamily,
+                loadFontCSS(
+                  {
+                    fontWeight: style.fontWeight,
+                    fontStyle: style.fontStyle,
+                    fontFamily,
+                  },
+                  url
+                )
+              );
+            } else {
+              FontStylePromiseCache.set(
+                fontFamily,
+                loadFontCSS(
+                  {
+                    fontWeight: defaultOptions.fontWeight,
+                    fontStyle: defaultOptions.fontStyle,
+                    fontFamily,
+                  },
+                  url
+                )
+              );
+            }
           }
-        }
-        return FontStylePromiseCache.get(fontFamily);
-      });
+          return FontStylePromiseCache.get(fontFamily);
+        });
       return (yield Promise.all(fontPromises)).join("\n");
     });
   }
@@ -25501,7 +24999,7 @@ ${parts.join("\n")}
       init_Cache();
       init_loadFontCSS();
       FontStylePromiseCache = /* @__PURE__ */ new Map();
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/text-html/utils/getSVGUrl.mjs
@@ -25518,16 +25016,12 @@ ${parts.join("\n")}
   var init_getSVGUrl = __esm({
     "../../../../node_modules/pixi.js/lib/scene/text-html/utils/getSVGUrl.mjs"() {
       "use strict";
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/text-html/utils/getTemporaryCanvasFromImage.mjs
   function getTemporaryCanvasFromImage(image, resolution) {
-    const canvasAndContext = CanvasPool.getOptimalCanvasAndContext(
-      image.width,
-      image.height,
-      resolution
-    );
+    const canvasAndContext = CanvasPool.getOptimalCanvasAndContext(image.width, image.height, resolution);
     const { context: context2 } = canvasAndContext;
     context2.clearRect(0, 0, image.width, image.height);
     context2.drawImage(image, 0, 0);
@@ -25536,26 +25030,28 @@ ${parts.join("\n")}
   var init_getTemporaryCanvasFromImage = __esm({
     "../../../../node_modules/pixi.js/lib/scene/text-html/utils/getTemporaryCanvasFromImage.mjs"() {
       init_CanvasPool();
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/text-html/utils/loadSVGImage.mjs
   function loadSVGImage(image, url, delay) {
-    return new Promise((resolve) => __async(this, null, function* () {
-      if (delay) {
-        yield new Promise((resolve2) => setTimeout(resolve2, 100));
-      }
-      image.onload = () => {
-        resolve();
-      };
-      image.src = `data:image/svg+xml;charset=utf8,${encodeURIComponent(url)}`;
-      image.crossOrigin = "anonymous";
-    }));
+    return new Promise((resolve) =>
+      __async(this, null, function* () {
+        if (delay) {
+          yield new Promise((resolve2) => setTimeout(resolve2, 100));
+        }
+        image.onload = () => {
+          resolve();
+        };
+        image.src = `data:image/svg+xml;charset=utf8,${encodeURIComponent(url)}`;
+        image.crossOrigin = "anonymous";
+      })
+    );
   }
   var init_loadSVGImage = __esm({
     "../../../../node_modules/pixi.js/lib/scene/text-html/utils/loadSVGImage.mjs"() {
       "use strict";
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/text-html/utils/measureHtmlText.mjs
@@ -25573,14 +25069,14 @@ ${parts.join("\n")}
     const doublePadding = style.padding * 2;
     return {
       width: contentBounds.width - doublePadding,
-      height: contentBounds.height - doublePadding
+      height: contentBounds.height - doublePadding,
     };
   }
   var tempHTMLTextRenderData;
   var init_measureHtmlText = __esm({
     "../../../../node_modules/pixi.js/lib/scene/text-html/utils/measureHtmlText.mjs"() {
       init_HTMLTextRenderData();
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/text-html/HTMLTextSystem.mjs
@@ -25610,11 +25106,7 @@ ${parts.join("\n")}
           this._createCanvas = renderer.type === RendererType.WEBGPU;
         }
         getTexture(options) {
-          return this._buildTexturePromise(
-            options.text,
-            options.resolution,
-            options.style
-          );
+          return this._buildTexturePromise(options.text, options.resolution, options.style);
         }
         getManagedTexture(text, resolution, style, textKey) {
           if (this._activeTextures[textKey]) {
@@ -25628,7 +25120,7 @@ ${parts.join("\n")}
           this._activeTextures[textKey] = {
             texture: null,
             promise: promise2,
-            usageCount: 1
+            usageCount: 1,
           };
           return promise2;
         }
@@ -25636,11 +25128,7 @@ ${parts.join("\n")}
           return __async(this, null, function* () {
             const htmlTextData = BigPool.get(HTMLTextRenderData);
             const fontFamilies = extractFontFamilies(text, style);
-            const fontCSS = yield getFontCss(
-              fontFamilies,
-              style,
-              HTMLTextStyle.defaultTextStyle
-            );
+            const fontCSS = yield getFontCss(fontFamilies, style, HTMLTextStyle.defaultTextStyle);
             const measured = measureHtmlText(text, style, fontCSS, htmlTextData);
             const width = Math.ceil(Math.ceil(Math.max(1, measured.width) + style.padding * 2) * resolution);
             const height = Math.ceil(Math.ceil(Math.max(1, measured.height) + style.padding * 2) * resolution);
@@ -25655,12 +25143,7 @@ ${parts.join("\n")}
             if (this._createCanvas) {
               canvasAndContext = getTemporaryCanvasFromImage(image, resolution);
             }
-            const texture = getPo2TextureFromSource(
-              canvasAndContext ? canvasAndContext.canvas : resource,
-              image.width - uvSafeOffset,
-              image.height - uvSafeOffset,
-              resolution
-            );
+            const texture = getPo2TextureFromSource(canvasAndContext ? canvasAndContext.canvas : resource, image.width - uvSafeOffset, image.height - uvSafeOffset, resolution);
             if (this._createCanvas) {
               this._renderer.texture.initSource(texture.source);
               CanvasPool.returnCanvasAndContext(canvasAndContext);
@@ -25674,19 +25157,20 @@ ${parts.join("\n")}
         }
         decreaseReferenceCount(textKey) {
           const activeTexture = this._activeTextures[textKey];
-          if (!activeTexture)
-            return;
+          if (!activeTexture) return;
           activeTexture.usageCount--;
           if (activeTexture.usageCount === 0) {
             if (activeTexture.texture) {
               this._cleanUp(activeTexture);
             } else {
-              activeTexture.promise.then((texture) => {
-                activeTexture.texture = texture;
-                this._cleanUp(activeTexture);
-              }).catch(() => {
-                warn("HTMLTextSystem: Failed to clean texture");
-              });
+              activeTexture.promise
+                .then((texture) => {
+                  activeTexture.texture = texture;
+                  this._cleanUp(activeTexture);
+                })
+                .catch(() => {
+                  warn("HTMLTextSystem: Failed to clean texture");
+                });
             }
             this._activeTextures[textKey] = null;
           }
@@ -25704,19 +25188,15 @@ ${parts.join("\n")}
         }
       };
       HTMLTextSystem.extension = {
-        type: [
-          ExtensionType.WebGLSystem,
-          ExtensionType.WebGPUSystem,
-          ExtensionType.CanvasSystem
-        ],
-        name: "htmlText"
+        type: [ExtensionType.WebGLSystem, ExtensionType.WebGPUSystem, ExtensionType.CanvasSystem],
+        name: "htmlText",
       };
       HTMLTextSystem.defaultFontOptions = {
         fontFamily: "Arial",
         fontStyle: "normal",
-        fontWeight: "normal"
+        fontWeight: "normal",
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/text-html/init.mjs
@@ -25727,7 +25207,7 @@ ${parts.join("\n")}
       init_HTMLTextSystem();
       extensions.add(HTMLTextSystem);
       extensions.add(HTMLTextPipe);
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/mesh/shared/MeshGeometry.mjs
@@ -25747,7 +25227,7 @@ ${parts.join("\n")}
             options = {
               positions: options,
               uvs: args[1],
-              indices: args[2]
+              indices: args[2],
             };
           }
           options = __spreadValues(__spreadValues({}, _MeshGeometry2.defaultOptions), options);
@@ -25766,19 +25246,19 @@ ${parts.join("\n")}
             data: positions,
             label: "attribute-mesh-positions",
             shrinkToFit,
-            usage: BufferUsage.VERTEX | BufferUsage.COPY_DST
+            usage: BufferUsage.VERTEX | BufferUsage.COPY_DST,
           });
           const uvBuffer = new Buffer2({
             data: uvs,
             label: "attribute-mesh-uvs",
             shrinkToFit,
-            usage: BufferUsage.VERTEX | BufferUsage.COPY_DST
+            usage: BufferUsage.VERTEX | BufferUsage.COPY_DST,
           });
           const indexBuffer = new Buffer2({
             data: indices,
             label: "index-mesh-buffer",
             shrinkToFit,
-            usage: BufferUsage.INDEX | BufferUsage.COPY_DST
+            usage: BufferUsage.INDEX | BufferUsage.COPY_DST,
           });
           super({
             attributes: {
@@ -25786,17 +25266,17 @@ ${parts.join("\n")}
                 buffer: positionBuffer,
                 format: "float32x2",
                 stride: 2 * 4,
-                offset: 0
+                offset: 0,
               },
               aUV: {
                 buffer: uvBuffer,
                 format: "float32x2",
                 stride: 2 * 4,
-                offset: 0
-              }
+                offset: 0,
+              },
             },
             indexBuffer,
-            topology: options.topology
+            topology: options.topology,
           });
           this.batchMode = "auto";
         }
@@ -25836,10 +25316,10 @@ ${parts.join("\n")}
       };
       _MeshGeometry.defaultOptions = {
         topology: "triangle-list",
-        shrinkBuffersToFit: false
+        shrinkBuffersToFit: false,
       };
       MeshGeometry = _MeshGeometry;
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/high-shader/shader-bits/localUniformBit.mjs
@@ -25850,7 +25330,7 @@ ${parts.join("\n")}
       localUniformBit = {
         name: "local-uniform-bit",
         vertex: {
-          header: (
+          header:
             /* wgsl */
             `
 
@@ -25861,63 +25341,57 @@ ${parts.join("\n")}
             }
 
             @group(1) @binding(0) var<uniform> localUniforms : LocalUniforms;
-        `
-          ),
-          main: (
+        `,
+          main:
             /* wgsl */
             `
             vColor *= localUniforms.uColor;
             modelMatrix *= localUniforms.uTransformMatrix;
-        `
-          ),
-          end: (
+        `,
+          end:
             /* wgsl */
             `
             if(localUniforms.uRound == 1)
             {
                 vPosition = vec4(roundPixels(vPosition.xy, globalUniforms.uResolution), vPosition.zw);
             }
-        `
-          )
-        }
+        `,
+        },
       };
       localUniformBitGroup2 = __spreadProps(__spreadValues({}, localUniformBit), {
         vertex: __spreadProps(__spreadValues({}, localUniformBit.vertex), {
           // replace the group!
-          header: localUniformBit.vertex.header.replace("group(1)", "group(2)")
-        })
+          header: localUniformBit.vertex.header.replace("group(1)", "group(2)"),
+        }),
       });
       localUniformBitGl = {
         name: "local-uniform-bit",
         vertex: {
-          header: (
+          header:
             /* glsl */
             `
 
             uniform mat3 uTransformMatrix;
             uniform vec4 uColor;
             uniform float uRound;
-        `
-          ),
-          main: (
+        `,
+          main:
             /* glsl */
             `
             vColor *= uColor;
             modelMatrix = uTransformMatrix;
-        `
-          ),
-          end: (
+        `,
+          end:
             /* glsl */
             `
             if(uRound == 1.)
             {
                 gl_Position.xy = roundPixels(gl_Position.xy, uResolution);
             }
-        `
-          )
-        }
+        `,
+        },
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/sprite-tiling/shader/tilingBit.mjs
@@ -25928,7 +25402,7 @@ ${parts.join("\n")}
       tilingBit = {
         name: "tiling-bit",
         vertex: {
-          header: (
+          header:
             /* wgsl */
             `
             struct TilingUniforms {
@@ -25942,19 +25416,17 @@ ${parts.join("\n")}
             @group(2) @binding(0) var<uniform> tilingUniforms: TilingUniforms;
             @group(2) @binding(1) var uTexture: texture_2d<f32>;
             @group(2) @binding(2) var uSampler: sampler;
-        `
-          ),
-          main: (
+        `,
+          main:
             /* wgsl */
             `
             uv = (tilingUniforms.uTextureTransform * vec3(uv, 1.0)).xy;
 
             position = (position - tilingUniforms.uSizeAnchor.zw) * tilingUniforms.uSizeAnchor.xy;
-        `
-          )
+        `,
         },
         fragment: {
-          header: (
+          header:
             /* wgsl */
             `
             struct TilingUniforms {
@@ -25968,9 +25440,8 @@ ${parts.join("\n")}
             @group(2) @binding(0) var<uniform> tilingUniforms: TilingUniforms;
             @group(2) @binding(1) var uTexture: texture_2d<f32>;
             @group(2) @binding(2) var uSampler: sampler;
-        `
-          ),
-          main: (
+        `,
+          main:
             /* wgsl */
             `
 
@@ -25987,41 +25458,37 @@ ${parts.join("\n")}
             } 
 
             outColor = textureSampleBias(uTexture, uSampler, coord, bias);
-        `
-          )
-        }
+        `,
+        },
       };
       tilingBitGl = {
         name: "tiling-bit",
         vertex: {
-          header: (
+          header:
             /* glsl */
             `
             uniform mat3 uTextureTransform;
             uniform vec4 uSizeAnchor;
         
-        `
-          ),
-          main: (
+        `,
+          main:
             /* glsl */
             `
             uv = (uTextureTransform * vec3(aUV, 1.0)).xy;
 
             position = (position - uSizeAnchor.zw) * uSizeAnchor.xy;
-        `
-          )
+        `,
         },
         fragment: {
-          header: (
+          header:
             /* glsl */
             `
             uniform sampler2D uTexture;
             uniform mat3 uMapCoord;
             uniform vec4 uClampFrame;
             uniform vec2 uClampOffset;
-        `
-          ),
-          main: (
+        `,
+          main:
             /* glsl */
             `
 
@@ -26032,11 +25499,10 @@ ${parts.join("\n")}
         
         outColor = texture(uTexture, coord, unclamped == coord ? 0.0 : -32.0);// lod-bias very negative to force lod 0
     
-        `
-          )
-        }
+        `,
+        },
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/sprite-tiling/shader/TilingSpriteShader.mjs
@@ -26053,28 +25519,24 @@ ${parts.join("\n")}
       init_tilingBit();
       TilingSpriteShader = class extends Shader {
         constructor() {
-          gpuProgram2 != null ? gpuProgram2 : gpuProgram2 = compileHighShaderGpuProgram({
-            name: "tiling-sprite-shader",
-            bits: [
-              localUniformBit,
-              tilingBit,
-              roundPixelsBit
-            ]
-          });
-          glProgram2 != null ? glProgram2 : glProgram2 = compileHighShaderGlProgram({
-            name: "tiling-sprite-shader",
-            bits: [
-              localUniformBitGl,
-              tilingBitGl,
-              roundPixelsBitGl
-            ]
-          });
+          gpuProgram2 != null
+            ? gpuProgram2
+            : (gpuProgram2 = compileHighShaderGpuProgram({
+                name: "tiling-sprite-shader",
+                bits: [localUniformBit, tilingBit, roundPixelsBit],
+              }));
+          glProgram2 != null
+            ? glProgram2
+            : (glProgram2 = compileHighShaderGlProgram({
+                name: "tiling-sprite-shader",
+                bits: [localUniformBitGl, tilingBitGl, roundPixelsBitGl],
+              }));
           const tilingUniforms = new UniformGroup({
             uMapCoord: { value: new Matrix(), type: "mat3x3<f32>" },
             uClampFrame: { value: new Float32Array([0, 0, 1, 1]), type: "vec4<f32>" },
             uClampOffset: { value: new Float32Array([0, 0]), type: "vec2<f32>" },
             uTextureTransform: { value: new Matrix(), type: "mat3x3<f32>" },
-            uSizeAnchor: { value: new Float32Array([100, 100, 0.5, 0.5]), type: "vec4<f32>" }
+            uSizeAnchor: { value: new Float32Array([100, 100, 0.5, 0.5]), type: "vec4<f32>" },
           });
           super({
             glProgram: glProgram2,
@@ -26083,12 +25545,12 @@ ${parts.join("\n")}
               localUniforms: new UniformGroup({
                 uTransformMatrix: { value: new Matrix(), type: "mat3x3<f32>" },
                 uColor: { value: new Float32Array([1, 1, 1, 1]), type: "vec4<f32>" },
-                uRound: { value: 0, type: "f32" }
+                uRound: { value: 0, type: "f32" },
               }),
               tilingUniforms,
               uTexture: Texture.EMPTY.source,
-              uSampler: Texture.EMPTY.source.style
-            }
+              uSampler: Texture.EMPTY.source.style,
+            },
           });
         }
         updateUniforms(width, height, matrix, anchorX, anchorY, texture) {
@@ -26097,14 +25559,7 @@ ${parts.join("\n")}
           const textureHeight = texture.height;
           const textureMatrix = texture.textureMatrix;
           const uTextureTransform = tilingUniforms.uniforms.uTextureTransform;
-          uTextureTransform.set(
-            matrix.a * textureWidth / width,
-            matrix.b * textureWidth / height,
-            matrix.c * textureHeight / width,
-            matrix.d * textureHeight / height,
-            matrix.tx / width,
-            matrix.ty / height
-          );
+          uTextureTransform.set((matrix.a * textureWidth) / width, (matrix.b * textureWidth) / height, (matrix.c * textureHeight) / width, (matrix.d * textureHeight) / height, matrix.tx / width, matrix.ty / height);
           uTextureTransform.invert();
           tilingUniforms.uniforms.uMapCoord = textureMatrix.mapCoord;
           tilingUniforms.uniforms.uClampFrame = textureMatrix.uClampFrame;
@@ -26120,7 +25575,7 @@ ${parts.join("\n")}
           }
         }
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/sprite-tiling/utils/QuadGeometry.mjs
@@ -26133,11 +25588,11 @@ ${parts.join("\n")}
           super({
             positions: new Float32Array([0, 0, 1, 0, 1, 1, 0, 1]),
             uvs: new Float32Array([0, 0, 1, 0, 1, 1, 0, 1]),
-            indices: new Uint32Array([0, 1, 2, 0, 2, 3])
+            indices: new Uint32Array([0, 1, 2, 0, 2, 3]),
           });
         }
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/sprite-tiling/utils/setPositions.mjs
@@ -26156,7 +25611,7 @@ ${parts.join("\n")}
   var init_setPositions = __esm({
     "../../../../node_modules/pixi.js/lib/scene/sprite-tiling/utils/setPositions.mjs"() {
       "use strict";
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/sprite-tiling/utils/applyMatrix.mjs
@@ -26182,7 +25637,7 @@ ${parts.join("\n")}
   var init_applyMatrix = __esm({
     "../../../../node_modules/pixi.js/lib/scene/sprite-tiling/utils/applyMatrix.mjs"() {
       "use strict";
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/sprite-tiling/utils/setUvs.mjs
@@ -26212,7 +25667,7 @@ ${parts.join("\n")}
     "../../../../node_modules/pixi.js/lib/scene/sprite-tiling/utils/setUvs.mjs"() {
       init_Matrix();
       init_applyMatrix();
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/sprite-tiling/TilingSpritePipe.mjs
@@ -26246,10 +25701,7 @@ ${parts.join("\n")}
           const canBatch = tilingSpriteData.canBatch;
           if (canBatch && canBatch === couldBatch) {
             const { batchableMesh } = tilingSpriteData;
-            return !batchableMesh._batcher.checkAndUpdateTexture(
-              batchableMesh,
-              renderable.texture
-            );
+            return !batchableMesh._batcher.checkAndUpdateTexture(batchableMesh, renderable.texture);
           }
           return couldBatch !== canBatch;
         }
@@ -26283,16 +25735,12 @@ ${parts.join("\n")}
           const localUniforms = shader.resources.localUniforms.uniforms;
           localUniforms.uTransformMatrix = tilingSprite.groupTransform;
           localUniforms.uRound = this._renderer._roundPixels | tilingSprite._roundPixels;
-          color32BitToUniform(
-            tilingSprite.groupColorAlpha,
-            localUniforms.uColor,
-            0
-          );
+          color32BitToUniform(tilingSprite.groupColorAlpha, localUniforms.uColor, 0);
           this._state.blendMode = getAdjustedBlendModeBlend(tilingSprite.groupBlendMode, tilingSprite.texture._source);
           this._renderer.encoder.draw({
             geometry: sharedQuad,
             shader,
-            state: this._state
+            state: this._state,
           });
         }
         updateRenderable(tilingSprite) {
@@ -26300,19 +25748,11 @@ ${parts.join("\n")}
           const { canBatch } = tilingSpriteData;
           if (canBatch) {
             const { batchableMesh } = tilingSpriteData;
-            if (tilingSprite.didViewUpdate)
-              this._updateBatchableMesh(tilingSprite);
+            if (tilingSprite.didViewUpdate) this._updateBatchableMesh(tilingSprite);
             batchableMesh._batcher.updateElement(batchableMesh);
           } else if (tilingSprite.didViewUpdate) {
             const { shader } = tilingSpriteData;
-            shader.updateUniforms(
-              tilingSprite.width,
-              tilingSprite.height,
-              tilingSprite._tileTransform.matrix,
-              tilingSprite.anchor.x,
-              tilingSprite.anchor.y,
-              tilingSprite.texture
-            );
+            shader.updateUniforms(tilingSprite.width, tilingSprite.height, tilingSprite._tileTransform.matrix, tilingSprite.anchor.x, tilingSprite.anchor.y, tilingSprite.texture);
           }
         }
         destroyRenderable(tilingSprite) {
@@ -26330,12 +25770,12 @@ ${parts.join("\n")}
           const geometry = new MeshGeometry({
             indices: sharedQuad.indices,
             positions: sharedQuad.positions.slice(),
-            uvs: sharedQuad.uvs.slice()
+            uvs: sharedQuad.uvs.slice(),
           });
           this._tilingSpriteDataHash[tilingSprite.uid] = {
             canBatch: true,
             renderable: tilingSprite,
-            geometry
+            geometry,
           };
           tilingSprite.on("destroyed", this._destroyRenderableBound);
           return this._tilingSpriteDataHash[tilingSprite.uid];
@@ -26370,14 +25810,10 @@ ${parts.join("\n")}
         }
       };
       TilingSpritePipe.extension = {
-        type: [
-          ExtensionType.WebGLPipes,
-          ExtensionType.WebGPUPipes,
-          ExtensionType.CanvasPipes
-        ],
-        name: "tilingSprite"
+        type: [ExtensionType.WebGLPipes, ExtensionType.WebGPUPipes, ExtensionType.CanvasPipes],
+        name: "tilingSprite",
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/sprite-tiling/init.mjs
@@ -26386,7 +25822,7 @@ ${parts.join("\n")}
       init_Extensions();
       init_TilingSpritePipe();
       extensions.add(TilingSpritePipe);
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/mesh-plane/PlaneGeometry.mjs
@@ -26406,7 +25842,7 @@ ${parts.join("\n")}
               width: options,
               height: args[1],
               verticesX: args[2],
-              verticesY: args[3]
+              verticesY: args[3],
             };
           }
           this.build(options);
@@ -26432,26 +25868,19 @@ ${parts.join("\n")}
           const sizeY = this.height / verticesY;
           for (let i2 = 0; i2 < total; i2++) {
             const x3 = i2 % this.verticesX;
-            const y2 = i2 / this.verticesX | 0;
+            const y2 = (i2 / this.verticesX) | 0;
             verts.push(x3 * sizeX, y2 * sizeY);
             uvs.push(x3 / verticesX, y2 / verticesY);
           }
           const totalSub = verticesX * verticesY;
           for (let i2 = 0; i2 < totalSub; i2++) {
             const xpos = i2 % verticesX;
-            const ypos = i2 / verticesX | 0;
+            const ypos = (i2 / verticesX) | 0;
             const value = ypos * this.verticesX + xpos;
             const value2 = ypos * this.verticesX + xpos + 1;
             const value3 = (ypos + 1) * this.verticesX + xpos;
             const value4 = (ypos + 1) * this.verticesX + xpos + 1;
-            indices.push(
-              value,
-              value2,
-              value3,
-              value2,
-              value4,
-              value3
-            );
+            indices.push(value, value2, value3, value2, value4, value3);
           }
           this.buffers[0].data = new Float32Array(verts);
           this.buffers[1].data = new Float32Array(uvs);
@@ -26465,10 +25894,10 @@ ${parts.join("\n")}
         width: 100,
         height: 100,
         verticesX: 10,
-        verticesY: 10
+        verticesY: 10,
       };
       PlaneGeometry = _PlaneGeometry;
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/sprite-nine-slice/NineSliceGeometry.mjs
@@ -26483,7 +25912,7 @@ ${parts.join("\n")}
             width: options.width,
             height: options.height,
             verticesX: 4,
-            verticesY: 4
+            verticesY: 4,
           });
           this.update(options);
         }
@@ -26509,16 +25938,7 @@ ${parts.join("\n")}
         /** Updates the positions of the vertices. */
         updatePositions() {
           const p2 = this.positions;
-          const {
-            width,
-            height,
-            _leftWidth,
-            _rightWidth,
-            _topHeight,
-            _bottomHeight,
-            _anchorX,
-            _anchorY
-          } = this;
+          const { width, height, _leftWidth, _rightWidth, _topHeight, _bottomHeight, _anchorX, _anchorY } = this;
           const w2 = _leftWidth + _rightWidth;
           const scaleW = width > w2 ? 1 : width / w2;
           const h2 = _topHeight + _bottomHeight;
@@ -26568,10 +25988,10 @@ ${parts.join("\n")}
         /** The original width of the texture */
         originalWidth: 100,
         /** The original height of the texture */
-        originalHeight: 100
+        originalHeight: 100,
       };
       NineSliceGeometry = _NineSliceGeometry;
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/sprite-nine-slice/NineSliceSpritePipe.mjs
@@ -26591,22 +26011,17 @@ ${parts.join("\n")}
         }
         addRenderable(sprite, instructionSet) {
           const gpuSprite = this._getGpuSprite(sprite);
-          if (sprite.didViewUpdate)
-            this._updateBatchableSprite(sprite, gpuSprite);
+          if (sprite.didViewUpdate) this._updateBatchableSprite(sprite, gpuSprite);
           this._renderer.renderPipes.batch.addToBatch(gpuSprite, instructionSet);
         }
         updateRenderable(sprite) {
           const gpuSprite = this._gpuSpriteHash[sprite.uid];
-          if (sprite.didViewUpdate)
-            this._updateBatchableSprite(sprite, gpuSprite);
+          if (sprite.didViewUpdate) this._updateBatchableSprite(sprite, gpuSprite);
           gpuSprite._batcher.updateElement(gpuSprite);
         }
         validateRenderable(sprite) {
           const gpuSprite = this._getGpuSprite(sprite);
-          return !gpuSprite._batcher.checkAndUpdateTexture(
-            gpuSprite,
-            sprite._texture
-          );
+          return !gpuSprite._batcher.checkAndUpdateTexture(gpuSprite, sprite._texture);
         }
         destroyRenderable(sprite) {
           const batchableMesh = this._gpuSpriteHash[sprite.uid];
@@ -26646,14 +26061,10 @@ ${parts.join("\n")}
         }
       };
       NineSliceSpritePipe.extension = {
-        type: [
-          ExtensionType.WebGLPipes,
-          ExtensionType.WebGPUPipes,
-          ExtensionType.CanvasPipes
-        ],
-        name: "nineSliceSprite"
+        type: [ExtensionType.WebGLPipes, ExtensionType.WebGPUPipes, ExtensionType.CanvasPipes],
+        name: "nineSliceSprite",
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/sprite-nine-slice/init.mjs
@@ -26662,7 +26073,7 @@ ${parts.join("\n")}
       init_Extensions();
       init_NineSliceSpritePipe();
       extensions.add(NineSliceSpritePipe);
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/filters/FilterPipe.mjs
@@ -26682,7 +26093,7 @@ ${parts.join("\n")}
             canBundle: false,
             action: "pushFilter",
             container,
-            filterEffect
+            filterEffect,
           });
         }
         pop(_filterEffect, _container, instructionSet) {
@@ -26690,7 +26101,7 @@ ${parts.join("\n")}
           instructionSet.add({
             renderPipeId: "filter",
             action: "popFilter",
-            canBundle: false
+            canBundle: false,
           });
         }
         execute(instruction) {
@@ -26705,14 +26116,10 @@ ${parts.join("\n")}
         }
       };
       FilterPipe.extension = {
-        type: [
-          ExtensionType.WebGLPipes,
-          ExtensionType.WebGPUPipes,
-          ExtensionType.CanvasPipes
-        ],
-        name: "filter"
+        type: [ExtensionType.WebGLPipes, ExtensionType.WebGPUPipes, ExtensionType.CanvasPipes],
+        name: "filter",
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/container/bounds/getRenderableBounds.mjs
@@ -26733,7 +26140,7 @@ ${parts.join("\n")}
   var init_getRenderableBounds = __esm({
     "../../../../node_modules/pixi.js/lib/scene/container/bounds/getRenderableBounds.mjs"() {
       "use strict";
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/filters/FilterSystem.mjs
@@ -26758,10 +26165,10 @@ ${parts.join("\n")}
             buffer: new Float32Array([0, 0, 1, 0, 1, 1, 0, 1]),
             format: "float32x2",
             stride: 2 * 4,
-            offset: 0
-          }
+            offset: 0,
+          },
         },
-        indexBuffer: new Uint32Array([0, 1, 2, 0, 2, 3])
+        indexBuffer: new Uint32Array([0, 1, 2, 0, 2, 3]),
       });
       FilterSystem = class {
         constructor(renderer) {
@@ -26773,7 +26180,7 @@ ${parts.join("\n")}
             uInputClamp: { value: new Float32Array(4), type: "vec4<f32>" },
             uOutputFrame: { value: new Float32Array(4), type: "vec4<f32>" },
             uGlobalFrame: { value: new Float32Array(4), type: "vec4<f32>" },
-            uOutputTexture: { value: new Float32Array(4), type: "vec4<f32>" }
+            uOutputTexture: { value: new Float32Array(4), type: "vec4<f32>" },
           });
           this._globalFilterBindGroup = new BindGroup({});
           this.renderer = renderer;
@@ -26857,7 +26264,11 @@ ${parts.join("\n")}
             const rootResolution = renderer.renderTarget.renderTarget.resolution;
             bounds.fitBounds(0, viewPort.width / rootResolution, 0, viewPort.height / rootResolution);
           }
-          bounds.scale(resolution).ceil().scale(1 / resolution).pad(padding | 0);
+          bounds
+            .scale(resolution)
+            .ceil()
+            .scale(1 / resolution)
+            .pad(padding | 0);
           if (!bounds.isPositive) {
             filterData.skip = true;
             return;
@@ -26868,15 +26279,10 @@ ${parts.join("\n")}
           filterData.container = instruction.container;
           filterData.filterEffect = instruction.filterEffect;
           filterData.previousRenderSurface = renderer.renderTarget.renderSurface;
-          filterData.inputTexture = TexturePool.getOptimalTexture(
-            bounds.width,
-            bounds.height,
-            resolution,
-            antialias
-          );
+          filterData.inputTexture = TexturePool.getOptimalTexture(bounds.width, bounds.height, resolution, antialias);
           renderer.renderTarget.bind(filterData.inputTexture, true);
           renderer.globalUniforms.push({
-            offset: bounds
+            offset: bounds,
           });
         }
         pop() {
@@ -26906,12 +26312,7 @@ ${parts.join("\n")}
             TexturePool.returnTexture(inputTexture);
           } else {
             let flip = filterData.inputTexture;
-            let flop = TexturePool.getOptimalTexture(
-              bounds.width,
-              bounds.height,
-              flip.source._resolution,
-              false
-            );
+            let flop = TexturePool.getOptimalTexture(bounds.width, bounds.height, flip.source._resolution, false);
             let i2 = 0;
             for (i2 = 0; i2 < filters.length - 1; ++i2) {
               const filter = filters[i2];
@@ -26930,12 +26331,7 @@ ${parts.join("\n")}
         }
         getBackTexture(lastRenderSurface, bounds, previousBounds) {
           const backgroundResolution = lastRenderSurface.colorTexture.source._resolution;
-          const backTexture = TexturePool.getOptimalTexture(
-            bounds.width,
-            bounds.height,
-            backgroundResolution,
-            false
-          );
+          const backTexture = TexturePool.getOptimalTexture(bounds.width, bounds.height, backgroundResolution, false);
           let x3 = bounds.minX;
           let y2 = bounds.minY;
           if (previousBounds) {
@@ -26946,13 +26342,7 @@ ${parts.join("\n")}
           y2 = Math.floor(y2 * backgroundResolution);
           const width = Math.ceil(bounds.width * backgroundResolution);
           const height = Math.ceil(bounds.height * backgroundResolution);
-          this.renderer.renderTarget.copyToTexture(
-            lastRenderSurface,
-            backTexture,
-            { x: x3, y: y2 },
-            { width, height },
-            { x: 0, y: 0 }
-          );
+          this.renderer.renderTarget.copyToTexture(lastRenderSurface, backTexture, { x: x3, y: y2 }, { width, height }, { x: 0, y: 0 });
           return backTexture;
         }
         applyFilter(filter, input, output, clear) {
@@ -27038,7 +26428,7 @@ ${parts.join("\n")}
             geometry: quadGeometry,
             shader: filter,
             state: filter._state,
-            topology: "triangle-list"
+            topology: "triangle-list",
           });
           if (renderer.type === RendererType.WEBGL) {
             renderer.renderTarget.finishRenderPass();
@@ -27052,7 +26442,7 @@ ${parts.join("\n")}
             container: null,
             filterEffect: null,
             blendRequired: false,
-            previousRenderSurface: null
+            previousRenderSurface: null,
           };
         }
         /**
@@ -27065,14 +26455,7 @@ ${parts.join("\n")}
          */
         calculateSpriteMatrix(outputMatrix, sprite) {
           const data = this._activeFilterData;
-          const mappedMatrix = outputMatrix.set(
-            data.inputTexture._source.width,
-            0,
-            0,
-            data.inputTexture._source.height,
-            data.bounds.minX,
-            data.bounds.minY
-          );
+          const mappedMatrix = outputMatrix.set(data.inputTexture._source.width, 0, 0, data.inputTexture._source.height, data.bounds.minX, data.bounds.minY);
           const worldTransform = sprite.worldTransform.copyTo(Matrix.shared);
           const renderGroup = sprite.renderGroup || sprite.parentRenderGroup;
           if (renderGroup && renderGroup.cacheToLocalTransform) {
@@ -27080,22 +26463,16 @@ ${parts.join("\n")}
           }
           worldTransform.invert();
           mappedMatrix.prepend(worldTransform);
-          mappedMatrix.scale(
-            1 / sprite.texture.frame.width,
-            1 / sprite.texture.frame.height
-          );
+          mappedMatrix.scale(1 / sprite.texture.frame.width, 1 / sprite.texture.frame.height);
           mappedMatrix.translate(sprite.anchor.x, sprite.anchor.y);
           return mappedMatrix;
         }
       };
       FilterSystem.extension = {
-        type: [
-          ExtensionType.WebGLSystem,
-          ExtensionType.WebGPUSystem
-        ],
-        name: "filter"
+        type: [ExtensionType.WebGLSystem, ExtensionType.WebGPUSystem],
+        name: "filter",
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/filters/init.mjs
@@ -27106,7 +26483,7 @@ ${parts.join("\n")}
       init_FilterSystem();
       extensions.add(FilterSystem);
       extensions.add(FilterPipe);
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/environment-browser/browserAll.mjs
@@ -27127,7 +26504,7 @@ ${parts.join("\n")}
       init_init12();
       init_init13();
       init_init14();
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/environment-webworker/webworkerAll.mjs
@@ -27146,7 +26523,7 @@ ${parts.join("\n")}
       init_init12();
       init_init13();
       init_init14();
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/filters/Filter.mjs
@@ -27205,7 +26582,9 @@ ${parts.join("\n")}
          * @returns A shiny new PixiJS filter!
          */
         static from(options) {
-          const _a2 = options, { gpu, gl } = _a2, rest = __objRest(_a2, ["gpu", "gl"]);
+          const _a2 = options,
+            { gpu, gl } = _a2,
+            rest = __objRest(_a2, ["gpu", "gl"]);
           let gpuProgram3;
           let glProgram3;
           if (gpu) {
@@ -27214,10 +26593,15 @@ ${parts.join("\n")}
           if (gl) {
             glProgram3 = GlProgram.from(gl);
           }
-          return new _Filter2(__spreadValues({
-            gpuProgram: gpuProgram3,
-            glProgram: glProgram3
-          }, rest));
+          return new _Filter2(
+            __spreadValues(
+              {
+                gpuProgram: gpuProgram3,
+                glProgram: glProgram3,
+              },
+              rest
+            )
+          );
         }
       };
       _Filter.defaultOptions = {
@@ -27226,17 +26610,16 @@ ${parts.join("\n")}
         padding: 0,
         antialias: "off",
         blendRequired: false,
-        clipToViewport: true
+        clipToViewport: true,
       };
       Filter = _Filter;
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/environment/autoDetectEnvironment.mjs
   function loadEnvironmentExtensions(skip) {
     return __async(this, null, function* () {
-      if (skip)
-        return;
+      if (skip) return;
       for (let i2 = 0; i2 < environments.length; i2++) {
         const env = environments[i2];
         if (env.value.test()) {
@@ -27252,7 +26635,7 @@ ${parts.join("\n")}
       init_Extensions();
       environments = [];
       extensions.handleByNamedList(ExtensionType.Environment, environments);
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/utils/browser/unsafeEvalSupported.mjs
@@ -27272,7 +26655,7 @@ ${parts.join("\n")}
   var init_unsafeEvalSupported = __esm({
     "../../../../node_modules/pixi.js/lib/utils/browser/unsafeEvalSupported.mjs"() {
       "use strict";
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/gl/const.mjs
@@ -27281,17 +26664,17 @@ ${parts.join("\n")}
     "../../../../node_modules/pixi.js/lib/rendering/renderers/gl/const.mjs"() {
       "use strict";
       CLEAR = /* @__PURE__ */ ((CLEAR2) => {
-        CLEAR2[CLEAR2["NONE"] = 0] = "NONE";
-        CLEAR2[CLEAR2["COLOR"] = 16384] = "COLOR";
-        CLEAR2[CLEAR2["STENCIL"] = 1024] = "STENCIL";
-        CLEAR2[CLEAR2["DEPTH"] = 256] = "DEPTH";
-        CLEAR2[CLEAR2["COLOR_DEPTH"] = 16640] = "COLOR_DEPTH";
-        CLEAR2[CLEAR2["COLOR_STENCIL"] = 17408] = "COLOR_STENCIL";
-        CLEAR2[CLEAR2["DEPTH_STENCIL"] = 1280] = "DEPTH_STENCIL";
-        CLEAR2[CLEAR2["ALL"] = 17664] = "ALL";
+        CLEAR2[(CLEAR2["NONE"] = 0)] = "NONE";
+        CLEAR2[(CLEAR2["COLOR"] = 16384)] = "COLOR";
+        CLEAR2[(CLEAR2["STENCIL"] = 1024)] = "STENCIL";
+        CLEAR2[(CLEAR2["DEPTH"] = 256)] = "DEPTH";
+        CLEAR2[(CLEAR2["COLOR_DEPTH"] = 16640)] = "COLOR_DEPTH";
+        CLEAR2[(CLEAR2["COLOR_STENCIL"] = 17408)] = "COLOR_STENCIL";
+        CLEAR2[(CLEAR2["DEPTH_STENCIL"] = 1280)] = "DEPTH_STENCIL";
+        CLEAR2[(CLEAR2["ALL"] = 17664)] = "ALL";
         return CLEAR2;
       })(CLEAR || {});
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/shared/system/SystemRunner.mjs
@@ -27389,7 +26772,7 @@ ${parts.join("\n")}
           return this._name;
         }
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/shared/system/AbstractRenderer.mjs
@@ -27404,19 +26787,7 @@ ${parts.join("\n")}
       init_const7();
       init_SystemRunner();
       init_eventemitter3();
-      defaultRunners = [
-        "init",
-        "destroy",
-        "contextChange",
-        "resolutionChange",
-        "resetState",
-        "renderEnd",
-        "renderStart",
-        "render",
-        "update",
-        "postrender",
-        "prerender"
-      ];
+      defaultRunners = ["init", "destroy", "contextChange", "resolutionChange", "resetState", "renderEnd", "renderStart", "render", "update", "postrender", "prerender"];
       _AbstractRenderer = class _AbstractRenderer2 extends eventemitter3_default {
         /**
          * Set up a system with a collection of SystemClasses and runners.
@@ -27433,7 +26804,7 @@ ${parts.join("\n")}
           this.type = config.type;
           this.name = config.name;
           this.config = config;
-          const combinedRunners = [...defaultRunners, ...(_a2 = this.config.runners) != null ? _a2 : []];
+          const combinedRunners = [...defaultRunners, ...((_a2 = this.config.runners) != null ? _a2 : [])];
           this._addRunners(...combinedRunners);
           this._unsafeEvalCheck();
         }
@@ -27473,8 +26844,8 @@ ${parts.join("\n")}
           options.target || (options.target = this.view.renderTarget);
           if (options.target === this.view.renderTarget) {
             this._lastObjectRendered = options.container;
-            (_a2 = options.clearColor) != null ? _a2 : options.clearColor = this.background.colorRgba;
-            (_b = options.clear) != null ? _b : options.clear = this.background.clearBeforeRender;
+            (_a2 = options.clearColor) != null ? _a2 : (options.clearColor = this.background.colorRgba);
+            (_b = options.clear) != null ? _b : (options.clear = this.background.clearBeforeRender);
           }
           if (options.clearColor) {
             const isRGBAArray = Array.isArray(options.clearColor) && options.clearColor.length === 4;
@@ -27510,7 +26881,7 @@ ${parts.join("\n")}
           const renderer = this;
           options.target || (options.target = renderer.renderTarget.renderTarget);
           options.clearColor || (options.clearColor = this.background.colorRgba);
-          (_a2 = options.clear) != null ? _a2 : options.clear = CLEAR.ALL;
+          (_a2 = options.clear) != null ? _a2 : (options.clear = CLEAR.ALL);
           const { clear, clearColor, target } = options;
           Color.shared.setValue(clearColor != null ? clearColor : this.background.colorRgba);
           renderer.renderTarget.clear(target, clear, Color.shared.toArray());
@@ -27617,10 +26988,7 @@ ${parts.join("\n")}
             const PipeClass = pipe.value;
             const name = pipe.name;
             const Adaptor = adaptors[name];
-            this.renderPipes[name] = new PipeClass(
-              this,
-              Adaptor ? new Adaptor() : null
-            );
+            this.renderPipes[name] = new PipeClass(this, Adaptor ? new Adaptor() : null);
           });
         }
         destroy(options = false) {
@@ -27716,10 +27084,10 @@ ${parts.join("\n")}
          * Should round pixels be forced when rendering?
          * @default false
          */
-        roundPixels: false
+        roundPixels: false,
       };
       AbstractRenderer = _AbstractRenderer;
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/graphics/gpu/GpuGraphicsAdaptor.mjs
@@ -27742,23 +27110,18 @@ ${parts.join("\n")}
           const localUniforms = new UniformGroup({
             uTransformMatrix: { value: new Matrix(), type: "mat3x3<f32>" },
             uColor: { value: new Float32Array([1, 1, 1, 1]), type: "vec4<f32>" },
-            uRound: { value: 0, type: "f32" }
+            uRound: { value: 0, type: "f32" },
           });
           const gpuProgram3 = compileHighShaderGpuProgram({
             name: "graphics",
-            bits: [
-              colorBit,
-              generateTextureBatchBit(getMaxTexturesPerBatch()),
-              localUniformBitGroup2,
-              roundPixelsBit
-            ]
+            bits: [colorBit, generateTextureBatchBit(getMaxTexturesPerBatch()), localUniformBitGroup2, roundPixelsBit],
           });
           this.shader = new Shader({
             gpuProgram: gpuProgram3,
             resources: {
               // added on the fly!
-              localUniforms
-            }
+              localUniforms,
+            },
           });
         }
         execute(graphicsPipe, renderable) {
@@ -27766,10 +27129,7 @@ ${parts.join("\n")}
           const shader = context2.customShader || this.shader;
           const renderer = graphicsPipe.renderer;
           const contextSystem = renderer.graphicsContext;
-          const {
-            batcher,
-            instructions
-          } = contextSystem.getContextRenderData(context2);
+          const { batcher, instructions } = contextSystem.getContextRenderData(context2);
           const encoder = renderer.encoder;
           encoder.setGeometry(batcher.geometry, shader.gpuProgram);
           const globalUniformsBindGroup = renderer.globalUniforms.bindGroup;
@@ -27782,22 +27142,13 @@ ${parts.join("\n")}
             const batch = batches[i2];
             if (batch.topology !== topology) {
               topology = batch.topology;
-              encoder.setPipelineFromGeometryProgramAndState(
-                batcher.geometry,
-                shader.gpuProgram,
-                graphicsPipe.state,
-                batch.topology
-              );
+              encoder.setPipelineFromGeometryProgramAndState(batcher.geometry, shader.gpuProgram, graphicsPipe.state, batch.topology);
             }
             shader.groups[1] = batch.bindGroup;
             if (!batch.gpuBindGroup) {
               const textureBatch = batch.textures;
               batch.bindGroup = getTextureBatchBindGroup(textureBatch.textures, textureBatch.count);
-              batch.gpuBindGroup = renderer.bindGroup.getBindGroup(
-                batch.bindGroup,
-                shader.gpuProgram,
-                1
-              );
+              batch.gpuBindGroup = renderer.bindGroup.getBindGroup(batch.bindGroup, shader.gpuProgram, 1);
             }
             encoder.setBindGroup(1, batch.bindGroup, shader.gpuProgram);
             encoder.renderPassEncoder.drawIndexed(batch.size, 1, batch.start);
@@ -27809,12 +27160,10 @@ ${parts.join("\n")}
         }
       };
       GpuGraphicsAdaptor.extension = {
-        type: [
-          ExtensionType.WebGPUPipesAdaptor
-        ],
-        name: "graphics"
+        type: [ExtensionType.WebGPUPipesAdaptor],
+        name: "graphics",
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/high-shader/shader-bits/textureBit.mjs
@@ -27825,7 +27174,7 @@ ${parts.join("\n")}
       textureBit = {
         name: "texture-bit",
         vertex: {
-          header: (
+          header:
             /* wgsl */
             `
 
@@ -27834,67 +27183,59 @@ ${parts.join("\n")}
         }
 
         @group(2) @binding(2) var<uniform> textureUniforms : TextureUniforms;
-        `
-          ),
-          main: (
+        `,
+          main:
             /* wgsl */
             `
             uv = (textureUniforms.uTextureMatrix * vec3(uv, 1.0)).xy;
-        `
-          )
+        `,
         },
         fragment: {
-          header: (
+          header:
             /* wgsl */
             `
             @group(2) @binding(0) var uTexture: texture_2d<f32>;
             @group(2) @binding(1) var uSampler: sampler;
 
          
-        `
-          ),
-          main: (
+        `,
+          main:
             /* wgsl */
             `
             outColor = textureSample(uTexture, uSampler, vUV);
-        `
-          )
-        }
+        `,
+        },
       };
       textureBitGl = {
         name: "texture-bit",
         vertex: {
-          header: (
+          header:
             /* glsl */
             `
             uniform mat3 uTextureMatrix;
-        `
-          ),
-          main: (
+        `,
+          main:
             /* glsl */
             `
             uv = (uTextureMatrix * vec3(uv, 1.0)).xy;
-        `
-          )
+        `,
         },
         fragment: {
-          header: (
+          header:
             /* glsl */
             `
         uniform sampler2D uTexture;
 
          
-        `
-          ),
-          main: (
+        `,
+          main:
             /* glsl */
             `
             outColor = texture(uTexture, vUV);
-        `
-          )
-        }
+        `,
+        },
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/mesh/gpu/GpuMeshAdapter.mjs
@@ -27914,11 +27255,7 @@ ${parts.join("\n")}
         init() {
           const gpuProgram3 = compileHighShaderGpuProgram({
             name: "mesh",
-            bits: [
-              localUniformBit,
-              textureBit,
-              roundPixelsBit
-            ]
+            bits: [localUniformBit, textureBit, roundPixelsBit],
           });
           this._shader = new Shader({
             gpuProgram: gpuProgram3,
@@ -27926,9 +27263,9 @@ ${parts.join("\n")}
               uTexture: Texture.EMPTY._source,
               uSampler: Texture.EMPTY._source.style,
               textureUniforms: {
-                uTextureMatrix: { type: "mat3x3<f32>", value: new Matrix() }
-              }
-            }
+                uTextureMatrix: { type: "mat3x3<f32>", value: new Matrix() },
+              },
+            },
           });
         }
         execute(meshPipe, mesh) {
@@ -27952,7 +27289,7 @@ ${parts.join("\n")}
           renderer.encoder.draw({
             geometry: mesh._geometry,
             shader,
-            state: mesh.state
+            state: mesh.state,
           });
         }
         destroy() {
@@ -27961,12 +27298,10 @@ ${parts.join("\n")}
         }
       };
       GpuMeshAdapter.extension = {
-        type: [
-          ExtensionType.WebGPUPipesAdaptor
-        ],
-        name: "mesh"
+        type: [ExtensionType.WebGPUPipesAdaptor],
+        name: "mesh",
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/batcher/gpu/GpuBatchAdaptor.mjs
@@ -27986,11 +27321,7 @@ ${parts.join("\n")}
           this._geometry = geometry;
           encoder.setGeometry(geometry, program);
           tempState.blendMode = "normal";
-          renderer.pipeline.getPipeline(
-            geometry,
-            program,
-            tempState
-          );
+          renderer.pipeline.getPipeline(geometry, program, tempState);
           const globalUniformsBindGroup = renderer.globalUniforms.bindGroup;
           encoder.resetBindGroup(1);
           encoder.setBindGroup(0, globalUniformsBindGroup, program);
@@ -28004,17 +27335,8 @@ ${parts.join("\n")}
             batch.bindGroup = getTextureBatchBindGroup(textureBatch.textures, textureBatch.count);
           }
           tempState.blendMode = batch.blendMode;
-          const gpuBindGroup = renderer.bindGroup.getBindGroup(
-            batch.bindGroup,
-            program,
-            1
-          );
-          const pipeline = renderer.pipeline.getPipeline(
-            this._geometry,
-            program,
-            tempState,
-            batch.topology
-          );
+          const gpuBindGroup = renderer.bindGroup.getBindGroup(batch.bindGroup, program, 1);
+          const pipeline = renderer.pipeline.getPipeline(this._geometry, program, tempState, batch.topology);
           batch.bindGroup._touch(renderer.textureGC.count);
           encoder.setPipeline(pipeline);
           encoder.renderPassEncoder.setBindGroup(1, gpuBindGroup);
@@ -28022,12 +27344,10 @@ ${parts.join("\n")}
         }
       };
       GpuBatchAdaptor.extension = {
-        type: [
-          ExtensionType.WebGPUPipesAdaptor
-        ],
-        name: "batch"
+        type: [ExtensionType.WebGPUPipesAdaptor],
+        name: "batch",
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/container/CustomRenderPipe.mjs
@@ -28039,10 +27359,8 @@ ${parts.join("\n")}
         constructor(renderer) {
           this._renderer = renderer;
         }
-        updateRenderable() {
-        }
-        destroyRenderable() {
-        }
+        updateRenderable() {}
+        destroyRenderable() {}
         validateRenderable() {
           return false;
         }
@@ -28051,8 +27369,7 @@ ${parts.join("\n")}
           instructionSet.add(container);
         }
         execute(container) {
-          if (!container.isRenderable)
-            return;
+          if (!container.isRenderable) return;
           container.render(this._renderer);
         }
         destroy() {
@@ -28060,14 +27377,10 @@ ${parts.join("\n")}
         }
       };
       CustomRenderPipe.extension = {
-        type: [
-          ExtensionType.WebGLPipes,
-          ExtensionType.WebGPUPipes,
-          ExtensionType.CanvasPipes
-        ],
-        name: "customRender"
+        type: [ExtensionType.WebGLPipes, ExtensionType.WebGPUPipes, ExtensionType.CanvasPipes],
+        name: "customRender",
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/container/utils/executeInstructions.mjs
@@ -28082,7 +27395,7 @@ ${parts.join("\n")}
   var init_executeInstructions = __esm({
     "../../../../node_modules/pixi.js/lib/scene/container/utils/executeInstructions.mjs"() {
       "use strict";
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/container/RenderGroupPipe.mjs
@@ -28107,8 +27420,7 @@ ${parts.join("\n")}
           }
         }
         execute(renderGroup) {
-          if (!renderGroup.isRenderable)
-            return;
+          if (!renderGroup.isRenderable) return;
           if (renderGroup.isCachedAsTexture) {
             this._executeCacheAsTexture(renderGroup);
           } else {
@@ -28128,7 +27440,7 @@ ${parts.join("\n")}
         }
         _addRenderableCacheAsTexture(renderGroup, instructionSet) {
           var _a2;
-          const batchableRenderGroup = (_a2 = renderGroup._batchableRenderGroup) != null ? _a2 : renderGroup._batchableRenderGroup = BigPool.get(BatchableSprite);
+          const batchableRenderGroup = (_a2 = renderGroup._batchableRenderGroup) != null ? _a2 : (renderGroup._batchableRenderGroup = BigPool.get(BatchableSprite));
           batchableRenderGroup.renderable = renderGroup.root;
           batchableRenderGroup.transform = renderGroup.root.relativeGroupTransform;
           batchableRenderGroup.texture = renderGroup.texture;
@@ -28139,14 +27451,11 @@ ${parts.join("\n")}
         _executeCacheAsTexture(renderGroup) {
           if (renderGroup.textureNeedsUpdate) {
             renderGroup.textureNeedsUpdate = false;
-            const worldTransformMatrix = tempMatrix5.identity().translate(
-              -renderGroup._textureBounds.x,
-              -renderGroup._textureBounds.y
-            );
+            const worldTransformMatrix = tempMatrix5.identity().translate(-renderGroup._textureBounds.x, -renderGroup._textureBounds.y);
             this._renderer.renderTarget.push(renderGroup.texture, true, null, renderGroup.texture.frame);
             this._renderer.globalUniforms.push({
               worldTransformMatrix,
-              worldColor: 4294967295
+              worldColor: 4294967295,
             });
             executeInstructions(renderGroup, this._renderer.renderPipes);
             this._renderer.renderTarget.finishRenderPass();
@@ -28159,21 +27468,17 @@ ${parts.join("\n")}
         _executeDirect(renderGroup) {
           this._renderer.globalUniforms.push({
             worldTransformMatrix: renderGroup.inverseParentTextureTransform,
-            worldColor: renderGroup.worldColorAlpha
+            worldColor: renderGroup.worldColorAlpha,
           });
           executeInstructions(renderGroup, this._renderer.renderPipes);
           this._renderer.globalUniforms.pop();
         }
       };
       RenderGroupPipe.extension = {
-        type: [
-          ExtensionType.WebGLPipes,
-          ExtensionType.WebGPUPipes,
-          ExtensionType.CanvasPipes
-        ],
-        name: "renderGroup"
+        type: [ExtensionType.WebGLPipes, ExtensionType.WebGPUPipes, ExtensionType.CanvasPipes],
+        name: "renderGroup",
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/container/utils/clearList.mjs
@@ -28190,7 +27495,7 @@ ${parts.join("\n")}
   var init_clearList = __esm({
     "../../../../node_modules/pixi.js/lib/scene/container/utils/clearList.mjs"() {
       "use strict";
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/container/utils/updateRenderGroupTransforms.mjs
@@ -28223,14 +27528,8 @@ ${parts.join("\n")}
     let worldAlpha;
     if (renderGroup.renderGroupParent) {
       const renderGroupParent = renderGroup.renderGroupParent;
-      renderGroup.worldTransform.appendFrom(
-        root.relativeGroupTransform,
-        renderGroupParent.worldTransform
-      );
-      renderGroup.worldColor = multiplyColors(
-        root.groupColor,
-        renderGroupParent.worldColor
-      );
+      renderGroup.worldTransform.appendFrom(root.relativeGroupTransform, renderGroupParent.worldTransform);
+      renderGroup.worldColor = multiplyColors(root.groupColor, renderGroupParent.worldColor);
       worldAlpha = root.groupAlpha * renderGroupParent.worldAlpha;
     } else {
       renderGroup.worldTransform.copyFrom(root.localTransform);
@@ -28239,11 +27538,10 @@ ${parts.join("\n")}
     }
     worldAlpha = worldAlpha < 0 ? 0 : worldAlpha > 1 ? 1 : worldAlpha;
     renderGroup.worldAlpha = worldAlpha;
-    renderGroup.worldColorAlpha = renderGroup.worldColor + ((worldAlpha * 255 | 0) << 24);
+    renderGroup.worldColorAlpha = renderGroup.worldColor + (((worldAlpha * 255) | 0) << 24);
   }
   function updateTransformAndChildren(container, updateTick, updateFlags) {
-    if (updateTick === container.updateTick)
-      return;
+    if (updateTick === container.updateTick) return;
     container.updateTick = updateTick;
     container.didChange = false;
     const localTransform = container.localTransform;
@@ -28251,10 +27549,7 @@ ${parts.join("\n")}
     const parent = container.parent;
     if (parent && !parent.renderGroup) {
       updateFlags |= container._updateFlags;
-      container.relativeGroupTransform.appendFrom(
-        localTransform,
-        parent.relativeGroupTransform
-      );
+      container.relativeGroupTransform.appendFrom(localTransform, parent.relativeGroupTransform);
       if (updateFlags & UPDATE_BLEND_COLOR_VISIBLE) {
         updateColorBlendVisibility(container, parent, updateFlags);
       }
@@ -28280,14 +27575,11 @@ ${parts.join("\n")}
   }
   function updateColorBlendVisibility(container, parent, updateFlags) {
     if (updateFlags & UPDATE_COLOR) {
-      container.groupColor = multiplyColors(
-        container.localColor,
-        parent.groupColor
-      );
+      container.groupColor = multiplyColors(container.localColor, parent.groupColor);
       let groupAlpha = container.localAlpha * parent.groupAlpha;
       groupAlpha = groupAlpha < 0 ? 0 : groupAlpha > 1 ? 1 : groupAlpha;
       container.groupAlpha = groupAlpha;
-      container.groupColorAlpha = container.groupColor + ((groupAlpha * 255 | 0) << 24);
+      container.groupColorAlpha = container.groupColor + (((groupAlpha * 255) | 0) << 24);
     }
     if (updateFlags & UPDATE_BLEND) {
       container.groupBlendMode = container.localBlendMode === "inherit" ? parent.groupBlendMode : container.localBlendMode;
@@ -28305,7 +27597,7 @@ ${parts.join("\n")}
       init_multiplyColors();
       tempContainer = new Container();
       UPDATE_BLEND_COLOR_VISIBLE = UPDATE_VISIBLE | UPDATE_COLOR | UPDATE_BLEND;
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/container/utils/validateRenderables.mjs
@@ -28327,7 +27619,7 @@ ${parts.join("\n")}
   var init_validateRenderables = __esm({
     "../../../../node_modules/pixi.js/lib/scene/container/utils/validateRenderables.mjs"() {
       "use strict";
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/container/RenderGroupSystem.mjs
@@ -28363,7 +27655,7 @@ ${parts.join("\n")}
           this._updateRenderGroups(container.renderGroup);
           renderer.globalUniforms.start({
             worldTransformMatrix: transform2 ? container.renderGroup.localTransform : container.renderGroup.worldTransform,
-            worldColor: container.renderGroup.worldColorAlpha
+            worldColor: container.renderGroup.worldColorAlpha,
           });
           executeInstructions(container.renderGroup, renderPipes3);
           if (renderPipes3.uniformBatch) {
@@ -28381,8 +27673,7 @@ ${parts.join("\n")}
         _updateCachedRenderGroups(renderGroup, closestCacheAsTexture) {
           var _a2;
           if (renderGroup.isCachedAsTexture) {
-            if (!renderGroup.updateCacheTexture)
-              return;
+            if (!renderGroup.updateCacheTexture) return;
             closestCacheAsTexture = renderGroup;
           }
           renderGroup._parentCacheAsTextureRenderGroup = closestCacheAsTexture;
@@ -28401,12 +27692,7 @@ ${parts.join("\n")}
               const renderer = this._renderer;
               const resolution = renderGroup.textureOptions.resolution || renderer.view.resolution;
               const antialias = (_a2 = renderGroup.textureOptions.antialias) != null ? _a2 : renderer.view.antialias;
-              renderGroup.texture = TexturePool.getOptimalTexture(
-                bounds.width,
-                bounds.height,
-                resolution,
-                antialias
-              );
+              renderGroup.texture = TexturePool.getOptimalTexture(bounds.width, bounds.height, resolution, antialias);
               renderGroup._textureBounds || (renderGroup._textureBounds = new Bounds());
               renderGroup._textureBounds.copyFrom(bounds);
               if (lastTexture !== renderGroup.texture) {
@@ -28439,8 +27725,7 @@ ${parts.join("\n")}
           }
           renderGroup.childrenRenderablesToUpdate.index = 0;
           renderer.renderPipes.batch.upload(renderGroup.instructionSet);
-          if (renderGroup.isCachedAsTexture && !renderGroup.textureNeedsUpdate)
-            return;
+          if (renderGroup.isCachedAsTexture && !renderGroup.textureNeedsUpdate) return;
           for (let i2 = 0; i2 < renderGroup.renderGroupChildren.length; i2++) {
             this._updateRenderGroups(renderGroup.renderGroupChildren[i2]);
           }
@@ -28473,14 +27758,10 @@ ${parts.join("\n")}
         }
       };
       RenderGroupSystem.extension = {
-        type: [
-          ExtensionType.WebGLSystem,
-          ExtensionType.WebGPUSystem,
-          ExtensionType.CanvasSystem
-        ],
-        name: "renderGroup"
+        type: [ExtensionType.WebGLSystem, ExtensionType.WebGPUSystem, ExtensionType.CanvasSystem],
+        name: "renderGroup",
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/sprite/SpritePipe.mjs
@@ -28499,22 +27780,17 @@ ${parts.join("\n")}
         }
         addRenderable(sprite, instructionSet) {
           const gpuSprite = this._getGpuSprite(sprite);
-          if (sprite.didViewUpdate)
-            this._updateBatchableSprite(sprite, gpuSprite);
+          if (sprite.didViewUpdate) this._updateBatchableSprite(sprite, gpuSprite);
           this._renderer.renderPipes.batch.addToBatch(gpuSprite, instructionSet);
         }
         updateRenderable(sprite) {
           const gpuSprite = this._gpuSpriteHash[sprite.uid];
-          if (sprite.didViewUpdate)
-            this._updateBatchableSprite(sprite, gpuSprite);
+          if (sprite.didViewUpdate) this._updateBatchableSprite(sprite, gpuSprite);
           gpuSprite._batcher.updateElement(gpuSprite);
         }
         validateRenderable(sprite) {
           const gpuSprite = this._getGpuSprite(sprite);
-          return !gpuSprite._batcher.checkAndUpdateTexture(
-            gpuSprite,
-            sprite._texture
-          );
+          return !gpuSprite._batcher.checkAndUpdateTexture(gpuSprite, sprite._texture);
         }
         destroyRenderable(sprite) {
           const batchableSprite = this._gpuSpriteHash[sprite.uid];
@@ -28549,14 +27825,10 @@ ${parts.join("\n")}
         }
       };
       SpritePipe.extension = {
-        type: [
-          ExtensionType.WebGLPipes,
-          ExtensionType.WebGPUPipes,
-          ExtensionType.CanvasPipes
-        ],
-        name: "sprite"
+        type: [ExtensionType.WebGLPipes, ExtensionType.WebGPUPipes, ExtensionType.CanvasPipes],
+        name: "sprite",
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/utils/const.mjs
@@ -28565,7 +27837,7 @@ ${parts.join("\n")}
     "../../../../node_modules/pixi.js/lib/utils/const.mjs"() {
       init_eventemitter3();
       VERSION = "8.8.1";
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/utils/global/globalHooks.mjs
@@ -28579,8 +27851,7 @@ ${parts.join("\n")}
           var _a2;
           (_a2 = globalThis.__PIXI_APP_INIT__) == null ? void 0 : _a2.call(globalThis, this, VERSION);
         }
-        static destroy() {
-        }
+        static destroy() {}
       };
       ApplicationInitHook.extension = ExtensionType.Application;
       RendererInitHook = class {
@@ -28596,14 +27867,11 @@ ${parts.join("\n")}
         }
       };
       RendererInitHook.extension = {
-        type: [
-          ExtensionType.WebGLSystem,
-          ExtensionType.WebGPUSystem
-        ],
+        type: [ExtensionType.WebGLSystem, ExtensionType.WebGPUSystem],
         name: "initHook",
-        priority: -10
+        priority: -10,
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/batcher/shared/BatcherPipe.mjs
@@ -28694,42 +27962,41 @@ ${parts.join("\n")}
         }
       };
       _BatcherPipe.extension = {
-        type: [
-          ExtensionType.WebGLPipes,
-          ExtensionType.WebGPUPipes,
-          ExtensionType.CanvasPipes
-        ],
-        name: "batch"
+        type: [ExtensionType.WebGLPipes, ExtensionType.WebGPUPipes, ExtensionType.CanvasPipes],
+        name: "batch",
       };
       _BatcherPipe._availableBatchers = /* @__PURE__ */ Object.create(null);
       BatcherPipe = _BatcherPipe;
       extensions.handleByMap(ExtensionType.Batcher, BatcherPipe._availableBatchers);
       extensions.add(DefaultBatcher);
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/filters/mask/mask.frag.mjs
   var fragment2;
   var init_mask_frag = __esm({
     "../../../../node_modules/pixi.js/lib/filters/mask/mask.frag.mjs"() {
-      fragment2 = "in vec2 vMaskCoord;\nin vec2 vTextureCoord;\n\nuniform sampler2D uTexture;\nuniform sampler2D uMaskTexture;\n\nuniform float uAlpha;\nuniform vec4 uMaskClamp;\nuniform float uInverse;\n\nout vec4 finalColor;\n\nvoid main(void)\n{\n    float clip = step(3.5,\n        step(uMaskClamp.x, vMaskCoord.x) +\n        step(uMaskClamp.y, vMaskCoord.y) +\n        step(vMaskCoord.x, uMaskClamp.z) +\n        step(vMaskCoord.y, uMaskClamp.w));\n\n    // TODO look into why this is needed\n    float npmAlpha = uAlpha;\n    vec4 original = texture(uTexture, vTextureCoord);\n    vec4 masky = texture(uMaskTexture, vMaskCoord);\n    float alphaMul = 1.0 - npmAlpha * (1.0 - masky.a);\n\n    float a = alphaMul * masky.r * npmAlpha * clip;\n\n    if (uInverse == 1.0) {\n        a = 1.0 - a;\n    }\n\n    finalColor = original * a;\n}\n";
-    }
+      fragment2 =
+        "in vec2 vMaskCoord;\nin vec2 vTextureCoord;\n\nuniform sampler2D uTexture;\nuniform sampler2D uMaskTexture;\n\nuniform float uAlpha;\nuniform vec4 uMaskClamp;\nuniform float uInverse;\n\nout vec4 finalColor;\n\nvoid main(void)\n{\n    float clip = step(3.5,\n        step(uMaskClamp.x, vMaskCoord.x) +\n        step(uMaskClamp.y, vMaskCoord.y) +\n        step(vMaskCoord.x, uMaskClamp.z) +\n        step(vMaskCoord.y, uMaskClamp.w));\n\n    // TODO look into why this is needed\n    float npmAlpha = uAlpha;\n    vec4 original = texture(uTexture, vTextureCoord);\n    vec4 masky = texture(uMaskTexture, vMaskCoord);\n    float alphaMul = 1.0 - npmAlpha * (1.0 - masky.a);\n\n    float a = alphaMul * masky.r * npmAlpha * clip;\n\n    if (uInverse == 1.0) {\n        a = 1.0 - a;\n    }\n\n    finalColor = original * a;\n}\n";
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/filters/mask/mask.vert.mjs
   var vertex2;
   var init_mask_vert = __esm({
     "../../../../node_modules/pixi.js/lib/filters/mask/mask.vert.mjs"() {
-      vertex2 = "in vec2 aPosition;\n\nout vec2 vTextureCoord;\nout vec2 vMaskCoord;\n\n\nuniform vec4 uInputSize;\nuniform vec4 uOutputFrame;\nuniform vec4 uOutputTexture;\nuniform mat3 uFilterMatrix;\n\nvec4 filterVertexPosition(  vec2 aPosition )\n{\n    vec2 position = aPosition * uOutputFrame.zw + uOutputFrame.xy;\n       \n    position.x = position.x * (2.0 / uOutputTexture.x) - 1.0;\n    position.y = position.y * (2.0*uOutputTexture.z / uOutputTexture.y) - uOutputTexture.z;\n\n    return vec4(position, 0.0, 1.0);\n}\n\nvec2 filterTextureCoord(  vec2 aPosition )\n{\n    return aPosition * (uOutputFrame.zw * uInputSize.zw);\n}\n\nvec2 getFilterCoord( vec2 aPosition )\n{\n    return  ( uFilterMatrix * vec3( filterTextureCoord(aPosition), 1.0)  ).xy;\n}   \n\nvoid main(void)\n{\n    gl_Position = filterVertexPosition(aPosition);\n    vTextureCoord = filterTextureCoord(aPosition);\n    vMaskCoord = getFilterCoord(aPosition);\n}\n";
-    }
+      vertex2 =
+        "in vec2 aPosition;\n\nout vec2 vTextureCoord;\nout vec2 vMaskCoord;\n\n\nuniform vec4 uInputSize;\nuniform vec4 uOutputFrame;\nuniform vec4 uOutputTexture;\nuniform mat3 uFilterMatrix;\n\nvec4 filterVertexPosition(  vec2 aPosition )\n{\n    vec2 position = aPosition * uOutputFrame.zw + uOutputFrame.xy;\n       \n    position.x = position.x * (2.0 / uOutputTexture.x) - 1.0;\n    position.y = position.y * (2.0*uOutputTexture.z / uOutputTexture.y) - uOutputTexture.z;\n\n    return vec4(position, 0.0, 1.0);\n}\n\nvec2 filterTextureCoord(  vec2 aPosition )\n{\n    return aPosition * (uOutputFrame.zw * uInputSize.zw);\n}\n\nvec2 getFilterCoord( vec2 aPosition )\n{\n    return  ( uFilterMatrix * vec3( filterTextureCoord(aPosition), 1.0)  ).xy;\n}   \n\nvoid main(void)\n{\n    gl_Position = filterVertexPosition(aPosition);\n    vTextureCoord = filterTextureCoord(aPosition);\n    vMaskCoord = getFilterCoord(aPosition);\n}\n";
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/filters/mask/mask.wgsl.mjs
   var source;
   var init_mask_wgsl = __esm({
     "../../../../node_modules/pixi.js/lib/filters/mask/mask.wgsl.mjs"() {
-      source = "struct GlobalFilterUniforms {\n  uInputSize:vec4<f32>,\n  uInputPixel:vec4<f32>,\n  uInputClamp:vec4<f32>,\n  uOutputFrame:vec4<f32>,\n  uGlobalFrame:vec4<f32>,\n  uOutputTexture:vec4<f32>,\n};\n\nstruct MaskUniforms {\n  uFilterMatrix:mat3x3<f32>,\n  uMaskClamp:vec4<f32>,\n  uAlpha:f32,\n  uInverse:f32,\n};\n\n@group(0) @binding(0) var<uniform> gfu: GlobalFilterUniforms;\n@group(0) @binding(1) var uTexture: texture_2d<f32>;\n@group(0) @binding(2) var uSampler : sampler;\n\n@group(1) @binding(0) var<uniform> filterUniforms : MaskUniforms;\n@group(1) @binding(1) var uMaskTexture: texture_2d<f32>;\n\nstruct VSOutput {\n    @builtin(position) position: vec4<f32>,\n    @location(0) uv : vec2<f32>,\n    @location(1) filterUv : vec2<f32>,\n};\n\nfn filterVertexPosition(aPosition:vec2<f32>) -> vec4<f32>\n{\n    var position = aPosition * gfu.uOutputFrame.zw + gfu.uOutputFrame.xy;\n\n    position.x = position.x * (2.0 / gfu.uOutputTexture.x) - 1.0;\n    position.y = position.y * (2.0*gfu.uOutputTexture.z / gfu.uOutputTexture.y) - gfu.uOutputTexture.z;\n\n    return vec4(position, 0.0, 1.0);\n}\n\nfn filterTextureCoord( aPosition:vec2<f32> ) -> vec2<f32>\n{\n    return aPosition * (gfu.uOutputFrame.zw * gfu.uInputSize.zw);\n}\n\nfn globalTextureCoord( aPosition:vec2<f32> ) -> vec2<f32>\n{\n  return  (aPosition.xy / gfu.uGlobalFrame.zw) + (gfu.uGlobalFrame.xy / gfu.uGlobalFrame.zw);\n}\n\nfn getFilterCoord(aPosition:vec2<f32> ) -> vec2<f32>\n{\n  return ( filterUniforms.uFilterMatrix * vec3( filterTextureCoord(aPosition), 1.0)  ).xy;\n}\n\nfn getSize() -> vec2<f32>\n{\n  return gfu.uGlobalFrame.zw;\n}\n\n@vertex\nfn mainVertex(\n  @location(0) aPosition : vec2<f32>,\n) -> VSOutput {\n  return VSOutput(\n   filterVertexPosition(aPosition),\n   filterTextureCoord(aPosition),\n   getFilterCoord(aPosition)\n  );\n}\n\n@fragment\nfn mainFragment(\n  @location(0) uv: vec2<f32>,\n  @location(1) filterUv: vec2<f32>,\n  @builtin(position) position: vec4<f32>\n) -> @location(0) vec4<f32> {\n\n    var maskClamp = filterUniforms.uMaskClamp;\n    var uAlpha = filterUniforms.uAlpha;\n\n    var clip = step(3.5,\n      step(maskClamp.x, filterUv.x) +\n      step(maskClamp.y, filterUv.y) +\n      step(filterUv.x, maskClamp.z) +\n      step(filterUv.y, maskClamp.w));\n\n    var mask = textureSample(uMaskTexture, uSampler, filterUv);\n    var source = textureSample(uTexture, uSampler, uv);\n    var alphaMul = 1.0 - uAlpha * (1.0 - mask.a);\n\n    var a: f32 = alphaMul * mask.r * uAlpha * clip;\n\n    if (filterUniforms.uInverse == 1.0) {\n        a = 1.0 - a;\n    }\n\n    return source * a;\n}\n";
-    }
+      source =
+        "struct GlobalFilterUniforms {\n  uInputSize:vec4<f32>,\n  uInputPixel:vec4<f32>,\n  uInputClamp:vec4<f32>,\n  uOutputFrame:vec4<f32>,\n  uGlobalFrame:vec4<f32>,\n  uOutputTexture:vec4<f32>,\n};\n\nstruct MaskUniforms {\n  uFilterMatrix:mat3x3<f32>,\n  uMaskClamp:vec4<f32>,\n  uAlpha:f32,\n  uInverse:f32,\n};\n\n@group(0) @binding(0) var<uniform> gfu: GlobalFilterUniforms;\n@group(0) @binding(1) var uTexture: texture_2d<f32>;\n@group(0) @binding(2) var uSampler : sampler;\n\n@group(1) @binding(0) var<uniform> filterUniforms : MaskUniforms;\n@group(1) @binding(1) var uMaskTexture: texture_2d<f32>;\n\nstruct VSOutput {\n    @builtin(position) position: vec4<f32>,\n    @location(0) uv : vec2<f32>,\n    @location(1) filterUv : vec2<f32>,\n};\n\nfn filterVertexPosition(aPosition:vec2<f32>) -> vec4<f32>\n{\n    var position = aPosition * gfu.uOutputFrame.zw + gfu.uOutputFrame.xy;\n\n    position.x = position.x * (2.0 / gfu.uOutputTexture.x) - 1.0;\n    position.y = position.y * (2.0*gfu.uOutputTexture.z / gfu.uOutputTexture.y) - gfu.uOutputTexture.z;\n\n    return vec4(position, 0.0, 1.0);\n}\n\nfn filterTextureCoord( aPosition:vec2<f32> ) -> vec2<f32>\n{\n    return aPosition * (gfu.uOutputFrame.zw * gfu.uInputSize.zw);\n}\n\nfn globalTextureCoord( aPosition:vec2<f32> ) -> vec2<f32>\n{\n  return  (aPosition.xy / gfu.uGlobalFrame.zw) + (gfu.uGlobalFrame.xy / gfu.uGlobalFrame.zw);\n}\n\nfn getFilterCoord(aPosition:vec2<f32> ) -> vec2<f32>\n{\n  return ( filterUniforms.uFilterMatrix * vec3( filterTextureCoord(aPosition), 1.0)  ).xy;\n}\n\nfn getSize() -> vec2<f32>\n{\n  return gfu.uGlobalFrame.zw;\n}\n\n@vertex\nfn mainVertex(\n  @location(0) aPosition : vec2<f32>,\n) -> VSOutput {\n  return VSOutput(\n   filterVertexPosition(aPosition),\n   filterTextureCoord(aPosition),\n   getFilterCoord(aPosition)\n  );\n}\n\n@fragment\nfn mainFragment(\n  @location(0) uv: vec2<f32>,\n  @location(1) filterUv: vec2<f32>,\n  @builtin(position) position: vec4<f32>\n) -> @location(0) vec4<f32> {\n\n    var maskClamp = filterUniforms.uMaskClamp;\n    var uAlpha = filterUniforms.uAlpha;\n\n    var clip = step(3.5,\n      step(maskClamp.x, filterUv.x) +\n      step(maskClamp.y, filterUv.y) +\n      step(filterUv.x, maskClamp.z) +\n      step(filterUv.y, maskClamp.w));\n\n    var mask = textureSample(uMaskTexture, uSampler, filterUv);\n    var source = textureSample(uTexture, uSampler, uv);\n    var alphaMul = 1.0 - uAlpha * (1.0 - mask.a);\n\n    var a: f32 = alphaMul * mask.r * uAlpha * clip;\n\n    if (filterUniforms.uInverse == 1.0) {\n        a = 1.0 - a;\n    }\n\n    return source * a;\n}\n";
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/filters/mask/MaskFilter.mjs
@@ -28747,37 +28014,41 @@ ${parts.join("\n")}
       init_mask_wgsl();
       MaskFilter = class extends Filter {
         constructor(options) {
-          const _a2 = options, { sprite } = _a2, rest = __objRest(_a2, ["sprite"]);
+          const _a2 = options,
+            { sprite } = _a2,
+            rest = __objRest(_a2, ["sprite"]);
           const textureMatrix = new TextureMatrix(sprite.texture);
           const filterUniforms = new UniformGroup({
             uFilterMatrix: { value: new Matrix(), type: "mat3x3<f32>" },
             uMaskClamp: { value: textureMatrix.uClampFrame, type: "vec4<f32>" },
             uAlpha: { value: 1, type: "f32" },
-            uInverse: { value: options.inverse ? 1 : 0, type: "f32" }
+            uInverse: { value: options.inverse ? 1 : 0, type: "f32" },
           });
           const gpuProgram3 = GpuProgram.from({
             vertex: {
               source,
-              entryPoint: "mainVertex"
+              entryPoint: "mainVertex",
             },
             fragment: {
               source,
-              entryPoint: "mainFragment"
-            }
+              entryPoint: "mainFragment",
+            },
           });
           const glProgram3 = GlProgram.from({
             vertex: vertex2,
             fragment: fragment2,
-            name: "mask-filter"
+            name: "mask-filter",
           });
-          super(__spreadProps(__spreadValues({}, rest), {
-            gpuProgram: gpuProgram3,
-            glProgram: glProgram3,
-            resources: {
-              filterUniforms,
-              uMaskTexture: sprite.texture.source
-            }
-          }));
+          super(
+            __spreadProps(__spreadValues({}, rest), {
+              gpuProgram: gpuProgram3,
+              glProgram: glProgram3,
+              resources: {
+                filterUniforms,
+                uMaskTexture: sprite.texture.source,
+              },
+            })
+          );
           this.sprite = sprite;
           this._textureMatrix = textureMatrix;
         }
@@ -28789,15 +28060,12 @@ ${parts.join("\n")}
         }
         apply(filterManager, input, output, clearMode) {
           this._textureMatrix.texture = this.sprite.texture;
-          filterManager.calculateSpriteMatrix(
-            this.resources.filterUniforms.uniforms.uFilterMatrix,
-            this.sprite
-          ).prepend(this._textureMatrix.mapCoord);
+          filterManager.calculateSpriteMatrix(this.resources.filterUniforms.uniforms.uFilterMatrix, this.sprite).prepend(this._textureMatrix.mapCoord);
           this.resources.uMaskTexture = this.sprite.texture.source;
           filterManager.applyFilter(this, input, output, clearMode);
         }
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/mask/alpha/AlphaMaskPipe.mjs
@@ -28818,12 +28086,14 @@ ${parts.join("\n")}
       AlphaMaskEffect = class extends FilterEffect {
         constructor() {
           super();
-          this.filters = [new MaskFilter({
-            sprite: new Sprite(Texture.EMPTY),
-            inverse: false,
-            resolution: "inherit",
-            antialias: "inherit"
-          })];
+          this.filters = [
+            new MaskFilter({
+              sprite: new Sprite(Texture.EMPTY),
+              inverse: false,
+              resolution: "inherit",
+              antialias: "inherit",
+            }),
+          ];
         }
         get sprite() {
           return this.filters[0].sprite;
@@ -28852,17 +28122,13 @@ ${parts.join("\n")}
             mask,
             inverse: maskedContainer._maskOptions.inverse,
             canBundle: false,
-            maskedContainer
+            maskedContainer,
           });
           mask.inverse = maskedContainer._maskOptions.inverse;
           if (mask.renderMaskToTexture) {
             const maskContainer = mask.mask;
             maskContainer.includeInBuild = true;
-            maskContainer.collectRenderables(
-              instructionSet,
-              renderer,
-              null
-            );
+            maskContainer.collectRenderables(instructionSet, renderer, null);
             maskContainer.includeInBuild = false;
           }
           renderer.renderPipes.batch.break(instructionSet);
@@ -28872,7 +28138,7 @@ ${parts.join("\n")}
             mask,
             maskedContainer,
             inverse: maskedContainer._maskOptions.inverse,
-            canBundle: false
+            canBundle: false,
           });
         }
         pop(mask, _maskedContainer, instructionSet) {
@@ -28883,7 +28149,7 @@ ${parts.join("\n")}
             action: "popMaskEnd",
             mask,
             inverse: _maskedContainer._maskOptions.inverse,
-            canBundle: false
+            canBundle: false,
           });
         }
         execute(instruction) {
@@ -28898,16 +28164,11 @@ ${parts.join("\n")}
               instruction.mask.mask.measurable = false;
               bounds.ceil();
               const colorTextureSource = renderer.renderTarget.renderTarget.colorTexture.source;
-              const filterTexture = TexturePool.getOptimalTexture(
-                bounds.width,
-                bounds.height,
-                colorTextureSource._resolution,
-                colorTextureSource.antialias
-              );
+              const filterTexture = TexturePool.getOptimalTexture(bounds.width, bounds.height, colorTextureSource._resolution, colorTextureSource.antialias);
               renderer.renderTarget.push(filterTexture, true);
               renderer.globalUniforms.push({
                 offset: bounds,
-                worldColor: 4294967295
+                worldColor: 4294967295,
               });
               const sprite = filterEffect.sprite;
               sprite.texture = filterTexture;
@@ -28916,13 +28177,13 @@ ${parts.join("\n")}
               this._activeMaskStage.push({
                 filterEffect,
                 maskedContainer: instruction.maskedContainer,
-                filterTexture
+                filterTexture,
               });
             } else {
               filterEffect.sprite = instruction.mask.mask;
               this._activeMaskStage.push({
                 filterEffect,
-                maskedContainer: instruction.maskedContainer
+                maskedContainer: instruction.maskedContainer,
               });
             }
           } else if (instruction.action === "pushMaskEnd") {
@@ -28939,7 +28200,7 @@ ${parts.join("\n")}
               action: "pushFilter",
               container: maskData.maskedContainer,
               filterEffect: maskData.filterEffect,
-              canBundle: false
+              canBundle: false,
             });
           } else if (instruction.action === "popMaskEnd") {
             renderer.filter.pop();
@@ -28956,14 +28217,10 @@ ${parts.join("\n")}
         }
       };
       AlphaMaskPipe.extension = {
-        type: [
-          ExtensionType.WebGLPipes,
-          ExtensionType.WebGPUPipes,
-          ExtensionType.CanvasPipes
-        ],
-        name: "alphaMask"
+        type: [ExtensionType.WebGLPipes, ExtensionType.WebGPUPipes, ExtensionType.CanvasPipes],
+        name: "alphaMask",
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/mask/color/ColorMaskPipe.mjs
@@ -28994,7 +28251,7 @@ ${parts.join("\n")}
             instructionSet.add({
               renderPipeId: "colorMask",
               colorMask: currentColor,
-              canBundle: false
+              canBundle: false,
             });
           }
           this._colorStackIndex++;
@@ -29010,7 +28267,7 @@ ${parts.join("\n")}
             instructionSet.add({
               renderPipeId: "colorMask",
               colorMask: currentColor,
-              canBundle: false
+              canBundle: false,
             });
           }
         }
@@ -29023,14 +28280,10 @@ ${parts.join("\n")}
         }
       };
       ColorMaskPipe.extension = {
-        type: [
-          ExtensionType.WebGLPipes,
-          ExtensionType.WebGPUPipes,
-          ExtensionType.CanvasPipes
-        ],
-        name: "colorMask"
+        type: [ExtensionType.WebGLPipes, ExtensionType.WebGPUPipes, ExtensionType.CanvasPipes],
+        name: "colorMask",
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/mask/stencil/StencilMaskPipe.mjs
@@ -29058,23 +28311,19 @@ ${parts.join("\n")}
             action: "pushMaskBegin",
             mask,
             inverse: _container._maskOptions.inverse,
-            canBundle: false
+            canBundle: false,
           });
           const maskContainer = effect.mask;
           maskContainer.includeInBuild = true;
           if (!this._maskHash.has(effect)) {
             this._maskHash.set(effect, {
               instructionsStart: 0,
-              instructionsLength: 0
+              instructionsLength: 0,
             });
           }
           const maskData = this._maskHash.get(effect);
           maskData.instructionsStart = instructionSet.instructionSize;
-          maskContainer.collectRenderables(
-            instructionSet,
-            renderer,
-            null
-          );
+          maskContainer.collectRenderables(instructionSet, renderer, null);
           maskContainer.includeInBuild = false;
           renderer.renderPipes.batch.break(instructionSet);
           instructionSet.add({
@@ -29082,12 +28331,12 @@ ${parts.join("\n")}
             action: "pushMaskEnd",
             mask,
             inverse: _container._maskOptions.inverse,
-            canBundle: false
+            canBundle: false,
           });
           const instructionsLength = instructionSet.instructionSize - maskData.instructionsStart - 1;
           maskData.instructionsLength = instructionsLength;
           const renderTargetUid = renderer.renderTarget.renderTarget.uid;
-          (_a3 = (_a2 = this._maskStackHash)[renderTargetUid]) != null ? _a3 : _a2[renderTargetUid] = 0;
+          (_a3 = (_a2 = this._maskStackHash)[renderTargetUid]) != null ? _a3 : (_a2[renderTargetUid] = 0);
         }
         pop(mask, _container, instructionSet) {
           const effect = mask;
@@ -29098,7 +28347,7 @@ ${parts.join("\n")}
             renderPipeId: "stencilMask",
             action: "popMaskBegin",
             inverse: _container._maskOptions.inverse,
-            canBundle: false
+            canBundle: false,
           });
           const maskData = this._maskHash.get(mask);
           for (let i2 = 0; i2 < maskData.instructionsLength; i2++) {
@@ -29107,7 +28356,7 @@ ${parts.join("\n")}
           instructionSet.add({
             renderPipeId: "stencilMask",
             action: "popMaskEnd",
-            canBundle: false
+            canBundle: false,
           });
         }
         execute(instruction) {
@@ -29115,7 +28364,7 @@ ${parts.join("\n")}
           var _a2;
           const renderer = this._renderer;
           const renderTargetUid = renderer.renderTarget.renderTarget.uid;
-          let maskStackIndex = (_a3 = (_a2 = this._maskStackHash)[renderTargetUid]) != null ? _a3 : _a2[renderTargetUid] = 0;
+          let maskStackIndex = (_a3 = (_a2 = this._maskStackHash)[renderTargetUid]) != null ? _a3 : (_a2[renderTargetUid] = 0);
           if (instruction.action === "pushMaskBegin") {
             renderer.renderTarget.ensureDepthStencil();
             renderer.stencil.setStencilMode(STENCIL_MODES.RENDERING_MASK_ADD, maskStackIndex);
@@ -29154,14 +28403,10 @@ ${parts.join("\n")}
         }
       };
       StencilMaskPipe.extension = {
-        type: [
-          ExtensionType.WebGLPipes,
-          ExtensionType.WebGPUPipes,
-          ExtensionType.CanvasPipes
-        ],
-        name: "stencilMask"
+        type: [ExtensionType.WebGLPipes, ExtensionType.WebGPUPipes, ExtensionType.CanvasPipes],
+        name: "stencilMask",
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/shared/background/BackgroundSystem.mjs
@@ -29211,17 +28456,12 @@ ${parts.join("\n")}
          * @internal
          * @ignore
          */
-        destroy() {
-        }
+        destroy() {}
       };
       _BackgroundSystem.extension = {
-        type: [
-          ExtensionType.WebGLSystem,
-          ExtensionType.WebGPUSystem,
-          ExtensionType.CanvasSystem
-        ],
+        type: [ExtensionType.WebGLSystem, ExtensionType.WebGPUSystem, ExtensionType.CanvasSystem],
         name: "background",
-        priority: 0
+        priority: 0,
       };
       _BackgroundSystem.defaultOptions = {
         /**
@@ -29238,10 +28478,10 @@ ${parts.join("\n")}
          * {@link WebGLOptions.clearBeforeRender}
          * @default true
          */
-        clearBeforeRender: true
+        clearBeforeRender: true,
       };
       BackgroundSystem = _BackgroundSystem;
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/shared/blendModes/BlendModePipe.mjs
@@ -29252,14 +28492,18 @@ ${parts.join("\n")}
       init_FilterEffect();
       init_warn();
       BLEND_MODE_FILTERS = {};
-      extensions.handle(ExtensionType.BlendMode, (value) => {
-        if (!value.name) {
-          throw new Error("BlendMode extension must have a name property");
+      extensions.handle(
+        ExtensionType.BlendMode,
+        (value) => {
+          if (!value.name) {
+            throw new Error("BlendMode extension must have a name property");
+          }
+          BLEND_MODE_FILTERS[value.name] = value.ref;
+        },
+        (value) => {
+          delete BLEND_MODE_FILTERS[value.name];
         }
-        BLEND_MODE_FILTERS[value.name] = value.ref;
-      }, (value) => {
-        delete BLEND_MODE_FILTERS[value.name];
-      });
+      );
       BlendModePipe = class {
         constructor(renderer) {
           this._isAdvanced = false;
@@ -29279,8 +28523,7 @@ ${parts.join("\n")}
          */
         setBlendMode(renderable, blendMode, instructionSet) {
           if (this._activeBlendMode === blendMode) {
-            if (this._isAdvanced)
-              this._renderableList.push(renderable);
+            if (this._isAdvanced) this._renderableList.push(renderable);
             return;
           }
           this._activeBlendMode = blendMode;
@@ -29310,7 +28553,7 @@ ${parts.join("\n")}
             action: "pushFilter",
             renderables: [],
             filterEffect,
-            canBundle: false
+            canBundle: false,
           };
           this._renderableList = instruction.renderables;
           instructionSet.add(instruction);
@@ -29321,7 +28564,7 @@ ${parts.join("\n")}
           instructionSet.add({
             renderPipeId: "filter",
             action: "popFilter",
-            canBundle: false
+            canBundle: false,
           });
         }
         /**
@@ -29358,14 +28601,10 @@ ${parts.join("\n")}
         }
       };
       BlendModePipe.extension = {
-        type: [
-          ExtensionType.WebGLPipes,
-          ExtensionType.WebGPUPipes,
-          ExtensionType.CanvasPipes
-        ],
-        name: "blendMode"
+        type: [ExtensionType.WebGLPipes, ExtensionType.WebGPUPipes, ExtensionType.CanvasPipes],
+        name: "blendMode",
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/shared/extract/ExtractSystem.mjs
@@ -29378,7 +28617,7 @@ ${parts.join("\n")}
       imageTypes = {
         png: "image/png",
         jpg: "image/jpeg",
-        webp: "image/webp"
+        webp: "image/webp",
       };
       _ExtractSystem = class _ExtractSystem2 {
         /** @param renderer - The renderer this System works for. */
@@ -29387,9 +28626,12 @@ ${parts.join("\n")}
         }
         _normalizeOptions(options, defaults = {}) {
           if (options instanceof Container || options instanceof Texture) {
-            return __spreadValues({
-              target: options
-            }, defaults);
+            return __spreadValues(
+              {
+                target: options,
+              },
+              defaults
+            );
           }
           return __spreadValues(__spreadValues({}, defaults), options);
         }
@@ -29412,24 +28654,25 @@ ${parts.join("\n")}
          */
         base64(options) {
           return __async(this, null, function* () {
-            options = this._normalizeOptions(
-              options,
-              _ExtractSystem2.defaultImageOptions
-            );
+            options = this._normalizeOptions(options, _ExtractSystem2.defaultImageOptions);
             const { format, quality } = options;
             const canvas = this.canvas(options);
             if (canvas.toBlob !== void 0) {
               return new Promise((resolve, reject) => {
-                canvas.toBlob((blob) => {
-                  if (!blob) {
-                    reject(new Error("ICanvas.toBlob failed!"));
-                    return;
-                  }
-                  const reader = new FileReader();
-                  reader.onload = () => resolve(reader.result);
-                  reader.onerror = reject;
-                  reader.readAsDataURL(blob);
-                }, imageTypes[format], quality);
+                canvas.toBlob(
+                  (blob) => {
+                    if (!blob) {
+                      reject(new Error("ICanvas.toBlob failed!"));
+                      return;
+                    }
+                    const reader = new FileReader();
+                    reader.onload = () => resolve(reader.result);
+                    reader.onerror = reject;
+                    reader.readAsDataURL(blob);
+                  },
+                  imageTypes[format],
+                  quality
+                );
               });
             }
             if (canvas.toDataURL !== void 0) {
@@ -29488,8 +28731,7 @@ ${parts.join("\n")}
          */
         texture(options) {
           options = this._normalizeOptions(options);
-          if (options.target instanceof Texture)
-            return options.target;
+          if (options.target instanceof Texture) return options.target;
           return this._renderer.textureGenerator.generateTexture(options);
         }
         /**
@@ -29518,12 +28760,7 @@ ${parts.join("\n")}
           const canvas = this.canvas(options);
           const base64 = canvas.toDataURL();
           console.log(`[Pixi Texture] ${canvas.width}px ${canvas.height}px`);
-          const style = [
-            "font-size: 1px;",
-            `padding: ${width}px ${300}px;`,
-            `background: url(${base64}) no-repeat;`,
-            "background-size: contain;"
-          ].join(" ");
+          const style = ["font-size: 1px;", `padding: ${width}px ${300}px;`, `background: url(${base64}) no-repeat;`, "background-size: contain;"].join(" ");
           console.log("%c ", style);
         }
         destroy() {
@@ -29531,20 +28768,17 @@ ${parts.join("\n")}
         }
       };
       _ExtractSystem.extension = {
-        type: [
-          ExtensionType.WebGLSystem,
-          ExtensionType.WebGPUSystem
-        ],
-        name: "extract"
+        type: [ExtensionType.WebGLSystem, ExtensionType.WebGPUSystem],
+        name: "extract",
       };
       _ExtractSystem.defaultImageOptions = {
         /** The format of the image. */
         format: "png",
         /** The quality of the image. */
-        quality: 1
+        quality: 1,
       };
       ExtractSystem = _ExtractSystem;
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/shared/texture/RenderTexture.mjs
@@ -29556,7 +28790,7 @@ ${parts.join("\n")}
       RenderTexture = class _RenderTexture extends Texture {
         static create(options) {
           return new _RenderTexture({
-            source: new TextureSource(options)
+            source: new TextureSource(options),
           });
         }
         /**
@@ -29571,7 +28805,7 @@ ${parts.join("\n")}
           return this;
         }
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/shared/extract/GenerateTextureSystem.mjs
@@ -29611,7 +28845,7 @@ ${parts.join("\n")}
               target: options,
               frame: void 0,
               textureSourceOptions: {},
-              resolution: void 0
+              resolution: void 0,
             };
           }
           const resolution = options.resolution || this._renderer.resolution;
@@ -29627,18 +28861,20 @@ ${parts.join("\n")}
           const region = ((_a2 = options.frame) == null ? void 0 : _a2.copyTo(tempRect4)) || getLocalBounds(container, tempBounds4).rectangle;
           region.width = Math.max(region.width, 1 / resolution) | 0;
           region.height = Math.max(region.height, 1 / resolution) | 0;
-          const target = RenderTexture.create(__spreadProps(__spreadValues({}, options.textureSourceOptions), {
-            width: region.width,
-            height: region.height,
-            resolution,
-            antialias
-          }));
+          const target = RenderTexture.create(
+            __spreadProps(__spreadValues({}, options.textureSourceOptions), {
+              width: region.width,
+              height: region.height,
+              resolution,
+              antialias,
+            })
+          );
           const transform2 = Matrix.shared.translate(-region.x, -region.y);
           this._renderer.render({
             container,
             transform: transform2,
             target,
-            clearColor
+            clearColor,
           });
           target.source.updateMipmaps();
           return target;
@@ -29648,13 +28884,10 @@ ${parts.join("\n")}
         }
       };
       GenerateTextureSystem.extension = {
-        type: [
-          ExtensionType.WebGLSystem,
-          ExtensionType.WebGPUSystem
-        ],
-        name: "textureGenerator"
+        type: [ExtensionType.WebGLSystem, ExtensionType.WebGPUSystem],
+        name: "textureGenerator",
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/shared/renderTarget/GlobalUniformSystem.mjs
@@ -29693,27 +28926,23 @@ ${parts.join("\n")}
           this.reset();
           this.push(options);
         }
-        bind({
-          size,
-          projectionMatrix,
-          worldTransformMatrix,
-          worldColor,
-          offset
-        }) {
+        bind({ size, projectionMatrix, worldTransformMatrix, worldColor, offset }) {
           const renderTarget = this._renderer.renderTarget.renderTarget;
-          const currentGlobalUniformData = this._stackIndex ? this._globalUniformDataStack[this._stackIndex - 1] : {
-            projectionData: renderTarget,
-            worldTransformMatrix: new Matrix(),
-            worldColor: 4294967295,
-            offset: new Point()
-          };
+          const currentGlobalUniformData = this._stackIndex
+            ? this._globalUniformDataStack[this._stackIndex - 1]
+            : {
+                projectionData: renderTarget,
+                worldTransformMatrix: new Matrix(),
+                worldColor: 4294967295,
+                offset: new Point(),
+              };
           const globalUniformData = {
             projectionMatrix: projectionMatrix || this._renderer.renderTarget.projectionMatrix,
             resolution: size || renderTarget.size,
             worldTransformMatrix: worldTransformMatrix || currentGlobalUniformData.worldTransformMatrix,
             worldColor: worldColor || currentGlobalUniformData.worldColor,
             offset: offset || currentGlobalUniformData.offset,
-            bindGroup: null
+            bindGroup: null,
           };
           const uniformGroup = this._uniformsPool.pop() || this._createUniforms();
           this._activeUniforms.push(uniformGroup);
@@ -29723,11 +28952,7 @@ ${parts.join("\n")}
           uniforms.uWorldTransformMatrix.copyFrom(globalUniformData.worldTransformMatrix);
           uniforms.uWorldTransformMatrix.tx -= globalUniformData.offset.x;
           uniforms.uWorldTransformMatrix.ty -= globalUniformData.offset.y;
-          color32BitToUniform(
-            globalUniformData.worldColor,
-            uniforms.uWorldColorAlpha,
-            0
-          );
+          color32BitToUniform(globalUniformData.worldColor, uniforms.uWorldColorAlpha, 0);
           uniformGroup.update();
           let bindGroup;
           if (this._renderer.renderPipes.uniformBatch) {
@@ -29760,15 +28985,18 @@ ${parts.join("\n")}
           return this._currentGlobalUniformData.bindGroup.resources[0];
         }
         _createUniforms() {
-          const globalUniforms = new UniformGroup({
-            uProjectionMatrix: { value: new Matrix(), type: "mat3x3<f32>" },
-            uWorldTransformMatrix: { value: new Matrix(), type: "mat3x3<f32>" },
-            // TODO - someone smart - set this to be a unorm8x4 rather than a vec4<f32>
-            uWorldColorAlpha: { value: new Float32Array(4), type: "vec4<f32>" },
-            uResolution: { value: [0, 0], type: "vec2<f32>" }
-          }, {
-            isStatic: true
-          });
+          const globalUniforms = new UniformGroup(
+            {
+              uProjectionMatrix: { value: new Matrix(), type: "mat3x3<f32>" },
+              uWorldTransformMatrix: { value: new Matrix(), type: "mat3x3<f32>" },
+              // TODO - someone smart - set this to be a unorm8x4 rather than a vec4<f32>
+              uWorldColorAlpha: { value: new Float32Array(4), type: "vec4<f32>" },
+              uResolution: { value: [0, 0], type: "vec2<f32>" },
+            },
+            {
+              isStatic: true,
+            }
+          );
           return globalUniforms;
         }
         destroy() {
@@ -29776,14 +29004,10 @@ ${parts.join("\n")}
         }
       };
       GlobalUniformSystem.extension = {
-        type: [
-          ExtensionType.WebGLSystem,
-          ExtensionType.WebGPUSystem,
-          ExtensionType.CanvasSystem
-        ],
-        name: "globalUniforms"
+        type: [ExtensionType.WebGLSystem, ExtensionType.WebGPUSystem, ExtensionType.CanvasSystem],
+        name: "globalUniforms",
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/shared/SchedulerSystem.mjs
@@ -29823,7 +29047,7 @@ ${parts.join("\n")}
             offset,
             last: performance.now(),
             repeat: true,
-            id
+            id,
           });
           return id;
         }
@@ -29865,15 +29089,11 @@ ${parts.join("\n")}
         }
       };
       SchedulerSystem.extension = {
-        type: [
-          ExtensionType.WebGLSystem,
-          ExtensionType.WebGPUSystem,
-          ExtensionType.CanvasSystem
-        ],
+        type: [ExtensionType.WebGLSystem, ExtensionType.WebGPUSystem, ExtensionType.CanvasSystem],
         name: "scheduler",
-        priority: 0
+        priority: 0,
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/utils/sayHello.mjs
@@ -29891,7 +29111,7 @@ ${parts.join("\n")}
         "background: #B5D33D; padding:5px 0;",
         "background: #FED23F; padding:5px 0;",
         "color: #FFFFFF; background: #E72264; padding:5px 0;",
-        "color: #E72264; background: #FFFFFF; padding:5px 0;"
+        "color: #E72264; background: #FFFFFF; padding:5px 0;",
       ];
       globalThis.console.log(...args);
     } else if (globalThis.console) {
@@ -29905,7 +29125,7 @@ ${parts.join("\n")}
       init_adapter();
       init_const8();
       saidHello = false;
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/shared/startup/HelloSystem.mjs
@@ -29934,19 +29154,15 @@ ${parts.join("\n")}
         }
       };
       HelloSystem.extension = {
-        type: [
-          ExtensionType.WebGLSystem,
-          ExtensionType.WebGPUSystem,
-          ExtensionType.CanvasSystem
-        ],
+        type: [ExtensionType.WebGLSystem, ExtensionType.WebGPUSystem, ExtensionType.CanvasSystem],
         name: "hello",
-        priority: -2
+        priority: -2,
       };
       HelloSystem.defaultOptions = {
         /** {@link WebGLOptions.hello} */
-        hello: false
+        hello: false,
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/utils/data/clean.mjs
@@ -29958,8 +29174,7 @@ ${parts.join("\n")}
         break;
       }
     }
-    if (!clean)
-      return hash;
+    if (!clean) return hash;
     const cleanHash2 = /* @__PURE__ */ Object.create(null);
     for (const i2 in hash) {
       const value = hash[i2];
@@ -29984,7 +29199,7 @@ ${parts.join("\n")}
   var init_clean = __esm({
     "../../../../node_modules/pixi.js/lib/utils/data/clean.mjs"() {
       "use strict";
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/shared/texture/RenderableGCSystem.mjs
@@ -30028,30 +29243,19 @@ ${parts.join("\n")}
          * When disabled, cancels all scheduled cleanups.
          */
         set enabled(value) {
-          if (this.enabled === value)
-            return;
+          if (this.enabled === value) return;
           if (value) {
-            this._handler = this._renderer.scheduler.repeat(
-              () => this.run(),
-              this._frequency,
-              false
-            );
-            this._hashHandler = this._renderer.scheduler.repeat(
-              () => {
-                for (const hash of this._managedHashes) {
-                  hash.context[hash.hash] = cleanHash(hash.context[hash.hash]);
-                }
-              },
-              this._frequency
-            );
-            this._arrayHandler = this._renderer.scheduler.repeat(
-              () => {
-                for (const array of this._managedArrays) {
-                  cleanArray(array.context[array.hash]);
-                }
-              },
-              this._frequency
-            );
+            this._handler = this._renderer.scheduler.repeat(() => this.run(), this._frequency, false);
+            this._hashHandler = this._renderer.scheduler.repeat(() => {
+              for (const hash of this._managedHashes) {
+                hash.context[hash.hash] = cleanHash(hash.context[hash.hash]);
+              }
+            }, this._frequency);
+            this._arrayHandler = this._renderer.scheduler.repeat(() => {
+              for (const array of this._managedArrays) {
+                cleanArray(array.context[array.hash]);
+              }
+            }, this._frequency);
           } else {
             this._renderer.scheduler.cancel(this._handler);
             this._renderer.scheduler.cancel(this._hashHandler);
@@ -30079,9 +29283,7 @@ ${parts.join("\n")}
          * @param options - The render options
          * @param options.container - The container to render
          */
-        prerender({
-          container
-        }) {
+        prerender({ container }) {
           this._now = performance.now();
           container.renderGroup.gcTick = renderableGCTick++;
           this._updateInstructionGCTick(container.renderGroup, container.renderGroup.gcTick);
@@ -30091,8 +29293,7 @@ ${parts.join("\n")}
          * @param renderable - The renderable to track
          */
         addRenderable(renderable) {
-          if (!this.enabled)
-            return;
+          if (!this.enabled) return;
           if (renderable._lastUsed === -1) {
             this._managedRenderables.push(renderable);
             renderable.once("destroyed", this._removeRenderable, this);
@@ -30123,8 +29324,7 @@ ${parts.join("\n")}
             if (now - renderable._lastUsed > this.maxUnusedTime) {
               if (!renderable.destroyed) {
                 const rp = renderPipes3;
-                if (renderGroup)
-                  renderGroup.structureDidChange = true;
+                if (renderGroup) renderGroup.structureDidChange = true;
                 rp[renderable.renderPipeId].destroyRenderable(renderable);
               }
               renderable._lastUsed = -1;
@@ -30168,12 +29368,9 @@ ${parts.join("\n")}
         }
       };
       _RenderableGCSystem.extension = {
-        type: [
-          ExtensionType.WebGLSystem,
-          ExtensionType.WebGPUSystem
-        ],
+        type: [ExtensionType.WebGLSystem, ExtensionType.WebGPUSystem],
         name: "renderableGC",
-        priority: 0
+        priority: 0,
       };
       _RenderableGCSystem.defaultOptions = {
         /** Enable/disable the garbage collector */
@@ -30181,10 +29378,10 @@ ${parts.join("\n")}
         /** Time in ms before an unused resource is collected (default 1 minute) */
         renderableGCMaxUnusedTime: 6e4,
         /** How often to run garbage collection in ms (default 30 seconds) */
-        renderableGCFrequency: 3e4
+        renderableGCFrequency: 3e4,
       };
       RenderableGCSystem = _RenderableGCSystem;
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/shared/texture/TextureGCSystem.mjs
@@ -30215,8 +29412,7 @@ ${parts.join("\n")}
             return;
           }
           this.count++;
-          if (!this.active)
-            return;
+          if (!this.active) return;
           this.checkCount++;
           if (this.checkCount > this.checkCountMax) {
             this.checkCount = 0;
@@ -30242,11 +29438,8 @@ ${parts.join("\n")}
         }
       };
       _TextureGCSystem.extension = {
-        type: [
-          ExtensionType.WebGLSystem,
-          ExtensionType.WebGPUSystem
-        ],
-        name: "textureGC"
+        type: [ExtensionType.WebGLSystem, ExtensionType.WebGPUSystem],
+        name: "textureGC",
       };
       _TextureGCSystem.defaultOptions = {
         /**
@@ -30268,10 +29461,10 @@ ${parts.join("\n")}
          * Frames between two garbage collections.
          * @default 600
          */
-        textureGCCheckCountMax: 600
+        textureGCCheckCountMax: 600,
       };
       TextureGCSystem = _TextureGCSystem;
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/shared/renderTarget/RenderTarget.mjs
@@ -30304,7 +29497,7 @@ ${parts.join("\n")}
                   width: descriptor.width,
                   height: descriptor.height,
                   resolution: descriptor.resolution,
-                  antialias: descriptor.antialias
+                  antialias: descriptor.antialias,
                 })
               );
             }
@@ -30364,7 +29557,7 @@ ${parts.join("\n")}
               format: "depth24plus-stencil8",
               autoGenerateMipmaps: false,
               antialias: false,
-              mipLevelCount: 1
+              mipLevelCount: 1,
               // sampleCount: handled by the render target system..
             });
           }
@@ -30372,8 +29565,7 @@ ${parts.join("\n")}
         resize(width, height, resolution = this.resolution, skipColorTexture = false) {
           this.dirtyId++;
           this.colorTextures.forEach((colorTexture, i2) => {
-            if (skipColorTexture && i2 === 0)
-              return;
+            if (skipColorTexture && i2 === 0) return;
             colorTexture.source.resize(width, height, resolution);
           });
           if (this.depthStencilTexture) {
@@ -30410,19 +29602,24 @@ ${parts.join("\n")}
         antialias: false,
         // save on perf by default!
         /** is this a root element, true if this is gl context owners render target */
-        isRoot: false
+        isRoot: false,
       };
       RenderTarget = _RenderTarget;
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/shared/texture/utils/getCanvasTexture.mjs
   function getCanvasTexture(canvas, options) {
     if (!canvasCache.has(canvas)) {
       const texture = new Texture({
-        source: new CanvasSource(__spreadValues({
-          resource: canvas
-        }, options))
+        source: new CanvasSource(
+          __spreadValues(
+            {
+              resource: canvas,
+            },
+            options
+          )
+        ),
       });
       const onDestroy = () => {
         if (canvasCache.get(canvas) === texture) {
@@ -30441,7 +29638,7 @@ ${parts.join("\n")}
       init_CanvasSource();
       init_Texture();
       canvasCache = /* @__PURE__ */ new Map();
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/shared/view/ViewSystem.mjs
@@ -30470,11 +29667,7 @@ ${parts.join("\n")}
           return this.texture.source._resolution;
         }
         set resolution(value) {
-          this.texture.source.resize(
-            this.texture.source.width,
-            this.texture.source.height,
-            value
-          );
+          this.texture.source.resize(this.texture.source.width, this.texture.source.height, value);
         }
         /**
          * initiates the view system
@@ -30493,7 +29686,7 @@ ${parts.join("\n")}
           this.renderTarget = new RenderTarget({
             colorTextures: [this.texture],
             depth: !!options.depth,
-            isRoot: true
+            isRoot: true,
           });
           this.texture.source.transparent = options.backgroundAlpha < 1;
           this.resolution = options.resolution;
@@ -30522,13 +29715,9 @@ ${parts.join("\n")}
         }
       };
       _ViewSystem.extension = {
-        type: [
-          ExtensionType.WebGLSystem,
-          ExtensionType.WebGPUSystem,
-          ExtensionType.CanvasSystem
-        ],
+        type: [ExtensionType.WebGLSystem, ExtensionType.WebGPUSystem, ExtensionType.CanvasSystem],
         name: "view",
-        priority: 0
+        priority: 0,
       };
       _ViewSystem.defaultOptions = {
         /**
@@ -30550,10 +29739,10 @@ ${parts.join("\n")}
          * {@link WebGLOptions.antialias}
          * @default false
          */
-        antialias: false
+        antialias: false,
       };
       ViewSystem = _ViewSystem;
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/shared/system/SharedSystems.mjs
@@ -30579,30 +29768,9 @@ ${parts.join("\n")}
       init_RenderableGCSystem();
       init_TextureGCSystem();
       init_ViewSystem();
-      SharedSystems = [
-        BackgroundSystem,
-        GlobalUniformSystem,
-        HelloSystem,
-        ViewSystem,
-        RenderGroupSystem,
-        TextureGCSystem,
-        GenerateTextureSystem,
-        ExtractSystem,
-        RendererInitHook,
-        RenderableGCSystem,
-        SchedulerSystem
-      ];
-      SharedRenderPipes = [
-        BlendModePipe,
-        BatcherPipe,
-        SpritePipe,
-        RenderGroupPipe,
-        AlphaMaskPipe,
-        StencilMaskPipe,
-        ColorMaskPipe,
-        CustomRenderPipe
-      ];
-    }
+      SharedSystems = [BackgroundSystem, GlobalUniformSystem, HelloSystem, ViewSystem, RenderGroupSystem, TextureGCSystem, GenerateTextureSystem, ExtractSystem, RendererInitHook, RenderableGCSystem, SchedulerSystem];
+      SharedRenderPipes = [BlendModePipe, BatcherPipe, SpritePipe, RenderGroupPipe, AlphaMaskPipe, StencilMaskPipe, ColorMaskPipe, CustomRenderPipe];
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/gpu/BindGroupSystem.mjs
@@ -30640,21 +29808,21 @@ ${parts.join("\n")}
               gpuResource = {
                 buffer: renderer.buffer.getGPUBuffer(buffer),
                 offset: 0,
-                size: buffer.descriptor.size
+                size: buffer.descriptor.size,
               };
             } else if (resource._resourceType === "buffer") {
               const buffer = resource;
               gpuResource = {
                 buffer: renderer.buffer.getGPUBuffer(buffer),
                 offset: 0,
-                size: buffer.descriptor.size
+                size: buffer.descriptor.size,
               };
             } else if (resource._resourceType === "bufferResource") {
               const bufferResource = resource;
               gpuResource = {
                 buffer: renderer.buffer.getGPUBuffer(bufferResource.buffer),
                 offset: bufferResource.offset,
-                size: bufferResource.size
+                size: bufferResource.size,
               };
             } else if (resource._resourceType === "textureSampler") {
               const sampler = resource;
@@ -30665,13 +29833,13 @@ ${parts.join("\n")}
             }
             entries.push({
               binding: groupLayout[j3],
-              resource: gpuResource
+              resource: gpuResource,
             });
           }
           const layout = renderer.shader.getProgramData(program).bindGroups[groupIndex];
           const gpuBindGroup = device.createBindGroup({
             layout,
-            entries
+            entries,
           });
           this._hash[group._key] = gpuBindGroup;
           return gpuBindGroup;
@@ -30685,12 +29853,10 @@ ${parts.join("\n")}
         }
       };
       BindGroupSystem.extension = {
-        type: [
-          ExtensionType.WebGPUSystem
-        ],
-        name: "bindGroup"
+        type: [ExtensionType.WebGPUSystem],
+        name: "bindGroup",
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/gpu/buffer/GpuBufferSystem.mjs
@@ -30722,7 +29888,7 @@ ${parts.join("\n")}
               data.buffer,
               0,
               // round to the nearest 4 bytes
-              (buffer._updateSize || data.byteLength) + 3 & ~3
+              ((buffer._updateSize || data.byteLength) + 3) & ~3
             );
           }
           return gpuBuffer;
@@ -30779,12 +29945,10 @@ ${parts.join("\n")}
         }
       };
       GpuBufferSystem.extension = {
-        type: [
-          ExtensionType.WebGPUSystem
-        ],
-        name: "buffer"
+        type: [ExtensionType.WebGPUSystem],
+        name: "buffer",
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/gpu/GpuColorMaskSystem.mjs
@@ -30798,8 +29962,7 @@ ${parts.join("\n")}
           this._renderer = renderer;
         }
         setMask(colorMask) {
-          if (this._colorMaskCache === colorMask)
-            return;
+          if (this._colorMaskCache === colorMask) return;
           this._colorMaskCache = colorMask;
           this._renderer.pipeline.setColorMask(colorMask);
         }
@@ -30809,12 +29972,10 @@ ${parts.join("\n")}
         }
       };
       GpuColorMaskSystem.extension = {
-        type: [
-          ExtensionType.WebGPUSystem
-        ],
-        name: "colorMask"
+        type: [ExtensionType.WebGPUSystem],
+        name: "colorMask",
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/gpu/GpuDeviceSystem.mjs
@@ -30832,8 +29993,7 @@ ${parts.join("\n")}
         }
         init(options) {
           return __async(this, null, function* () {
-            if (this._initPromise)
-              return this._initPromise;
+            if (this._initPromise) return this._initPromise;
             this._initPromise = this._createDeviceAndAdaptor(options).then((gpu) => {
               this.gpu = gpu;
               this._renderer.runners.contextChange.emit(this.gpu);
@@ -30859,15 +30019,11 @@ ${parts.join("\n")}
           return __async(this, null, function* () {
             const adapter = yield DOMAdapter.get().getNavigator().gpu.requestAdapter({
               powerPreference: options.powerPreference,
-              forceFallbackAdapter: options.forceFallbackAdapter
+              forceFallbackAdapter: options.forceFallbackAdapter,
             });
-            const requiredFeatures = [
-              "texture-compression-bc",
-              "texture-compression-astc",
-              "texture-compression-etc2"
-            ].filter((feature) => adapter.features.has(feature));
+            const requiredFeatures = ["texture-compression-bc", "texture-compression-astc", "texture-compression-etc2"].filter((feature) => adapter.features.has(feature));
             const device = yield adapter.requestDevice({
-              requiredFeatures
+              requiredFeatures,
             });
             return { adapter, device };
           });
@@ -30878,10 +30034,8 @@ ${parts.join("\n")}
         }
       };
       GpuDeviceSystem.extension = {
-        type: [
-          ExtensionType.WebGPUSystem
-        ],
-        name: "device"
+        type: [ExtensionType.WebGPUSystem],
+        name: "device",
       };
       GpuDeviceSystem.defaultOptions = {
         /**
@@ -30893,9 +30047,9 @@ ${parts.join("\n")}
          * Force the use of the fallback adapter
          * @default false
          */
-        forceFallbackAdapter: false
+        forceFallbackAdapter: false,
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/gpu/GpuEncoderSystem.mjs
@@ -30934,20 +30088,17 @@ ${parts.join("\n")}
           this.setPipeline(pipeline);
         }
         setPipeline(pipeline) {
-          if (this._boundPipeline === pipeline)
-            return;
+          if (this._boundPipeline === pipeline) return;
           this._boundPipeline = pipeline;
           this.renderPassEncoder.setPipeline(pipeline);
         }
         _setVertexBuffer(index, buffer) {
-          if (this._boundVertexBuffer[index] === buffer)
-            return;
+          if (this._boundVertexBuffer[index] === buffer) return;
           this._boundVertexBuffer[index] = buffer;
           this.renderPassEncoder.setVertexBuffer(index, this._renderer.buffer.updateBuffer(buffer));
         }
         _setIndexBuffer(buffer) {
-          if (this._boundIndexBuffer === buffer)
-            return;
+          if (this._boundIndexBuffer === buffer) return;
           this._boundIndexBuffer = buffer;
           const indexFormat = buffer.data.BYTES_PER_ELEMENT === 2 ? "uint16" : "uint32";
           this.renderPassEncoder.setIndexBuffer(this._renderer.buffer.updateBuffer(buffer), indexFormat);
@@ -30956,8 +30107,7 @@ ${parts.join("\n")}
           this._boundBindGroup[index] = null;
         }
         setBindGroup(index, bindGroup, program) {
-          if (this._boundBindGroup[index] === bindGroup)
-            return;
+          if (this._boundBindGroup[index] === bindGroup) return;
           this._boundBindGroup[index] = bindGroup;
           bindGroup._touch(this._renderer.textureGC.count);
           const gpuBindGroup = this._renderer.bindGroup.getBindGroup(bindGroup, program, index);
@@ -30995,11 +30145,7 @@ ${parts.join("\n")}
           this.setGeometry(geometry, shader.gpuProgram);
           this._setShaderBindGroups(shader, skipSync);
           if (geometry.indexBuffer) {
-            this.renderPassEncoder.drawIndexed(
-              size || geometry.indexBuffer.data.length,
-              instanceCount != null ? instanceCount : geometry.instanceCount,
-              start || 0
-            );
+            this.renderPassEncoder.drawIndexed(size || geometry.indexBuffer.data.length, instanceCount != null ? instanceCount : geometry.instanceCount, start || 0);
           } else {
             this.renderPassEncoder.draw(size || geometry.getSize(), instanceCount != null ? instanceCount : geometry.instanceCount, start || 0);
           }
@@ -31020,11 +30166,7 @@ ${parts.join("\n")}
         // not optimised as really used for debugging!
         // used when we want to stop drawing and log a texture..
         restoreRenderPass() {
-          const descriptor = this._renderer.renderTarget.adaptor.getDescriptor(
-            this._renderer.renderTarget.renderTarget,
-            false,
-            [0, 0, 0, 1]
-          );
+          const descriptor = this._renderer.renderTarget.adaptor.getDescriptor(this._renderer.renderTarget.renderTarget, false, [0, 0, 0, 1]);
           this.renderPassEncoder = this.commandEncoder.beginRenderPass(descriptor);
           const boundPipeline = this._boundPipeline;
           const boundVertexBuffer = __spreadValues({}, this._boundVertexBuffer);
@@ -31065,9 +30207,9 @@ ${parts.join("\n")}
       GpuEncoderSystem.extension = {
         type: [ExtensionType.WebGPUSystem],
         name: "encoder",
-        priority: 1
+        priority: 1,
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/gpu/GpuStencilSystem.mjs
@@ -31087,7 +30229,7 @@ ${parts.join("\n")}
           if (!stencilState) {
             stencilState = this._renderTargetStencilState[renderTarget.uid] = {
               stencilMode: STENCIL_MODES.DISABLED,
-              stencilReference: 0
+              stencilReference: 0,
             };
           }
           this._activeRenderTarget = renderTarget;
@@ -31109,12 +30251,10 @@ ${parts.join("\n")}
         }
       };
       GpuStencilSystem.extension = {
-        type: [
-          ExtensionType.WebGPUSystem
-        ],
-        name: "stencil"
+        type: [ExtensionType.WebGPUSystem],
+        name: "stencil",
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/shared/shader/UboSystem.mjs
@@ -31142,10 +30282,11 @@ ${parts.join("\n")}
         }
         ensureUniformGroup(uniformGroup) {
           const uniformData = this.getUniformGroupData(uniformGroup);
-          uniformGroup.buffer || (uniformGroup.buffer = new Buffer2({
-            data: new Float32Array(uniformData.layout.size / 4),
-            usage: BufferUsage.UNIFORM | BufferUsage.COPY_DST
-          }));
+          uniformGroup.buffer ||
+            (uniformGroup.buffer = new Buffer2({
+              data: new Float32Array(uniformData.layout.size / 4),
+              usage: BufferUsage.UNIFORM | BufferUsage.COPY_DST,
+            }));
         }
         getUniformGroupData(uniformGroup) {
           return this._syncFunctionHash[uniformGroup._signature] || this._initUniformGroup(uniformGroup);
@@ -31159,7 +30300,7 @@ ${parts.join("\n")}
             const syncFunction = this._generateUboSync(layout.uboElements);
             uniformData = this._syncFunctionHash[uniformGroupSignature] = {
               layout,
-              syncFunction
+              syncFunction,
             };
           }
           return this._syncFunctionHash[uniformGroupSignature];
@@ -31169,10 +30310,11 @@ ${parts.join("\n")}
         }
         syncUniformGroup(uniformGroup, data, offset) {
           const uniformGroupData = this.getUniformGroupData(uniformGroup);
-          uniformGroup.buffer || (uniformGroup.buffer = new Buffer2({
-            data: new Float32Array(uniformGroupData.layout.size / 4),
-            usage: BufferUsage.UNIFORM | BufferUsage.COPY_DST
-          }));
+          uniformGroup.buffer ||
+            (uniformGroup.buffer = new Buffer2({
+              data: new Float32Array(uniformGroupData.layout.size / 4),
+              usage: BufferUsage.UNIFORM | BufferUsage.COPY_DST,
+            }));
           let dataInt32 = null;
           if (!data) {
             data = uniformGroup.buffer.data;
@@ -31183,8 +30325,7 @@ ${parts.join("\n")}
           return true;
         }
         updateUniformGroup(uniformGroup) {
-          if (uniformGroup.isStatic && !uniformGroup._dirtyId)
-            return false;
+          if (uniformGroup.isStatic && !uniformGroup._dirtyId) return false;
           uniformGroup._dirtyId = 0;
           const synced = this.syncUniformGroup(uniformGroup);
           uniformGroup.buffer.update();
@@ -31194,7 +30335,7 @@ ${parts.join("\n")}
           this._syncFunctionHash = null;
         }
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/gpu/shader/utils/createUboElementsWGSL.mjs
@@ -31202,7 +30343,7 @@ ${parts.join("\n")}
     const uboElements = uniformData.map((data) => ({
       data,
       offset: 0,
-      size: 0
+      size: 0,
     }));
     let offset = 0;
     for (let i2 = 0; i2 < uboElements.length; i2++) {
@@ -31261,9 +30402,9 @@ ${parts.join("\n")}
         "mat3x4<f32>": { align: 16, size: 48 },
         "mat3x4<f16>": { align: 8, size: 24 },
         "mat4x4<f32>": { align: 16, size: 64 },
-        "mat4x4<f16>": { align: 8, size: 32 }
+        "mat4x4<f16>": { align: 8, size: 32 },
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/shared/shader/utils/uniformParsers.mjs
@@ -31293,7 +30434,7 @@ ${parts.join("\n")}
         `,
           uniform: `
             gl.uniformMatrix3fv(ud[name].location, false, uv[name].toArray(true));
-        `
+        `,
         },
         // uploading a pixi rectangle as a vec4
         {
@@ -31316,7 +30457,7 @@ ${parts.join("\n")}
                 cv[3] = v.height;
                 gl.uniform4f(ud[name].location, v.x, v.y, v.width, v.height);
             }
-        `
+        `,
         },
         // uploading a pixi point as a vec2
         {
@@ -31335,7 +30476,7 @@ ${parts.join("\n")}
                 cv[1] = v.y;
                 gl.uniform2f(ud[name].location, v.x, v.y);
             }
-        `
+        `,
         },
         // uploading a pixi color as a vec4
         {
@@ -31358,7 +30499,7 @@ ${parts.join("\n")}
                 cv[3] = v.alpha;
                 gl.uniform4f(ud[name].location, v.red, v.green, v.blue, v.alpha);
             }
-        `
+        `,
         },
         // uploading a pixi color as a vec3
         {
@@ -31379,22 +30520,24 @@ ${parts.join("\n")}
                 cv[2] = v.blue;
                 gl.uniform3f(ud[name].location, v.red, v.green, v.blue);
             }
-        `
-        }
+        `,
+        },
       ];
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/shared/shader/utils/createUboSyncFunction.mjs
   function createUboSyncFunction(uboElements, parserCode, arrayGenerationFunction, singleSettersMap) {
-    const funcFragments = [`
+    const funcFragments = [
+      `
         var v = null;
         var v2 = null;
         var t = 0;
         var index = 0;
         var name = null;
         var arrayOffset = null;
-    `];
+    `,
+    ];
     let prev = 0;
     for (let i2 = 0; i2 < uboElements.length; i2++) {
       const uboElement = uboElements[i2];
@@ -31405,11 +30548,7 @@ ${parts.join("\n")}
         const uniformParser = uniformParsers[j3];
         if (uniformParser.test(uboElement.data)) {
           offset = uboElement.offset / 4;
-          funcFragments.push(
-            `name = "${name}";`,
-            `offset += ${offset - prev};`,
-            uniformParsers[j3][parserCode] || uniformParsers[j3].ubo
-          );
+          funcFragments.push(`name = "${name}";`, `offset += ${offset - prev};`, uniformParsers[j3][parserCode] || uniformParsers[j3].ubo);
           parsed = true;
           break;
         }
@@ -31434,18 +30573,12 @@ ${parts.join("\n")}
       prev = offset;
     }
     const fragmentSrc = funcFragments.join("\n");
-    return new Function(
-      "uv",
-      "data",
-      "dataInt32",
-      "offset",
-      fragmentSrc
-    );
+    return new Function("uv", "data", "dataInt32", "offset", fragmentSrc);
   }
   var init_createUboSyncFunction = __esm({
     "../../../../node_modules/pixi.js/lib/rendering/renderers/shared/shader/utils/createUboSyncFunction.mjs"() {
       init_uniformParsers();
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/shared/shader/utils/uboSyncFunctions.mjs
@@ -31514,7 +30647,7 @@ ${parts.join("\n")}
         "mat2x3<f32>": loopMatrix(2, 3),
         "mat4x3<f32>": loopMatrix(4, 3),
         "mat2x4<f32>": loopMatrix(2, 4),
-        "mat3x4<f32>": loopMatrix(3, 4)
+        "mat3x4<f32>": loopMatrix(3, 4),
       };
       uboSyncFunctionsWGSL = __spreadProps(__spreadValues({}, uboSyncFunctionsSTD40), {
         "mat2x2<f32>": `
@@ -31522,9 +30655,9 @@ ${parts.join("\n")}
         data[offset + 1] = v[1];
         data[offset + 2] = v[2];
         data[offset + 3] = v[3];
-    `
+    `,
       });
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/gpu/shader/utils/generateArraySyncWGSL.mjs
@@ -31553,24 +30686,19 @@ ${parts.join("\n")}
   var init_generateArraySyncWGSL = __esm({
     "../../../../node_modules/pixi.js/lib/rendering/renderers/gpu/shader/utils/generateArraySyncWGSL.mjs"() {
       init_createUboElementsWGSL();
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/gpu/shader/utils/createUboSyncFunctionWGSL.mjs
   function createUboSyncFunctionWGSL(uboElements) {
-    return createUboSyncFunction(
-      uboElements,
-      "uboWgsl",
-      generateArraySyncWGSL,
-      uboSyncFunctionsWGSL
-    );
+    return createUboSyncFunction(uboElements, "uboWgsl", generateArraySyncWGSL, uboSyncFunctionsWGSL);
   }
   var init_createUboSyncFunctionWGSL = __esm({
     "../../../../node_modules/pixi.js/lib/rendering/renderers/gpu/shader/utils/createUboSyncFunctionWGSL.mjs"() {
       init_createUboSyncFunction();
       init_uboSyncFunctions();
       init_generateArraySyncWGSL();
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/gpu/GpuUboSystem.mjs
@@ -31585,15 +30713,15 @@ ${parts.join("\n")}
         constructor() {
           super({
             createUboElements: createUboElementsWGSL,
-            generateUboSync: createUboSyncFunctionWGSL
+            generateUboSync: createUboSyncFunctionWGSL,
           });
         }
       };
       GpuUboSystem.extension = {
         type: [ExtensionType.WebGPUSystem],
-        name: "ubo"
+        name: "ubo",
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/shared/buffer/BufferResource.mjs
@@ -31643,7 +30771,7 @@ ${parts.join("\n")}
           this.buffer = null;
         }
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/gpu/buffer/UboBatch.mjs
@@ -31685,7 +30813,7 @@ ${parts.join("\n")}
           this.data = null;
         }
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/gpu/GpuUniformBatchPipe.mjs
@@ -31711,12 +30839,13 @@ ${parts.join("\n")}
           const totalBuffers = 256 / minUniformOffsetAlignment;
           for (let i2 = 0; i2 < totalBuffers; i2++) {
             let usage = BufferUsage.UNIFORM | BufferUsage.COPY_DST;
-            if (i2 === 0)
-              usage |= BufferUsage.COPY_SRC;
-            this._buffers.push(new Buffer2({
-              data: this._batchBuffer.data,
-              usage
-            }));
+            if (i2 === 0) usage |= BufferUsage.COPY_SRC;
+            this._buffers.push(
+              new Buffer2({
+                data: this._batchBuffer.data,
+                usage,
+              })
+            );
           }
         }
         renderEnd() {
@@ -31761,8 +30890,8 @@ ${parts.join("\n")}
             const buffer = this._buffers[index % 2];
             this._bufferResources[index] = new BufferResource({
               buffer,
-              offset: (index / 2 | 0) * 256,
-              size: minUniformOffsetAlignment
+              offset: ((index / 2) | 0) * 256,
+              size: minUniformOffsetAlignment,
             });
           }
           return this._bufferResources[index];
@@ -31770,7 +30899,7 @@ ${parts.join("\n")}
         _getBindGroup(index) {
           if (!this._bindGroups[index]) {
             const bindGroup = new BindGroup({
-              0: this._getBufferResource(index)
+              0: this._getBufferResource(index),
             });
             this._bindGroups[index] = bindGroup;
           }
@@ -31784,13 +30913,7 @@ ${parts.join("\n")}
           const commandEncoder = this._renderer.gpu.device.createCommandEncoder();
           for (let i2 = 1; i2 < this._buffers.length; i2++) {
             const buffer = this._buffers[i2];
-            commandEncoder.copyBufferToBuffer(
-              bufferSystem.getGPUBuffer(firstBuffer),
-              minUniformOffsetAlignment,
-              bufferSystem.getGPUBuffer(buffer),
-              0,
-              this._batchBuffer.byteIndex
-            );
+            commandEncoder.copyBufferToBuffer(bufferSystem.getGPUBuffer(firstBuffer), minUniformOffsetAlignment, bufferSystem.getGPUBuffer(buffer), 0, this._batchBuffer.byteIndex);
           }
           this._renderer.gpu.device.queue.submit([commandEncoder.finish()]);
         }
@@ -31814,12 +30937,10 @@ ${parts.join("\n")}
         }
       };
       GpuUniformBatchPipe.extension = {
-        type: [
-          ExtensionType.WebGPUPipes
-        ],
-        name: "uniformBatch"
+        type: [ExtensionType.WebGPUPipes],
+        name: "uniformBatch",
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/gl/shader/program/ensureAttributes.mjs
@@ -31829,9 +30950,9 @@ ${parts.join("\n")}
       const attribute = geometry.attributes[i2];
       const attributeData = extractedData[i2];
       if (attributeData) {
-        (_a2 = attribute.format) != null ? _a2 : attribute.format = attributeData.format;
-        (_b = attribute.offset) != null ? _b : attribute.offset = attributeData.offset;
-        (_c = attribute.instance) != null ? _c : attribute.instance = attributeData.instance;
+        (_a2 = attribute.format) != null ? _a2 : (attribute.format = attributeData.format);
+        (_b = attribute.offset) != null ? _b : (attribute.offset = attributeData.offset);
+        (_c = attribute.instance) != null ? _c : (attribute.instance = attributeData.instance);
       } else {
         warn(`Attribute ${i2} is not present in the shader, but is present in the geometry. Unable to infer attribute details.`);
       }
@@ -31854,8 +30975,8 @@ ${parts.join("\n")}
     }
     for (const j3 in attributes) {
       const attribute = attributes[j3];
-      (_a2 = attribute.stride) != null ? _a2 : attribute.stride = tempStride[attribute.buffer.uid];
-      (_b = attribute.start) != null ? _b : attribute.start = tempStart[attribute.buffer.uid];
+      (_a2 = attribute.stride) != null ? _a2 : (attribute.stride = tempStride[attribute.buffer.uid]);
+      (_b = attribute.start) != null ? _b : (attribute.start = tempStart[attribute.buffer.uid]);
       tempStart[attribute.buffer.uid] += getAttributeInfoFromFormat(attribute.format).stride;
     }
   }
@@ -31863,7 +30984,7 @@ ${parts.join("\n")}
     "../../../../node_modules/pixi.js/lib/rendering/renderers/gl/shader/program/ensureAttributes.mjs"() {
       init_warn();
       init_getAttributeInfoFromFormat();
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/gpu/state/GpuStencilModesToPixi.mjs
@@ -31875,59 +30996,59 @@ ${parts.join("\n")}
       GpuStencilModesToPixi[STENCIL_MODES.NONE] = void 0;
       GpuStencilModesToPixi[STENCIL_MODES.DISABLED] = {
         stencilWriteMask: 0,
-        stencilReadMask: 0
+        stencilReadMask: 0,
       };
       GpuStencilModesToPixi[STENCIL_MODES.RENDERING_MASK_ADD] = {
         stencilFront: {
           compare: "equal",
-          passOp: "increment-clamp"
+          passOp: "increment-clamp",
         },
         stencilBack: {
           compare: "equal",
-          passOp: "increment-clamp"
-        }
+          passOp: "increment-clamp",
+        },
       };
       GpuStencilModesToPixi[STENCIL_MODES.RENDERING_MASK_REMOVE] = {
         stencilFront: {
           compare: "equal",
-          passOp: "decrement-clamp"
+          passOp: "decrement-clamp",
         },
         stencilBack: {
           compare: "equal",
-          passOp: "decrement-clamp"
-        }
+          passOp: "decrement-clamp",
+        },
       };
       GpuStencilModesToPixi[STENCIL_MODES.MASK_ACTIVE] = {
         stencilWriteMask: 0,
         stencilFront: {
           compare: "equal",
-          passOp: "keep"
+          passOp: "keep",
         },
         stencilBack: {
           compare: "equal",
-          passOp: "keep"
-        }
+          passOp: "keep",
+        },
       };
       GpuStencilModesToPixi[STENCIL_MODES.INVERSE_MASK_ACTIVE] = {
         stencilWriteMask: 0,
         stencilFront: {
           compare: "not-equal",
-          passOp: "replace"
+          passOp: "replace",
         },
         stencilBack: {
           compare: "not-equal",
-          passOp: "replace"
-        }
+          passOp: "replace",
+        },
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/gpu/pipeline/PipelineSystem.mjs
   function getGraphicsStateKey(geometryLayout, shaderKey, state, blendMode, topology) {
-    return geometryLayout << 24 | shaderKey << 16 | state << 10 | blendMode << 5 | topology;
+    return (geometryLayout << 24) | (shaderKey << 16) | (state << 10) | (blendMode << 5) | topology;
   }
   function getGlobalStateKey(stencilStateId, multiSampleCount, colorMask, renderTarget) {
-    return colorMask << 6 | stencilStateId << 3 | renderTarget << 1 | multiSampleCount;
+    return (colorMask << 6) | (stencilStateId << 3) | (renderTarget << 1) | multiSampleCount;
   }
   var topologyStringToId, PipelineSystem;
   var init_PipelineSystem = __esm({
@@ -31943,7 +31064,7 @@ ${parts.join("\n")}
         "line-list": 1,
         "line-strip": 2,
         "triangle-list": 3,
-        "triangle-strip": 4
+        "triangle-strip": 4,
       };
       PipelineSystem = class {
         constructor(renderer) {
@@ -31962,8 +31083,7 @@ ${parts.join("\n")}
           this._updatePipeHash();
         }
         setMultisampleCount(multisampleCount) {
-          if (this._multisampleCount === multisampleCount)
-            return;
+          if (this._multisampleCount === multisampleCount) return;
           this._multisampleCount = multisampleCount;
           this._updatePipeHash();
         }
@@ -31973,14 +31093,12 @@ ${parts.join("\n")}
           this._updatePipeHash();
         }
         setColorMask(colorMask) {
-          if (this._colorMask === colorMask)
-            return;
+          if (this._colorMask === colorMask) return;
           this._colorMask = colorMask;
           this._updatePipeHash();
         }
         setStencilMode(stencilMode) {
-          if (this._stencilMode === stencilMode)
-            return;
+          if (this._stencilMode === stencilMode) return;
           this._stencilMode = stencilMode;
           this._stencilState = GpuStencilModesToPixi[stencilMode];
           this._updatePipeHash();
@@ -31995,15 +31113,8 @@ ${parts.join("\n")}
             this._generateBufferKey(geometry);
           }
           topology || (topology = geometry.topology);
-          const key = getGraphicsStateKey(
-            geometry._layoutKey,
-            program._layoutKey,
-            state.data,
-            state._blendModeId,
-            topologyStringToId[topology]
-          );
-          if (this._pipeCache[key])
-            return this._pipeCache[key];
+          const key = getGraphicsStateKey(geometry._layoutKey, program._layoutKey, state.data, state._blendModeId, topologyStringToId[topology]);
+          if (this._pipeCache[key]) return this._pipeCache[key];
           this._pipeCache[key] = this._createPipeline(geometry, program, state, topology);
           return this._pipeCache[key];
         }
@@ -32020,29 +31131,29 @@ ${parts.join("\n")}
               module: this._getModule(program.vertex.source),
               entryPoint: program.vertex.entryPoint,
               // geometry..
-              buffers
+              buffers,
             },
             fragment: {
               module: this._getModule(program.fragment.source),
               entryPoint: program.fragment.entryPoint,
-              targets: blendModes
+              targets: blendModes,
             },
             primitive: {
               topology,
-              cullMode: state.cullMode
+              cullMode: state.cullMode,
             },
             layout,
             multisample: {
-              count: this._multisampleCount
+              count: this._multisampleCount,
             },
             // depthStencil,
-            label: `PIXI Pipeline`
+            label: `PIXI Pipeline`,
           };
           if (this._depthStencilAttachment) {
             descriptor.depthStencil = __spreadProps(__spreadValues({}, this._stencilState), {
               format: "depth24plus-stencil8",
               depthWriteEnabled: state.depthTest,
-              depthCompare: state.depthTest ? "less" : "always"
+              depthCompare: state.depthTest ? "less" : "always",
             });
           }
           const pipeline = device.createRenderPipeline(descriptor);
@@ -32054,7 +31165,7 @@ ${parts.join("\n")}
         _createModule(code) {
           const device = this._gpu.device;
           this._moduleCache[code] = device.createShaderModule({
-            code
+            code,
           });
           return this._moduleCache[code];
         }
@@ -32093,9 +31204,8 @@ ${parts.join("\n")}
          * @returns An object of buffer names mapped to the bind location.
          */
         getBufferNamesToBind(geometry, program) {
-          const key = geometry._layoutKey << 16 | program._attributeLocationsKey;
-          if (this._bindingNamesCache[key])
-            return this._bindingNamesCache[key];
+          const key = (geometry._layoutKey << 16) | program._attributeLocationsKey;
+          if (this._bindingNamesCache[key]) return this._bindingNamesCache[key];
           const data = this._createVertexBufferLayouts(geometry, program);
           const bufferNamesToBind = /* @__PURE__ */ Object.create(null);
           const attributeData = program.attributeData;
@@ -32113,9 +31223,8 @@ ${parts.join("\n")}
           return bufferNamesToBind;
         }
         _createVertexBufferLayouts(geometry, program) {
-          if (!program._attributeLocationsKey)
-            this._generateAttributeLocationsKey(program);
-          const key = geometry._layoutKey << 16 | program._attributeLocationsKey;
+          if (!program._attributeLocationsKey) this._generateAttributeLocationsKey(program);
+          const key = (geometry._layoutKey << 16) | program._attributeLocationsKey;
           if (this._bufferLayoutsCache[key]) {
             return this._bufferLayoutsCache[key];
           }
@@ -32125,7 +31234,7 @@ ${parts.join("\n")}
             const bufferEntry = {
               arrayStride: 0,
               stepMode: "vertex",
-              attributes: []
+              attributes: [],
             };
             const bufferEntryAttributes = bufferEntry.attributes;
             for (const i2 in program.attributeData) {
@@ -32139,7 +31248,7 @@ ${parts.join("\n")}
                 bufferEntryAttributes.push({
                   shaderLocation: program.attributeData[i2].location,
                   offset: attribute.offset,
-                  format: attribute.format
+                  format: attribute.format,
                 });
               }
             }
@@ -32151,12 +31260,7 @@ ${parts.join("\n")}
           return vertexBuffersLayout;
         }
         _updatePipeHash() {
-          const key = getGlobalStateKey(
-            this._stencilMode,
-            this._multisampleCount,
-            this._colorMask,
-            this._depthStencilAttachment
-          );
+          const key = getGlobalStateKey(this._stencilMode, this._multisampleCount, this._colorMask, this._depthStencilAttachment);
           if (!this._pipeStateCaches[key]) {
             this._pipeStateCaches[key] = /* @__PURE__ */ Object.create(null);
           }
@@ -32169,17 +31273,17 @@ ${parts.join("\n")}
       };
       PipelineSystem.extension = {
         type: [ExtensionType.WebGPUSystem],
-        name: "pipeline"
+        name: "pipeline",
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/gpu/renderTarget/calculateProjection.mjs
   function calculateProjection(pm, x3, y2, width, height, flipY) {
     const sign = flipY ? 1 : -1;
     pm.identity();
-    pm.a = 1 / width * 2;
-    pm.d = sign * (1 / height * 2);
+    pm.a = (1 / width) * 2;
+    pm.d = sign * ((1 / height) * 2);
     pm.tx = -1 - x3 * pm.a;
     pm.ty = -sign - y2 * pm.d;
     return pm;
@@ -32187,7 +31291,7 @@ ${parts.join("\n")}
   var init_calculateProjection = __esm({
     "../../../../node_modules/pixi.js/lib/rendering/renderers/gpu/renderTarget/calculateProjection.mjs"() {
       "use strict";
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/shared/renderTarget/isRenderingToScreen.mjs
@@ -32198,7 +31302,7 @@ ${parts.join("\n")}
   var init_isRenderingToScreen = __esm({
     "../../../../node_modules/pixi.js/lib/rendering/renderers/shared/renderTarget/isRenderingToScreen.mjs"() {
       "use strict";
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/shared/renderTarget/RenderTargetSystem.mjs
@@ -32241,20 +31345,10 @@ ${parts.join("\n")}
          * @param options.clearColor - the color to clear to
          * @param options.frame - the frame to render to
          */
-        renderStart({
-          target,
-          clear,
-          clearColor,
-          frame
-        }) {
+        renderStart({ target, clear, clearColor, frame }) {
           var _a2, _b;
           this._renderTargetStack.length = 0;
-          this.push(
-            target,
-            clear,
-            clearColor,
-            frame
-          );
+          this.push(target, clear, clearColor, frame);
           this.rootViewPort.copyFrom(this.viewport);
           this.rootRenderTarget = this.renderTarget;
           this.renderingToScreen = isRenderingToScreen(this.rootRenderTarget);
@@ -32296,24 +31390,17 @@ ${parts.join("\n")}
           }
           if (frame) {
             const resolution = source2._resolution;
-            viewport.x = frame.x * resolution + 0.5 | 0;
-            viewport.y = frame.y * resolution + 0.5 | 0;
-            viewport.width = frame.width * resolution + 0.5 | 0;
-            viewport.height = frame.height * resolution + 0.5 | 0;
+            viewport.x = (frame.x * resolution + 0.5) | 0;
+            viewport.y = (frame.y * resolution + 0.5) | 0;
+            viewport.width = (frame.width * resolution + 0.5) | 0;
+            viewport.height = (frame.height * resolution + 0.5) | 0;
           } else {
             viewport.x = 0;
             viewport.y = 0;
             viewport.width = pixelWidth;
             viewport.height = pixelHeight;
           }
-          calculateProjection(
-            this.projectionMatrix,
-            0,
-            0,
-            viewport.width / source2.resolution,
-            viewport.height / source2.resolution,
-            !renderTarget.isRoot
-          );
+          calculateProjection(this.projectionMatrix, 0, 0, viewport.width / source2.resolution, viewport.height / source2.resolution, !renderTarget.isRoot);
           this.adaptor.startRenderPass(renderTarget, clear, clearColor, viewport);
           if (didChange) {
             this.onRenderTargetChange.emit(renderTarget);
@@ -32321,17 +31408,11 @@ ${parts.join("\n")}
           return renderTarget;
         }
         clear(target, clear = CLEAR.ALL, clearColor) {
-          if (!clear)
-            return;
+          if (!clear) return;
           if (target) {
             target = this.getRenderTarget(target);
           }
-          this.adaptor.clear(
-            target || this.renderTarget,
-            clear,
-            clearColor,
-            this.viewport
-          );
+          this.adaptor.clear(target || this.renderTarget, clear, clearColor, this.viewport);
         }
         contextChange() {
           this._gpuRenderTargetHash = /* @__PURE__ */ Object.create(null);
@@ -32347,7 +31428,7 @@ ${parts.join("\n")}
           const renderTarget = this.bind(renderSurface, clear, clearColor, frame);
           this._renderTargetStack.push({
             renderTarget,
-            frame
+            frame,
           });
           return renderTarget;
         }
@@ -32424,13 +31505,7 @@ ${parts.join("\n")}
           const { pixelWidth, pixelHeight } = sourceRenderSurfaceTexture;
           size.width = Math.min(size.width, pixelWidth - originSrc.x);
           size.height = Math.min(size.height, pixelHeight - originSrc.y);
-          return this.adaptor.copyToTexture(
-            sourceRenderSurfaceTexture,
-            destinationTexture,
-            originSrc,
-            size,
-            originDest
-          );
+          return this.adaptor.copyToTexture(sourceRenderSurfaceTexture, destinationTexture, originSrc, size, originDest);
         }
         /**
          * ensures that we have a depth stencil buffer available to render to
@@ -32462,7 +31537,7 @@ ${parts.join("\n")}
             renderTarget = renderSurface;
           } else if (renderSurface instanceof TextureSource) {
             renderTarget = new RenderTarget({
-              colorTextures: [renderSurface]
+              colorTextures: [renderSurface],
             });
             if (CanvasSource.test(renderSurface.source.resource)) {
               renderTarget.isRoot = true;
@@ -32488,7 +31563,7 @@ ${parts.join("\n")}
           this.renderSurface = null;
         }
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/gpu/renderTarget/GpuRenderTarget.mjs
@@ -32503,7 +31578,7 @@ ${parts.join("\n")}
           this.msaaSamples = 1;
         }
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/gpu/renderTarget/GpuRenderTargetAdaptor.mjs
@@ -32521,20 +31596,16 @@ ${parts.join("\n")}
         }
         copyToTexture(sourceRenderSurfaceTexture, destinationTexture, originSrc, size, originDest) {
           const renderer = this._renderer;
-          const baseGpuTexture = this._getGpuColorTexture(
-            sourceRenderSurfaceTexture
-          );
-          const backGpuTexture = renderer.texture.getGpuSource(
-            destinationTexture.source
-          );
+          const baseGpuTexture = this._getGpuColorTexture(sourceRenderSurfaceTexture);
+          const backGpuTexture = renderer.texture.getGpuSource(destinationTexture.source);
           renderer.encoder.commandEncoder.copyTextureToTexture(
             {
               texture: baseGpuTexture,
-              origin: originSrc
+              origin: originSrc,
             },
             {
               texture: backGpuTexture,
-              origin: originDest
+              origin: originDest,
             },
             size
           );
@@ -32563,9 +31634,7 @@ ${parts.join("\n")}
           if (gpuRenderTarget.contexts[0]) {
             return gpuRenderTarget.contexts[0].getCurrentTexture();
           }
-          return this._renderer.texture.getGpuSource(
-            renderTarget.colorTextures[0].source
-          );
+          return this._renderer.texture.getGpuSource(renderTarget.colorTextures[0].source);
         }
         getDescriptor(renderTarget, clear, clearValue) {
           if (typeof clear === "boolean") {
@@ -32573,37 +31642,33 @@ ${parts.join("\n")}
           }
           const renderTargetSystem = this._renderTargetSystem;
           const gpuRenderTarget = renderTargetSystem.getGpuRenderTarget(renderTarget);
-          const colorAttachments = renderTarget.colorTextures.map(
-            (texture, i2) => {
-              const context2 = gpuRenderTarget.contexts[i2];
-              let view;
-              let resolveTarget;
-              if (context2) {
-                const currentTexture = context2.getCurrentTexture();
-                const canvasTextureView = currentTexture.createView();
-                view = canvasTextureView;
-              } else {
-                view = this._renderer.texture.getGpuSource(texture).createView({
-                  mipLevelCount: 1
-                });
-              }
-              if (gpuRenderTarget.msaaTextures[i2]) {
-                resolveTarget = view;
-                view = this._renderer.texture.getTextureView(
-                  gpuRenderTarget.msaaTextures[i2]
-                );
-              }
-              const loadOp = clear & CLEAR.COLOR ? "clear" : "load";
-              clearValue != null ? clearValue : clearValue = renderTargetSystem.defaultClearColor;
-              return {
-                view,
-                resolveTarget,
-                clearValue,
-                storeOp: "store",
-                loadOp
-              };
+          const colorAttachments = renderTarget.colorTextures.map((texture, i2) => {
+            const context2 = gpuRenderTarget.contexts[i2];
+            let view;
+            let resolveTarget;
+            if (context2) {
+              const currentTexture = context2.getCurrentTexture();
+              const canvasTextureView = currentTexture.createView();
+              view = canvasTextureView;
+            } else {
+              view = this._renderer.texture.getGpuSource(texture).createView({
+                mipLevelCount: 1,
+              });
             }
-          );
+            if (gpuRenderTarget.msaaTextures[i2]) {
+              resolveTarget = view;
+              view = this._renderer.texture.getTextureView(gpuRenderTarget.msaaTextures[i2]);
+            }
+            const loadOp = clear & CLEAR.COLOR ? "clear" : "load";
+            clearValue != null ? clearValue : (clearValue = renderTargetSystem.defaultClearColor);
+            return {
+              view,
+              resolveTarget,
+              clearValue,
+              storeOp: "store",
+              loadOp,
+            };
+          });
           let depthStencilAttachment;
           if ((renderTarget.stencil || renderTarget.depth) && !renderTarget.depthStencilTexture) {
             renderTarget.ensureDepthStencilTexture();
@@ -32618,18 +31683,17 @@ ${parts.join("\n")}
               stencilLoadOp,
               depthClearValue: 1,
               depthLoadOp,
-              depthStoreOp: "store"
+              depthStoreOp: "store",
             };
           }
           const descriptor = {
             colorAttachments,
-            depthStencilAttachment
+            depthStencilAttachment,
           };
           return descriptor;
         }
         clear(renderTarget, clear = true, clearColor, viewport) {
-          if (!clear)
-            return;
+          if (!clear) return;
           const { gpu, encoder } = this._renderer;
           const device = gpu.device;
           const standAlone = encoder.commandEncoder === null;
@@ -32650,16 +31714,14 @@ ${parts.join("\n")}
           const gpuRenderTarget = new GpuRenderTarget();
           renderTarget.colorTextures.forEach((colorTexture, i2) => {
             if (CanvasSource.test(colorTexture.resource)) {
-              const context2 = colorTexture.resource.getContext(
-                "webgpu"
-              );
+              const context2 = colorTexture.resource.getContext("webgpu");
               const alphaMode = colorTexture.transparent ? "premultiplied" : "opaque";
               try {
                 context2.configure({
                   device: this._renderer.gpu.device,
                   usage: GPUTextureUsage.TEXTURE_BINDING | GPUTextureUsage.COPY_DST | GPUTextureUsage.RENDER_ATTACHMENT | GPUTextureUsage.COPY_SRC,
                   format: "bgra8unorm",
-                  alphaMode
+                  alphaMode,
                 });
               } catch (e2) {
                 console.error(e2);
@@ -32671,7 +31733,7 @@ ${parts.join("\n")}
               const msaaTexture = new TextureSource({
                 width: 0,
                 height: 0,
-                sampleCount: 4
+                sampleCount: 4,
               });
               gpuRenderTarget.msaaTextures[i2] = msaaTexture;
             }
@@ -32707,16 +31769,12 @@ ${parts.join("\n")}
           if (gpuRenderTarget.msaa) {
             renderTarget.colorTextures.forEach((colorTexture, i2) => {
               const msaaTexture = gpuRenderTarget.msaaTextures[i2];
-              msaaTexture == null ? void 0 : msaaTexture.resize(
-                colorTexture.source.width,
-                colorTexture.source.height,
-                colorTexture.source._resolution
-              );
+              msaaTexture == null ? void 0 : msaaTexture.resize(colorTexture.source.width, colorTexture.source.height, colorTexture.source._resolution);
             });
           }
         }
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/gpu/renderTarget/GpuRenderTargetSystem.mjs
@@ -32735,9 +31793,9 @@ ${parts.join("\n")}
       };
       GpuRenderTargetSystem.extension = {
         type: [ExtensionType.WebGPUSystem],
-        name: "renderTarget"
+        name: "renderTarget",
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/gpu/shader/GpuShaderSystem.mjs
@@ -32762,7 +31820,7 @@ ${parts.join("\n")}
           const pipelineLayoutDesc = { bindGroupLayouts: bindGroups };
           this._gpuProgramData[program._layoutKey] = {
             bindGroups,
-            pipeline: device.createPipelineLayout(pipelineLayoutDesc)
+            pipeline: device.createPipelineLayout(pipelineLayoutDesc),
           };
           return this._gpuProgramData[program._layoutKey];
         }
@@ -32772,12 +31830,10 @@ ${parts.join("\n")}
         }
       };
       GpuShaderSystem.extension = {
-        type: [
-          ExtensionType.WebGPUSystem
-        ],
-        name: "shader"
+        type: [ExtensionType.WebGPUSystem],
+        name: "shader",
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/gpu/state/GpuBlendModesToPixi.mjs
@@ -32790,147 +31846,147 @@ ${parts.join("\n")}
         alpha: {
           srcFactor: "one",
           dstFactor: "one-minus-src-alpha",
-          operation: "add"
+          operation: "add",
         },
         color: {
           srcFactor: "one",
           dstFactor: "one-minus-src-alpha",
-          operation: "add"
-        }
+          operation: "add",
+        },
       };
       GpuBlendModesToPixi.add = {
         alpha: {
           srcFactor: "src-alpha",
           dstFactor: "one-minus-src-alpha",
-          operation: "add"
+          operation: "add",
         },
         color: {
           srcFactor: "one",
           dstFactor: "one",
-          operation: "add"
-        }
+          operation: "add",
+        },
       };
       GpuBlendModesToPixi.multiply = {
         alpha: {
           srcFactor: "one",
           dstFactor: "one-minus-src-alpha",
-          operation: "add"
+          operation: "add",
         },
         color: {
           srcFactor: "dst",
           dstFactor: "one-minus-src-alpha",
-          operation: "add"
-        }
+          operation: "add",
+        },
       };
       GpuBlendModesToPixi.screen = {
         alpha: {
           srcFactor: "one",
           dstFactor: "one-minus-src-alpha",
-          operation: "add"
+          operation: "add",
         },
         color: {
           srcFactor: "one",
           dstFactor: "one-minus-src",
-          operation: "add"
-        }
+          operation: "add",
+        },
       };
       GpuBlendModesToPixi.overlay = {
         alpha: {
           srcFactor: "one",
           dstFactor: "one-minus-src-alpha",
-          operation: "add"
+          operation: "add",
         },
         color: {
           srcFactor: "one",
           dstFactor: "one-minus-src",
-          operation: "add"
-        }
+          operation: "add",
+        },
       };
       GpuBlendModesToPixi.none = {
         alpha: {
           srcFactor: "one",
           dstFactor: "one-minus-src-alpha",
-          operation: "add"
+          operation: "add",
         },
         color: {
           srcFactor: "zero",
           dstFactor: "zero",
-          operation: "add"
-        }
+          operation: "add",
+        },
       };
       GpuBlendModesToPixi["normal-npm"] = {
         alpha: {
           srcFactor: "one",
           dstFactor: "one-minus-src-alpha",
-          operation: "add"
+          operation: "add",
         },
         color: {
           srcFactor: "src-alpha",
           dstFactor: "one-minus-src-alpha",
-          operation: "add"
-        }
+          operation: "add",
+        },
       };
       GpuBlendModesToPixi["add-npm"] = {
         alpha: {
           srcFactor: "one",
           dstFactor: "one",
-          operation: "add"
+          operation: "add",
         },
         color: {
           srcFactor: "src-alpha",
           dstFactor: "one",
-          operation: "add"
-        }
+          operation: "add",
+        },
       };
       GpuBlendModesToPixi["screen-npm"] = {
         alpha: {
           srcFactor: "one",
           dstFactor: "one-minus-src-alpha",
-          operation: "add"
+          operation: "add",
         },
         color: {
           srcFactor: "src-alpha",
           dstFactor: "one-minus-src",
-          operation: "add"
-        }
+          operation: "add",
+        },
       };
       GpuBlendModesToPixi.erase = {
         alpha: {
           srcFactor: "zero",
           dstFactor: "one-minus-src-alpha",
-          operation: "add"
+          operation: "add",
         },
         color: {
           srcFactor: "zero",
           dstFactor: "one-minus-src",
-          operation: "add"
-        }
+          operation: "add",
+        },
       };
       GpuBlendModesToPixi.min = {
         alpha: {
           srcFactor: "one",
           dstFactor: "one",
-          operation: "min"
+          operation: "min",
         },
         color: {
           srcFactor: "one",
           dstFactor: "one",
-          operation: "min"
-        }
+          operation: "min",
+        },
       };
       GpuBlendModesToPixi.max = {
         alpha: {
           srcFactor: "one",
           dstFactor: "one",
-          operation: "max"
+          operation: "max",
         },
         color: {
           srcFactor: "one",
           dstFactor: "one",
-          operation: "max"
-        }
+          operation: "max",
+        },
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/gpu/state/GpuStateSystem.mjs
@@ -32958,8 +32014,8 @@ ${parts.join("\n")}
             {
               format: "bgra8unorm",
               writeMask: 0,
-              blend
-            }
+              blend,
+            },
           ];
         }
         destroy() {
@@ -32967,12 +32023,10 @@ ${parts.join("\n")}
         }
       };
       GpuStateSystem.extension = {
-        type: [
-          ExtensionType.WebGPUSystem
-        ],
-        name: "state"
+        type: [ExtensionType.WebGPUSystem],
+        name: "state",
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/gpu/texture/uploaders/gpuUploadBufferImageResource.mjs
@@ -32992,17 +32046,17 @@ ${parts.join("\n")}
             {
               offset: 0,
               rowsPerImage: source2.pixelHeight,
-              bytesPerRow: source2.pixelHeight * bytesPerPixel
+              bytesPerRow: source2.pixelHeight * bytesPerPixel,
             },
             {
               width: source2.pixelWidth,
               height: source2.pixelHeight,
-              depthOrArrayLayers: 1
+              depthOrArrayLayers: 1,
             }
           );
-        }
+        },
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/gpu/texture/uploaders/gpuUploadCompressedTextureResource.mjs
@@ -33017,7 +32071,7 @@ ${parts.join("\n")}
         "bc7-rgba-unorm": { blockBytes: 16, blockWidth: 4, blockHeight: 4 },
         "etc1-rgb-unorm": { blockBytes: 8, blockWidth: 4, blockHeight: 4 },
         "etc2-rgba8unorm": { blockBytes: 16, blockWidth: 4, blockHeight: 4 },
-        "astc-4x4-unorm": { blockBytes: 16, blockWidth: 4, blockHeight: 4 }
+        "astc-4x4-unorm": { blockBytes: 16, blockWidth: 4, blockHeight: 4 },
       };
       defaultBlockData = { blockBytes: 4, blockWidth: 1, blockHeight: 1 };
       gpuUploadCompressedTextureResource = {
@@ -33032,25 +32086,25 @@ ${parts.join("\n")}
             gpu.device.queue.writeTexture(
               {
                 texture: gpuTexture,
-                mipLevel: i2
+                mipLevel: i2,
               },
               levelBuffer,
               {
                 offset: 0,
-                bytesPerRow
+                bytesPerRow,
               },
               {
                 width: Math.ceil(mipWidth / blockData.blockWidth) * blockData.blockWidth,
                 height: Math.ceil(mipHeight / blockData.blockHeight) * blockData.blockHeight,
-                depthOrArrayLayers: 1
+                depthOrArrayLayers: 1,
               }
             );
             mipWidth = Math.max(mipWidth >> 1, 1);
             mipHeight = Math.max(mipHeight >> 1, 1);
           }
-        }
+        },
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/gpu/texture/uploaders/gpuUploadImageSource.mjs
@@ -33062,8 +32116,7 @@ ${parts.join("\n")}
         type: "image",
         upload(source2, gpuTexture, gpu) {
           const resource = source2.resource;
-          if (!resource)
-            return;
+          if (!resource) return;
           const width = Math.min(gpuTexture.width, source2.resourceWidth || source2.pixelWidth);
           const height = Math.min(gpuTexture.height, source2.resourceHeight || source2.pixelHeight);
           const premultipliedAlpha = source2.alphaMode === "premultiply-alpha-on-upload";
@@ -33072,12 +32125,12 @@ ${parts.join("\n")}
             { texture: gpuTexture, premultipliedAlpha },
             {
               width,
-              height
+              height,
             }
           );
-        }
+        },
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/gpu/texture/uploaders/gpuUploadVideoSource.mjs
@@ -33089,9 +32142,9 @@ ${parts.join("\n")}
         type: "video",
         upload(source2, gpuTexture, gpu) {
           gpuUploadImageResource.upload(source2, gpuTexture, gpu);
-        }
+        },
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/gpu/texture/utils/GpuMipmapGenerator.mjs
@@ -33110,7 +32163,7 @@ ${parts.join("\n")}
           if (!pipeline) {
             if (!this.mipmapShaderModule) {
               this.mipmapShaderModule = this.device.createShaderModule({
-                code: (
+                code:
                   /* wgsl */
                   `
                         var<private> pos : array<vec2<f32>, 3> = array<vec2<f32>, 3>(
@@ -33136,21 +32189,20 @@ ${parts.join("\n")}
                         fn fragmentMain(@location(0) texCoord : vec2<f32>) -> @location(0) vec4<f32> {
                         return textureSample(img, imgSampler, texCoord);
                         }
-                    `
-                )
+                    `,
               });
             }
             pipeline = this.device.createRenderPipeline({
               layout: "auto",
               vertex: {
                 module: this.mipmapShaderModule,
-                entryPoint: "vertexMain"
+                entryPoint: "vertexMain",
               },
               fragment: {
                 module: this.mipmapShaderModule,
                 entryPoint: "fragmentMain",
-                targets: [{ format }]
-              }
+                targets: [{ format }],
+              },
             });
             this.pipelines[format] = pipeline;
           }
@@ -33174,11 +32226,11 @@ ${parts.join("\n")}
               size: {
                 width: Math.ceil(texture.width / 2),
                 height: Math.ceil(texture.height / 2),
-                depthOrArrayLayers: arrayLayerCount
+                depthOrArrayLayers: arrayLayerCount,
               },
               format: texture.format,
               usage: GPUTextureUsage.TEXTURE_BINDING | GPUTextureUsage.COPY_SRC | GPUTextureUsage.RENDER_ATTACHMENT,
-              mipLevelCount: texture.mipLevelCount - 1
+              mipLevelCount: texture.mipLevelCount - 1,
             };
             mipTexture = this.device.createTexture(mipTextureDescriptor);
           }
@@ -33190,7 +32242,7 @@ ${parts.join("\n")}
               mipLevelCount: 1,
               dimension: "2d",
               baseArrayLayer: arrayLayer,
-              arrayLayerCount: 1
+              arrayLayerCount: 1,
             });
             let dstMipLevel = renderToSource ? 1 : 0;
             for (let i2 = 1; i2 < texture.mipLevelCount; ++i2) {
@@ -33199,25 +32251,30 @@ ${parts.join("\n")}
                 mipLevelCount: 1,
                 dimension: "2d",
                 baseArrayLayer: arrayLayer,
-                arrayLayerCount: 1
+                arrayLayerCount: 1,
               });
               const passEncoder = commandEncoder.beginRenderPass({
-                colorAttachments: [{
-                  view: dstView,
-                  storeOp: "store",
-                  loadOp: "clear",
-                  clearValue: { r: 0, g: 0, b: 0, a: 0 }
-                }]
+                colorAttachments: [
+                  {
+                    view: dstView,
+                    storeOp: "store",
+                    loadOp: "clear",
+                    clearValue: { r: 0, g: 0, b: 0, a: 0 },
+                  },
+                ],
               });
               const bindGroup = this.device.createBindGroup({
                 layout: bindGroupLayout,
-                entries: [{
-                  binding: 0,
-                  resource: this.sampler
-                }, {
-                  binding: 1,
-                  resource: srcView
-                }]
+                entries: [
+                  {
+                    binding: 0,
+                    resource: this.sampler,
+                  },
+                  {
+                    binding: 1,
+                    resource: srcView,
+                  },
+                ],
               });
               passEncoder.setPipeline(pipeline);
               passEncoder.setBindGroup(0, bindGroup);
@@ -33230,16 +32287,20 @@ ${parts.join("\n")}
             const mipLevelSize = {
               width: Math.ceil(texture.width / 2),
               height: Math.ceil(texture.height / 2),
-              depthOrArrayLayers: arrayLayerCount
+              depthOrArrayLayers: arrayLayerCount,
             };
             for (let i2 = 1; i2 < texture.mipLevelCount; ++i2) {
-              commandEncoder.copyTextureToTexture({
-                texture: mipTexture,
-                mipLevel: i2 - 1
-              }, {
-                texture,
-                mipLevel: i2
-              }, mipLevelSize);
+              commandEncoder.copyTextureToTexture(
+                {
+                  texture: mipTexture,
+                  mipLevel: i2 - 1,
+                },
+                {
+                  texture,
+                  mipLevel: i2,
+                },
+                mipLevelSize
+              );
               mipLevelSize.width = Math.ceil(mipLevelSize.width / 2);
               mipLevelSize.height = Math.ceil(mipLevelSize.height / 2);
             }
@@ -33251,7 +32312,7 @@ ${parts.join("\n")}
           return texture;
         }
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/gpu/texture/GpuTextureSystem.mjs
@@ -33279,7 +32340,7 @@ ${parts.join("\n")}
             image: gpuUploadImageResource,
             buffer: gpuUploadBufferImageResource,
             video: gpuUploadVideoResource,
-            compressed: gpuUploadCompressedTextureResource
+            compressed: gpuUploadCompressedTextureResource,
           };
           this._renderer = renderer;
           renderer.renderableGC.addManagedHash(this, "_gpuSources");
@@ -33310,7 +32371,7 @@ ${parts.join("\n")}
             sampleCount: source2.sampleCount,
             mipLevelCount: source2.mipLevelCount,
             dimension: source2.dimension,
-            usage
+            usage,
           };
           const gpuTexture = this._gpu.device.createTexture(textureDescriptor);
           this._gpuSources[source2.uid] = gpuTexture;
@@ -33327,8 +32388,7 @@ ${parts.join("\n")}
         }
         onSourceUpdate(source2) {
           const gpuTexture = this.getGpuSource(source2);
-          if (!gpuTexture)
-            return;
+          if (!gpuTexture) return;
           if (this._uploads[source2.uploadMethodId]) {
             this._uploads[source2.uploadMethodId].upload(source2, gpuTexture, this._gpu);
           }
@@ -33399,8 +32459,8 @@ ${parts.join("\n")}
             0: source2,
             1: source2.style,
             2: new UniformGroup({
-              uTextureMatrix: { type: "mat3x3<f32>", value: texture.textureMatrix.mapCoord }
-            })
+              uTextureMatrix: { type: "mat3x3<f32>", value: texture.textureMatrix.mapCoord },
+            }),
           });
           return this._bindGroupHash[texture.uid];
         }
@@ -33424,20 +32484,24 @@ ${parts.join("\n")}
             device: renderer.gpu.device,
             usage: GPUTextureUsage.COPY_DST | GPUTextureUsage.COPY_SRC,
             format: DOMAdapter.get().getNavigator().gpu.getPreferredCanvasFormat(),
-            alphaMode: "premultiplied"
+            alphaMode: "premultiplied",
           });
-          commandEncoder.copyTextureToTexture({
-            texture: renderer.texture.getGpuSource(texture.source),
-            origin: {
-              x: 0,
-              y: 0
+          commandEncoder.copyTextureToTexture(
+            {
+              texture: renderer.texture.getGpuSource(texture.source),
+              origin: {
+                x: 0,
+                y: 0,
+              },
+            },
+            {
+              texture: context2.getCurrentTexture(),
+            },
+            {
+              width: canvas.width,
+              height: canvas.height,
             }
-          }, {
-            texture: context2.getCurrentTexture()
-          }, {
-            width: canvas.width,
-            height: canvas.height
-          });
+          );
           renderer.gpu.device.queue.submit([commandEncoder.finish()]);
           return canvas;
         }
@@ -33470,18 +32534,16 @@ ${parts.join("\n")}
         }
       };
       GpuTextureSystem.extension = {
-        type: [
-          ExtensionType.WebGPUSystem
-        ],
-        name: "texture"
+        type: [ExtensionType.WebGPUSystem],
+        name: "texture",
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/gpu/WebGPURenderer.mjs
   var WebGPURenderer_exports = {};
   __export(WebGPURenderer_exports, {
-    WebGPURenderer: () => WebGPURenderer
+    WebGPURenderer: () => WebGPURenderer,
   });
   var DefaultWebGPUSystems, DefaultWebGPUPipes, DefaultWebGPUAdapters, systems, renderPipes, renderPipeAdaptors, WebGPURenderer;
   var init_WebGPURenderer = __esm({
@@ -33519,7 +32581,7 @@ ${parts.join("\n")}
         PipelineSystem,
         GpuColorMaskSystem,
         GpuStencilSystem,
-        BindGroupSystem
+        BindGroupSystem,
       ];
       DefaultWebGPUPipes = [...SharedRenderPipes, GpuUniformBatchPipe];
       DefaultWebGPUAdapters = [GpuBatchAdaptor, GpuMeshAdapter, GpuGraphicsAdaptor];
@@ -33537,12 +32599,12 @@ ${parts.join("\n")}
             type: RendererType.WEBGPU,
             systems,
             renderPipes,
-            renderPipeAdaptors
+            renderPipeAdaptors,
           };
           super(systemConfig);
         }
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/graphics/gl/GlGraphicsAdaptor.mjs
@@ -33565,24 +32627,19 @@ ${parts.join("\n")}
           const uniforms = new UniformGroup({
             uColor: { value: new Float32Array([1, 1, 1, 1]), type: "vec4<f32>" },
             uTransformMatrix: { value: new Matrix(), type: "mat3x3<f32>" },
-            uRound: { value: 0, type: "f32" }
+            uRound: { value: 0, type: "f32" },
           });
           const maxTextures2 = getMaxTexturesPerBatch();
           const glProgram3 = compileHighShaderGlProgram({
             name: "graphics",
-            bits: [
-              colorBitGl,
-              generateTextureBatchBitGl(maxTextures2),
-              localUniformBitGl,
-              roundPixelsBitGl
-            ]
+            bits: [colorBitGl, generateTextureBatchBitGl(maxTextures2), localUniformBitGl, roundPixelsBitGl],
           });
           this.shader = new Shader({
             glProgram: glProgram3,
             resources: {
               localUniforms: uniforms,
-              batchSamplers: getBatchSamplersUniformGroup(maxTextures2)
-            }
+              batchSamplers: getBatchSamplersUniformGroup(maxTextures2),
+            },
           });
         }
         execute(graphicsPipe, renderable) {
@@ -33590,10 +32647,7 @@ ${parts.join("\n")}
           const shader = context2.customShader || this.shader;
           const renderer = graphicsPipe.renderer;
           const contextSystem = renderer.graphicsContext;
-          const {
-            batcher,
-            instructions
-          } = contextSystem.getContextRenderData(context2);
+          const { batcher, instructions } = contextSystem.getContextRenderData(context2);
           shader.groups[0] = renderer.globalUniforms.bindGroup;
           renderer.state.set(graphicsPipe.state);
           renderer.shader.bind(shader);
@@ -33615,12 +32669,10 @@ ${parts.join("\n")}
         }
       };
       GlGraphicsAdaptor.extension = {
-        type: [
-          ExtensionType.WebGLPipesAdaptor
-        ],
-        name: "graphics"
+        type: [ExtensionType.WebGLPipesAdaptor],
+        name: "graphics",
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/scene/mesh/gl/GlMeshAdaptor.mjs
@@ -33640,20 +32692,16 @@ ${parts.join("\n")}
         init() {
           const glProgram3 = compileHighShaderGlProgram({
             name: "mesh",
-            bits: [
-              localUniformBitGl,
-              textureBitGl,
-              roundPixelsBitGl
-            ]
+            bits: [localUniformBitGl, textureBitGl, roundPixelsBitGl],
           });
           this._shader = new Shader({
             glProgram: glProgram3,
             resources: {
               uTexture: Texture.EMPTY.source,
               textureUniforms: {
-                uTextureMatrix: { type: "mat3x3<f32>", value: new Matrix() }
-              }
-            }
+                uTextureMatrix: { type: "mat3x3<f32>", value: new Matrix() },
+              },
+            },
           });
         }
         execute(meshPipe, mesh) {
@@ -33675,7 +32723,7 @@ ${parts.join("\n")}
           renderer.encoder.draw({
             geometry: mesh._geometry,
             shader,
-            state: mesh.state
+            state: mesh.state,
           });
         }
         destroy() {
@@ -33684,12 +32732,10 @@ ${parts.join("\n")}
         }
       };
       GlMeshAdaptor.extension = {
-        type: [
-          ExtensionType.WebGLPipesAdaptor
-        ],
-        name: "mesh"
+        type: [ExtensionType.WebGLPipesAdaptor],
+        name: "mesh",
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/batcher/gl/GlBatchAdaptor.mjs
@@ -33731,12 +32777,10 @@ ${parts.join("\n")}
         }
       };
       GlBatchAdaptor.extension = {
-        type: [
-          ExtensionType.WebGLPipesAdaptor
-        ],
-        name: "batch"
+        type: [ExtensionType.WebGLPipesAdaptor],
+        name: "batch",
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/gl/buffer/const.mjs
@@ -33745,12 +32789,12 @@ ${parts.join("\n")}
     "../../../../node_modules/pixi.js/lib/rendering/renderers/gl/buffer/const.mjs"() {
       "use strict";
       BUFFER_TYPE = /* @__PURE__ */ ((BUFFER_TYPE2) => {
-        BUFFER_TYPE2[BUFFER_TYPE2["ELEMENT_ARRAY_BUFFER"] = 34963] = "ELEMENT_ARRAY_BUFFER";
-        BUFFER_TYPE2[BUFFER_TYPE2["ARRAY_BUFFER"] = 34962] = "ARRAY_BUFFER";
-        BUFFER_TYPE2[BUFFER_TYPE2["UNIFORM_BUFFER"] = 35345] = "UNIFORM_BUFFER";
+        BUFFER_TYPE2[(BUFFER_TYPE2["ELEMENT_ARRAY_BUFFER"] = 34963)] = "ELEMENT_ARRAY_BUFFER";
+        BUFFER_TYPE2[(BUFFER_TYPE2["ARRAY_BUFFER"] = 34962)] = "ARRAY_BUFFER";
+        BUFFER_TYPE2[(BUFFER_TYPE2["UNIFORM_BUFFER"] = 35345)] = "UNIFORM_BUFFER";
         return BUFFER_TYPE2;
       })(BUFFER_TYPE || {});
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/gl/buffer/GlBuffer.mjs
@@ -33768,7 +32812,7 @@ ${parts.join("\n")}
           this.type = type;
         }
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/gl/buffer/GlBufferSystem.mjs
@@ -33803,7 +32847,7 @@ ${parts.join("\n")}
         }
         /** Sets up the renderer context and necessary buffers. */
         contextChange() {
-          const gl = this._gl = this._renderer.gl;
+          const gl = (this._gl = this._renderer.gl);
           this._gpuBuffers = /* @__PURE__ */ Object.create(null);
           this._maxBindings = gl.MAX_UNIFORM_BUFFER_BINDINGS ? gl.getParameter(gl.MAX_UNIFORM_BUFFER_BINDINGS) : 0;
         }
@@ -33967,12 +33011,10 @@ ${parts.join("\n")}
         }
       };
       GlBufferSystem.extension = {
-        type: [
-          ExtensionType.WebGLSystem
-        ],
-        name: "buffer"
+        type: [ExtensionType.WebGLSystem],
+        name: "buffer",
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/gl/context/GlContextSystem.mjs
@@ -33999,7 +33041,7 @@ ${parts.join("\n")}
             /** Support for MSAA (antialiasing of dynamic textures) */
             msaa: true,
             /** Support for mipmaps if a texture is non-power of two */
-            nonPowOf2mipmaps: true
+            nonPowOf2mipmaps: true,
           };
           this._renderer = renderer;
           this.extensions = /* @__PURE__ */ Object.create(null);
@@ -34024,7 +33066,7 @@ ${parts.join("\n")}
         init(options) {
           var _a2, _b;
           options = __spreadValues(__spreadValues({}, _GlContextSystem2.defaultOptions), options);
-          let multiView = this.multiView = options.multiView;
+          let multiView = (this.multiView = options.multiView);
           if (options.context && multiView) {
             warn("Renderer created with both a context and multiview enabled. Disabling multiView as both cannot work together.");
             multiView = false;
@@ -34046,7 +33088,7 @@ ${parts.join("\n")}
               antialias,
               stencil: true,
               preserveDrawingBuffer: options.preserveDrawingBuffer,
-              powerPreference: (_b = options.powerPreference) != null ? _b : "default"
+              powerPreference: (_b = options.powerPreference) != null ? _b : "default",
             });
           }
         }
@@ -34116,7 +33158,7 @@ ${parts.join("\n")}
             astc: gl.getExtension("WEBGL_compressed_texture_astc"),
             bptc: gl.getExtension("EXT_texture_compression_bptc"),
             rgtc: gl.getExtension("EXT_texture_compression_rgtc"),
-            loseContext: gl.getExtension("WEBGL_lose_context")
+            loseContext: gl.getExtension("WEBGL_lose_context"),
           };
           if (this.webGLVersion === 1) {
             this.extensions = __spreadProps(__spreadValues({}, common), {
@@ -34130,11 +33172,11 @@ ${parts.join("\n")}
               textureHalfFloat: gl.getExtension("OES_texture_half_float"),
               textureHalfFloatLinear: gl.getExtension("OES_texture_half_float_linear"),
               vertexAttribDivisorANGLE: gl.getExtension("ANGLE_instanced_arrays"),
-              srgb: gl.getExtension("EXT_sRGB")
+              srgb: gl.getExtension("EXT_sRGB"),
             });
           } else {
             this.extensions = __spreadProps(__spreadValues({}, common), {
-              colorBufferFloat: gl.getExtension("EXT_color_buffer_float")
+              colorBufferFloat: gl.getExtension("EXT_color_buffer_float"),
             });
             const provokeExt = gl.getExtension("WEBGL_provoking_vertex");
             if (provokeExt) {
@@ -34208,10 +33250,8 @@ ${parts.join("\n")}
         }
       };
       _GlContextSystem.extension = {
-        type: [
-          ExtensionType.WebGLSystem
-        ],
-        name: "context"
+        type: [ExtensionType.WebGLSystem],
+        name: "context",
       };
       _GlContextSystem.defaultOptions = {
         /**
@@ -34243,10 +33283,10 @@ ${parts.join("\n")}
          * {@link WebGLOptions.multiView}
          * @default false
          */
-        multiView: false
+        multiView: false,
       };
       GlContextSystem = _GlContextSystem;
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/gl/texture/const.mjs
@@ -34255,53 +33295,53 @@ ${parts.join("\n")}
     "../../../../node_modules/pixi.js/lib/rendering/renderers/gl/texture/const.mjs"() {
       "use strict";
       GL_FORMATS = /* @__PURE__ */ ((GL_FORMATS2) => {
-        GL_FORMATS2[GL_FORMATS2["RGBA"] = 6408] = "RGBA";
-        GL_FORMATS2[GL_FORMATS2["RGB"] = 6407] = "RGB";
-        GL_FORMATS2[GL_FORMATS2["RG"] = 33319] = "RG";
-        GL_FORMATS2[GL_FORMATS2["RED"] = 6403] = "RED";
-        GL_FORMATS2[GL_FORMATS2["RGBA_INTEGER"] = 36249] = "RGBA_INTEGER";
-        GL_FORMATS2[GL_FORMATS2["RGB_INTEGER"] = 36248] = "RGB_INTEGER";
-        GL_FORMATS2[GL_FORMATS2["RG_INTEGER"] = 33320] = "RG_INTEGER";
-        GL_FORMATS2[GL_FORMATS2["RED_INTEGER"] = 36244] = "RED_INTEGER";
-        GL_FORMATS2[GL_FORMATS2["ALPHA"] = 6406] = "ALPHA";
-        GL_FORMATS2[GL_FORMATS2["LUMINANCE"] = 6409] = "LUMINANCE";
-        GL_FORMATS2[GL_FORMATS2["LUMINANCE_ALPHA"] = 6410] = "LUMINANCE_ALPHA";
-        GL_FORMATS2[GL_FORMATS2["DEPTH_COMPONENT"] = 6402] = "DEPTH_COMPONENT";
-        GL_FORMATS2[GL_FORMATS2["DEPTH_STENCIL"] = 34041] = "DEPTH_STENCIL";
+        GL_FORMATS2[(GL_FORMATS2["RGBA"] = 6408)] = "RGBA";
+        GL_FORMATS2[(GL_FORMATS2["RGB"] = 6407)] = "RGB";
+        GL_FORMATS2[(GL_FORMATS2["RG"] = 33319)] = "RG";
+        GL_FORMATS2[(GL_FORMATS2["RED"] = 6403)] = "RED";
+        GL_FORMATS2[(GL_FORMATS2["RGBA_INTEGER"] = 36249)] = "RGBA_INTEGER";
+        GL_FORMATS2[(GL_FORMATS2["RGB_INTEGER"] = 36248)] = "RGB_INTEGER";
+        GL_FORMATS2[(GL_FORMATS2["RG_INTEGER"] = 33320)] = "RG_INTEGER";
+        GL_FORMATS2[(GL_FORMATS2["RED_INTEGER"] = 36244)] = "RED_INTEGER";
+        GL_FORMATS2[(GL_FORMATS2["ALPHA"] = 6406)] = "ALPHA";
+        GL_FORMATS2[(GL_FORMATS2["LUMINANCE"] = 6409)] = "LUMINANCE";
+        GL_FORMATS2[(GL_FORMATS2["LUMINANCE_ALPHA"] = 6410)] = "LUMINANCE_ALPHA";
+        GL_FORMATS2[(GL_FORMATS2["DEPTH_COMPONENT"] = 6402)] = "DEPTH_COMPONENT";
+        GL_FORMATS2[(GL_FORMATS2["DEPTH_STENCIL"] = 34041)] = "DEPTH_STENCIL";
         return GL_FORMATS2;
       })(GL_FORMATS || {});
       GL_TARGETS = /* @__PURE__ */ ((GL_TARGETS2) => {
-        GL_TARGETS2[GL_TARGETS2["TEXTURE_2D"] = 3553] = "TEXTURE_2D";
-        GL_TARGETS2[GL_TARGETS2["TEXTURE_CUBE_MAP"] = 34067] = "TEXTURE_CUBE_MAP";
-        GL_TARGETS2[GL_TARGETS2["TEXTURE_2D_ARRAY"] = 35866] = "TEXTURE_2D_ARRAY";
-        GL_TARGETS2[GL_TARGETS2["TEXTURE_CUBE_MAP_POSITIVE_X"] = 34069] = "TEXTURE_CUBE_MAP_POSITIVE_X";
-        GL_TARGETS2[GL_TARGETS2["TEXTURE_CUBE_MAP_NEGATIVE_X"] = 34070] = "TEXTURE_CUBE_MAP_NEGATIVE_X";
-        GL_TARGETS2[GL_TARGETS2["TEXTURE_CUBE_MAP_POSITIVE_Y"] = 34071] = "TEXTURE_CUBE_MAP_POSITIVE_Y";
-        GL_TARGETS2[GL_TARGETS2["TEXTURE_CUBE_MAP_NEGATIVE_Y"] = 34072] = "TEXTURE_CUBE_MAP_NEGATIVE_Y";
-        GL_TARGETS2[GL_TARGETS2["TEXTURE_CUBE_MAP_POSITIVE_Z"] = 34073] = "TEXTURE_CUBE_MAP_POSITIVE_Z";
-        GL_TARGETS2[GL_TARGETS2["TEXTURE_CUBE_MAP_NEGATIVE_Z"] = 34074] = "TEXTURE_CUBE_MAP_NEGATIVE_Z";
+        GL_TARGETS2[(GL_TARGETS2["TEXTURE_2D"] = 3553)] = "TEXTURE_2D";
+        GL_TARGETS2[(GL_TARGETS2["TEXTURE_CUBE_MAP"] = 34067)] = "TEXTURE_CUBE_MAP";
+        GL_TARGETS2[(GL_TARGETS2["TEXTURE_2D_ARRAY"] = 35866)] = "TEXTURE_2D_ARRAY";
+        GL_TARGETS2[(GL_TARGETS2["TEXTURE_CUBE_MAP_POSITIVE_X"] = 34069)] = "TEXTURE_CUBE_MAP_POSITIVE_X";
+        GL_TARGETS2[(GL_TARGETS2["TEXTURE_CUBE_MAP_NEGATIVE_X"] = 34070)] = "TEXTURE_CUBE_MAP_NEGATIVE_X";
+        GL_TARGETS2[(GL_TARGETS2["TEXTURE_CUBE_MAP_POSITIVE_Y"] = 34071)] = "TEXTURE_CUBE_MAP_POSITIVE_Y";
+        GL_TARGETS2[(GL_TARGETS2["TEXTURE_CUBE_MAP_NEGATIVE_Y"] = 34072)] = "TEXTURE_CUBE_MAP_NEGATIVE_Y";
+        GL_TARGETS2[(GL_TARGETS2["TEXTURE_CUBE_MAP_POSITIVE_Z"] = 34073)] = "TEXTURE_CUBE_MAP_POSITIVE_Z";
+        GL_TARGETS2[(GL_TARGETS2["TEXTURE_CUBE_MAP_NEGATIVE_Z"] = 34074)] = "TEXTURE_CUBE_MAP_NEGATIVE_Z";
         return GL_TARGETS2;
       })(GL_TARGETS || {});
       GL_TYPES = /* @__PURE__ */ ((GL_TYPES2) => {
-        GL_TYPES2[GL_TYPES2["UNSIGNED_BYTE"] = 5121] = "UNSIGNED_BYTE";
-        GL_TYPES2[GL_TYPES2["UNSIGNED_SHORT"] = 5123] = "UNSIGNED_SHORT";
-        GL_TYPES2[GL_TYPES2["UNSIGNED_SHORT_5_6_5"] = 33635] = "UNSIGNED_SHORT_5_6_5";
-        GL_TYPES2[GL_TYPES2["UNSIGNED_SHORT_4_4_4_4"] = 32819] = "UNSIGNED_SHORT_4_4_4_4";
-        GL_TYPES2[GL_TYPES2["UNSIGNED_SHORT_5_5_5_1"] = 32820] = "UNSIGNED_SHORT_5_5_5_1";
-        GL_TYPES2[GL_TYPES2["UNSIGNED_INT"] = 5125] = "UNSIGNED_INT";
-        GL_TYPES2[GL_TYPES2["UNSIGNED_INT_10F_11F_11F_REV"] = 35899] = "UNSIGNED_INT_10F_11F_11F_REV";
-        GL_TYPES2[GL_TYPES2["UNSIGNED_INT_2_10_10_10_REV"] = 33640] = "UNSIGNED_INT_2_10_10_10_REV";
-        GL_TYPES2[GL_TYPES2["UNSIGNED_INT_24_8"] = 34042] = "UNSIGNED_INT_24_8";
-        GL_TYPES2[GL_TYPES2["UNSIGNED_INT_5_9_9_9_REV"] = 35902] = "UNSIGNED_INT_5_9_9_9_REV";
-        GL_TYPES2[GL_TYPES2["BYTE"] = 5120] = "BYTE";
-        GL_TYPES2[GL_TYPES2["SHORT"] = 5122] = "SHORT";
-        GL_TYPES2[GL_TYPES2["INT"] = 5124] = "INT";
-        GL_TYPES2[GL_TYPES2["FLOAT"] = 5126] = "FLOAT";
-        GL_TYPES2[GL_TYPES2["FLOAT_32_UNSIGNED_INT_24_8_REV"] = 36269] = "FLOAT_32_UNSIGNED_INT_24_8_REV";
-        GL_TYPES2[GL_TYPES2["HALF_FLOAT"] = 36193] = "HALF_FLOAT";
+        GL_TYPES2[(GL_TYPES2["UNSIGNED_BYTE"] = 5121)] = "UNSIGNED_BYTE";
+        GL_TYPES2[(GL_TYPES2["UNSIGNED_SHORT"] = 5123)] = "UNSIGNED_SHORT";
+        GL_TYPES2[(GL_TYPES2["UNSIGNED_SHORT_5_6_5"] = 33635)] = "UNSIGNED_SHORT_5_6_5";
+        GL_TYPES2[(GL_TYPES2["UNSIGNED_SHORT_4_4_4_4"] = 32819)] = "UNSIGNED_SHORT_4_4_4_4";
+        GL_TYPES2[(GL_TYPES2["UNSIGNED_SHORT_5_5_5_1"] = 32820)] = "UNSIGNED_SHORT_5_5_5_1";
+        GL_TYPES2[(GL_TYPES2["UNSIGNED_INT"] = 5125)] = "UNSIGNED_INT";
+        GL_TYPES2[(GL_TYPES2["UNSIGNED_INT_10F_11F_11F_REV"] = 35899)] = "UNSIGNED_INT_10F_11F_11F_REV";
+        GL_TYPES2[(GL_TYPES2["UNSIGNED_INT_2_10_10_10_REV"] = 33640)] = "UNSIGNED_INT_2_10_10_10_REV";
+        GL_TYPES2[(GL_TYPES2["UNSIGNED_INT_24_8"] = 34042)] = "UNSIGNED_INT_24_8";
+        GL_TYPES2[(GL_TYPES2["UNSIGNED_INT_5_9_9_9_REV"] = 35902)] = "UNSIGNED_INT_5_9_9_9_REV";
+        GL_TYPES2[(GL_TYPES2["BYTE"] = 5120)] = "BYTE";
+        GL_TYPES2[(GL_TYPES2["SHORT"] = 5122)] = "SHORT";
+        GL_TYPES2[(GL_TYPES2["INT"] = 5124)] = "INT";
+        GL_TYPES2[(GL_TYPES2["FLOAT"] = 5126)] = "FLOAT";
+        GL_TYPES2[(GL_TYPES2["FLOAT_32_UNSIGNED_INT_24_8_REV"] = 36269)] = "FLOAT_32_UNSIGNED_INT_24_8_REV";
+        GL_TYPES2[(GL_TYPES2["HALF_FLOAT"] = 36193)] = "HALF_FLOAT";
         return GL_TYPES2;
       })(GL_TYPES || {});
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/gl/geometry/utils/getGlTypeFromFormat.mjs
@@ -34343,9 +33383,9 @@ ${parts.join("\n")}
         sint32: GL_TYPES.INT,
         sint32x2: GL_TYPES.INT,
         sint32x3: GL_TYPES.INT,
-        sint32x4: GL_TYPES.INT
+        sint32x4: GL_TYPES.INT,
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/gl/geometry/GlGeometrySystem.mjs
@@ -34361,7 +33401,7 @@ ${parts.join("\n")}
         "line-list": 1,
         "line-strip": 3,
         "triangle-list": 4,
-        "triangle-strip": 5
+        "triangle-strip": 5,
       };
       GlGeometrySystem = class {
         /** @param renderer - The renderer this System works for. */
@@ -34376,7 +33416,7 @@ ${parts.join("\n")}
         }
         /** Sets up the renderer context and necessary buffers. */
         contextChange() {
-          const gl = this.gl = this._renderer.gl;
+          const gl = (this.gl = this._renderer.gl);
           if (!this._renderer.context.supports.vertexArrayObject) {
             throw new Error("[PixiJS] Vertex Array Objects are not supported on this device");
           }
@@ -34569,22 +33609,9 @@ ${parts.join("\n")}
               const attributeInfo = getAttributeInfoFromFormat(attribute.format);
               const type = getGlTypeFromFormat(attribute.format);
               if (((_a2 = programAttrib.format) == null ? void 0 : _a2.substring(1, 4)) === "int") {
-                gl.vertexAttribIPointer(
-                  location,
-                  attributeInfo.size,
-                  type,
-                  attribute.stride,
-                  attribute.offset
-                );
+                gl.vertexAttribIPointer(location, attributeInfo.size, type, attribute.stride, attribute.offset);
               } else {
-                gl.vertexAttribPointer(
-                  location,
-                  attributeInfo.size,
-                  type,
-                  attributeInfo.normalised,
-                  attribute.stride,
-                  attribute.offset
-                );
+                gl.vertexAttribPointer(location, attributeInfo.size, type, attributeInfo.normalised, attribute.stride, attribute.offset);
               }
               if (attribute.instance) {
                 if (this.hasInstance) {
@@ -34611,7 +33638,7 @@ ${parts.join("\n")}
           const { gl } = this._renderer;
           const geometry = this._activeGeometry;
           const glTopology = topologyToGlMap[topology || geometry.topology];
-          instanceCount != null ? instanceCount : instanceCount = geometry.instanceCount;
+          instanceCount != null ? instanceCount : (instanceCount = geometry.instanceCount);
           if (geometry.indexBuffer) {
             const byteSize = geometry.indexBuffer.data.BYTES_PER_ELEMENT;
             const glType = byteSize === 2 ? gl.UNSIGNED_SHORT : gl.UNSIGNED_INT;
@@ -34641,12 +33668,10 @@ ${parts.join("\n")}
         }
       };
       GlGeometrySystem.extension = {
-        type: [
-          ExtensionType.WebGLSystem
-        ],
-        name: "geometry"
+        type: [ExtensionType.WebGLSystem],
+        name: "geometry",
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/gl/GlBackBufferSystem.mjs
@@ -34664,17 +33689,14 @@ ${parts.join("\n")}
       bigTriangleGeometry = new Geometry({
         attributes: {
           aPosition: [
-            -1,
-            -1,
+            -1, -1,
             // Bottom left corner
-            3,
-            -1,
+            3, -1,
             // Bottom right corner, extending beyond right edge
-            -1,
-            3
+            -1, 3,
             // Top left corner, extending beyond top edge
-          ]
-        }
+          ],
+        },
       });
       _GlBackBufferSystem = class _GlBackBufferSystem2 {
         constructor(renderer) {
@@ -34713,13 +33735,13 @@ ${parts.join("\n")}
                 void main() {
                     finalColor = texture(uTexture, vUv);
                 }`,
-            name: "big-triangle"
+            name: "big-triangle",
           });
           this._bigTriangleShader = new Shader({
             glProgram: bigTriangleProgram,
             resources: {
-              uTexture: Texture.WHITE.source
-            }
+              uTexture: Texture.WHITE.source,
+            },
           });
         }
         /**
@@ -34742,30 +33764,27 @@ ${parts.join("\n")}
         _presentBackBuffer() {
           const renderer = this._renderer;
           renderer.renderTarget.finishRenderPass();
-          if (!this._useBackBufferThisRender)
-            return;
+          if (!this._useBackBufferThisRender) return;
           renderer.renderTarget.bind(this._targetTexture, false);
           this._bigTriangleShader.resources.uTexture = this._backBufferTexture.source;
           renderer.encoder.draw({
             geometry: bigTriangleGeometry,
             shader: this._bigTriangleShader,
-            state: this._state
+            state: this._state,
           });
         }
         _getBackBufferTexture(targetSourceTexture) {
-          this._backBufferTexture = this._backBufferTexture || new Texture({
-            source: new TextureSource({
-              width: targetSourceTexture.width,
-              height: targetSourceTexture.height,
-              resolution: targetSourceTexture._resolution,
-              antialias: this._antialias
-            })
-          });
-          this._backBufferTexture.source.resize(
-            targetSourceTexture.width,
-            targetSourceTexture.height,
-            targetSourceTexture._resolution
-          );
+          this._backBufferTexture =
+            this._backBufferTexture ||
+            new Texture({
+              source: new TextureSource({
+                width: targetSourceTexture.width,
+                height: targetSourceTexture.height,
+                resolution: targetSourceTexture._resolution,
+                antialias: this._antialias,
+              }),
+            });
+          this._backBufferTexture.source.resize(targetSourceTexture.width, targetSourceTexture.height, targetSourceTexture._resolution);
           return this._backBufferTexture;
         }
         /** destroys the back buffer */
@@ -34777,18 +33796,16 @@ ${parts.join("\n")}
         }
       };
       _GlBackBufferSystem.extension = {
-        type: [
-          ExtensionType.WebGLSystem
-        ],
+        type: [ExtensionType.WebGLSystem],
         name: "backBuffer",
-        priority: 1
+        priority: 1,
       };
       _GlBackBufferSystem.defaultOptions = {
         /** if true will use the back buffer where required */
-        useBackBuffer: false
+        useBackBuffer: false,
       };
       GlBackBufferSystem = _GlBackBufferSystem;
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/gl/GlColorMaskSystem.mjs
@@ -34802,24 +33819,16 @@ ${parts.join("\n")}
           this._renderer = renderer;
         }
         setMask(colorMask) {
-          if (this._colorMaskCache === colorMask)
-            return;
+          if (this._colorMaskCache === colorMask) return;
           this._colorMaskCache = colorMask;
-          this._renderer.gl.colorMask(
-            !!(colorMask & 8),
-            !!(colorMask & 4),
-            !!(colorMask & 2),
-            !!(colorMask & 1)
-          );
+          this._renderer.gl.colorMask(!!(colorMask & 8), !!(colorMask & 4), !!(colorMask & 2), !!(colorMask & 1));
         }
       };
       GlColorMaskSystem.extension = {
-        type: [
-          ExtensionType.WebGLSystem
-        ],
-        name: "colorMask"
+        type: [ExtensionType.WebGLSystem],
+        name: "colorMask",
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/gl/GlEncoderSystem.mjs
@@ -34835,8 +33844,7 @@ ${parts.join("\n")}
         setGeometry(geometry, shader) {
           this._renderer.geometry.bind(geometry, shader.glProgram);
         }
-        finishRenderPass() {
-        }
+        finishRenderPass() {}
         draw(options) {
           const renderer = this._renderer;
           const { geometry, shader, state, skipSync, topology: type, size, start, instanceCount } = options;
@@ -34852,12 +33860,10 @@ ${parts.join("\n")}
         }
       };
       GlEncoderSystem.extension = {
-        type: [
-          ExtensionType.WebGLSystem
-        ],
-        name: "encoder"
+        type: [ExtensionType.WebGLSystem],
+        name: "encoder",
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/gl/GlStencilSystem.mjs
@@ -34872,7 +33878,7 @@ ${parts.join("\n")}
           this._stencilCache = {
             enabled: false,
             stencilReference: 0,
-            stencilMode: STENCIL_MODES.NONE
+            stencilMode: STENCIL_MODES.NONE,
           };
           this._renderTargetStencilState = /* @__PURE__ */ Object.create(null);
           renderer.renderTarget.onRenderTargetChange.add(this);
@@ -34887,7 +33893,7 @@ ${parts.join("\n")}
             less: gl.LESS,
             "less-equal": gl.LEQUAL,
             greater: gl.GREATER,
-            "greater-equal": gl.GEQUAL
+            "greater-equal": gl.GEQUAL,
           };
           this._stencilOpsMapping = {
             keep: gl.KEEP,
@@ -34897,19 +33903,18 @@ ${parts.join("\n")}
             "increment-clamp": gl.INCR,
             "decrement-clamp": gl.DECR,
             "increment-wrap": gl.INCR_WRAP,
-            "decrement-wrap": gl.DECR_WRAP
+            "decrement-wrap": gl.DECR_WRAP,
           };
           this.resetState();
         }
         onRenderTargetChange(renderTarget) {
-          if (this._activeRenderTarget === renderTarget)
-            return;
+          if (this._activeRenderTarget === renderTarget) return;
           this._activeRenderTarget = renderTarget;
           let stencilState = this._renderTargetStencilState[renderTarget.uid];
           if (!stencilState) {
             stencilState = this._renderTargetStencilState[renderTarget.uid] = {
               stencilMode: STENCIL_MODES.DISABLED,
-              stencilReference: 0
+              stencilReference: 0,
             };
           }
           this.setStencilMode(stencilState.stencilMode, stencilState.stencilReference);
@@ -34946,12 +33951,10 @@ ${parts.join("\n")}
         }
       };
       GlStencilSystem.extension = {
-        type: [
-          ExtensionType.WebGLSystem
-        ],
-        name: "stencil"
+        type: [ExtensionType.WebGLSystem],
+        name: "stencil",
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/gl/shader/utils/createUboElementsSTD40.mjs
@@ -34959,7 +33962,7 @@ ${parts.join("\n")}
     const uboElements = uniformData.map((data) => ({
       data,
       offset: 0,
-      size: 0
+      size: 0,
     }));
     const chunkSize = 16;
     let size = 0;
@@ -34979,7 +33982,7 @@ ${parts.join("\n")}
       if (curOffset > 0 && chunkSize - curOffset < boundary) {
         offset += (chunkSize - curOffset) % 16;
       } else {
-        offset += (size - curOffset % size) % size;
+        offset += (size - (curOffset % size)) % size;
       }
       uboElement.offset = offset;
       offset += size;
@@ -35002,7 +34005,7 @@ ${parts.join("\n")}
         "vec4<i32>": 16,
         "mat2x2<f32>": 16 * 2,
         "mat3x3<f32>": 16 * 3,
-        "mat4x4<f32>": 16 * 4
+        "mat4x4<f32>": 16 * 4,
         // TODO - not essential for now but support these in the future
         // int:      4,
         // ivec2:    8,
@@ -35020,14 +34023,14 @@ ${parts.join("\n")}
         // mat3:     16 * 3,
         // mat4:     16 * 4,
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/gl/shader/utils/generateArraySyncSTD40.mjs
   function generateArraySyncSTD40(uboElement, offsetToAdd) {
     const rowSize = Math.max(WGSL_TO_STD40_SIZE[uboElement.data.type] / 16, 1);
     const elementSize = uboElement.data.value.length / uboElement.data.size;
-    const remainder = (4 - elementSize % 4) % 4;
+    const remainder = (4 - (elementSize % 4)) % 4;
     const data = uboElement.data.type.indexOf("i32") >= 0 ? "dataInt32" : "data";
     return `
         v = uv.${uboElement.data.name};
@@ -35050,24 +34053,19 @@ ${parts.join("\n")}
   var init_generateArraySyncSTD40 = __esm({
     "../../../../node_modules/pixi.js/lib/rendering/renderers/gl/shader/utils/generateArraySyncSTD40.mjs"() {
       init_createUboElementsSTD40();
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/gl/shader/utils/createUboSyncSTD40.mjs
   function createUboSyncFunctionSTD40(uboElements) {
-    return createUboSyncFunction(
-      uboElements,
-      "uboStd40",
-      generateArraySyncSTD40,
-      uboSyncFunctionsSTD40
-    );
+    return createUboSyncFunction(uboElements, "uboStd40", generateArraySyncSTD40, uboSyncFunctionsSTD40);
   }
   var init_createUboSyncSTD40 = __esm({
     "../../../../node_modules/pixi.js/lib/rendering/renderers/gl/shader/utils/createUboSyncSTD40.mjs"() {
       init_createUboSyncFunction();
       init_uboSyncFunctions();
       init_generateArraySyncSTD40();
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/gl/GlUboSystem.mjs
@@ -35082,15 +34080,15 @@ ${parts.join("\n")}
         constructor() {
           super({
             createUboElements: createUboElementsSTD40,
-            generateUboSync: createUboSyncFunctionSTD40
+            generateUboSync: createUboSyncFunctionSTD40,
           });
         }
       };
       GlUboSystem.extension = {
         type: [ExtensionType.WebGLSystem],
-        name: "ubo"
+        name: "ubo",
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/gl/GlRenderTarget.mjs
@@ -35106,7 +34104,7 @@ ${parts.join("\n")}
           this.msaaRenderBuffer = [];
         }
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/gl/renderTarget/GlRenderTargetAdaptor.mjs
@@ -35140,16 +34138,7 @@ ${parts.join("\n")}
           this.finishRenderPass(sourceRenderSurfaceTexture);
           gl.bindFramebuffer(gl.FRAMEBUFFER, glRenderTarget.resolveTargetFramebuffer);
           renderer.texture.bind(destinationTexture, 0);
-          gl.copyTexSubImage2D(
-            gl.TEXTURE_2D,
-            0,
-            originDest.x,
-            originDest.y,
-            originSrc.x,
-            originSrc.y,
-            size.width,
-            size.height
-          );
+          gl.copyTexSubImage2D(gl.TEXTURE_2D, 0, originDest.x, originDest.y, originSrc.x, originSrc.y, size.width, size.height);
           return destinationTexture;
         }
         startRenderPass(renderTarget, clear = true, clearColor, viewport) {
@@ -35171,12 +34160,7 @@ ${parts.join("\n")}
             viewPortCache.y = viewPortY;
             viewPortCache.width = viewport.width;
             viewPortCache.height = viewport.height;
-            gl.viewport(
-              viewport.x,
-              viewPortY,
-              viewport.width,
-              viewport.height
-            );
+            gl.viewport(viewport.x, viewPortY, viewport.width, viewport.height);
           }
           if (!gpuRenderTarget.depthStencilRenderBuffer && (renderTarget.stencil || renderTarget.depth)) {
             this._initStencil(gpuRenderTarget);
@@ -35186,23 +34170,11 @@ ${parts.join("\n")}
         finishRenderPass(renderTarget) {
           const renderTargetSystem = this._renderTargetSystem;
           const glRenderTarget = renderTargetSystem.getGpuRenderTarget(renderTarget);
-          if (!glRenderTarget.msaa)
-            return;
+          if (!glRenderTarget.msaa) return;
           const gl = this._renderer.gl;
           gl.bindFramebuffer(gl.FRAMEBUFFER, glRenderTarget.resolveTargetFramebuffer);
           gl.bindFramebuffer(gl.READ_FRAMEBUFFER, glRenderTarget.framebuffer);
-          gl.blitFramebuffer(
-            0,
-            0,
-            glRenderTarget.width,
-            glRenderTarget.height,
-            0,
-            0,
-            glRenderTarget.width,
-            glRenderTarget.height,
-            gl.COLOR_BUFFER_BIT,
-            gl.NEAREST
-          );
+          gl.blitFramebuffer(0, 0, glRenderTarget.width, glRenderTarget.height, 0, 0, glRenderTarget.width, glRenderTarget.height, gl.COLOR_BUFFER_BIT, gl.NEAREST);
           gl.bindFramebuffer(gl.FRAMEBUFFER, glRenderTarget.framebuffer);
         }
         initGpuRenderTarget(renderTarget) {
@@ -35239,15 +34211,14 @@ ${parts.join("\n")}
           gpuRenderTarget.msaaRenderBuffer = null;
         }
         clear(_renderTarget, clear, clearColor) {
-          if (!clear)
-            return;
+          if (!clear) return;
           const renderTargetSystem = this._renderTargetSystem;
           if (typeof clear === "boolean") {
             clear = clear ? CLEAR.ALL : CLEAR.NONE;
           }
           const gl = this._renderer.gl;
           if (clear & CLEAR.COLOR) {
-            clearColor != null ? clearColor : clearColor = renderTargetSystem.defaultClearColor;
+            clearColor != null ? clearColor : (clearColor = renderTargetSystem.defaultClearColor);
             const clearColorCache = this._clearColorCache;
             const clearColorArray = clearColor;
             if (clearColorCache[0] !== clearColorArray[0] || clearColorCache[1] !== clearColorArray[1] || clearColorCache[2] !== clearColorArray[2] || clearColorCache[3] !== clearColorArray[3]) {
@@ -35261,8 +34232,7 @@ ${parts.join("\n")}
           gl.clear(clear);
         }
         resizeGpuRenderTarget(renderTarget) {
-          if (renderTarget.isRoot)
-            return;
+          if (renderTarget.isRoot) return;
           const renderTargetSystem = this._renderTargetSystem;
           const glRenderTarget = renderTargetSystem.getGpuRenderTarget(renderTarget);
           this._resizeColor(renderTarget, glRenderTarget);
@@ -35317,8 +34287,7 @@ ${parts.join("\n")}
           glRenderTarget.width = source2.pixelWidth;
           glRenderTarget.height = source2.pixelHeight;
           renderTarget.colorTextures.forEach((colorTexture, i2) => {
-            if (i2 === 0)
-              return;
+            if (i2 === 0) return;
             colorTexture.source.resize(source2.width, source2.height, source2._resolution);
           });
           if (glRenderTarget.msaa) {
@@ -35332,65 +34301,28 @@ ${parts.join("\n")}
               const glSource = renderer.texture.getGlSource(source22);
               const glInternalFormat = glSource.internalFormat;
               const msaaRenderBuffer = glRenderTarget.msaaRenderBuffer[i2];
-              gl.bindRenderbuffer(
-                gl.RENDERBUFFER,
-                msaaRenderBuffer
-              );
-              gl.renderbufferStorageMultisample(
-                gl.RENDERBUFFER,
-                4,
-                glInternalFormat,
-                source22.pixelWidth,
-                source22.pixelHeight
-              );
-              gl.framebufferRenderbuffer(
-                gl.FRAMEBUFFER,
-                gl.COLOR_ATTACHMENT0 + i2,
-                gl.RENDERBUFFER,
-                msaaRenderBuffer
-              );
+              gl.bindRenderbuffer(gl.RENDERBUFFER, msaaRenderBuffer);
+              gl.renderbufferStorageMultisample(gl.RENDERBUFFER, 4, glInternalFormat, source22.pixelWidth, source22.pixelHeight);
+              gl.framebufferRenderbuffer(gl.FRAMEBUFFER, gl.COLOR_ATTACHMENT0 + i2, gl.RENDERBUFFER, msaaRenderBuffer);
             });
           }
         }
         _initStencil(glRenderTarget) {
-          if (glRenderTarget.framebuffer === null)
-            return;
+          if (glRenderTarget.framebuffer === null) return;
           const gl = this._renderer.gl;
           const depthStencilRenderBuffer = gl.createRenderbuffer();
           glRenderTarget.depthStencilRenderBuffer = depthStencilRenderBuffer;
-          gl.bindRenderbuffer(
-            gl.RENDERBUFFER,
-            depthStencilRenderBuffer
-          );
-          gl.framebufferRenderbuffer(
-            gl.FRAMEBUFFER,
-            gl.DEPTH_STENCIL_ATTACHMENT,
-            gl.RENDERBUFFER,
-            depthStencilRenderBuffer
-          );
+          gl.bindRenderbuffer(gl.RENDERBUFFER, depthStencilRenderBuffer);
+          gl.framebufferRenderbuffer(gl.FRAMEBUFFER, gl.DEPTH_STENCIL_ATTACHMENT, gl.RENDERBUFFER, depthStencilRenderBuffer);
           this._resizeStencil(glRenderTarget);
         }
         _resizeStencil(glRenderTarget) {
           const gl = this._renderer.gl;
-          gl.bindRenderbuffer(
-            gl.RENDERBUFFER,
-            glRenderTarget.depthStencilRenderBuffer
-          );
+          gl.bindRenderbuffer(gl.RENDERBUFFER, glRenderTarget.depthStencilRenderBuffer);
           if (glRenderTarget.msaa) {
-            gl.renderbufferStorageMultisample(
-              gl.RENDERBUFFER,
-              4,
-              gl.DEPTH24_STENCIL8,
-              glRenderTarget.width,
-              glRenderTarget.height
-            );
+            gl.renderbufferStorageMultisample(gl.RENDERBUFFER, 4, gl.DEPTH24_STENCIL8, glRenderTarget.width, glRenderTarget.height);
           } else {
-            gl.renderbufferStorage(
-              gl.RENDERBUFFER,
-              this._renderer.context.webGLVersion === 2 ? gl.DEPTH24_STENCIL8 : gl.DEPTH_STENCIL,
-              glRenderTarget.width,
-              glRenderTarget.height
-            );
+            gl.renderbufferStorage(gl.RENDERBUFFER, this._renderer.context.webGLVersion === 2 ? gl.DEPTH24_STENCIL8 : gl.DEPTH_STENCIL, glRenderTarget.width, glRenderTarget.height);
           }
         }
         prerender(renderTarget) {
@@ -35400,20 +34332,15 @@ ${parts.join("\n")}
           }
         }
         postrender(renderTarget) {
-          if (!this._renderer.context.multiView)
-            return;
+          if (!this._renderer.context.multiView) return;
           if (CanvasSource.test(renderTarget.colorTexture.resource)) {
             const contextCanvas = this._renderer.context.canvas;
             const canvasSource = renderTarget.colorTexture;
-            canvasSource.context2D.drawImage(
-              contextCanvas,
-              0,
-              canvasSource.pixelHeight - contextCanvas.height
-            );
+            canvasSource.context2D.drawImage(contextCanvas, 0, canvasSource.pixelHeight - contextCanvas.height);
           }
         }
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/gl/renderTarget/GlRenderTargetSystem.mjs
@@ -35432,21 +34359,23 @@ ${parts.join("\n")}
       };
       GlRenderTargetSystem.extension = {
         type: [ExtensionType.WebGLSystem],
-        name: "renderTarget"
+        name: "renderTarget",
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/gl/shader/GenerateShaderSyncCode.mjs
   function generateShaderSyncCode(shader, shaderSystem) {
     const funcFragments = [];
-    const headerFragments = [`
+    const headerFragments = [
+      `
         var g = s.groups;
         var sS = r.shader;
         var p = s.glProgram;
         var ugS = r.uniformGroup;
         var resources;
-    `];
+    `,
+    ];
     let addedTextreSystem = false;
     let textureCount = 0;
     const programData = shaderSystem._getProgramData(shader.glProgram);
@@ -35508,7 +34437,7 @@ ${parts.join("\n")}
       init_BufferResource();
       init_UniformGroup();
       init_TextureSource();
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/gl/shader/GlProgramData.mjs
@@ -35538,7 +34467,7 @@ ${parts.join("\n")}
           this.program = null;
         }
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/gl/shader/program/compileShader.mjs
@@ -35551,7 +34480,7 @@ ${parts.join("\n")}
   var init_compileShader = __esm({
     "../../../../node_modules/pixi.js/lib/rendering/renderers/gl/shader/program/compileShader.mjs"() {
       "use strict";
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/gl/shader/program/defaultValue.mjs
@@ -35598,50 +34527,18 @@ ${parts.join("\n")}
       case "bvec4":
         return booleanArray(4 * size);
       case "mat2":
-        return new Float32Array([
-          1,
-          0,
-          0,
-          1
-        ]);
+        return new Float32Array([1, 0, 0, 1]);
       case "mat3":
-        return new Float32Array([
-          1,
-          0,
-          0,
-          0,
-          1,
-          0,
-          0,
-          0,
-          1
-        ]);
+        return new Float32Array([1, 0, 0, 0, 1, 0, 0, 0, 1]);
       case "mat4":
-        return new Float32Array([
-          1,
-          0,
-          0,
-          0,
-          0,
-          1,
-          0,
-          0,
-          0,
-          0,
-          1,
-          0,
-          0,
-          0,
-          0,
-          1
-        ]);
+        return new Float32Array([1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1]);
     }
     return null;
   }
   var init_defaultValue = __esm({
     "../../../../node_modules/pixi.js/lib/rendering/renderers/gl/shader/program/defaultValue.mjs"() {
       "use strict";
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/gl/shader/program/mapType.mjs
@@ -35693,7 +34590,7 @@ ${parts.join("\n")}
         UNSIGNED_INT_SAMPLER_CUBE: "samplerCube",
         SAMPLER_2D_ARRAY: "sampler2DArray",
         INT_SAMPLER_2D_ARRAY: "sampler2DArray",
-        UNSIGNED_INT_SAMPLER_2D_ARRAY: "sampler2DArray"
+        UNSIGNED_INT_SAMPLER_2D_ARRAY: "sampler2DArray",
       };
       GLSL_TO_VERTEX_TYPES = {
         float: "float32",
@@ -35711,9 +34608,9 @@ ${parts.join("\n")}
         bool: "uint32",
         bvec2: "uint32x2",
         bvec3: "uint32x3",
-        bvec4: "uint32x4"
+        bvec4: "uint32x4",
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/gl/shader/program/extractAttributesFromGlProgram.mjs
@@ -35733,12 +34630,12 @@ ${parts.join("\n")}
         stride: getAttributeInfoFromFormat(format).stride,
         offset: 0,
         instance: false,
-        start: 0
+        start: 0,
       };
     }
     const keys = Object.keys(attributes);
     if (sortAttributes) {
-      keys.sort((a2, b2) => a2 > b2 ? 1 : -1);
+      keys.sort((a2, b2) => (a2 > b2 ? 1 : -1));
       for (let i2 = 0; i2 < keys.length; i2++) {
         attributes[keys[i2]].location = i2;
         gl.bindAttribLocation(program, i2, keys[i2]);
@@ -35755,13 +34652,12 @@ ${parts.join("\n")}
     "../../../../node_modules/pixi.js/lib/rendering/renderers/gl/shader/program/extractAttributesFromGlProgram.mjs"() {
       init_getAttributeInfoFromFormat();
       init_mapType();
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/gl/shader/program/getUboData.mjs
   function getUboData(program, gl) {
-    if (!gl.ACTIVE_UNIFORM_BLOCKS)
-      return {};
+    if (!gl.ACTIVE_UNIFORM_BLOCKS) return {};
     const uniformBlocks = {};
     const totalUniformsBlocks = gl.getProgramParameter(program, gl.ACTIVE_UNIFORM_BLOCKS);
     for (let i2 = 0; i2 < totalUniformsBlocks; i2++) {
@@ -35771,7 +34667,7 @@ ${parts.join("\n")}
       uniformBlocks[name] = {
         name,
         index: uniformBlockIndex,
-        size
+        size,
       };
     }
     return uniformBlocks;
@@ -35779,7 +34675,7 @@ ${parts.join("\n")}
   var init_getUboData = __esm({
     "../../../../node_modules/pixi.js/lib/rendering/renderers/gl/shader/program/getUboData.mjs"() {
       "use strict";
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/gl/shader/program/getUniformData.mjs
@@ -35797,7 +34693,7 @@ ${parts.join("\n")}
         type,
         size: uniformData.size,
         isArray,
-        value: defaultValue(type, uniformData.size)
+        value: defaultValue(type, uniformData.size),
       };
     }
     return uniforms;
@@ -35806,22 +34702,27 @@ ${parts.join("\n")}
     "../../../../node_modules/pixi.js/lib/rendering/renderers/gl/shader/program/getUniformData.mjs"() {
       init_defaultValue();
       init_mapType();
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/gl/shader/program/logProgramError.mjs
   function logPrettyShaderError(gl, shader) {
-    const shaderSrc = gl.getShaderSource(shader).split("\n").map((line, index) => `${index}: ${line}`);
+    const shaderSrc = gl
+      .getShaderSource(shader)
+      .split("\n")
+      .map((line, index) => `${index}: ${line}`);
     const shaderLog = gl.getShaderInfoLog(shader);
     const splitShader = shaderLog.split("\n");
     const dedupe = {};
-    const lineNumbers = splitShader.map((line) => parseFloat(line.replace(/^ERROR\: 0\:([\d]+)\:.*$/, "$1"))).filter((n2) => {
-      if (n2 && !dedupe[n2]) {
-        dedupe[n2] = true;
-        return true;
-      }
-      return false;
-    });
+    const lineNumbers = splitShader
+      .map((line) => parseFloat(line.replace(/^ERROR\: 0\:([\d]+)\:.*$/, "$1")))
+      .filter((n2) => {
+        if (n2 && !dedupe[n2]) {
+          dedupe[n2] = true;
+          return true;
+        }
+        return false;
+      });
     const logArgs = [""];
     lineNumbers.forEach((number) => {
       shaderSrc[number - 1] = `%c${shaderSrc[number - 1]}%c`;
@@ -35851,7 +34752,7 @@ ${parts.join("\n")}
   var init_logProgramError = __esm({
     "../../../../node_modules/pixi.js/lib/rendering/renderers/gl/shader/program/logProgramError.mjs"() {
       "use strict";
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/gl/shader/program/generateProgram.mjs
@@ -35866,22 +34767,14 @@ ${parts.join("\n")}
       if (typeof gl.transformFeedbackVaryings !== "function") {
         warn(`TransformFeedback is not supported but TransformFeedbackVaryings are given.`);
       } else {
-        gl.transformFeedbackVaryings(
-          webGLProgram,
-          transformFeedbackVaryings.names,
-          transformFeedbackVaryings.bufferMode === "separate" ? gl.SEPARATE_ATTRIBS : gl.INTERLEAVED_ATTRIBS
-        );
+        gl.transformFeedbackVaryings(webGLProgram, transformFeedbackVaryings.names, transformFeedbackVaryings.bufferMode === "separate" ? gl.SEPARATE_ATTRIBS : gl.INTERLEAVED_ATTRIBS);
       }
     }
     gl.linkProgram(webGLProgram);
     if (!gl.getProgramParameter(webGLProgram, gl.LINK_STATUS)) {
       logProgramError(gl, webGLProgram, glVertShader, glFragShader);
     }
-    program._attributeData = extractAttributesFromGlProgram(
-      webGLProgram,
-      gl,
-      !/^[ \t]*#[ \t]*version[ \t]+300[ \t]+es[ \t]*$/m.test(program.vertex)
-    );
+    program._attributeData = extractAttributesFromGlProgram(webGLProgram, gl, !/^[ \t]*#[ \t]*version[ \t]+300[ \t]+es[ \t]*$/m.test(program.vertex));
     program._uniformData = getUniformData(webGLProgram, gl);
     program._uniformBlockData = getUboData(webGLProgram, gl);
     gl.deleteShader(glVertShader);
@@ -35891,7 +34784,7 @@ ${parts.join("\n")}
       const data = program._uniformData[i2];
       uniformData[i2] = {
         location: gl.getUniformLocation(webGLProgram, i2),
-        value: defaultValue(data.type, data.size)
+        value: defaultValue(data.type, data.size),
       };
     }
     const glProgram3 = new GlProgramData(webGLProgram, uniformData);
@@ -35907,7 +34800,7 @@ ${parts.join("\n")}
       init_getUboData();
       init_getUniformData();
       init_logProgramError();
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/gl/shader/GlShaderSystem.mjs
@@ -35920,7 +34813,7 @@ ${parts.join("\n")}
       init_generateProgram();
       defaultSyncData = {
         textureCount: 0,
-        blockIndex: 0
+        blockIndex: 0,
       };
       GlShaderSystem = class {
         constructor(renderer) {
@@ -35945,8 +34838,7 @@ ${parts.join("\n")}
          */
         bind(shader, skipSync) {
           this._setProgram(shader.glProgram);
-          if (skipSync)
-            return;
+          if (skipSync) return;
           defaultSyncData.textureCount = 0;
           defaultSyncData.blockIndex = 0;
           let syncFunction = this._shaderSyncFunctions[shader.glProgram._key];
@@ -35990,14 +34882,12 @@ ${parts.join("\n")}
             bufferSystem.bindBufferBase(glBuffer, boundLocation);
           }
           const uniformBlockIndex = this._activeProgram._uniformBlockData[name].index;
-          if (programData.uniformBlockBindings[index] === boundLocation)
-            return;
+          if (programData.uniformBlockBindings[index] === boundLocation) return;
           programData.uniformBlockBindings[index] = boundLocation;
           this._renderer.gl.uniformBlockBinding(programData.program, uniformBlockIndex, boundLocation);
         }
         _setProgram(program) {
-          if (this._activeProgram === program)
-            return;
+          if (this._activeProgram === program) return;
           this._activeProgram = program;
           const programData = this._getProgramData(program);
           this._gl.useProgram(programData.program);
@@ -36039,12 +34929,10 @@ ${parts.join("\n")}
         }
       };
       GlShaderSystem.extension = {
-        type: [
-          ExtensionType.WebGLSystem
-        ],
-        name: "shader"
+        type: [ExtensionType.WebGLSystem],
+        name: "shader",
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/gl/shader/utils/generateUniformsSyncTypes.mjs
@@ -36143,7 +35031,7 @@ ${parts.join("\n")}
         }`,
         "mat2x2<f32>": `gl.uniformMatrix2fv(location, false, v);`,
         "mat3x3<f32>": `gl.uniformMatrix3fv(location, false, v);`,
-        "mat4x4<f32>": `gl.uniformMatrix4fv(location, false, v);`
+        "mat4x4<f32>": `gl.uniformMatrix4fv(location, false, v);`,
       };
       UNIFORM_TO_ARRAY_SETTERS = {
         f32: `gl.uniform1fv(location, v);`,
@@ -36164,21 +35052,23 @@ ${parts.join("\n")}
         bool: `gl.uniform1iv(location, v);`,
         "vec2<bool>": `gl.uniform2iv(location, v);`,
         "vec3<bool>": `gl.uniform3iv(location, v);`,
-        "vec4<bool>": `gl.uniform4iv(location, v);`
+        "vec4<bool>": `gl.uniform4iv(location, v);`,
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/gl/shader/utils/generateUniformsSync.mjs
   function generateUniformsSync(group, uniformData) {
-    const funcFragments = [`
+    const funcFragments = [
+      `
         var v = null;
         var cv = null;
         var cu = null;
         var t = 0;
         var gl = renderer.gl;
         var name = null;
-    `];
+    `,
+    ];
     for (const i2 in group.uniforms) {
       if (!uniformData[i2]) {
         if (group.uniforms[i2] instanceof UniformGroup) {
@@ -36226,7 +35116,7 @@ ${parts.join("\n")}
       init_UniformGroup();
       init_uniformParsers();
       init_generateUniformsSyncTypes();
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/gl/shader/GlUniformGroupSystem.mjs
@@ -36309,12 +35199,10 @@ ${parts.join("\n")}
         }
       };
       GlUniformGroupSystem.extension = {
-        type: [
-          ExtensionType.WebGLSystem
-        ],
-        name: "uniformGroup"
+        type: [ExtensionType.WebGLSystem],
+        name: "uniformGroup",
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/gl/state/mapWebGLBlendModesToPixi.mjs
@@ -36345,7 +35233,7 @@ ${parts.join("\n")}
   var init_mapWebGLBlendModesToPixi = __esm({
     "../../../../node_modules/pixi.js/lib/rendering/renderers/gl/state/mapWebGLBlendModesToPixi.mjs"() {
       init_adapter();
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/gl/state/GlStateSystem.mjs
@@ -36394,7 +35282,7 @@ ${parts.join("\n")}
             let i2 = 0;
             while (diff) {
               if (diff & 1) {
-                this.map[i2].call(this, !!(state.data & 1 << i2));
+                this.map[i2].call(this, !!(state.data & (1 << i2)));
               }
               diff >>= 1;
               i2++;
@@ -36412,7 +35300,7 @@ ${parts.join("\n")}
         forceState(state) {
           state || (state = this.defaultState);
           for (let i2 = 0; i2 < this.map.length; i2++) {
-            this.map[i2].call(this, !!(state.data & 1 << i2));
+            this.map[i2].call(this, !!(state.data & (1 << i2)));
           }
           for (let i2 = 0; i2 < this.checks.length; i2++) {
             this.checks[i2](this, state);
@@ -36549,13 +35437,11 @@ ${parts.join("\n")}
         }
       };
       _GlStateSystem.extension = {
-        type: [
-          ExtensionType.WebGLSystem
-        ],
-        name: "state"
+        type: [ExtensionType.WebGLSystem],
+        name: "state",
       };
       GlStateSystem = _GlStateSystem;
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/gl/texture/GlTexture.mjs
@@ -36575,7 +35461,7 @@ ${parts.join("\n")}
           this.samplerType = 0;
         }
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/gl/texture/uploaders/glUploadBufferImageResource.mjs
@@ -36587,35 +35473,15 @@ ${parts.join("\n")}
         id: "buffer",
         upload(source2, glTexture, gl) {
           if (glTexture.width === source2.width || glTexture.height === source2.height) {
-            gl.texSubImage2D(
-              gl.TEXTURE_2D,
-              0,
-              0,
-              0,
-              source2.width,
-              source2.height,
-              glTexture.format,
-              glTexture.type,
-              source2.resource
-            );
+            gl.texSubImage2D(gl.TEXTURE_2D, 0, 0, 0, source2.width, source2.height, glTexture.format, glTexture.type, source2.resource);
           } else {
-            gl.texImage2D(
-              glTexture.target,
-              0,
-              glTexture.internalFormat,
-              source2.width,
-              source2.height,
-              0,
-              glTexture.format,
-              glTexture.type,
-              source2.resource
-            );
+            gl.texImage2D(glTexture.target, 0, glTexture.internalFormat, source2.width, source2.height, 0, glTexture.format, glTexture.type, source2.resource);
           }
           glTexture.width = source2.width;
           glTexture.height = source2.height;
-        }
+        },
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/gl/texture/uploaders/glUploadCompressedTextureResource.mjs
@@ -36679,7 +35545,7 @@ ${parts.join("\n")}
         "astc-12x10-unorm": true,
         "astc-12x10-unorm-srgb": true,
         "astc-12x12-unorm": true,
-        "astc-12x12-unorm-srgb": true
+        "astc-12x12-unorm-srgb": true,
       };
       glUploadCompressedTextureResource = {
         id: "compressed",
@@ -36691,34 +35557,16 @@ ${parts.join("\n")}
           for (let i2 = 0; i2 < source2.resource.length; i2++) {
             const levelBuffer = source2.resource[i2];
             if (compressed) {
-              gl.compressedTexImage2D(
-                gl.TEXTURE_2D,
-                i2,
-                glTexture.internalFormat,
-                mipWidth,
-                mipHeight,
-                0,
-                levelBuffer
-              );
+              gl.compressedTexImage2D(gl.TEXTURE_2D, i2, glTexture.internalFormat, mipWidth, mipHeight, 0, levelBuffer);
             } else {
-              gl.texImage2D(
-                gl.TEXTURE_2D,
-                i2,
-                glTexture.internalFormat,
-                mipWidth,
-                mipHeight,
-                0,
-                glTexture.format,
-                glTexture.type,
-                levelBuffer
-              );
+              gl.texImage2D(gl.TEXTURE_2D, i2, glTexture.internalFormat, mipWidth, mipHeight, 0, glTexture.format, glTexture.type, levelBuffer);
             }
             mipWidth = Math.max(mipWidth >> 1, 1);
             mipHeight = Math.max(mipHeight >> 1, 1);
           }
-        }
+        },
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/gl/texture/uploaders/glUploadImageResource.mjs
@@ -36737,78 +35585,25 @@ ${parts.join("\n")}
           const resourceHeight = source2.resourceHeight;
           if (resourceWidth < textureWidth || resourceHeight < textureHeight) {
             if (glWidth !== textureWidth || glHeight !== textureHeight) {
-              gl.texImage2D(
-                glTexture.target,
-                0,
-                glTexture.internalFormat,
-                textureWidth,
-                textureHeight,
-                0,
-                glTexture.format,
-                glTexture.type,
-                null
-              );
+              gl.texImage2D(glTexture.target, 0, glTexture.internalFormat, textureWidth, textureHeight, 0, glTexture.format, glTexture.type, null);
             }
             if (webGLVersion === 2) {
-              gl.texSubImage2D(
-                gl.TEXTURE_2D,
-                0,
-                0,
-                0,
-                resourceWidth,
-                resourceHeight,
-                glTexture.format,
-                glTexture.type,
-                source2.resource
-              );
+              gl.texSubImage2D(gl.TEXTURE_2D, 0, 0, 0, resourceWidth, resourceHeight, glTexture.format, glTexture.type, source2.resource);
             } else {
-              gl.texSubImage2D(
-                gl.TEXTURE_2D,
-                0,
-                0,
-                0,
-                glTexture.format,
-                glTexture.type,
-                source2.resource
-              );
+              gl.texSubImage2D(gl.TEXTURE_2D, 0, 0, 0, glTexture.format, glTexture.type, source2.resource);
             }
           } else if (glWidth === textureWidth && glHeight === textureHeight) {
-            gl.texSubImage2D(
-              gl.TEXTURE_2D,
-              0,
-              0,
-              0,
-              glTexture.format,
-              glTexture.type,
-              source2.resource
-            );
+            gl.texSubImage2D(gl.TEXTURE_2D, 0, 0, 0, glTexture.format, glTexture.type, source2.resource);
           } else if (webGLVersion === 2) {
-            gl.texImage2D(
-              glTexture.target,
-              0,
-              glTexture.internalFormat,
-              textureWidth,
-              textureHeight,
-              0,
-              glTexture.format,
-              glTexture.type,
-              source2.resource
-            );
+            gl.texImage2D(glTexture.target, 0, glTexture.internalFormat, textureWidth, textureHeight, 0, glTexture.format, glTexture.type, source2.resource);
           } else {
-            gl.texImage2D(
-              glTexture.target,
-              0,
-              glTexture.internalFormat,
-              glTexture.format,
-              glTexture.type,
-              source2.resource
-            );
+            gl.texImage2D(glTexture.target, 0, glTexture.internalFormat, glTexture.format, glTexture.type, source2.resource);
           }
           glTexture.width = textureWidth;
           glTexture.height = textureHeight;
-        }
+        },
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/gl/texture/uploaders/glUploadVideoResource.mjs
@@ -36820,23 +35615,13 @@ ${parts.join("\n")}
         id: "video",
         upload(source2, glTexture, gl, webGLVersion) {
           if (!source2.isValid) {
-            gl.texImage2D(
-              glTexture.target,
-              0,
-              glTexture.internalFormat,
-              1,
-              1,
-              0,
-              glTexture.format,
-              glTexture.type,
-              null
-            );
+            gl.texImage2D(glTexture.target, 0, glTexture.internalFormat, 1, 1, 0, glTexture.format, glTexture.type, null);
             return;
           }
           glUploadImageResource.upload(source2, glTexture, gl, webGLVersion);
-        }
+        },
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/gl/texture/utils/pixiToGlMaps.mjs
@@ -36846,22 +35631,22 @@ ${parts.join("\n")}
       "use strict";
       scaleModeToGlFilter = {
         linear: 9729,
-        nearest: 9728
+        nearest: 9728,
       };
       mipmapScaleModeToGlFilter = {
         linear: {
           linear: 9987,
-          nearest: 9985
+          nearest: 9985,
         },
         nearest: {
           linear: 9986,
-          nearest: 9984
-        }
+          nearest: 9984,
+        },
       };
       wrapModeToGlAddress = {
         "clamp-to-edge": 33071,
         repeat: 10497,
-        "mirror-repeat": 33648
+        "mirror-repeat": 33648,
       };
       compareModeToGlCompare = {
         never: 512,
@@ -36871,9 +35656,9 @@ ${parts.join("\n")}
         greater: 516,
         "not-equal": 517,
         "greater-equal": 518,
-        always: 519
+        always: 519,
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/gl/texture/utils/applyStyleParams.mjs
@@ -36885,8 +35670,7 @@ ${parts.join("\n")}
       const wrapModeR = wrapModeToGlAddress[forceClamp ? "clamp-to-edge" : style.addressModeW];
       gl[glFunctionName](castParam, gl.TEXTURE_WRAP_S, wrapModeS);
       gl[glFunctionName](castParam, gl.TEXTURE_WRAP_T, wrapModeT);
-      if (gl.TEXTURE_WRAP_R)
-        gl[glFunctionName](castParam, gl.TEXTURE_WRAP_R, wrapModeR);
+      if (gl.TEXTURE_WRAP_R) gl[glFunctionName](castParam, gl.TEXTURE_WRAP_R, wrapModeR);
     }
     if (!firstCreation || style.magFilter !== "linear") {
       gl[glFunctionName](castParam, gl.TEXTURE_MAG_FILTER, scaleModeToGlFilter[style.magFilter]);
@@ -36910,7 +35694,7 @@ ${parts.join("\n")}
   var init_applyStyleParams = __esm({
     "../../../../node_modules/pixi.js/lib/rendering/renderers/gl/texture/utils/applyStyleParams.mjs"() {
       init_pixiToGlMaps();
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/gl/texture/utils/mapFormatToGlFormat.mjs
@@ -36964,13 +35748,13 @@ ${parts.join("\n")}
       depth24plus: gl.DEPTH_COMPONENT,
       "depth24plus-stencil8": gl.DEPTH_STENCIL,
       depth32float: gl.DEPTH_COMPONENT,
-      "depth32float-stencil8": gl.DEPTH_STENCIL
+      "depth32float-stencil8": gl.DEPTH_STENCIL,
     };
   }
   var init_mapFormatToGlFormat = __esm({
     "../../../../node_modules/pixi.js/lib/rendering/renderers/gl/texture/utils/mapFormatToGlFormat.mjs"() {
       "use strict";
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/gl/texture/utils/mapFormatToGlInternalFormat.mjs
@@ -36980,128 +35764,164 @@ ${parts.join("\n")}
     if (!(gl instanceof DOMAdapter.get().getWebGLRenderingContext())) {
       srgb = {
         "rgba8unorm-srgb": gl.SRGB8_ALPHA8,
-        "bgra8unorm-srgb": gl.SRGB8_ALPHA8
+        "bgra8unorm-srgb": gl.SRGB8_ALPHA8,
       };
       bgra8unorm = gl.RGBA8;
     } else if (extensions2.srgb) {
       srgb = {
         "rgba8unorm-srgb": extensions2.srgb.SRGB8_ALPHA8_EXT,
-        "bgra8unorm-srgb": extensions2.srgb.SRGB8_ALPHA8_EXT
+        "bgra8unorm-srgb": extensions2.srgb.SRGB8_ALPHA8_EXT,
       };
     }
-    return __spreadValues(__spreadValues(__spreadValues(__spreadValues(__spreadValues(__spreadValues(__spreadProps(__spreadValues({
-      // 8-bit formats
-      r8unorm: gl.R8,
-      r8snorm: gl.R8_SNORM,
-      r8uint: gl.R8UI,
-      r8sint: gl.R8I,
-      // 16-bit formats
-      r16uint: gl.R16UI,
-      r16sint: gl.R16I,
-      r16float: gl.R16F,
-      rg8unorm: gl.RG8,
-      rg8snorm: gl.RG8_SNORM,
-      rg8uint: gl.RG8UI,
-      rg8sint: gl.RG8I,
-      // 32-bit formats
-      r32uint: gl.R32UI,
-      r32sint: gl.R32I,
-      r32float: gl.R32F,
-      rg16uint: gl.RG16UI,
-      rg16sint: gl.RG16I,
-      rg16float: gl.RG16F,
-      rgba8unorm: gl.RGBA
-    }, srgb), {
-      // Packed 32-bit formats
-      rgba8snorm: gl.RGBA8_SNORM,
-      rgba8uint: gl.RGBA8UI,
-      rgba8sint: gl.RGBA8I,
-      bgra8unorm,
-      rgb9e5ufloat: gl.RGB9_E5,
-      rgb10a2unorm: gl.RGB10_A2,
-      rg11b10ufloat: gl.R11F_G11F_B10F,
-      // 64-bit formats
-      rg32uint: gl.RG32UI,
-      rg32sint: gl.RG32I,
-      rg32float: gl.RG32F,
-      rgba16uint: gl.RGBA16UI,
-      rgba16sint: gl.RGBA16I,
-      rgba16float: gl.RGBA16F,
-      // 128-bit formats
-      rgba32uint: gl.RGBA32UI,
-      rgba32sint: gl.RGBA32I,
-      rgba32float: gl.RGBA32F,
-      // Depth/stencil formats
-      stencil8: gl.STENCIL_INDEX8,
-      depth16unorm: gl.DEPTH_COMPONENT16,
-      depth24plus: gl.DEPTH_COMPONENT24,
-      "depth24plus-stencil8": gl.DEPTH24_STENCIL8,
-      depth32float: gl.DEPTH_COMPONENT32F,
-      "depth32float-stencil8": gl.DEPTH32F_STENCIL8
-    }), extensions2.s3tc ? {
-      "bc1-rgba-unorm": extensions2.s3tc.COMPRESSED_RGBA_S3TC_DXT1_EXT,
-      "bc2-rgba-unorm": extensions2.s3tc.COMPRESSED_RGBA_S3TC_DXT3_EXT,
-      "bc3-rgba-unorm": extensions2.s3tc.COMPRESSED_RGBA_S3TC_DXT5_EXT
-    } : {}), extensions2.s3tc_sRGB ? {
-      "bc1-rgba-unorm-srgb": extensions2.s3tc_sRGB.COMPRESSED_SRGB_ALPHA_S3TC_DXT1_EXT,
-      "bc2-rgba-unorm-srgb": extensions2.s3tc_sRGB.COMPRESSED_SRGB_ALPHA_S3TC_DXT3_EXT,
-      "bc3-rgba-unorm-srgb": extensions2.s3tc_sRGB.COMPRESSED_SRGB_ALPHA_S3TC_DXT5_EXT
-    } : {}), extensions2.rgtc ? {
-      "bc4-r-unorm": extensions2.rgtc.COMPRESSED_RED_RGTC1_EXT,
-      "bc4-r-snorm": extensions2.rgtc.COMPRESSED_SIGNED_RED_RGTC1_EXT,
-      "bc5-rg-unorm": extensions2.rgtc.COMPRESSED_RED_GREEN_RGTC2_EXT,
-      "bc5-rg-snorm": extensions2.rgtc.COMPRESSED_SIGNED_RED_GREEN_RGTC2_EXT
-    } : {}), extensions2.bptc ? {
-      "bc6h-rgb-float": extensions2.bptc.COMPRESSED_RGB_BPTC_SIGNED_FLOAT_EXT,
-      "bc6h-rgb-ufloat": extensions2.bptc.COMPRESSED_RGB_BPTC_UNSIGNED_FLOAT_EXT,
-      "bc7-rgba-unorm": extensions2.bptc.COMPRESSED_RGBA_BPTC_UNORM_EXT,
-      "bc7-rgba-unorm-srgb": extensions2.bptc.COMPRESSED_SRGB_ALPHA_BPTC_UNORM_EXT
-    } : {}), extensions2.etc ? {
-      "etc2-rgb8unorm": extensions2.etc.COMPRESSED_RGB8_ETC2,
-      "etc2-rgb8unorm-srgb": extensions2.etc.COMPRESSED_SRGB8_ETC2,
-      "etc2-rgb8a1unorm": extensions2.etc.COMPRESSED_RGB8_PUNCHTHROUGH_ALPHA1_ETC2,
-      "etc2-rgb8a1unorm-srgb": extensions2.etc.COMPRESSED_SRGB8_PUNCHTHROUGH_ALPHA1_ETC2,
-      "etc2-rgba8unorm": extensions2.etc.COMPRESSED_RGBA8_ETC2_EAC,
-      "etc2-rgba8unorm-srgb": extensions2.etc.COMPRESSED_SRGB8_ALPHA8_ETC2_EAC,
-      "eac-r11unorm": extensions2.etc.COMPRESSED_R11_EAC,
-      // 'eac-r11snorm'
-      "eac-rg11unorm": extensions2.etc.COMPRESSED_SIGNED_RG11_EAC
-      // 'eac-rg11snorm'
-    } : {}), extensions2.astc ? {
-      "astc-4x4-unorm": extensions2.astc.COMPRESSED_RGBA_ASTC_4x4_KHR,
-      "astc-4x4-unorm-srgb": extensions2.astc.COMPRESSED_SRGB8_ALPHA8_ASTC_4x4_KHR,
-      "astc-5x4-unorm": extensions2.astc.COMPRESSED_RGBA_ASTC_5x4_KHR,
-      "astc-5x4-unorm-srgb": extensions2.astc.COMPRESSED_SRGB8_ALPHA8_ASTC_5x4_KHR,
-      "astc-5x5-unorm": extensions2.astc.COMPRESSED_RGBA_ASTC_5x5_KHR,
-      "astc-5x5-unorm-srgb": extensions2.astc.COMPRESSED_SRGB8_ALPHA8_ASTC_5x5_KHR,
-      "astc-6x5-unorm": extensions2.astc.COMPRESSED_RGBA_ASTC_6x5_KHR,
-      "astc-6x5-unorm-srgb": extensions2.astc.COMPRESSED_SRGB8_ALPHA8_ASTC_6x5_KHR,
-      "astc-6x6-unorm": extensions2.astc.COMPRESSED_RGBA_ASTC_6x6_KHR,
-      "astc-6x6-unorm-srgb": extensions2.astc.COMPRESSED_SRGB8_ALPHA8_ASTC_6x6_KHR,
-      "astc-8x5-unorm": extensions2.astc.COMPRESSED_RGBA_ASTC_8x5_KHR,
-      "astc-8x5-unorm-srgb": extensions2.astc.COMPRESSED_SRGB8_ALPHA8_ASTC_8x5_KHR,
-      "astc-8x6-unorm": extensions2.astc.COMPRESSED_RGBA_ASTC_8x6_KHR,
-      "astc-8x6-unorm-srgb": extensions2.astc.COMPRESSED_SRGB8_ALPHA8_ASTC_8x6_KHR,
-      "astc-8x8-unorm": extensions2.astc.COMPRESSED_RGBA_ASTC_8x8_KHR,
-      "astc-8x8-unorm-srgb": extensions2.astc.COMPRESSED_SRGB8_ALPHA8_ASTC_8x8_KHR,
-      "astc-10x5-unorm": extensions2.astc.COMPRESSED_RGBA_ASTC_10x5_KHR,
-      "astc-10x5-unorm-srgb": extensions2.astc.COMPRESSED_SRGB8_ALPHA8_ASTC_10x5_KHR,
-      "astc-10x6-unorm": extensions2.astc.COMPRESSED_RGBA_ASTC_10x6_KHR,
-      "astc-10x6-unorm-srgb": extensions2.astc.COMPRESSED_SRGB8_ALPHA8_ASTC_10x6_KHR,
-      "astc-10x8-unorm": extensions2.astc.COMPRESSED_RGBA_ASTC_10x8_KHR,
-      "astc-10x8-unorm-srgb": extensions2.astc.COMPRESSED_SRGB8_ALPHA8_ASTC_10x8_KHR,
-      "astc-10x10-unorm": extensions2.astc.COMPRESSED_RGBA_ASTC_10x10_KHR,
-      "astc-10x10-unorm-srgb": extensions2.astc.COMPRESSED_SRGB8_ALPHA8_ASTC_10x10_KHR,
-      "astc-12x10-unorm": extensions2.astc.COMPRESSED_RGBA_ASTC_12x10_KHR,
-      "astc-12x10-unorm-srgb": extensions2.astc.COMPRESSED_SRGB8_ALPHA8_ASTC_12x10_KHR,
-      "astc-12x12-unorm": extensions2.astc.COMPRESSED_RGBA_ASTC_12x12_KHR,
-      "astc-12x12-unorm-srgb": extensions2.astc.COMPRESSED_SRGB8_ALPHA8_ASTC_12x12_KHR
-    } : {});
+    return __spreadValues(
+      __spreadValues(
+        __spreadValues(
+          __spreadValues(
+            __spreadValues(
+              __spreadValues(
+                __spreadProps(
+                  __spreadValues(
+                    {
+                      // 8-bit formats
+                      r8unorm: gl.R8,
+                      r8snorm: gl.R8_SNORM,
+                      r8uint: gl.R8UI,
+                      r8sint: gl.R8I,
+                      // 16-bit formats
+                      r16uint: gl.R16UI,
+                      r16sint: gl.R16I,
+                      r16float: gl.R16F,
+                      rg8unorm: gl.RG8,
+                      rg8snorm: gl.RG8_SNORM,
+                      rg8uint: gl.RG8UI,
+                      rg8sint: gl.RG8I,
+                      // 32-bit formats
+                      r32uint: gl.R32UI,
+                      r32sint: gl.R32I,
+                      r32float: gl.R32F,
+                      rg16uint: gl.RG16UI,
+                      rg16sint: gl.RG16I,
+                      rg16float: gl.RG16F,
+                      rgba8unorm: gl.RGBA,
+                    },
+                    srgb
+                  ),
+                  {
+                    // Packed 32-bit formats
+                    rgba8snorm: gl.RGBA8_SNORM,
+                    rgba8uint: gl.RGBA8UI,
+                    rgba8sint: gl.RGBA8I,
+                    bgra8unorm,
+                    rgb9e5ufloat: gl.RGB9_E5,
+                    rgb10a2unorm: gl.RGB10_A2,
+                    rg11b10ufloat: gl.R11F_G11F_B10F,
+                    // 64-bit formats
+                    rg32uint: gl.RG32UI,
+                    rg32sint: gl.RG32I,
+                    rg32float: gl.RG32F,
+                    rgba16uint: gl.RGBA16UI,
+                    rgba16sint: gl.RGBA16I,
+                    rgba16float: gl.RGBA16F,
+                    // 128-bit formats
+                    rgba32uint: gl.RGBA32UI,
+                    rgba32sint: gl.RGBA32I,
+                    rgba32float: gl.RGBA32F,
+                    // Depth/stencil formats
+                    stencil8: gl.STENCIL_INDEX8,
+                    depth16unorm: gl.DEPTH_COMPONENT16,
+                    depth24plus: gl.DEPTH_COMPONENT24,
+                    "depth24plus-stencil8": gl.DEPTH24_STENCIL8,
+                    depth32float: gl.DEPTH_COMPONENT32F,
+                    "depth32float-stencil8": gl.DEPTH32F_STENCIL8,
+                  }
+                ),
+                extensions2.s3tc
+                  ? {
+                      "bc1-rgba-unorm": extensions2.s3tc.COMPRESSED_RGBA_S3TC_DXT1_EXT,
+                      "bc2-rgba-unorm": extensions2.s3tc.COMPRESSED_RGBA_S3TC_DXT3_EXT,
+                      "bc3-rgba-unorm": extensions2.s3tc.COMPRESSED_RGBA_S3TC_DXT5_EXT,
+                    }
+                  : {}
+              ),
+              extensions2.s3tc_sRGB
+                ? {
+                    "bc1-rgba-unorm-srgb": extensions2.s3tc_sRGB.COMPRESSED_SRGB_ALPHA_S3TC_DXT1_EXT,
+                    "bc2-rgba-unorm-srgb": extensions2.s3tc_sRGB.COMPRESSED_SRGB_ALPHA_S3TC_DXT3_EXT,
+                    "bc3-rgba-unorm-srgb": extensions2.s3tc_sRGB.COMPRESSED_SRGB_ALPHA_S3TC_DXT5_EXT,
+                  }
+                : {}
+            ),
+            extensions2.rgtc
+              ? {
+                  "bc4-r-unorm": extensions2.rgtc.COMPRESSED_RED_RGTC1_EXT,
+                  "bc4-r-snorm": extensions2.rgtc.COMPRESSED_SIGNED_RED_RGTC1_EXT,
+                  "bc5-rg-unorm": extensions2.rgtc.COMPRESSED_RED_GREEN_RGTC2_EXT,
+                  "bc5-rg-snorm": extensions2.rgtc.COMPRESSED_SIGNED_RED_GREEN_RGTC2_EXT,
+                }
+              : {}
+          ),
+          extensions2.bptc
+            ? {
+                "bc6h-rgb-float": extensions2.bptc.COMPRESSED_RGB_BPTC_SIGNED_FLOAT_EXT,
+                "bc6h-rgb-ufloat": extensions2.bptc.COMPRESSED_RGB_BPTC_UNSIGNED_FLOAT_EXT,
+                "bc7-rgba-unorm": extensions2.bptc.COMPRESSED_RGBA_BPTC_UNORM_EXT,
+                "bc7-rgba-unorm-srgb": extensions2.bptc.COMPRESSED_SRGB_ALPHA_BPTC_UNORM_EXT,
+              }
+            : {}
+        ),
+        extensions2.etc
+          ? {
+              "etc2-rgb8unorm": extensions2.etc.COMPRESSED_RGB8_ETC2,
+              "etc2-rgb8unorm-srgb": extensions2.etc.COMPRESSED_SRGB8_ETC2,
+              "etc2-rgb8a1unorm": extensions2.etc.COMPRESSED_RGB8_PUNCHTHROUGH_ALPHA1_ETC2,
+              "etc2-rgb8a1unorm-srgb": extensions2.etc.COMPRESSED_SRGB8_PUNCHTHROUGH_ALPHA1_ETC2,
+              "etc2-rgba8unorm": extensions2.etc.COMPRESSED_RGBA8_ETC2_EAC,
+              "etc2-rgba8unorm-srgb": extensions2.etc.COMPRESSED_SRGB8_ALPHA8_ETC2_EAC,
+              "eac-r11unorm": extensions2.etc.COMPRESSED_R11_EAC,
+              // 'eac-r11snorm'
+              "eac-rg11unorm": extensions2.etc.COMPRESSED_SIGNED_RG11_EAC,
+              // 'eac-rg11snorm'
+            }
+          : {}
+      ),
+      extensions2.astc
+        ? {
+            "astc-4x4-unorm": extensions2.astc.COMPRESSED_RGBA_ASTC_4x4_KHR,
+            "astc-4x4-unorm-srgb": extensions2.astc.COMPRESSED_SRGB8_ALPHA8_ASTC_4x4_KHR,
+            "astc-5x4-unorm": extensions2.astc.COMPRESSED_RGBA_ASTC_5x4_KHR,
+            "astc-5x4-unorm-srgb": extensions2.astc.COMPRESSED_SRGB8_ALPHA8_ASTC_5x4_KHR,
+            "astc-5x5-unorm": extensions2.astc.COMPRESSED_RGBA_ASTC_5x5_KHR,
+            "astc-5x5-unorm-srgb": extensions2.astc.COMPRESSED_SRGB8_ALPHA8_ASTC_5x5_KHR,
+            "astc-6x5-unorm": extensions2.astc.COMPRESSED_RGBA_ASTC_6x5_KHR,
+            "astc-6x5-unorm-srgb": extensions2.astc.COMPRESSED_SRGB8_ALPHA8_ASTC_6x5_KHR,
+            "astc-6x6-unorm": extensions2.astc.COMPRESSED_RGBA_ASTC_6x6_KHR,
+            "astc-6x6-unorm-srgb": extensions2.astc.COMPRESSED_SRGB8_ALPHA8_ASTC_6x6_KHR,
+            "astc-8x5-unorm": extensions2.astc.COMPRESSED_RGBA_ASTC_8x5_KHR,
+            "astc-8x5-unorm-srgb": extensions2.astc.COMPRESSED_SRGB8_ALPHA8_ASTC_8x5_KHR,
+            "astc-8x6-unorm": extensions2.astc.COMPRESSED_RGBA_ASTC_8x6_KHR,
+            "astc-8x6-unorm-srgb": extensions2.astc.COMPRESSED_SRGB8_ALPHA8_ASTC_8x6_KHR,
+            "astc-8x8-unorm": extensions2.astc.COMPRESSED_RGBA_ASTC_8x8_KHR,
+            "astc-8x8-unorm-srgb": extensions2.astc.COMPRESSED_SRGB8_ALPHA8_ASTC_8x8_KHR,
+            "astc-10x5-unorm": extensions2.astc.COMPRESSED_RGBA_ASTC_10x5_KHR,
+            "astc-10x5-unorm-srgb": extensions2.astc.COMPRESSED_SRGB8_ALPHA8_ASTC_10x5_KHR,
+            "astc-10x6-unorm": extensions2.astc.COMPRESSED_RGBA_ASTC_10x6_KHR,
+            "astc-10x6-unorm-srgb": extensions2.astc.COMPRESSED_SRGB8_ALPHA8_ASTC_10x6_KHR,
+            "astc-10x8-unorm": extensions2.astc.COMPRESSED_RGBA_ASTC_10x8_KHR,
+            "astc-10x8-unorm-srgb": extensions2.astc.COMPRESSED_SRGB8_ALPHA8_ASTC_10x8_KHR,
+            "astc-10x10-unorm": extensions2.astc.COMPRESSED_RGBA_ASTC_10x10_KHR,
+            "astc-10x10-unorm-srgb": extensions2.astc.COMPRESSED_SRGB8_ALPHA8_ASTC_10x10_KHR,
+            "astc-12x10-unorm": extensions2.astc.COMPRESSED_RGBA_ASTC_12x10_KHR,
+            "astc-12x10-unorm-srgb": extensions2.astc.COMPRESSED_SRGB8_ALPHA8_ASTC_12x10_KHR,
+            "astc-12x12-unorm": extensions2.astc.COMPRESSED_RGBA_ASTC_12x12_KHR,
+            "astc-12x12-unorm-srgb": extensions2.astc.COMPRESSED_SRGB8_ALPHA8_ASTC_12x12_KHR,
+          }
+        : {}
+    );
   }
   var init_mapFormatToGlInternalFormat = __esm({
     "../../../../node_modules/pixi.js/lib/rendering/renderers/gl/texture/utils/mapFormatToGlInternalFormat.mjs"() {
       init_adapter();
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/gl/texture/utils/mapFormatToGlType.mjs
@@ -37155,13 +35975,13 @@ ${parts.join("\n")}
       depth24plus: gl.UNSIGNED_INT,
       "depth24plus-stencil8": gl.UNSIGNED_INT_24_8,
       depth32float: gl.FLOAT,
-      "depth32float-stencil8": gl.FLOAT_32_UNSIGNED_INT_24_8_REV
+      "depth32float-stencil8": gl.FLOAT_32_UNSIGNED_INT_24_8_REV,
     };
   }
   var init_mapFormatToGlType = __esm({
     "../../../../node_modules/pixi.js/lib/rendering/renderers/gl/texture/utils/mapFormatToGlType.mjs"() {
       "use strict";
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/gl/texture/GlTextureSystem.mjs
@@ -37193,7 +36013,7 @@ ${parts.join("\n")}
             image: glUploadImageResource,
             buffer: glUploadBufferImageResource,
             video: glUploadVideoResource,
-            compressed: glUploadCompressedTextureResource
+            compressed: glUploadCompressedTextureResource,
           };
           this._premultiplyAlpha = false;
           this._useSeparateSamplers = false;
@@ -37322,8 +36142,7 @@ ${parts.join("\n")}
         }
         onSourceUnload(source2) {
           const glTexture = this._glTextures[source2.uid];
-          if (!glTexture)
-            return;
+          if (!glTexture) return;
           this.unbind(source2);
           this._glTextures[source2.uid] = null;
           this._gl.deleteTexture(glTexture.texture);
@@ -37348,8 +36167,7 @@ ${parts.join("\n")}
           }
         }
         onUpdateMipmaps(source2, bind = true) {
-          if (bind)
-            this.bindSource(source2, 0);
+          if (bind) this.bindSource(source2, 0);
           const glTexture = this.getGlSource(source2);
           this._gl.generateMipmap(glTexture.target);
         }
@@ -37367,16 +36185,7 @@ ${parts.join("\n")}
           const gl = this._gl;
           const glSampler = this._gl.createSampler();
           this._glSamplers[style._resourceId] = glSampler;
-          applyStyleParams(
-            style,
-            gl,
-            this._boundTextures[this._activeTextureLocation].mipLevelCount > 1,
-            this._renderer.context.extensions.anisotropicFiltering,
-            "samplerParameteri",
-            glSampler,
-            false,
-            true
-          );
+          applyStyleParams(style, gl, this._boundTextures[this._activeTextureLocation].mipLevelCount > 1, this._renderer.context.extensions.anisotropicFiltering, "samplerParameteri", glSampler, false, true);
           return this._glSamplers[style._resourceId];
         }
         _getGlSampler(sampler) {
@@ -37409,15 +36218,7 @@ ${parts.join("\n")}
           const glRenterTarget = renderer.renderTarget.getGpuRenderTarget(renderTarget);
           const gl = renderer.gl;
           gl.bindFramebuffer(gl.FRAMEBUFFER, glRenterTarget.resolveTargetFramebuffer);
-          gl.readPixels(
-            Math.round(frame.x * resolution),
-            Math.round(frame.y * resolution),
-            width,
-            height,
-            gl.RGBA,
-            gl.UNSIGNED_BYTE,
-            pixels
-          );
+          gl.readPixels(Math.round(frame.x * resolution), Math.round(frame.y * resolution), width, height, gl.RGBA, gl.UNSIGNED_BYTE, pixels);
           if (false) {
             unpremultiplyAlpha(pixels);
           }
@@ -37435,18 +36236,16 @@ ${parts.join("\n")}
         }
       };
       GlTextureSystem.extension = {
-        type: [
-          ExtensionType.WebGLSystem
-        ],
-        name: "texture"
+        type: [ExtensionType.WebGLSystem],
+        name: "texture",
       };
-    }
+    },
   });
 
   // ../../../../node_modules/pixi.js/lib/rendering/renderers/gl/WebGLRenderer.mjs
   var WebGLRenderer_exports = {};
   __export(WebGLRenderer_exports, {
-    WebGLRenderer: () => WebGLRenderer
+    WebGLRenderer: () => WebGLRenderer,
   });
   var DefaultWebGLSystems, DefaultWebGLPipes, DefaultWebGLAdapters, systems2, renderPipes2, renderPipeAdaptors2, WebGLRenderer;
   var init_WebGLRenderer = __esm({
@@ -37485,7 +36284,7 @@ ${parts.join("\n")}
         GlEncoderSystem,
         GlStateSystem,
         GlStencilSystem,
-        GlColorMaskSystem
+        GlColorMaskSystem,
       ];
       DefaultWebGLPipes = [...SharedRenderPipes];
       DefaultWebGLAdapters = [GlBatchAdaptor, GlMeshAdaptor, GlGraphicsAdaptor];
@@ -37503,18 +36302,18 @@ ${parts.join("\n")}
             type: RendererType.WEBGL,
             systems: systems2,
             renderPipes: renderPipes2,
-            renderPipeAdaptors: renderPipeAdaptors2
+            renderPipeAdaptors: renderPipeAdaptors2,
           };
           super(systemConfig);
         }
       };
-    }
+    },
   });
 
   // main.ts
   var main_exports = {};
   __export(main_exports, {
-    init: () => init2
+    init: () => init2,
   });
 
   // ../../../../node_modules/pixi.js/lib/environment-browser/browserExt.mjs
@@ -37523,12 +36322,13 @@ ${parts.join("\n")}
     extension: {
       type: ExtensionType.Environment,
       name: "browser",
-      priority: -1
+      priority: -1,
     },
     test: () => true,
-    load: () => __async(void 0, null, function* () {
-      yield Promise.resolve().then(() => (init_browserAll(), browserAll_exports));
-    })
+    load: () =>
+      __async(void 0, null, function* () {
+        yield Promise.resolve().then(() => (init_browserAll(), browserAll_exports));
+      }),
   };
 
   // ../../../../node_modules/pixi.js/lib/environment-webworker/webworkerExt.mjs
@@ -37537,12 +36337,13 @@ ${parts.join("\n")}
     extension: {
       type: ExtensionType.Environment,
       name: "webworker",
-      priority: 0
+      priority: 0,
     },
     test: () => typeof self !== "undefined" && self.WorkerGlobalScope !== void 0,
-    load: () => __async(void 0, null, function* () {
-      yield Promise.resolve().then(() => (init_webworkerAll(), webworkerAll_exports));
-    })
+    load: () =>
+      __async(void 0, null, function* () {
+        yield Promise.resolve().then(() => (init_webworkerAll(), webworkerAll_exports));
+      }),
   };
 
   // ../../../../node_modules/pixi.js/lib/index.mjs
@@ -37558,13 +36359,12 @@ ${parts.join("\n")}
   init_AbstractRenderer();
   var _isWebGLSupported;
   function isWebGLSupported(failIfMajorPerformanceCaveat) {
-    if (_isWebGLSupported !== void 0)
-      return _isWebGLSupported;
+    if (_isWebGLSupported !== void 0) return _isWebGLSupported;
     _isWebGLSupported = (() => {
       var _a2;
       const contextOptions = {
         stencil: true,
-        failIfMajorPerformanceCaveat: failIfMajorPerformanceCaveat != null ? failIfMajorPerformanceCaveat : AbstractRenderer.defaultOptions.failIfMajorPerformanceCaveat
+        failIfMajorPerformanceCaveat: failIfMajorPerformanceCaveat != null ? failIfMajorPerformanceCaveat : AbstractRenderer.defaultOptions.failIfMajorPerformanceCaveat,
       };
       try {
         if (!DOMAdapter.get().getWebGLRenderingContext()) {
@@ -37593,21 +36393,21 @@ ${parts.join("\n")}
   var _isWebGPUSupported;
   function isWebGPUSupported() {
     return __async(this, arguments, function* (options = {}) {
-      if (_isWebGPUSupported !== void 0)
-        return _isWebGPUSupported;
-      _isWebGPUSupported = yield (() => __async(this, null, function* () {
-        const gpu = DOMAdapter.get().getNavigator().gpu;
-        if (!gpu) {
-          return false;
-        }
-        try {
-          const adapter = yield gpu.requestAdapter(options);
-          yield adapter.requestDevice();
-          return true;
-        } catch (_e) {
-          return false;
-        }
-      }))();
+      if (_isWebGPUSupported !== void 0) return _isWebGPUSupported;
+      _isWebGPUSupported = yield (() =>
+        __async(this, null, function* () {
+          const gpu = DOMAdapter.get().getNavigator().gpu;
+          if (!gpu) {
+            return false;
+          }
+          try {
+            const adapter = yield gpu.requestAdapter(options);
+            yield adapter.requestDevice();
+            return true;
+          } catch (_e) {
+            return false;
+          }
+        }))();
       return _isWebGPUSupported;
     });
   }
@@ -37638,9 +36438,7 @@ ${parts.join("\n")}
           RendererClass = WebGPURenderer2;
           finalOptions = __spreadValues(__spreadValues({}, options), options.webgpu);
           break;
-        } else if (rendererType === "webgl" && isWebGLSupported(
-          (_a2 = options.failIfMajorPerformanceCaveat) != null ? _a2 : AbstractRenderer.defaultOptions.failIfMajorPerformanceCaveat
-        )) {
+        } else if (rendererType === "webgl" && isWebGLSupported((_a2 = options.failIfMajorPerformanceCaveat) != null ? _a2 : AbstractRenderer.defaultOptions.failIfMajorPerformanceCaveat)) {
           const { WebGLRenderer: WebGLRenderer2 } = yield Promise.resolve().then(() => (init_WebGLRenderer(), WebGLRenderer_exports));
           RendererClass = WebGLRenderer2;
           finalOptions = __spreadValues(__spreadValues({}, options), options.webgl);
@@ -37775,19 +36573,11 @@ ${parts.join("\n")}
       Object.keys(data.chars).forEach((key) => {
         var _a3;
         const charData = data.chars[key];
-        const {
-          frame: textureFrame,
-          source: textureSource
-        } = textures[charData.page];
-        const frameReal = new Rectangle(
-          charData.x + textureFrame.x,
-          charData.y + textureFrame.y,
-          charData.width,
-          charData.height
-        );
+        const { frame: textureFrame, source: textureSource } = textures[charData.page];
+        const frameReal = new Rectangle(charData.x + textureFrame.x, charData.y + textureFrame.y, charData.width, charData.height);
         const texture = new Texture({
           source: textureSource,
-          frame: frameReal
+          frame: frameReal,
         });
         this.chars[key] = {
           id: key.codePointAt(0),
@@ -37795,7 +36585,7 @@ ${parts.join("\n")}
           yOffset: charData.yOffset,
           xAdvance: charData.xAdvance,
           kerning: (_a3 = charData.kerning) != null ? _a3 : {},
-          texture
+          texture,
         };
       });
       this.baseRenderedFontSize = data.fontSize;
@@ -37803,15 +36593,18 @@ ${parts.join("\n")}
       this.fontMetrics = {
         ascent: 0,
         descent: 0,
-        fontSize: data.fontSize
+        fontSize: data.fontSize,
       };
       this.baseLineOffset = data.baseLineOffset;
       this.lineHeight = data.lineHeight;
       this.fontFamily = data.fontFamily;
-      this.distanceField = (_a2 = data.distanceField) != null ? _a2 : {
-        type: "none",
-        range: 0
-      };
+      this.distanceField =
+        (_a2 = data.distanceField) != null
+          ? _a2
+          : {
+              type: "none",
+              range: 0,
+            };
       this.url = url;
     }
     /** Destroys the BitmapFont object. */
@@ -37867,7 +36660,7 @@ ${parts.join("\n")}
         chars: [],
         kerning: [],
         kernings: [],
-        distanceField: []
+        distanceField: [],
       };
       for (const i2 in items) {
         const name = items[i2].match(/^[a-z]+/gm)[0];
@@ -37890,7 +36683,7 @@ ${parts.join("\n")}
         fontSize: 0,
         fontFamily: "",
         distanceField: null,
-        baseLineOffset: 0
+        baseLineOffset: 0,
       };
       const [info] = rawData.info;
       const [common] = rawData.common;
@@ -37898,7 +36691,7 @@ ${parts.join("\n")}
       if (distanceField) {
         font.distanceField = {
           range: parseInt(distanceField.distanceRange, 10),
-          type: distanceField.fieldType
+          type: distanceField.fieldType,
         };
       }
       font.fontSize = parseInt(info.size, 10);
@@ -37908,7 +36701,7 @@ ${parts.join("\n")}
       for (let i2 = 0; i2 < page.length; i2++) {
         font.pages.push({
           id: parseInt(page[i2].id, 10) || 0,
-          file: page[i2].file
+          file: page[i2].file,
         });
       }
       const map = {};
@@ -37918,8 +36711,7 @@ ${parts.join("\n")}
         const charNode = char[i2];
         const id = parseInt(charNode.id, 10);
         let letter = (_c = (_b = charNode.letter) != null ? _b : charNode.char) != null ? _c : String.fromCharCode(id);
-        if (letter === "space")
-          letter = " ";
+        if (letter === "space") letter = " ";
         map[id] = letter;
         font.chars[letter] = {
           id,
@@ -37932,7 +36724,7 @@ ${parts.join("\n")}
           xOffset: parseInt(charNode.xoffset, 10),
           yOffset: parseInt(charNode.yoffset, 10),
           xAdvance: parseInt(charNode.xadvance, 10),
-          kerning: {}
+          kerning: {},
         };
       }
       const kerning = rawData.kerning || [];
@@ -37943,7 +36735,7 @@ ${parts.join("\n")}
         font.chars[map[second]].kerning[map[first]] = amount;
       }
       return font;
-    }
+    },
   };
 
   // ../../../../node_modules/pixi.js/lib/scene/text-bitmap/asset/bitmapFontXMLStringParser.mjs
@@ -37964,7 +36756,7 @@ ${parts.join("\n")}
         fontSize: 0,
         fontFamily: "",
         distanceField: null,
-        baseLineOffset: 0
+        baseLineOffset: 0,
       };
       const info = xml.getElementsByTagName("info")[0];
       const common = xml.getElementsByTagName("common")[0];
@@ -37972,7 +36764,7 @@ ${parts.join("\n")}
       if (distanceField) {
         data.distanceField = {
           type: distanceField.getAttribute("fieldType"),
-          range: parseInt(distanceField.getAttribute("distanceRange"), 10)
+          range: parseInt(distanceField.getAttribute("distanceRange"), 10),
         };
       }
       const page = xml.getElementsByTagName("page");
@@ -37984,7 +36776,7 @@ ${parts.join("\n")}
       for (let i2 = 0; i2 < page.length; i2++) {
         data.pages.push({
           id: parseInt(page[i2].getAttribute("id"), 10) || 0,
-          file: page[i2].getAttribute("file")
+          file: page[i2].getAttribute("file"),
         });
       }
       const map = {};
@@ -37993,8 +36785,7 @@ ${parts.join("\n")}
         const charNode = char[i2];
         const id = parseInt(charNode.getAttribute("id"), 10);
         let letter = (_b = (_a2 = charNode.getAttribute("letter")) != null ? _a2 : charNode.getAttribute("char")) != null ? _b : String.fromCharCode(id);
-        if (letter === "space")
-          letter = " ";
+        if (letter === "space") letter = " ";
         map[id] = letter;
         data.chars[letter] = {
           id,
@@ -38009,7 +36800,7 @@ ${parts.join("\n")}
           yOffset: parseInt(charNode.getAttribute("yoffset"), 10),
           // + baseLineOffset,
           xAdvance: parseInt(charNode.getAttribute("xadvance"), 10),
-          kerning: {}
+          kerning: {},
         };
       }
       for (let i2 = 0; i2 < kerning.length; i2++) {
@@ -38019,7 +36810,7 @@ ${parts.join("\n")}
         data.chars[map[second]].kerning[map[first]] = amount;
       }
       return data;
-    }
+    },
   };
 
   // ../../../../node_modules/pixi.js/lib/scene/text-bitmap/asset/bitmapFontXMLStringParser.mjs
@@ -38032,7 +36823,7 @@ ${parts.join("\n")}
     },
     parse(data) {
       return bitmapFontXMLParser.parse(DOMAdapter.get().parseXML(data));
-    }
+    },
   };
 
   // ../../../../node_modules/pixi.js/lib/scene/text-bitmap/asset/loadBitmapFont.mjs
@@ -38040,7 +36831,7 @@ ${parts.join("\n")}
   var bitmapFontCachePlugin = {
     extension: {
       type: ExtensionType.CacheParser,
-      name: "cacheBitmapFont"
+      name: "cacheBitmapFont",
     },
     test: (asset) => asset instanceof BitmapFont,
     getCacheableAssets(keys, asset) {
@@ -38051,12 +36842,12 @@ ${parts.join("\n")}
       });
       out2[`${asset.fontFamily}-bitmap`] = asset;
       return out2;
-    }
+    },
   };
   var loadBitmapFont = {
     extension: {
       type: ExtensionType.LoadParser,
-      priority: LoaderParserPriority.Normal
+      priority: LoaderParserPriority.Normal,
     },
     name: "loadBitmapFont",
     test(url) {
@@ -38073,27 +36864,32 @@ ${parts.join("\n")}
         const { src } = data;
         const { pages } = bitmapFontData;
         const textureUrls = [];
-        const textureOptions = bitmapFontData.distanceField ? {
-          scaleMode: "linear",
-          alphaMode: "premultiply-alpha-on-upload",
-          autoGenerateMipmaps: false,
-          resolution: 1
-        } : {};
+        const textureOptions = bitmapFontData.distanceField
+          ? {
+              scaleMode: "linear",
+              alphaMode: "premultiply-alpha-on-upload",
+              autoGenerateMipmaps: false,
+              resolution: 1,
+            }
+          : {};
         for (let i2 = 0; i2 < pages.length; ++i2) {
           const pageFile = pages[i2].file;
           let imagePath = path.join(path.dirname(src), pageFile);
           imagePath = copySearchParams(imagePath, src);
           textureUrls.push({
             src: imagePath,
-            data: textureOptions
+            data: textureOptions,
           });
         }
         const loadedTextures = yield loader.load(textureUrls);
         const textures = textureUrls.map((url) => loadedTextures[url.src]);
-        const bitmapFont = new BitmapFont({
-          data: bitmapFontData,
-          textures
-        }, src);
+        const bitmapFont = new BitmapFont(
+          {
+            data: bitmapFontData,
+            textures,
+          },
+          src
+        );
         return bitmapFont;
       });
     },
@@ -38108,7 +36904,7 @@ ${parts.join("\n")}
         yield Promise.all(bitmapFont.pages.map((page) => loader.unload(page.texture.source._sourceOrigin)));
         bitmapFont.destroy();
       });
-    }
+    },
   };
 
   // ../../../../node_modules/pixi.js/lib/assets/Assets.mjs
@@ -38170,8 +36966,7 @@ ${parts.join("\n")}
       return this._isActive;
     }
     set active(value) {
-      if (this._isActive === value)
-        return;
+      if (this._isActive === value) return;
       this._isActive = value;
       if (value && !this._isLoading) {
         void this._next();
@@ -38188,7 +36983,7 @@ ${parts.join("\n")}
   var cacheTextureArray = {
     extension: {
       type: ExtensionType.CacheParser,
-      name: "cacheTextureArray"
+      name: "cacheTextureArray",
     },
     test: (asset) => Array.isArray(asset) && asset.every((t2) => t2 instanceof Texture),
     getCacheableAssets: (keys, asset) => {
@@ -38199,7 +36994,7 @@ ${parts.join("\n")}
         });
       });
       return out2;
-    }
+    },
   };
 
   // ../../../../node_modules/pixi.js/lib/assets/detections/parsers/detectAvif.mjs
@@ -38237,20 +37032,23 @@ ${parts.join("\n")}
   var detectAvif = {
     extension: {
       type: ExtensionType.DetectionParser,
-      priority: 1
+      priority: 1,
     },
-    test: () => __async(void 0, null, function* () {
-      return testImageFormat(
-        // eslint-disable-next-line max-len
-        "data:image/avif;base64,AAAAIGZ0eXBhdmlmAAAAAGF2aWZtaWYxbWlhZk1BMUIAAADybWV0YQAAAAAAAAAoaGRscgAAAAAAAAAAcGljdAAAAAAAAAAAAAAAAGxpYmF2aWYAAAAADnBpdG0AAAAAAAEAAAAeaWxvYwAAAABEAAABAAEAAAABAAABGgAAAB0AAAAoaWluZgAAAAAAAQAAABppbmZlAgAAAAABAABhdjAxQ29sb3IAAAAAamlwcnAAAABLaXBjbwAAABRpc3BlAAAAAAAAAAIAAAACAAAAEHBpeGkAAAAAAwgICAAAAAxhdjFDgQ0MAAAAABNjb2xybmNseAACAAIAAYAAAAAXaXBtYQAAAAAAAAABAAEEAQKDBAAAACVtZGF0EgAKCBgANogQEAwgMg8f8D///8WfhwB8+ErK42A="
-      );
-    }),
-    add: (formats) => __async(void 0, null, function* () {
-      return [...formats, "avif"];
-    }),
-    remove: (formats) => __async(void 0, null, function* () {
-      return formats.filter((f2) => f2 !== "avif");
-    })
+    test: () =>
+      __async(void 0, null, function* () {
+        return testImageFormat(
+          // eslint-disable-next-line max-len
+          "data:image/avif;base64,AAAAIGZ0eXBhdmlmAAAAAGF2aWZtaWYxbWlhZk1BMUIAAADybWV0YQAAAAAAAAAoaGRscgAAAAAAAAAAcGljdAAAAAAAAAAAAAAAAGxpYmF2aWYAAAAADnBpdG0AAAAAAAEAAAAeaWxvYwAAAABEAAABAAEAAAABAAABGgAAAB0AAAAoaWluZgAAAAAAAQAAABppbmZlAgAAAAABAABhdjAxQ29sb3IAAAAAamlwcnAAAABLaXBjbwAAABRpc3BlAAAAAAAAAAIAAAACAAAAEHBpeGkAAAAAAwgICAAAAAxhdjFDgQ0MAAAAABNjb2xybmNseAACAAIAAYAAAAAXaXBtYQAAAAAAAAABAAEEAQKDBAAAACVtZGF0EgAKCBgANogQEAwgMg8f8D///8WfhwB8+ErK42A="
+        );
+      }),
+    add: (formats) =>
+      __async(void 0, null, function* () {
+        return [...formats, "avif"];
+      }),
+    remove: (formats) =>
+      __async(void 0, null, function* () {
+        return formats.filter((f2) => f2 !== "avif");
+      }),
   };
 
   // ../../../../node_modules/pixi.js/lib/assets/detections/parsers/detectDefaults.mjs
@@ -38259,15 +37057,17 @@ ${parts.join("\n")}
   var detectDefaults = {
     extension: {
       type: ExtensionType.DetectionParser,
-      priority: -1
+      priority: -1,
     },
     test: () => Promise.resolve(true),
-    add: (formats) => __async(void 0, null, function* () {
-      return [...formats, ...imageFormats];
-    }),
-    remove: (formats) => __async(void 0, null, function* () {
-      return formats.filter((f2) => !imageFormats.includes(f2));
-    })
+    add: (formats) =>
+      __async(void 0, null, function* () {
+        return [...formats, ...imageFormats];
+      }),
+    remove: (formats) =>
+      __async(void 0, null, function* () {
+        return formats.filter((f2) => !imageFormats.includes(f2));
+      }),
   };
 
   // ../../../../node_modules/pixi.js/lib/assets/detections/parsers/detectMp4.mjs
@@ -38287,17 +37087,20 @@ ${parts.join("\n")}
   var detectMp4 = {
     extension: {
       type: ExtensionType.DetectionParser,
-      priority: 0
+      priority: 0,
     },
-    test: () => __async(void 0, null, function* () {
-      return testVideoFormat("video/mp4");
-    }),
-    add: (formats) => __async(void 0, null, function* () {
-      return [...formats, "mp4", "m4v"];
-    }),
-    remove: (formats) => __async(void 0, null, function* () {
-      return formats.filter((f2) => f2 !== "mp4" && f2 !== "m4v");
-    })
+    test: () =>
+      __async(void 0, null, function* () {
+        return testVideoFormat("video/mp4");
+      }),
+    add: (formats) =>
+      __async(void 0, null, function* () {
+        return [...formats, "mp4", "m4v"];
+      }),
+    remove: (formats) =>
+      __async(void 0, null, function* () {
+        return formats.filter((f2) => f2 !== "mp4" && f2 !== "m4v");
+      }),
   };
 
   // ../../../../node_modules/pixi.js/lib/assets/detections/parsers/detectOgv.mjs
@@ -38305,17 +37108,20 @@ ${parts.join("\n")}
   var detectOgv = {
     extension: {
       type: ExtensionType.DetectionParser,
-      priority: 0
+      priority: 0,
     },
-    test: () => __async(void 0, null, function* () {
-      return testVideoFormat("video/ogg");
-    }),
-    add: (formats) => __async(void 0, null, function* () {
-      return [...formats, "ogv"];
-    }),
-    remove: (formats) => __async(void 0, null, function* () {
-      return formats.filter((f2) => f2 !== "ogv");
-    })
+    test: () =>
+      __async(void 0, null, function* () {
+        return testVideoFormat("video/ogg");
+      }),
+    add: (formats) =>
+      __async(void 0, null, function* () {
+        return [...formats, "ogv"];
+      }),
+    remove: (formats) =>
+      __async(void 0, null, function* () {
+        return formats.filter((f2) => f2 !== "ogv");
+      }),
   };
 
   // ../../../../node_modules/pixi.js/lib/assets/detections/parsers/detectWebm.mjs
@@ -38323,17 +37129,20 @@ ${parts.join("\n")}
   var detectWebm = {
     extension: {
       type: ExtensionType.DetectionParser,
-      priority: 0
+      priority: 0,
     },
-    test: () => __async(void 0, null, function* () {
-      return testVideoFormat("video/webm");
-    }),
-    add: (formats) => __async(void 0, null, function* () {
-      return [...formats, "webm"];
-    }),
-    remove: (formats) => __async(void 0, null, function* () {
-      return formats.filter((f2) => f2 !== "webm");
-    })
+    test: () =>
+      __async(void 0, null, function* () {
+        return testVideoFormat("video/webm");
+      }),
+    add: (formats) =>
+      __async(void 0, null, function* () {
+        return [...formats, "webm"];
+      }),
+    remove: (formats) =>
+      __async(void 0, null, function* () {
+        return formats.filter((f2) => f2 !== "webm");
+      }),
   };
 
   // ../../../../node_modules/pixi.js/lib/assets/detections/parsers/detectWebp.mjs
@@ -38341,19 +37150,20 @@ ${parts.join("\n")}
   var detectWebp = {
     extension: {
       type: ExtensionType.DetectionParser,
-      priority: 0
+      priority: 0,
     },
-    test: () => __async(void 0, null, function* () {
-      return testImageFormat(
-        "data:image/webp;base64,UklGRh4AAABXRUJQVlA4TBEAAAAvAAAAAAfQ//73v/+BiOh/AAA="
-      );
-    }),
-    add: (formats) => __async(void 0, null, function* () {
-      return [...formats, "webp"];
-    }),
-    remove: (formats) => __async(void 0, null, function* () {
-      return formats.filter((f2) => f2 !== "webp");
-    })
+    test: () =>
+      __async(void 0, null, function* () {
+        return testImageFormat("data:image/webp;base64,UklGRh4AAABXRUJQVlA4TBEAAAAvAAAAAAfQ//73v/+BiOh/AAA=");
+      }),
+    add: (formats) =>
+      __async(void 0, null, function* () {
+        return [...formats, "webp"];
+      }),
+    remove: (formats) =>
+      __async(void 0, null, function* () {
+        return formats.filter((f2) => f2 !== "webp");
+      }),
   };
 
   // ../../../../node_modules/pixi.js/lib/assets/loader/Loader.mjs
@@ -38370,7 +37180,7 @@ ${parts.join("\n")}
           this._parsersValidated = false;
           target[key] = value;
           return true;
-        }
+        },
       });
       this.promiseCache = {};
     }
@@ -38388,44 +37198,45 @@ ${parts.join("\n")}
     _getLoadPromiseAndParser(url, data) {
       const result = {
         promise: null,
-        parser: null
+        parser: null,
       };
-      result.promise = (() => __async(this, null, function* () {
-        var _a2, _b;
-        let asset = null;
-        let parser = null;
-        if (data.loadParser) {
-          parser = this._parserHash[data.loadParser];
-          if (!parser) {
-            warn(`[Assets] specified load parser "${data.loadParser}" not found while loading ${url}`);
+      result.promise = (() =>
+        __async(this, null, function* () {
+          var _a2, _b;
+          let asset = null;
+          let parser = null;
+          if (data.loadParser) {
+            parser = this._parserHash[data.loadParser];
+            if (!parser) {
+              warn(`[Assets] specified load parser "${data.loadParser}" not found while loading ${url}`);
+            }
           }
-        }
-        if (!parser) {
+          if (!parser) {
+            for (let i2 = 0; i2 < this.parsers.length; i2++) {
+              const parserX = this.parsers[i2];
+              if (parserX.load && ((_a2 = parserX.test) == null ? void 0 : _a2.call(parserX, url, data, this))) {
+                parser = parserX;
+                break;
+              }
+            }
+            if (!parser) {
+              warn(`[Assets] ${url} could not be loaded as we don't know how to parse it, ensure the correct parser has been added`);
+              return null;
+            }
+          }
+          asset = yield parser.load(url, data, this);
+          result.parser = parser;
           for (let i2 = 0; i2 < this.parsers.length; i2++) {
-            const parserX = this.parsers[i2];
-            if (parserX.load && ((_a2 = parserX.test) == null ? void 0 : _a2.call(parserX, url, data, this))) {
-              parser = parserX;
-              break;
+            const parser2 = this.parsers[i2];
+            if (parser2.parse) {
+              if (parser2.parse && (yield (_b = parser2.testParse) == null ? void 0 : _b.call(parser2, asset, data, this))) {
+                asset = (yield parser2.parse(asset, data, this)) || asset;
+                result.parser = parser2;
+              }
             }
           }
-          if (!parser) {
-            warn(`[Assets] ${url} could not be loaded as we don't know how to parse it, ensure the correct parser has been added`);
-            return null;
-          }
-        }
-        asset = yield parser.load(url, data, this);
-        result.parser = parser;
-        for (let i2 = 0; i2 < this.parsers.length; i2++) {
-          const parser2 = this.parsers[i2];
-          if (parser2.parse) {
-            if (parser2.parse && (yield (_b = parser2.testParse) == null ? void 0 : _b.call(parser2, asset, data, this))) {
-              asset = (yield parser2.parse(asset, data, this)) || asset;
-              result.parser = parser2;
-            }
-          }
-        }
-        return asset;
-      }))();
+          return asset;
+        }))();
       return result;
     }
     load(assetsToLoadIn, onProgress) {
@@ -38439,27 +37250,28 @@ ${parts.join("\n")}
         const assetsToLoad = convertToList(assetsToLoadIn, (item) => ({
           alias: [item],
           src: item,
-          data: {}
+          data: {},
         }));
         const total = assetsToLoad.length;
-        const promises = assetsToLoad.map((asset) => __async(this, null, function* () {
-          const url = path.toAbsolute(asset.src);
-          if (!assets[asset.src]) {
-            try {
-              if (!this.promiseCache[url]) {
-                this.promiseCache[url] = this._getLoadPromiseAndParser(url, asset);
-              }
-              assets[asset.src] = yield this.promiseCache[url].promise;
-              if (onProgress)
-                onProgress(++count2 / total);
-            } catch (e2) {
-              delete this.promiseCache[url];
-              delete assets[asset.src];
-              throw new Error(`[Loader.load] Failed to load ${url}.
+        const promises = assetsToLoad.map((asset) =>
+          __async(this, null, function* () {
+            const url = path.toAbsolute(asset.src);
+            if (!assets[asset.src]) {
+              try {
+                if (!this.promiseCache[url]) {
+                  this.promiseCache[url] = this._getLoadPromiseAndParser(url, asset);
+                }
+                assets[asset.src] = yield this.promiseCache[url].promise;
+                if (onProgress) onProgress(++count2 / total);
+              } catch (e2) {
+                delete this.promiseCache[url];
+                delete assets[asset.src];
+                throw new Error(`[Loader.load] Failed to load ${url}.
 ${e2}`);
+              }
             }
-          }
-        }));
+          })
+        );
         yield Promise.all(promises);
         return singleAsset ? assets[assetsToLoad[0].src] : assets;
       });
@@ -38480,32 +37292,36 @@ ${e2}`);
       return __async(this, null, function* () {
         const assetsToUnload = convertToList(assetsToUnloadIn, (item) => ({
           alias: [item],
-          src: item
+          src: item,
         }));
-        const promises = assetsToUnload.map((asset) => __async(this, null, function* () {
-          var _a2, _b;
-          const url = path.toAbsolute(asset.src);
-          const loadPromise = this.promiseCache[url];
-          if (loadPromise) {
-            const loadedAsset = yield loadPromise.promise;
-            delete this.promiseCache[url];
-            yield (_b = (_a2 = loadPromise.parser) == null ? void 0 : _a2.unload) == null ? void 0 : _b.call(_a2, loadedAsset, asset, this);
-          }
-        }));
+        const promises = assetsToUnload.map((asset) =>
+          __async(this, null, function* () {
+            var _a2, _b;
+            const url = path.toAbsolute(asset.src);
+            const loadPromise = this.promiseCache[url];
+            if (loadPromise) {
+              const loadedAsset = yield loadPromise.promise;
+              delete this.promiseCache[url];
+              yield (_b = (_a2 = loadPromise.parser) == null ? void 0 : _a2.unload) == null ? void 0 : _b.call(_a2, loadedAsset, asset, this);
+            }
+          })
+        );
         yield Promise.all(promises);
       });
     }
     /** validates our parsers, right now it only checks for name conflicts but we can add more here as required! */
     _validateParsers() {
       this._parsersValidated = true;
-      this._parserHash = this._parsers.filter((parser) => parser.name).reduce((hash, parser) => {
-        if (!parser.name) {
-          warn(`[Assets] loadParser should have a name`);
-        } else if (hash[parser.name]) {
-          warn(`[Assets] loadParser name conflict "${parser.name}"`);
-        }
-        return __spreadProps(__spreadValues({}, hash), { [parser.name]: parser });
-      }, {});
+      this._parserHash = this._parsers
+        .filter((parser) => parser.name)
+        .reduce((hash, parser) => {
+          if (!parser.name) {
+            warn(`[Assets] loadParser should have a name`);
+          } else if (hash[parser.name]) {
+            warn(`[Assets] loadParser name conflict "${parser.name}"`);
+          }
+          return __spreadProps(__spreadValues({}, hash), { [parser.name]: parser });
+        }, {});
     }
   };
 
@@ -38517,8 +37333,7 @@ ${e2}`);
   function checkDataUrl(url, mimes) {
     if (Array.isArray(mimes)) {
       for (const mime of mimes) {
-        if (url.startsWith(`data:${mime}`))
-          return true;
+        if (url.startsWith(`data:${mime}`)) return true;
       }
       return false;
     }
@@ -38543,7 +37358,7 @@ ${e2}`);
   var loadJson = {
     extension: {
       type: ExtensionType.LoadParser,
-      priority: LoaderParserPriority.Low
+      priority: LoaderParserPriority.Low,
     },
     name: "loadJson",
     test(url) {
@@ -38555,7 +37370,7 @@ ${e2}`);
         const json = yield response.json();
         return json;
       });
-    }
+    },
   };
 
   // ../../../../node_modules/pixi.js/lib/assets/loader/parsers/loadTxt.mjs
@@ -38569,7 +37384,7 @@ ${e2}`);
     extension: {
       type: ExtensionType.LoadParser,
       priority: LoaderParserPriority.Low,
-      name: "loadTxt"
+      name: "loadTxt",
     },
     test(url) {
       return checkDataUrl(url, validTXTMIME) || checkExtension(url, validTXTExtension);
@@ -38580,7 +37395,7 @@ ${e2}`);
         const txt = yield response.text();
         return txt;
       });
-    }
+    },
   };
 
   // ../../../../node_modules/pixi.js/lib/assets/loader/parsers/loadWebFont.mjs
@@ -38590,32 +37405,18 @@ ${e2}`);
   init_path();
   init_Cache();
   init_LoaderParser();
-  var validWeights = [
-    "normal",
-    "bold",
-    "100",
-    "200",
-    "300",
-    "400",
-    "500",
-    "600",
-    "700",
-    "800",
-    "900"
-  ];
+  var validWeights = ["normal", "bold", "100", "200", "300", "400", "500", "600", "700", "800", "900"];
   var validFontExtensions = [".ttf", ".otf", ".woff", ".woff2"];
-  var validFontMIMEs = [
-    "font/ttf",
-    "font/otf",
-    "font/woff",
-    "font/woff2"
-  ];
+  var validFontMIMEs = ["font/ttf", "font/otf", "font/woff", "font/woff2"];
   var CSS_IDENT_TOKEN_REGEX = /^(--|-?[A-Z_])[0-9A-Z_-]*$/i;
   function getFontFamilyName(url) {
     const ext = path.extname(url);
     const name = path.basename(url, ext);
     const nameWithSpaces = name.replace(/(-|_)/g, " ");
-    const nameTokens = nameWithSpaces.toLowerCase().split(" ").map((word) => word.charAt(0).toUpperCase() + word.slice(1));
+    const nameTokens = nameWithSpaces
+      .toLowerCase()
+      .split(" ")
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1));
     let valid = nameTokens.length > 0;
     for (const token of nameTokens) {
       if (!token.match(CSS_IDENT_TOKEN_REGEX)) {
@@ -38639,7 +37440,7 @@ ${e2}`);
   var loadWebFont = {
     extension: {
       type: ExtensionType.LoadParser,
-      priority: LoaderParserPriority.Low
+      priority: LoaderParserPriority.Low,
     },
     name: "loadWebFont",
     test(url) {
@@ -38656,16 +37457,20 @@ ${e2}`);
           const data = (_f = options.data) != null ? _f : {};
           for (let i2 = 0; i2 < weights.length; i2++) {
             const weight = weights[i2];
-            const font = new FontFace(name, `url(${encodeURIWhenNeeded(url)})`, __spreadProps(__spreadValues({}, data), {
-              weight
-            }));
+            const font = new FontFace(
+              name,
+              `url(${encodeURIWhenNeeded(url)})`,
+              __spreadProps(__spreadValues({}, data), {
+                weight,
+              })
+            );
             yield font.load();
             fonts.add(font);
             fontFaces.push(font);
           }
           Cache.set(`${name}-and-url`, {
             url,
-            fontFaces
+            fontFaces,
           });
           return fontFaces.length === 1 ? fontFaces[0] : fontFaces;
         }
@@ -38678,7 +37483,7 @@ ${e2}`);
         Cache.remove(`${t2.family}-and-url`);
         DOMAdapter.get().getFontFaceSet().delete(t2);
       });
-    }
+    },
   };
 
   // ../../../../node_modules/pixi.js/lib/assets/loader/parsers/textures/loadSVG.mjs
@@ -38710,7 +37515,7 @@ ${e2}`);
     source2._sourceOrigin = url;
     const texture = new Texture({
       source: source2,
-      label: url
+      label: url,
     });
     const unload = () => {
       delete loader.promiseCache[url];
@@ -38740,12 +37545,12 @@ ${e2}`);
     extension: {
       type: ExtensionType.LoadParser,
       priority: LoaderParserPriority.Low,
-      name: "loadSVG"
+      name: "loadSVG",
     },
     name: "loadSVG",
     config: {
       crossOrigin: "anonymous",
-      parseAsGraphicsContext: false
+      parseAsGraphicsContext: false,
     },
     test(url) {
       return checkDataUrl(url, validSVGMIME) || checkExtension(url, validSVGExtension);
@@ -38761,7 +37566,7 @@ ${e2}`);
     },
     unload(asset) {
       asset.destroy(true);
-    }
+    },
   };
   function loadAsTexture(url, asset, loader, crossOrigin2) {
     return __async(this, null, function* () {
@@ -38782,12 +37587,19 @@ ${e2}`);
       canvas.width = width * resolution;
       canvas.height = height * resolution;
       context2.drawImage(image, 0, 0, width * resolution, height * resolution);
-      const _g = (_f = asset.data) != null ? _f : {}, { parseAsGraphicsContext: _p } = _g, rest = __objRest(_g, ["parseAsGraphicsContext"]);
-      const base = new ImageSource(__spreadValues({
-        resource: canvas,
-        alphaMode: "premultiply-alpha-on-upload",
-        resolution
-      }, rest));
+      const _g = (_f = asset.data) != null ? _f : {},
+        { parseAsGraphicsContext: _p } = _g,
+        rest = __objRest(_g, ["parseAsGraphicsContext"]);
+      const base = new ImageSource(
+        __spreadValues(
+          {
+            resource: canvas,
+            alphaMode: "premultiply-alpha-on-upload",
+            resolution,
+          },
+          rest
+        )
+      );
       return createTexture(base, loader, url);
     });
   }
@@ -38846,7 +37658,8 @@ ${e2}`);
   };
 
   // ../../../../node_modules/pixi.js/lib/_virtual/loadImageBitmap.worker.mjs
-  var WORKER_CODE2 = '(function () {\n    \'use strict\';\n\n    async function loadImageBitmap(url, alphaMode) {\n      const response = await fetch(url);\n      if (!response.ok) {\n        throw new Error(`[WorkerManager.loadImageBitmap] Failed to fetch ${url}: ${response.status} ${response.statusText}`);\n      }\n      const imageBlob = await response.blob();\n      return alphaMode === "premultiplied-alpha" ? createImageBitmap(imageBlob, { premultiplyAlpha: "none" }) : createImageBitmap(imageBlob);\n    }\n    self.onmessage = async (event) => {\n      try {\n        const imageBitmap = await loadImageBitmap(event.data.data[0], event.data.data[1]);\n        self.postMessage({\n          data: imageBitmap,\n          uuid: event.data.uuid,\n          id: event.data.id\n        }, [imageBitmap]);\n      } catch (e) {\n        self.postMessage({\n          error: e,\n          uuid: event.data.uuid,\n          id: event.data.id\n        });\n      }\n    };\n\n})();\n';
+  var WORKER_CODE2 =
+    '(function () {\n    \'use strict\';\n\n    async function loadImageBitmap(url, alphaMode) {\n      const response = await fetch(url);\n      if (!response.ok) {\n        throw new Error(`[WorkerManager.loadImageBitmap] Failed to fetch ${url}: ${response.status} ${response.statusText}`);\n      }\n      const imageBlob = await response.blob();\n      return alphaMode === "premultiplied-alpha" ? createImageBitmap(imageBlob, { premultiplyAlpha: "none" }) : createImageBitmap(imageBlob);\n    }\n    self.onmessage = async (event) => {\n      try {\n        const imageBitmap = await loadImageBitmap(event.data.data[0], event.data.data[1]);\n        self.postMessage({\n          data: imageBitmap,\n          uuid: event.data.uuid,\n          id: event.data.id\n        }, [imageBitmap]);\n      } catch (e) {\n        self.postMessage({\n          error: e,\n          uuid: event.data.uuid,\n          id: event.data.id\n        });\n      }\n    };\n\n})();\n';
   var WORKER_URL2 = null;
   var WorkerInstance2 = class {
     constructor() {
@@ -38875,8 +37688,7 @@ ${e2}`);
       this._resolveHash = {};
     }
     isImageBitmapSupported() {
-      if (this._isImageBitmapSupported !== void 0)
-        return this._isImageBitmapSupported;
+      if (this._isImageBitmapSupported !== void 0) return this._isImageBitmapSupported;
       this._isImageBitmapSupported = new Promise((resolve) => {
         const { worker } = new WorkerInstance();
         worker.addEventListener("message", (event) => {
@@ -38893,8 +37705,7 @@ ${e2}`);
     }
     _initWorkers() {
       return __async(this, null, function* () {
-        if (this._initialized)
-          return;
+        if (this._initialized) return;
         this._initialized = true;
       });
     }
@@ -38936,8 +37747,7 @@ ${e2}`);
       });
     }
     _next() {
-      if (!this._queue.length)
-        return;
+      if (!this._queue.length) return;
       const worker = this._getWorker();
       if (!worker) {
         return;
@@ -38948,7 +37758,7 @@ ${e2}`);
       worker.postMessage({
         data: toDo.arguments,
         uuid: UUID++,
-        id
+        id,
       });
     }
   };
@@ -38957,12 +37767,7 @@ ${e2}`);
   // ../../../../node_modules/pixi.js/lib/assets/loader/parsers/textures/loadTextures.mjs
   init_LoaderParser();
   var validImageExtensions = [".jpeg", ".jpg", ".png", ".webp", ".avif"];
-  var validImageMIMEs = [
-    "image/jpeg",
-    "image/png",
-    "image/webp",
-    "image/avif"
-  ];
+  var validImageMIMEs = ["image/jpeg", "image/png", "image/webp", "image/avif"];
   function loadImageBitmap(url, asset) {
     return __async(this, null, function* () {
       var _a2;
@@ -38979,12 +37784,12 @@ ${e2}`);
     extension: {
       type: ExtensionType.LoadParser,
       priority: LoaderParserPriority.High,
-      name: "loadTextures"
+      name: "loadTextures",
     },
     config: {
       preferWorkers: true,
       preferCreateImageBitmap: true,
-      crossOrigin: "anonymous"
+      crossOrigin: "anonymous",
     },
     test(url) {
       return checkDataUrl(url, validImageMIMEs) || checkExtension(url, validImageExtensions);
@@ -39014,17 +37819,22 @@ ${e2}`);
             }
           });
         }
-        const base = new ImageSource(__spreadValues({
-          resource: src,
-          alphaMode: "premultiply-alpha-on-upload",
-          resolution: ((_a2 = asset.data) == null ? void 0 : _a2.resolution) || getResolutionOfUrl(url)
-        }, asset.data));
+        const base = new ImageSource(
+          __spreadValues(
+            {
+              resource: src,
+              alphaMode: "premultiply-alpha-on-upload",
+              resolution: ((_a2 = asset.data) == null ? void 0 : _a2.resolution) || getResolutionOfUrl(url),
+            },
+            asset.data
+          )
+        );
         return createTexture(base, loader, url);
       });
     },
     unload(texture) {
       texture.destroy(true);
-    }
+    },
   };
 
   // ../../../../node_modules/pixi.js/lib/assets/loader/parsers/textures/loadVideoTextures.mjs
@@ -39074,7 +37884,7 @@ ${e2}`);
     name: "loadVideo",
     extension: {
       type: ExtensionType.LoadParser,
-      name: "loadVideo"
+      name: "loadVideo",
     },
     test(url) {
       const isValidDataUrl = checkDataUrl(url, validVideoMIMEs);
@@ -39084,10 +37894,13 @@ ${e2}`);
     load(url, asset, loader) {
       return __async(this, null, function* () {
         var _a2, _b;
-        const options = __spreadValues(__spreadProps(__spreadValues({}, VideoSource.defaultOptions), {
-          resolution: ((_a2 = asset.data) == null ? void 0 : _a2.resolution) || getResolutionOfUrl(url),
-          alphaMode: ((_b = asset.data) == null ? void 0 : _b.alphaMode) || (yield detectVideoAlphaMode())
-        }), asset.data);
+        const options = __spreadValues(
+          __spreadProps(__spreadValues({}, VideoSource.defaultOptions), {
+            resolution: ((_a2 = asset.data) == null ? void 0 : _a2.resolution) || getResolutionOfUrl(url),
+            alphaMode: ((_b = asset.data) == null ? void 0 : _b.alphaMode) || (yield detectVideoAlphaMode()),
+          }),
+          asset.data
+        );
         const videoElement = document.createElement("video");
         const attributeMap = {
           preload: options.autoLoad !== false ? "auto" : void 0,
@@ -39095,12 +37908,11 @@ ${e2}`);
           playsinline: options.playsinline !== false ? "" : void 0,
           muted: options.muted === true ? "" : void 0,
           loop: options.loop === true ? "" : void 0,
-          autoplay: options.autoPlay !== false ? "" : void 0
+          autoplay: options.autoPlay !== false ? "" : void 0,
         };
         Object.keys(attributeMap).forEach((key) => {
           const value = attributeMap[key];
-          if (value !== void 0)
-            videoElement.setAttribute(key, value);
+          if (value !== void 0) videoElement.setAttribute(key, value);
         });
         if (options.muted === true) {
           videoElement.muted = true;
@@ -39111,7 +37923,10 @@ ${e2}`);
         if (url.startsWith("data:")) {
           mime = url.slice(5, url.indexOf(";"));
         } else if (!url.startsWith("blob:")) {
-          const ext = url.split("?")[0].slice(url.lastIndexOf(".") + 1).toLowerCase();
+          const ext = url
+            .split("?")[0]
+            .slice(url.lastIndexOf(".") + 1)
+            .toLowerCase();
           mime = VideoSource.MIME_TYPES[ext] || `video/${ext}`;
         }
         sourceElement.src = url;
@@ -39119,14 +37934,15 @@ ${e2}`);
           sourceElement.type = mime;
         }
         return new Promise((resolve) => {
-          const onCanPlay = () => __async(this, null, function* () {
-            const base = new VideoSource(__spreadProps(__spreadValues({}, options), { resource: videoElement }));
-            videoElement.removeEventListener("canplay", onCanPlay);
-            if (asset.data.preload) {
-              yield preloadVideo(videoElement);
-            }
-            resolve(createTexture(base, loader, url));
-          });
+          const onCanPlay = () =>
+            __async(this, null, function* () {
+              const base = new VideoSource(__spreadProps(__spreadValues({}, options), { resource: videoElement }));
+              videoElement.removeEventListener("canplay", onCanPlay);
+              if (asset.data.preload) {
+                yield preloadVideo(videoElement);
+              }
+              resolve(createTexture(base, loader, url));
+            });
           videoElement.addEventListener("canplay", onCanPlay);
           videoElement.appendChild(sourceElement);
         });
@@ -39134,7 +37950,7 @@ ${e2}`);
     },
     unload(texture) {
       texture.destroy(true);
-    }
+    },
   };
 
   // ../../../../node_modules/pixi.js/lib/assets/resolver/parsers/resolveJsonUrl.mjs
@@ -39147,7 +37963,7 @@ ${e2}`);
   var resolveTextureUrl = {
     extension: {
       type: ExtensionType.ResolveParser,
-      name: "resolveTexture"
+      name: "resolveTexture",
     },
     test: loadTextures.test,
     parse: (value) => {
@@ -39155,9 +37971,9 @@ ${e2}`);
       return {
         resolution: parseFloat((_b = (_a2 = Resolver.RETINA_PREFIX.exec(value)) == null ? void 0 : _a2[1]) != null ? _b : "1"),
         format: value.split(".").pop(),
-        src: value
+        src: value,
       };
-    }
+    },
   };
 
   // ../../../../node_modules/pixi.js/lib/assets/resolver/parsers/resolveJsonUrl.mjs
@@ -39165,10 +37981,10 @@ ${e2}`);
     extension: {
       type: ExtensionType.ResolveParser,
       priority: -2,
-      name: "resolveJson"
+      name: "resolveJson",
     },
     test: (value) => Resolver.RETINA_PREFIX.test(value) && value.endsWith(".json"),
-    parse: resolveTextureUrl.parse
+    parse: resolveTextureUrl.parse,
   };
 
   // ../../../../node_modules/pixi.js/lib/assets/Assets.mjs
@@ -39222,13 +38038,13 @@ ${e2}`);
         const formats = yield this._detectFormats({
           preferredFormats: (_c = options.texturePreference) == null ? void 0 : _c.format,
           skipDetections: options.skipDetections,
-          detections: this._detections
+          detections: this._detections,
         });
         this.resolver.prefer({
           params: {
             format: formats,
-            resolution
-          }
+            resolution,
+          },
         });
         if (options.preferences) {
           this.setPreferences(options.preferences);
@@ -39292,8 +38108,7 @@ ${e2}`);
             }
             return Array.isArray(aliases) ? aliases[0] : aliases;
           }
-          if (!this.resolver.hasKey(url))
-            this.add({ alias: url, src: url });
+          if (!this.resolver.hasKey(url)) this.add({ alias: url, src: url });
           return url;
         });
         const resolveResults = this.resolver.resolve(urlArray);
@@ -39548,7 +38363,7 @@ ${e2}`);
         if (!this._initialized) {
           yield this.init();
         }
-        const urlArray = convertToList(urls).map((url) => typeof url !== "string" ? url.src : url);
+        const urlArray = convertToList(urls).map((url) => (typeof url !== "string" ? url.src : url));
         const resolveResults = this.resolver.resolve(urlArray);
         yield this._unloadFromResolved(resolveResults);
       });
@@ -39630,16 +38445,21 @@ ${e2}`);
      */
     setPreferences(preferences) {
       this.loader.parsers.forEach((parser) => {
-        if (!parser.config)
-          return;
-        Object.keys(parser.config).filter((key) => key in preferences).forEach((key) => {
-          parser.config[key] = preferences[key];
-        });
+        if (!parser.config) return;
+        Object.keys(parser.config)
+          .filter((key) => key in preferences)
+          .forEach((key) => {
+            parser.config[key] = preferences[key];
+          });
       });
     }
   };
   var Assets = new AssetsClass();
-  extensions.handleByList(ExtensionType.LoadParser, Assets.loader.parsers).handleByList(ExtensionType.ResolveParser, Assets.resolver.parsers).handleByList(ExtensionType.CacheParser, Assets.cache.parsers).handleByList(ExtensionType.DetectionParser, Assets.detections);
+  extensions
+    .handleByList(ExtensionType.LoadParser, Assets.loader.parsers)
+    .handleByList(ExtensionType.ResolveParser, Assets.resolver.parsers)
+    .handleByList(ExtensionType.CacheParser, Assets.cache.parsers)
+    .handleByList(ExtensionType.DetectionParser, Assets.detections);
   extensions.add(
     cacheTextureArray,
     detectDefaults,
@@ -39663,23 +38483,33 @@ ${e2}`);
     loader: ExtensionType.LoadParser,
     resolver: ExtensionType.ResolveParser,
     cache: ExtensionType.CacheParser,
-    detection: ExtensionType.DetectionParser
+    detection: ExtensionType.DetectionParser,
   };
-  extensions.handle(ExtensionType.Asset, (extension) => {
-    const ref = extension.ref;
-    Object.entries(assetKeyMap).filter(([key]) => !!ref[key]).forEach(([key, type]) => {
-      var _a2;
-      return extensions.add(Object.assign(
-        ref[key],
-        // Allow the function to optionally define it's own
-        // ExtensionMetadata, the use cases here is priority for LoaderParsers
-        { extension: (_a2 = ref[key].extension) != null ? _a2 : type }
-      ));
-    });
-  }, (extension) => {
-    const ref = extension.ref;
-    Object.keys(assetKeyMap).filter((key) => !!ref[key]).forEach((key) => extensions.remove(ref[key]));
-  });
+  extensions.handle(
+    ExtensionType.Asset,
+    (extension) => {
+      const ref = extension.ref;
+      Object.entries(assetKeyMap)
+        .filter(([key]) => !!ref[key])
+        .forEach(([key, type]) => {
+          var _a2;
+          return extensions.add(
+            Object.assign(
+              ref[key],
+              // Allow the function to optionally define it's own
+              // ExtensionMetadata, the use cases here is priority for LoaderParsers
+              { extension: (_a2 = ref[key].extension) != null ? _a2 : type }
+            )
+          );
+        });
+    },
+    (extension) => {
+      const ref = extension.ref;
+      Object.keys(assetKeyMap)
+        .filter((key) => !!ref[key])
+        .forEach((key) => extensions.remove(ref[key]));
+    }
+  );
 
   // ../../../../node_modules/pixi.js/lib/maths/point/pointInTriangle.mjs
   function pointInTriangle(px, py, x1, y1, x22, y2, x3, y3) {
@@ -39715,17 +38545,24 @@ ${e2}`);
         deprecation(v8_0_0, "Mesh: use new Mesh({ geometry, shader }) instead");
         options = {
           geometry: options,
-          shader: args[1]
+          shader: args[1],
         };
         if (args[3]) {
           deprecation(v8_0_0, "Mesh: drawMode argument has been removed, use geometry.topology instead");
           options.geometry.topology = args[3];
         }
       }
-      const _a2 = options, { geometry, shader, texture, roundPixels, state } = _a2, rest = __objRest(_a2, ["geometry", "shader", "texture", "roundPixels", "state"]);
-      super(__spreadValues({
-        label: "Mesh"
-      }, rest));
+      const _a2 = options,
+        { geometry, shader, texture, roundPixels, state } = _a2,
+        rest = __objRest(_a2, ["geometry", "shader", "texture", "roundPixels", "state"]);
+      super(
+        __spreadValues(
+          {
+            label: "Mesh",
+          },
+          rest
+        )
+      );
       this.renderPipeId = "mesh";
       this._shader = null;
       this.allowChildren = false;
@@ -39746,8 +38583,7 @@ ${e2}`);
      * Can be shared between multiple Mesh objects.
      */
     set shader(value) {
-      if (this._shader === value)
-        return;
+      if (this._shader === value) return;
       this._shader = value;
       this.onViewUpdate();
     }
@@ -39761,8 +38597,7 @@ ${e2}`);
      */
     set geometry(value) {
       var _a2;
-      if (this._geometry === value)
-        return;
+      if (this._geometry === value) return;
       (_a2 = this._geometry) == null ? void 0 : _a2.off("update", this.onViewUpdate, this);
       value.on("update", this.onViewUpdate, this);
       this._geometry = value;
@@ -39775,12 +38610,9 @@ ${e2}`);
     set texture(value) {
       value || (value = Texture.EMPTY);
       const currentTexture = this._texture;
-      if (currentTexture === value)
-        return;
-      if (currentTexture && currentTexture.dynamic)
-        currentTexture.off("update", this.onViewUpdate, this);
-      if (value.dynamic)
-        value.on("update", this.onViewUpdate, this);
+      if (currentTexture === value) return;
+      if (currentTexture && currentTexture.dynamic) currentTexture.off("update", this.onViewUpdate, this);
+      if (value.dynamic) value.on("update", this.onViewUpdate, this);
       if (this.shader) {
         this.shader.texture = value;
       }
@@ -39791,10 +38623,8 @@ ${e2}`);
       return this._texture;
     }
     get batched() {
-      if (this._shader)
-        return false;
-      if ((this.state.data & 12) !== 0)
-        return false;
+      if (this._shader) return false;
+      if ((this.state.data & 12) !== 0) return false;
       if (this._geometry instanceof MeshGeometry) {
         if (this._geometry.batchMode === "auto") {
           return this._geometry.positions.length / 2 <= 100;
@@ -39823,8 +38653,7 @@ ${e2}`);
      */
     containsPoint(point) {
       const { x: x3, y: y2 } = point;
-      if (!this.bounds.containsPoint(x3, y2))
-        return false;
+      if (!this.bounds.containsPoint(x3, y2)) return false;
       const vertices = this.geometry.getBuffer("aPosition").data;
       const step = this.geometry.topology === "triangle-strip" ? 3 : 1;
       if (this.geometry.getIndex()) {
@@ -39834,16 +38663,7 @@ ${e2}`);
           const ind0 = indices[i2] * 2;
           const ind1 = indices[i2 + 1] * 2;
           const ind2 = indices[i2 + 2] * 2;
-          if (pointInTriangle(
-            x3,
-            y2,
-            vertices[ind0],
-            vertices[ind0 + 1],
-            vertices[ind1],
-            vertices[ind1 + 1],
-            vertices[ind2],
-            vertices[ind2 + 1]
-          )) {
+          if (pointInTriangle(x3, y2, vertices[ind0], vertices[ind0 + 1], vertices[ind1], vertices[ind1 + 1], vertices[ind2], vertices[ind2 + 1])) {
             return true;
           }
         }
@@ -39853,16 +38673,7 @@ ${e2}`);
           const ind0 = i2 * 2;
           const ind1 = (i2 + 1) * 2;
           const ind2 = (i2 + 2) * 2;
-          if (pointInTriangle(
-            x3,
-            y2,
-            vertices[ind0],
-            vertices[ind0 + 1],
-            vertices[ind1],
-            vertices[ind1 + 1],
-            vertices[ind2],
-            vertices[ind2 + 1]
-          )) {
+          if (pointInTriangle(x3, y2, vertices[ind0], vertices[ind0 + 1], vertices[ind1], vertices[ind1 + 1], vertices[ind2], vertices[ind2 + 1])) {
             return true;
           }
         }
@@ -39897,7 +38708,9 @@ ${e2}`);
   init_ViewContainer();
   var AbstractText = class extends ViewContainer {
     constructor(options, styleClass) {
-      const _a2 = options, { text, resolution, style, anchor, width, height, roundPixels } = _a2, rest = __objRest(_a2, ["text", "resolution", "style", "anchor", "width", "height", "roundPixels"]);
+      const _a2 = options,
+        { text, resolution, style, anchor, width, height, roundPixels } = _a2,
+        rest = __objRest(_a2, ["text", "resolution", "style", "anchor", "width", "height", "roundPixels"]);
       super(__spreadValues({}, rest));
       this.batched = true;
       this._resolution = null;
@@ -39908,20 +38721,15 @@ ${e2}`);
       this.style = style;
       this.resolution = resolution != null ? resolution : null;
       this.allowChildren = false;
-      this._anchor = new ObservablePoint(
-        {
-          _onUpdate: () => {
-            this.onViewUpdate();
-          }
-        }
-      );
-      if (anchor)
-        this.anchor = anchor;
+      this._anchor = new ObservablePoint({
+        _onUpdate: () => {
+          this.onViewUpdate();
+        },
+      });
+      if (anchor) this.anchor = anchor;
       this.roundPixels = roundPixels != null ? roundPixels : false;
-      if (width !== void 0)
-        this.width = width;
-      if (height !== void 0)
-        this.height = height;
+      if (width !== void 0) this.width = width;
+      if (height !== void 0) this.height = height;
     }
     /**
      * The anchor sets the origin point of the text.
@@ -39947,8 +38755,7 @@ ${e2}`);
     /** Set the copy for the text object. To split a line you can use '\n'. */
     set text(value) {
       value = value.toString();
-      if (this._text === value)
-        return;
+      if (this._text === value) return;
       this._text = value;
       this.onViewUpdate();
     }
@@ -40035,7 +38842,7 @@ ${e2}`);
         height = (_a2 = value.height) != null ? _a2 : value.width;
         value = value.width;
       } else {
-        height != null ? height : height = value;
+        height != null ? height : (height = value);
       }
       value !== void 0 && this._setWidth(value, this.bounds.width);
       height !== void 0 && this._setHeight(height, this.bounds.height);
@@ -40051,14 +38858,12 @@ ${e2}`);
       let y1 = 0;
       if (point.x >= x1 && point.x <= x1 + width) {
         y1 = -height * this.anchor.y;
-        if (point.y >= y1 && point.y <= y1 + height)
-          return true;
+        if (point.y >= y1 && point.y <= y1 + height) return true;
       }
       return false;
     }
     onViewUpdate() {
-      if (!this.didViewUpdate)
-        this._didTextUpdate = true;
+      if (!this.didViewUpdate) this._didTextUpdate = true;
       super.onViewUpdate();
     }
     _getKey() {
@@ -40091,7 +38896,7 @@ ${e2}`);
       deprecation(v8_0_0, `use new ${name}({ text: "hi!", style }) instead`);
       options = {
         text: options,
-        style: args[1]
+        style: args[1],
       };
     }
     return options;
@@ -40110,10 +38915,7 @@ ${e2}`);
     updateBounds() {
       const bounds = this._bounds;
       const anchor = this._anchor;
-      const canvasMeasurement = CanvasTextMetrics.measureText(
-        this._text,
-        this._style
-      );
+      const canvasMeasurement = CanvasTextMetrics.measureText(this._text, this._style);
       const { width, height } = canvasMeasurement;
       bounds.minX = -anchor._x * width;
       bounds.maxX = bounds.minX + width;
@@ -40162,26 +38964,28 @@ ${e2}`);
             resolution: window.devicePixelRatio || 1,
             autoDensity: true,
             antialias: true,
-            canvas: this.target
+            canvas: this.target,
           });
           globalThis.__PIXI_APP__ = this;
           Assets.addBundle("fonts", [
             {
               alias: "Titillium Web",
-              src: "https://cdn.factorio.com/assets/fonts/titillium-web/titillium-web-v8-latin-ext_latin-regular.woff"
-            }
+              src: "https://cdn.factorio.com/assets/fonts/titillium-web/titillium-web-v8-latin-ext_latin-regular.woff",
+            },
           ]);
           yield Assets.loadBundle("fonts");
           this._credoSpacemapView = new SpacemapView(this);
-          this.spacemap = this.stage.addChild(_credoSpacemapView);
+          this.spacemap = this.stage.addChild(this._credoSpacemapView);
           yield this.spacemap.init();
-          this.info = this.stage.addChild(new Text({
-            style: {
-              fill: 16777215,
-              padding: 12,
-              fontFamily: "Titillium Web"
-            }
-          }));
+          this.info = this.stage.addChild(
+            new Text({
+              style: {
+                fill: 16777215,
+                padding: 12,
+                fontFamily: "Titillium Web",
+              },
+            })
+          );
           this.info.visible = false;
           this.ticker.add(this.update.bind(this));
           this.ticker.start();
@@ -40206,6 +39010,68 @@ ${e2}`);
     }
     update(ticker) {
       this.spacemap.updateView(ticker.deltaTime);
+    }
+
+    /*************************************************************\
+        Credomane's Additions. 
+        @Wube Feel free to integrate/modify these into your code.
+          I wouldn't mind at all.
+    \*************************************************************/
+    focusOnStar(user) {
+      const world = this.spacemap.world;
+      user = user.toLowerCase();
+      let index = null;
+      for (let i = 0; i < world.starsData.users.length; i++) {
+        if (world.starsData.users[i].toLowerCase() == user) {
+          index = i;
+          break;
+        }
+      }
+
+      if (index === null) {
+        return false;
+      }
+
+      const starPosInWorld = world.starPositionToWorldPosition(world.starsData.positions[index * 2], world.starsData.positions[index * 2 + 1]);
+      const starX = starPosInWorld[0];
+      const starY = starPosInWorld[1];
+
+      this.panCameraTo(starX, starY);
+
+      return true;
+    }
+
+    panCameraTo(x, y) {
+      const camX = -1 * (this.spacemap.x / this.spacemap.scale.x);
+      const camY = -1 * (this.spacemap.y / this.spacemap.scale.y);
+
+      let dur = Math.abs(Math.floor((camX - x + (camY - y)) / 1000));
+      if (dur < 3000) {
+        dur = 3000;
+      }
+      if (dur > 10000) {
+        dur = 10000;
+      }
+
+      const tmp = {
+        time: 1500,
+        scale: 0.004,
+        callbackOnComplete: () => {
+          const tmp = {
+            time: dur,
+            position: new Point(x, y),
+            callbackOnComplete: () => {
+              const tmp = {
+                time: 1500,
+                scale: 0.5,
+              };
+              this._credoSpacemapView.animate(tmp);
+            },
+          };
+          this._credoSpacemapView.animate(tmp);
+        },
+      };
+      this._credoSpacemapView.animate(tmp);
     }
   };
 
@@ -40295,15 +39161,7 @@ ${e2}`);
       this.cols = options.cols;
       this.rows = options.rows;
       this.worldCellSize = worldCellSize;
-      this.levels = new Levels(
-        this.hierachy[6],
-        this.hierachy[5],
-        this.hierachy[4],
-        this.hierachy[3],
-        this.hierachy[2],
-        this.hierachy[1],
-        this.hierachy[0]
-      );
+      this.levels = new Levels(this.hierachy[6], this.hierachy[5], this.hierachy[4], this.hierachy[3], this.hierachy[2], this.hierachy[1], this.hierachy[0]);
       this.starsData = new StarsData();
     }
     addStars(stars) {
@@ -40334,7 +39192,7 @@ ${e2}`);
       return [col, row];
     }
     starCoordsToId(col, row) {
-      return col << 16 | row;
+      return (col << 16) | row;
     }
     starCoordsToAddress(col, row) {
       const parts = [];
@@ -40375,10 +39233,7 @@ ${e2}`);
       return this.starPositionToStarCoords(starPosX, starPosY);
     }
     worldPositionToStarPosition(x3, y2) {
-      return [
-        x3 / (this.worldCellSize / this.starCellSize),
-        (this.worldHeight - y2) / (this.worldCellSize / this.starCellSize)
-      ];
+      return [x3 / (this.worldCellSize / this.starCellSize), (this.worldHeight - y2) / (this.worldCellSize / this.starCellSize)];
     }
     starPositionToStarCoords(x3, y2) {
       const col = Math.abs(Math.floor((x3 + this.starCellSize / 2) / this.starCellSize) % this.cols);
@@ -40386,32 +39241,26 @@ ${e2}`);
       return [col, row];
     }
     starPositionToWorldPosition(x3, y2) {
-      return [
-        x3 * (this.worldCellSize / this.starCellSize),
-        this.worldHeight - y2 * (this.worldCellSize / this.starCellSize)
-      ];
+      return [x3 * (this.worldCellSize / this.starCellSize), this.worldHeight - y2 * (this.worldCellSize / this.starCellSize)];
     }
     getStarById(starId) {
       const index = this.starIdToIndex.get(starId);
       if (index === void 0) return null;
-      const [worldX, worldY] = this.starPositionToWorldPosition(
-        this.starsData.positions[index * 2],
-        this.starsData.positions[index * 2 + 1]
-      );
+      const [worldX, worldY] = this.starPositionToWorldPosition(this.starsData.positions[index * 2], this.starsData.positions[index * 2 + 1]);
       return {
         id: starId,
         address: this.starsData.names[index],
         coordinates: {
           col: this.starsData.coordinates[index * 2],
-          row: this.starsData.coordinates[index * 2 + 1]
+          row: this.starsData.coordinates[index * 2 + 1],
         },
         position: {
           x: this.starsData.positions[index * 2],
-          y: this.starsData.positions[index * 2 + 1]
+          y: this.starsData.positions[index * 2 + 1],
         },
         worldPosition: { x: worldX, y: worldY },
         color: this.starsData.colors[index],
-        user: this.starsData.users[index]
+        user: this.starsData.users[index],
       };
     }
     getStarByAddress(address) {
@@ -40449,135 +39298,170 @@ ${e2}`);
     return l2 && l2.__esModule && Object.prototype.hasOwnProperty.call(l2, "default") ? l2.default : l2;
   }
   var W = { exports: {} };
-  (function(l2, t2) {
-    (function() {
+  (function (l2, t2) {
+    (function () {
       var e2, n2;
-      n2 = function(i2) {
-        return l2.exports = i2;
-      }, e2 = {
-        linear: function(i2, s2, h2, o2) {
-          return h2 * i2 / o2 + s2;
-        },
-        easeInQuad: function(i2, s2, h2, o2) {
-          return h2 * (i2 /= o2) * i2 + s2;
-        },
-        easeOutQuad: function(i2, s2, h2, o2) {
-          return -h2 * (i2 /= o2) * (i2 - 2) + s2;
-        },
-        easeInOutQuad: function(i2, s2, h2, o2) {
-          return (i2 /= o2 / 2) < 1 ? h2 / 2 * i2 * i2 + s2 : -h2 / 2 * (--i2 * (i2 - 2) - 1) + s2;
-        },
-        easeInCubic: function(i2, s2, h2, o2) {
-          return h2 * (i2 /= o2) * i2 * i2 + s2;
-        },
-        easeOutCubic: function(i2, s2, h2, o2) {
-          return h2 * ((i2 = i2 / o2 - 1) * i2 * i2 + 1) + s2;
-        },
-        easeInOutCubic: function(i2, s2, h2, o2) {
-          return (i2 /= o2 / 2) < 1 ? h2 / 2 * i2 * i2 * i2 + s2 : h2 / 2 * ((i2 -= 2) * i2 * i2 + 2) + s2;
-        },
-        easeInQuart: function(i2, s2, h2, o2) {
-          return h2 * (i2 /= o2) * i2 * i2 * i2 + s2;
-        },
-        easeOutQuart: function(i2, s2, h2, o2) {
-          return -h2 * ((i2 = i2 / o2 - 1) * i2 * i2 * i2 - 1) + s2;
-        },
-        easeInOutQuart: function(i2, s2, h2, o2) {
-          return (i2 /= o2 / 2) < 1 ? h2 / 2 * i2 * i2 * i2 * i2 + s2 : -h2 / 2 * ((i2 -= 2) * i2 * i2 * i2 - 2) + s2;
-        },
-        easeInQuint: function(i2, s2, h2, o2) {
-          return h2 * (i2 /= o2) * i2 * i2 * i2 * i2 + s2;
-        },
-        easeOutQuint: function(i2, s2, h2, o2) {
-          return h2 * ((i2 = i2 / o2 - 1) * i2 * i2 * i2 * i2 + 1) + s2;
-        },
-        easeInOutQuint: function(i2, s2, h2, o2) {
-          return (i2 /= o2 / 2) < 1 ? h2 / 2 * i2 * i2 * i2 * i2 * i2 + s2 : h2 / 2 * ((i2 -= 2) * i2 * i2 * i2 * i2 + 2) + s2;
-        },
-        easeInSine: function(i2, s2, h2, o2) {
-          return -h2 * Math.cos(i2 / o2 * (Math.PI / 2)) + h2 + s2;
-        },
-        easeOutSine: function(i2, s2, h2, o2) {
-          return h2 * Math.sin(i2 / o2 * (Math.PI / 2)) + s2;
-        },
-        easeInOutSine: function(i2, s2, h2, o2) {
-          return -h2 / 2 * (Math.cos(Math.PI * i2 / o2) - 1) + s2;
-        },
-        easeInExpo: function(i2, s2, h2, o2) {
-          return i2 === 0 ? s2 : h2 * Math.pow(2, 10 * (i2 / o2 - 1)) + s2;
-        },
-        easeOutExpo: function(i2, s2, h2, o2) {
-          return i2 === o2 ? s2 + h2 : h2 * (-Math.pow(2, -10 * i2 / o2) + 1) + s2;
-        },
-        easeInOutExpo: function(i2, s2, h2, o2) {
-          return (i2 /= o2 / 2) < 1 ? h2 / 2 * Math.pow(2, 10 * (i2 - 1)) + s2 : h2 / 2 * (-Math.pow(2, -10 * --i2) + 2) + s2;
-        },
-        easeInCirc: function(i2, s2, h2, o2) {
-          return -h2 * (Math.sqrt(1 - (i2 /= o2) * i2) - 1) + s2;
-        },
-        easeOutCirc: function(i2, s2, h2, o2) {
-          return h2 * Math.sqrt(1 - (i2 = i2 / o2 - 1) * i2) + s2;
-        },
-        easeInOutCirc: function(i2, s2, h2, o2) {
-          return (i2 /= o2 / 2) < 1 ? -h2 / 2 * (Math.sqrt(1 - i2 * i2) - 1) + s2 : h2 / 2 * (Math.sqrt(1 - (i2 -= 2) * i2) + 1) + s2;
-        },
-        easeInElastic: function(i2, s2, h2, o2) {
-          var r2, a2, p2;
-          return p2 = 1.70158, a2 = 0, r2 = h2, i2 === 0 || (i2 /= o2), a2 || (a2 = o2 * 0.3), r2 < Math.abs(h2) ? (r2 = h2, p2 = a2 / 4) : p2 = a2 / (2 * Math.PI) * Math.asin(h2 / r2), -(r2 * Math.pow(2, 10 * (i2 -= 1)) * Math.sin((i2 * o2 - p2) * (2 * Math.PI) / a2)) + s2;
-        },
-        easeOutElastic: function(i2, s2, h2, o2) {
-          var r2, a2, p2;
-          return p2 = 1.70158, a2 = 0, r2 = h2, i2 === 0 || (i2 /= o2), a2 || (a2 = o2 * 0.3), r2 < Math.abs(h2) ? (r2 = h2, p2 = a2 / 4) : p2 = a2 / (2 * Math.PI) * Math.asin(h2 / r2), r2 * Math.pow(2, -10 * i2) * Math.sin((i2 * o2 - p2) * (2 * Math.PI) / a2) + h2 + s2;
-        },
-        easeInOutElastic: function(i2, s2, h2, o2) {
-          var r2, a2, p2;
-          return p2 = 1.70158, a2 = 0, r2 = h2, i2 === 0 || (i2 /= o2 / 2), a2 || (a2 = o2 * (0.3 * 1.5)), r2 < Math.abs(h2) ? (r2 = h2, p2 = a2 / 4) : p2 = a2 / (2 * Math.PI) * Math.asin(h2 / r2), i2 < 1 ? -0.5 * (r2 * Math.pow(2, 10 * (i2 -= 1)) * Math.sin((i2 * o2 - p2) * (2 * Math.PI) / a2)) + s2 : r2 * Math.pow(2, -10 * (i2 -= 1)) * Math.sin((i2 * o2 - p2) * (2 * Math.PI) / a2) * 0.5 + h2 + s2;
-        },
-        easeInBack: function(i2, s2, h2, o2, r2) {
-          return r2 === void 0 && (r2 = 1.70158), h2 * (i2 /= o2) * i2 * ((r2 + 1) * i2 - r2) + s2;
-        },
-        easeOutBack: function(i2, s2, h2, o2, r2) {
-          return r2 === void 0 && (r2 = 1.70158), h2 * ((i2 = i2 / o2 - 1) * i2 * ((r2 + 1) * i2 + r2) + 1) + s2;
-        },
-        easeInOutBack: function(i2, s2, h2, o2, r2) {
-          return r2 === void 0 && (r2 = 1.70158), (i2 /= o2 / 2) < 1 ? h2 / 2 * (i2 * i2 * (((r2 *= 1.525) + 1) * i2 - r2)) + s2 : h2 / 2 * ((i2 -= 2) * i2 * (((r2 *= 1.525) + 1) * i2 + r2) + 2) + s2;
-        },
-        easeInBounce: function(i2, s2, h2, o2) {
-          var r2;
-          return r2 = e2.easeOutBounce(o2 - i2, 0, h2, o2), h2 - r2 + s2;
-        },
-        easeOutBounce: function(i2, s2, h2, o2) {
-          return (i2 /= o2) < 1 / 2.75 ? h2 * (7.5625 * i2 * i2) + s2 : i2 < 2 / 2.75 ? h2 * (7.5625 * (i2 -= 1.5 / 2.75) * i2 + 0.75) + s2 : i2 < 2.5 / 2.75 ? h2 * (7.5625 * (i2 -= 2.25 / 2.75) * i2 + 0.9375) + s2 : h2 * (7.5625 * (i2 -= 2.625 / 2.75) * i2 + 0.984375) + s2;
-        },
-        easeInOutBounce: function(i2, s2, h2, o2) {
-          var r2;
-          return i2 < o2 / 2 ? (r2 = e2.easeInBounce(i2 * 2, 0, h2, o2), r2 * 0.5 + s2) : (r2 = e2.easeOutBounce(i2 * 2 - o2, 0, h2, o2), r2 * 0.5 + h2 * 0.5 + s2);
-        }
-      }, n2(e2);
+      (n2 = function (i2) {
+        return (l2.exports = i2);
+      }),
+        (e2 = {
+          linear: function (i2, s2, h2, o2) {
+            return (h2 * i2) / o2 + s2;
+          },
+          easeInQuad: function (i2, s2, h2, o2) {
+            return h2 * (i2 /= o2) * i2 + s2;
+          },
+          easeOutQuad: function (i2, s2, h2, o2) {
+            return -h2 * (i2 /= o2) * (i2 - 2) + s2;
+          },
+          easeInOutQuad: function (i2, s2, h2, o2) {
+            return (i2 /= o2 / 2) < 1 ? (h2 / 2) * i2 * i2 + s2 : (-h2 / 2) * (--i2 * (i2 - 2) - 1) + s2;
+          },
+          easeInCubic: function (i2, s2, h2, o2) {
+            return h2 * (i2 /= o2) * i2 * i2 + s2;
+          },
+          easeOutCubic: function (i2, s2, h2, o2) {
+            return h2 * ((i2 = i2 / o2 - 1) * i2 * i2 + 1) + s2;
+          },
+          easeInOutCubic: function (i2, s2, h2, o2) {
+            return (i2 /= o2 / 2) < 1 ? (h2 / 2) * i2 * i2 * i2 + s2 : (h2 / 2) * ((i2 -= 2) * i2 * i2 + 2) + s2;
+          },
+          easeInQuart: function (i2, s2, h2, o2) {
+            return h2 * (i2 /= o2) * i2 * i2 * i2 + s2;
+          },
+          easeOutQuart: function (i2, s2, h2, o2) {
+            return -h2 * ((i2 = i2 / o2 - 1) * i2 * i2 * i2 - 1) + s2;
+          },
+          easeInOutQuart: function (i2, s2, h2, o2) {
+            return (i2 /= o2 / 2) < 1 ? (h2 / 2) * i2 * i2 * i2 * i2 + s2 : (-h2 / 2) * ((i2 -= 2) * i2 * i2 * i2 - 2) + s2;
+          },
+          easeInQuint: function (i2, s2, h2, o2) {
+            return h2 * (i2 /= o2) * i2 * i2 * i2 * i2 + s2;
+          },
+          easeOutQuint: function (i2, s2, h2, o2) {
+            return h2 * ((i2 = i2 / o2 - 1) * i2 * i2 * i2 * i2 + 1) + s2;
+          },
+          easeInOutQuint: function (i2, s2, h2, o2) {
+            return (i2 /= o2 / 2) < 1 ? (h2 / 2) * i2 * i2 * i2 * i2 * i2 + s2 : (h2 / 2) * ((i2 -= 2) * i2 * i2 * i2 * i2 + 2) + s2;
+          },
+          easeInSine: function (i2, s2, h2, o2) {
+            return -h2 * Math.cos((i2 / o2) * (Math.PI / 2)) + h2 + s2;
+          },
+          easeOutSine: function (i2, s2, h2, o2) {
+            return h2 * Math.sin((i2 / o2) * (Math.PI / 2)) + s2;
+          },
+          easeInOutSine: function (i2, s2, h2, o2) {
+            return (-h2 / 2) * (Math.cos((Math.PI * i2) / o2) - 1) + s2;
+          },
+          easeInExpo: function (i2, s2, h2, o2) {
+            return i2 === 0 ? s2 : h2 * Math.pow(2, 10 * (i2 / o2 - 1)) + s2;
+          },
+          easeOutExpo: function (i2, s2, h2, o2) {
+            return i2 === o2 ? s2 + h2 : h2 * (-Math.pow(2, (-10 * i2) / o2) + 1) + s2;
+          },
+          easeInOutExpo: function (i2, s2, h2, o2) {
+            return (i2 /= o2 / 2) < 1 ? (h2 / 2) * Math.pow(2, 10 * (i2 - 1)) + s2 : (h2 / 2) * (-Math.pow(2, -10 * --i2) + 2) + s2;
+          },
+          easeInCirc: function (i2, s2, h2, o2) {
+            return -h2 * (Math.sqrt(1 - (i2 /= o2) * i2) - 1) + s2;
+          },
+          easeOutCirc: function (i2, s2, h2, o2) {
+            return h2 * Math.sqrt(1 - (i2 = i2 / o2 - 1) * i2) + s2;
+          },
+          easeInOutCirc: function (i2, s2, h2, o2) {
+            return (i2 /= o2 / 2) < 1 ? (-h2 / 2) * (Math.sqrt(1 - i2 * i2) - 1) + s2 : (h2 / 2) * (Math.sqrt(1 - (i2 -= 2) * i2) + 1) + s2;
+          },
+          easeInElastic: function (i2, s2, h2, o2) {
+            var r2, a2, p2;
+            return (
+              (p2 = 1.70158),
+              (a2 = 0),
+              (r2 = h2),
+              i2 === 0 || (i2 /= o2),
+              a2 || (a2 = o2 * 0.3),
+              r2 < Math.abs(h2) ? ((r2 = h2), (p2 = a2 / 4)) : (p2 = (a2 / (2 * Math.PI)) * Math.asin(h2 / r2)),
+              -(r2 * Math.pow(2, 10 * (i2 -= 1)) * Math.sin(((i2 * o2 - p2) * (2 * Math.PI)) / a2)) + s2
+            );
+          },
+          easeOutElastic: function (i2, s2, h2, o2) {
+            var r2, a2, p2;
+            return (
+              (p2 = 1.70158),
+              (a2 = 0),
+              (r2 = h2),
+              i2 === 0 || (i2 /= o2),
+              a2 || (a2 = o2 * 0.3),
+              r2 < Math.abs(h2) ? ((r2 = h2), (p2 = a2 / 4)) : (p2 = (a2 / (2 * Math.PI)) * Math.asin(h2 / r2)),
+              r2 * Math.pow(2, -10 * i2) * Math.sin(((i2 * o2 - p2) * (2 * Math.PI)) / a2) + h2 + s2
+            );
+          },
+          easeInOutElastic: function (i2, s2, h2, o2) {
+            var r2, a2, p2;
+            return (
+              (p2 = 1.70158),
+              (a2 = 0),
+              (r2 = h2),
+              i2 === 0 || (i2 /= o2 / 2),
+              a2 || (a2 = o2 * (0.3 * 1.5)),
+              r2 < Math.abs(h2) ? ((r2 = h2), (p2 = a2 / 4)) : (p2 = (a2 / (2 * Math.PI)) * Math.asin(h2 / r2)),
+              i2 < 1 ? -0.5 * (r2 * Math.pow(2, 10 * (i2 -= 1)) * Math.sin(((i2 * o2 - p2) * (2 * Math.PI)) / a2)) + s2 : r2 * Math.pow(2, -10 * (i2 -= 1)) * Math.sin(((i2 * o2 - p2) * (2 * Math.PI)) / a2) * 0.5 + h2 + s2
+            );
+          },
+          easeInBack: function (i2, s2, h2, o2, r2) {
+            return r2 === void 0 && (r2 = 1.70158), h2 * (i2 /= o2) * i2 * ((r2 + 1) * i2 - r2) + s2;
+          },
+          easeOutBack: function (i2, s2, h2, o2, r2) {
+            return r2 === void 0 && (r2 = 1.70158), h2 * ((i2 = i2 / o2 - 1) * i2 * ((r2 + 1) * i2 + r2) + 1) + s2;
+          },
+          easeInOutBack: function (i2, s2, h2, o2, r2) {
+            return r2 === void 0 && (r2 = 1.70158), (i2 /= o2 / 2) < 1 ? (h2 / 2) * (i2 * i2 * (((r2 *= 1.525) + 1) * i2 - r2)) + s2 : (h2 / 2) * ((i2 -= 2) * i2 * (((r2 *= 1.525) + 1) * i2 + r2) + 2) + s2;
+          },
+          easeInBounce: function (i2, s2, h2, o2) {
+            var r2;
+            return (r2 = e2.easeOutBounce(o2 - i2, 0, h2, o2)), h2 - r2 + s2;
+          },
+          easeOutBounce: function (i2, s2, h2, o2) {
+            return (i2 /= o2) < 1 / 2.75
+              ? h2 * (7.5625 * i2 * i2) + s2
+              : i2 < 2 / 2.75
+              ? h2 * (7.5625 * (i2 -= 1.5 / 2.75) * i2 + 0.75) + s2
+              : i2 < 2.5 / 2.75
+              ? h2 * (7.5625 * (i2 -= 2.25 / 2.75) * i2 + 0.9375) + s2
+              : h2 * (7.5625 * (i2 -= 2.625 / 2.75) * i2 + 0.984375) + s2;
+          },
+          easeInOutBounce: function (i2, s2, h2, o2) {
+            var r2;
+            return i2 < o2 / 2 ? ((r2 = e2.easeInBounce(i2 * 2, 0, h2, o2)), r2 * 0.5 + s2) : ((r2 = e2.easeOutBounce(i2 * 2 - o2, 0, h2, o2)), r2 * 0.5 + h2 * 0.5 + s2);
+          },
+        }),
+        n2(e2);
     }).call(S2);
   })(W);
   var O = W.exports;
   var v2 = /* @__PURE__ */ M2(O);
   function x2(l2, t2) {
     if (l2) {
-      if (typeof l2 == "function")
-        return l2;
-      if (typeof l2 == "string")
-        return v2[l2];
-    } else
-      return v2[t2];
+      if (typeof l2 == "function") return l2;
+      if (typeof l2 == "string") return v2[l2];
+    } else return v2[t2];
   }
   var P = class {
     constructor(t2) {
-      this.viewport = t2, this.touches = [], this.addListeners();
+      (this.viewport = t2), (this.touches = []), this.addListeners();
     }
     /** Add input listeners */
     addListeners() {
-      this.viewport.eventMode = "static", this.viewport.forceHitArea || (this.viewport.hitArea = new Rectangle(0, 0, this.viewport.worldWidth, this.viewport.worldHeight)), this.viewport.on("pointerdown", this.down, this), this.viewport.options.allowPreserveDragOutside ? this.viewport.on("globalpointermove", this.move, this) : this.viewport.on("pointermove", this.move, this), this.viewport.on("pointerup", this.up, this), this.viewport.on("pointerupoutside", this.up, this), this.viewport.on("pointercancel", this.up, this), this.viewport.options.allowPreserveDragOutside || this.viewport.on("pointerleave", this.up, this), this.wheelFunction = (t2) => this.handleWheel(t2), this.viewport.options.events.domElement.addEventListener(
-        "wheel",
-        this.wheelFunction,
-        { passive: this.viewport.options.passiveWheel }
-      ), this.isMouseDown = false;
+      (this.viewport.eventMode = "static"),
+        this.viewport.forceHitArea || (this.viewport.hitArea = new Rectangle(0, 0, this.viewport.worldWidth, this.viewport.worldHeight)),
+        this.viewport.on("pointerdown", this.down, this),
+        this.viewport.options.allowPreserveDragOutside ? this.viewport.on("globalpointermove", this.move, this) : this.viewport.on("pointermove", this.move, this),
+        this.viewport.on("pointerup", this.up, this),
+        this.viewport.on("pointerupoutside", this.up, this),
+        this.viewport.on("pointercancel", this.up, this),
+        this.viewport.options.allowPreserveDragOutside || this.viewport.on("pointerleave", this.up, this),
+        (this.wheelFunction = (t2) => this.handleWheel(t2)),
+        this.viewport.options.events.domElement.addEventListener("wheel", this.wheelFunction, { passive: this.viewport.options.passiveWheel }),
+        (this.isMouseDown = false);
     }
     /**
      * Removes all event listeners from viewport
@@ -40593,19 +39477,18 @@ ${e2}`);
      * @param {PIXI.FederatedPointerEvent} event
      */
     down(t2) {
-      if (this.viewport.pause || !this.viewport.visible)
-        return;
-      if (t2.pointerType === "mouse" ? this.isMouseDown = true : this.get(t2.pointerId) || this.touches.push({ id: t2.pointerId, last: null }), this.count() === 1) {
+      if (this.viewport.pause || !this.viewport.visible) return;
+      if ((t2.pointerType === "mouse" ? (this.isMouseDown = true) : this.get(t2.pointerId) || this.touches.push({ id: t2.pointerId, last: null }), this.count() === 1)) {
         this.last = t2.global.clone();
-        const n2 = this.viewport.plugins.get("decelerate", true), i2 = this.viewport.plugins.get("bounce", true);
-        (!n2 || !n2.isActive()) && (!i2 || !i2.isActive()) ? this.clickedAvailable = true : this.clickedAvailable = false;
-      } else
-        this.clickedAvailable = false;
+        const n2 = this.viewport.plugins.get("decelerate", true),
+          i2 = this.viewport.plugins.get("bounce", true);
+        (!n2 || !n2.isActive()) && (!i2 || !i2.isActive()) ? (this.clickedAvailable = true) : (this.clickedAvailable = false);
+      } else this.clickedAvailable = false;
       this.viewport.plugins.down(t2) && this.viewport.options.stopPropagation && t2.stopPropagation();
     }
     /** Clears all pointer events */
     clear() {
-      this.isMouseDown = false, this.touches = [], this.last = null;
+      (this.isMouseDown = false), (this.touches = []), (this.last = null);
     }
     /**
      * @param {number} change
@@ -40616,27 +39499,31 @@ ${e2}`);
     }
     /** Handle move events for viewport */
     move(t2) {
-      if (this.viewport.pause || !this.viewport.visible)
-        return;
+      if (this.viewport.pause || !this.viewport.visible) return;
       const e2 = this.viewport.plugins.move(t2);
       if (this.clickedAvailable && this.last) {
-        const n2 = t2.global.x - this.last.x, i2 = t2.global.y - this.last.y;
+        const n2 = t2.global.x - this.last.x,
+          i2 = t2.global.y - this.last.y;
         (this.checkThreshold(n2) || this.checkThreshold(i2)) && (this.clickedAvailable = false);
       }
       e2 && this.viewport.options.stopPropagation && t2.stopPropagation();
     }
     /** Handle up events for viewport */
     up(t2) {
-      if (this.viewport.pause || !this.viewport.visible)
-        return;
+      if (this.viewport.pause || !this.viewport.visible) return;
       t2.pointerType === "mouse" && (this.isMouseDown = false), t2.pointerType !== "mouse" && this.remove(t2.pointerId);
       const e2 = this.viewport.plugins.up(t2);
-      this.clickedAvailable && this.count() === 0 && this.last && (this.viewport.emit("clicked", {
-        event: t2,
-        screen: this.last,
-        world: this.viewport.toWorld(this.last),
-        viewport: this.viewport
-      }), this.clickedAvailable = false), e2 && this.viewport.options.stopPropagation && t2.stopPropagation();
+      this.clickedAvailable &&
+        this.count() === 0 &&
+        this.last &&
+        (this.viewport.emit("clicked", {
+          event: t2,
+          screen: this.last,
+          world: this.viewport.toWorld(this.last),
+          viewport: this.viewport,
+        }),
+        (this.clickedAvailable = false)),
+        e2 && this.viewport.options.stopPropagation && t2.stopPropagation();
     }
     /** Gets pointer position if this.interaction is set */
     getPointerPosition(t2) {
@@ -40645,19 +39532,16 @@ ${e2}`);
     }
     /** Handle wheel events */
     handleWheel(t2) {
-      if (this.viewport.pause || !this.viewport.visible)
-        return;
+      if (this.viewport.pause || !this.viewport.visible) return;
       const e2 = this.viewport.toLocal(this.getPointerPosition(t2));
       this.viewport.left <= e2.x && e2.x <= this.viewport.right && this.viewport.top <= e2.y && e2.y <= this.viewport.bottom && this.viewport.plugins.wheel(t2) && !this.viewport.options.passiveWheel && t2.preventDefault();
     }
     pause() {
-      this.touches = [], this.isMouseDown = false;
+      (this.touches = []), (this.isMouseDown = false);
     }
     /** Get touch by id */
     get(t2) {
-      for (const e2 of this.touches)
-        if (e2.id === t2)
-          return e2;
+      for (const e2 of this.touches) if (e2.id === t2) return e2;
       return null;
     }
     /** Remove touch by number */
@@ -40675,24 +39559,11 @@ ${e2}`);
       return (this.isMouseDown ? 1 : 0) + this.touches.length;
     }
   };
-  var m2 = [
-    "drag",
-    "pinch",
-    "wheel",
-    "follow",
-    "mouse-edges",
-    "decelerate",
-    "animate",
-    "bounce",
-    "snap-zoom",
-    "clamp-zoom",
-    "snap",
-    "clamp"
-  ];
+  var m2 = ["drag", "pinch", "wheel", "follow", "mouse-edges", "decelerate", "animate", "bounce", "snap-zoom", "clamp-zoom", "snap", "clamp"];
   var C = class {
     /** This is called by {@link Viewport} to initialize the {@link Viewport.plugins plugins}. */
     constructor(t2) {
-      this.viewport = t2, this.list = [], this.plugins = {};
+      (this.viewport = t2), (this.list = []), (this.plugins = {});
     }
     /**
      * Inserts a named plugin or a user plugin into the viewport
@@ -40705,7 +39576,7 @@ ${e2}`);
      */
     add(t2, e2, n2 = m2.length) {
       const i2 = this.plugins[t2];
-      i2 && i2.destroy(), this.plugins[t2] = e2;
+      i2 && i2.destroy(), (this.plugins[t2] = e2);
       const s2 = m2.indexOf(t2);
       s2 !== -1 && m2.splice(s2, 1), m2.splice(n2, 0, t2), this.sort();
     }
@@ -40727,8 +39598,7 @@ ${e2}`);
      * @param {number} elapsed type in milliseconds since last update
      */
     update(t2) {
-      for (const e2 of this.list)
-        e2.update(t2);
+      for (const e2 of this.list) e2.update(t2);
     }
     /**
      * Resize all active plugins
@@ -40737,19 +39607,19 @@ ${e2}`);
      * @ignore
      */
     resize() {
-      for (const t2 of this.list)
-        t2.resize();
+      for (const t2 of this.list) t2.resize();
     }
     /** Clamps and resets bounce and decelerate (as needed) after manually moving viewport */
     reset() {
-      for (const t2 of this.list)
-        t2.reset();
+      for (const t2 of this.list) t2.reset();
     }
     /** removes all installed plugins */
     removeAll() {
       this.list.forEach((t2) => {
         t2.destroy();
-      }), this.plugins = {}, this.sort();
+      }),
+        (this.plugins = {}),
+        this.sort();
     }
     /**
      * Removes installed plugin
@@ -40786,8 +39656,7 @@ ${e2}`);
      */
     sort() {
       this.list = [];
-      for (const t2 of m2)
-        this.plugins[t2] && this.list.push(this.plugins[t2]);
+      for (const t2 of m2) this.plugins[t2] && this.list.push(this.plugins[t2]);
     }
     /**
      * Handle down for all plugins
@@ -40797,8 +39666,7 @@ ${e2}`);
      */
     down(t2) {
       let e2 = false;
-      for (const n2 of this.list)
-        n2.down(t2) && (e2 = true);
+      for (const n2 of this.list) n2.down(t2) && (e2 = true);
       return e2;
     }
     /**
@@ -40809,8 +39677,7 @@ ${e2}`);
      */
     move(t2) {
       let e2 = false;
-      for (const n2 of this.viewport.plugins.list)
-        n2.move(t2) && (e2 = true);
+      for (const n2 of this.viewport.plugins.list) n2.move(t2) && (e2 = true);
       return e2;
     }
     /**
@@ -40821,8 +39688,7 @@ ${e2}`);
      */
     up(t2) {
       let e2 = false;
-      for (const n2 of this.list)
-        n2.up(t2) && (e2 = true);
+      for (const n2 of this.list) n2.up(t2) && (e2 = true);
       return e2;
     }
     /**
@@ -40833,19 +39699,17 @@ ${e2}`);
      */
     wheel(t2) {
       let e2 = false;
-      for (const n2 of this.list)
-        n2.wheel(t2) && (e2 = true);
+      for (const n2 of this.list) n2.wheel(t2) && (e2 = true);
       return e2;
     }
   };
   var u2 = class {
     /** @param {Viewport} parent */
     constructor(t2) {
-      this.parent = t2, this.paused = false;
+      (this.parent = t2), (this.paused = false);
     }
     /** Called when plugin is removed */
-    destroy() {
-    }
+    destroy() {}
     /** Handler for pointerdown PIXI event */
     down(t2) {
       return false;
@@ -40866,14 +39730,11 @@ ${e2}`);
      * Called on each tick
      * @param {number} elapsed time in millisecond since last update
      */
-    update(t2) {
-    }
+    update(t2) {}
     /** Called when the viewport is resized */
-    resize() {
-    }
+    resize() {}
     /** Called when the viewport is manually moved */
-    reset() {
-    }
+    reset() {}
     /** Pause the plugin */
     pause() {
       this.paused = true;
@@ -40886,7 +39747,7 @@ ${e2}`);
   var I = {
     removeOnInterrupt: false,
     ease: "linear",
-    time: 1e3
+    time: 1e3,
   };
   var k2 = class extends u2 {
     /**
@@ -40896,7 +39757,19 @@ ${e2}`);
      * @param options
      */
     constructor(t2, e2 = {}) {
-      super(t2), this.startWidth = null, this.startHeight = null, this.deltaWidth = null, this.deltaHeight = null, this.width = null, this.height = null, this.time = 0, this.options = Object.assign({}, I, e2), this.options.ease = x2(this.options.ease), this.setupPosition(), this.setupZoom(), this.time = 0;
+      super(t2),
+        (this.startWidth = null),
+        (this.startHeight = null),
+        (this.deltaWidth = null),
+        (this.deltaHeight = null),
+        (this.width = null),
+        (this.height = null),
+        (this.time = 0),
+        (this.options = Object.assign({}, I, e2)),
+        (this.options.ease = x2(this.options.ease)),
+        this.setupPosition(),
+        this.setupZoom(),
+        (this.time = 0);
     }
     /**
      * Setup `startX`, `startY`, `deltaX`, `deltaY`, `keepCenter`.
@@ -40904,7 +39777,9 @@ ${e2}`);
      * This is called during construction.
      */
     setupPosition() {
-      typeof this.options.position < "u" ? (this.startX = this.parent.center.x, this.startY = this.parent.center.y, this.deltaX = this.options.position.x - this.parent.center.x, this.deltaY = this.options.position.y - this.parent.center.y, this.keepCenter = false) : this.keepCenter = true;
+      typeof this.options.position < "u"
+        ? ((this.startX = this.parent.center.x), (this.startY = this.parent.center.y), (this.deltaX = this.options.position.x - this.parent.center.x), (this.deltaY = this.options.position.y - this.parent.center.y), (this.keepCenter = false))
+        : (this.keepCenter = true);
     }
     /**
      * Setup `startWidth, `startHeight`, `deltaWidth, `deltaHeight, `width`, `height`.
@@ -40912,42 +39787,53 @@ ${e2}`);
      * This is called during construction.
      */
     setupZoom() {
-      this.width = null, this.height = null, typeof this.options.scale < "u" ? this.width = this.parent.screenWidth / this.options.scale : typeof this.options.scaleX < "u" || typeof this.options.scaleY < "u" ? (typeof this.options.scaleX < "u" && (this.width = this.parent.screenWidth / this.options.scaleX), typeof this.options.scaleY < "u" && (this.height = this.parent.screenHeight / this.options.scaleY)) : (typeof this.options.width < "u" && (this.width = this.options.width), typeof this.options.height < "u" && (this.height = this.options.height)), this.width !== null && (this.startWidth = this.parent.screenWidthInWorldPixels, this.deltaWidth = this.width - this.startWidth), this.height !== null && (this.startHeight = this.parent.screenHeightInWorldPixels, this.deltaHeight = this.height - this.startHeight);
+      (this.width = null),
+        (this.height = null),
+        typeof this.options.scale < "u"
+          ? (this.width = this.parent.screenWidth / this.options.scale)
+          : typeof this.options.scaleX < "u" || typeof this.options.scaleY < "u"
+          ? (typeof this.options.scaleX < "u" && (this.width = this.parent.screenWidth / this.options.scaleX), typeof this.options.scaleY < "u" && (this.height = this.parent.screenHeight / this.options.scaleY))
+          : (typeof this.options.width < "u" && (this.width = this.options.width), typeof this.options.height < "u" && (this.height = this.options.height)),
+        this.width !== null && ((this.startWidth = this.parent.screenWidthInWorldPixels), (this.deltaWidth = this.width - this.startWidth)),
+        this.height !== null && ((this.startHeight = this.parent.screenHeightInWorldPixels), (this.deltaHeight = this.height - this.startHeight));
     }
     down() {
       return this.options.removeOnInterrupt && this.parent.plugins.remove("animate"), false;
     }
     complete() {
-      this.parent.plugins.remove("animate"), this.width !== null && this.parent.fitWidth(this.width, this.keepCenter, this.height === null), this.height !== null && this.parent.fitHeight(this.height, this.keepCenter, this.width === null), !this.keepCenter && this.options.position && this.parent.moveCenter(this.options.position), this.parent.emit("animate-end", this.parent), this.options.callbackOnComplete && this.options.callbackOnComplete(this.parent);
+      this.parent.plugins.remove("animate"),
+        this.width !== null && this.parent.fitWidth(this.width, this.keepCenter, this.height === null),
+        this.height !== null && this.parent.fitHeight(this.height, this.keepCenter, this.width === null),
+        !this.keepCenter && this.options.position && this.parent.moveCenter(this.options.position),
+        this.parent.emit("animate-end", this.parent),
+        this.options.callbackOnComplete && this.options.callbackOnComplete(this.parent);
     }
     update(t2) {
-      if (this.paused)
-        return;
+      if (this.paused) return;
       this.time += t2;
       const e2 = new Point(this.parent.scale.x, this.parent.scale.y);
       if (this.time >= this.options.time) {
-        const n2 = this.parent.width, i2 = this.parent.height;
+        const n2 = this.parent.width,
+          i2 = this.parent.height;
         this.complete(), (n2 !== this.parent.width || i2 !== this.parent.height) && this.parent.emit("zoomed", { viewport: this.parent, original: e2, type: "animate" });
       } else {
         const n2 = this.options.ease(this.time, 0, 1, this.options.time);
         if (this.width !== null) {
-          const i2 = this.startWidth, s2 = this.deltaWidth;
-          this.parent.fitWidth(
-            i2 + s2 * n2,
-            this.keepCenter,
-            this.height === null
-          );
+          const i2 = this.startWidth,
+            s2 = this.deltaWidth;
+          this.parent.fitWidth(i2 + s2 * n2, this.keepCenter, this.height === null);
         }
         if (this.height !== null) {
-          const i2 = this.startHeight, s2 = this.deltaHeight;
-          this.parent.fitHeight(
-            i2 + s2 * n2,
-            this.keepCenter,
-            this.width === null
-          );
+          const i2 = this.startHeight,
+            s2 = this.deltaHeight;
+          this.parent.fitHeight(i2 + s2 * n2, this.keepCenter, this.width === null);
         }
-        if (this.width === null ? this.parent.scale.x = this.parent.scale.y : this.height === null && (this.parent.scale.y = this.parent.scale.x), !this.keepCenter) {
-          const i2 = this.startX, s2 = this.startY, h2 = this.deltaX, o2 = this.deltaY, r2 = new Point(this.parent.x, this.parent.y);
+        if ((this.width === null ? (this.parent.scale.x = this.parent.scale.y) : this.height === null && (this.parent.scale.y = this.parent.scale.x), !this.keepCenter)) {
+          const i2 = this.startX,
+            s2 = this.startY,
+            h2 = this.deltaX,
+            o2 = this.deltaY,
+            r2 = new Point(this.parent.x, this.parent.y);
           this.parent.moveCenter(i2 + h2 * n2, s2 + o2 * n2), this.parent.emit("moved", { viewport: this.parent, original: r2, type: "animate" });
         }
         (this.width || this.height) && this.parent.emit("zoomed", { viewport: this.parent, original: e2, type: "animate" });
@@ -40960,35 +39846,51 @@ ${e2}`);
     time: 150,
     ease: "easeInOutSine",
     underflow: "center",
-    bounceBox: null
+    bounceBox: null,
   };
   var X = class extends u2 {
     /**
      * This is called by {@link Viewport.bounce}.
      */
     constructor(t2, e2 = {}) {
-      super(t2), this.options = Object.assign({}, Y, e2), this.ease = x2(this.options.ease, "easeInOutSine"), this.options.sides ? this.options.sides === "all" ? this.top = this.bottom = this.left = this.right = true : this.options.sides === "horizontal" ? (this.right = this.left = true, this.top = this.bottom = false) : this.options.sides === "vertical" ? (this.left = this.right = false, this.top = this.bottom = true) : (this.top = this.options.sides.indexOf("top") !== -1, this.bottom = this.options.sides.indexOf("bottom") !== -1, this.left = this.options.sides.indexOf("left") !== -1, this.right = this.options.sides.indexOf("right") !== -1) : this.left = this.top = this.right = this.bottom = false;
+      super(t2),
+        (this.options = Object.assign({}, Y, e2)),
+        (this.ease = x2(this.options.ease, "easeInOutSine")),
+        this.options.sides
+          ? this.options.sides === "all"
+            ? (this.top = this.bottom = this.left = this.right = true)
+            : this.options.sides === "horizontal"
+            ? ((this.right = this.left = true), (this.top = this.bottom = false))
+            : this.options.sides === "vertical"
+            ? ((this.left = this.right = false), (this.top = this.bottom = true))
+            : ((this.top = this.options.sides.indexOf("top") !== -1), (this.bottom = this.options.sides.indexOf("bottom") !== -1), (this.left = this.options.sides.indexOf("left") !== -1), (this.right = this.options.sides.indexOf("right") !== -1))
+          : (this.left = this.top = this.right = this.bottom = false);
       const n2 = this.options.underflow.toLowerCase();
-      n2 === "center" ? (this.underflowX = 0, this.underflowY = 0) : (this.underflowX = n2.indexOf("left") !== -1 ? -1 : n2.indexOf("right") !== -1 ? 1 : 0, this.underflowY = n2.indexOf("top") !== -1 ? -1 : n2.indexOf("bottom") !== -1 ? 1 : 0), this.reset();
+      n2 === "center" ? ((this.underflowX = 0), (this.underflowY = 0)) : ((this.underflowX = n2.indexOf("left") !== -1 ? -1 : n2.indexOf("right") !== -1 ? 1 : 0), (this.underflowY = n2.indexOf("top") !== -1 ? -1 : n2.indexOf("bottom") !== -1 ? 1 : 0)),
+        this.reset();
     }
     isActive() {
       return this.toX !== null || this.toY !== null;
     }
     down() {
-      return this.toX = this.toY = null, false;
+      return (this.toX = this.toY = null), false;
     }
     up() {
       return this.bounce(), false;
     }
     update(t2) {
       if (!this.paused) {
-        if (this.bounce(), this.toX) {
+        if ((this.bounce(), this.toX)) {
           const e2 = this.toX;
-          e2.time += t2, this.parent.emit("moved", { viewport: this.parent, type: "bounce-x" }), e2.time >= this.options.time ? (this.parent.x = e2.end, this.toX = null, this.parent.emit("bounce-x-end", this.parent)) : this.parent.x = this.ease(e2.time, e2.start, e2.delta, this.options.time);
+          (e2.time += t2),
+            this.parent.emit("moved", { viewport: this.parent, type: "bounce-x" }),
+            e2.time >= this.options.time ? ((this.parent.x = e2.end), (this.toX = null), this.parent.emit("bounce-x-end", this.parent)) : (this.parent.x = this.ease(e2.time, e2.start, e2.delta, this.options.time));
         }
         if (this.toY) {
           const e2 = this.toY;
-          e2.time += t2, this.parent.emit("moved", { viewport: this.parent, type: "bounce-y" }), e2.time >= this.options.time ? (this.parent.y = e2.end, this.toY = null, this.parent.emit("bounce-y-end", this.parent)) : this.parent.y = this.ease(e2.time, e2.start, e2.delta, this.options.time);
+          (e2.time += t2),
+            this.parent.emit("moved", { viewport: this.parent, type: "bounce-y" }),
+            e2.time >= this.options.time ? ((this.parent.y = e2.end), (this.toY = null), this.parent.emit("bounce-y-end", this.parent)) : (this.parent.y = this.ease(e2.time, e2.start, e2.delta, this.options.time));
         }
       }
     }
@@ -41025,20 +39927,17 @@ ${e2}`);
     oob() {
       const t2 = this.options.bounceBox;
       if (t2) {
-        const e2 = typeof t2.x > "u" ? 0 : t2.x, n2 = typeof t2.y > "u" ? 0 : t2.y, i2 = typeof t2.width > "u" ? this.parent.worldWidth : t2.width, s2 = typeof t2.height > "u" ? this.parent.worldHeight : t2.height;
+        const e2 = typeof t2.x > "u" ? 0 : t2.x,
+          n2 = typeof t2.y > "u" ? 0 : t2.y,
+          i2 = typeof t2.width > "u" ? this.parent.worldWidth : t2.width,
+          s2 = typeof t2.height > "u" ? this.parent.worldHeight : t2.height;
         return {
           left: this.parent.left < e2,
           right: this.parent.right > i2,
           top: this.parent.top < n2,
           bottom: this.parent.bottom > s2,
-          topLeft: new Point(
-            e2 * this.parent.scale.x,
-            n2 * this.parent.scale.y
-          ),
-          bottomRight: new Point(
-            i2 * this.parent.scale.x - this.parent.screenWidth,
-            s2 * this.parent.scale.y - this.parent.screenHeight
-          )
+          topLeft: new Point(e2 * this.parent.scale.x, n2 * this.parent.scale.y),
+          bottomRight: new Point(i2 * this.parent.scale.x - this.parent.screenWidth, s2 * this.parent.scale.y - this.parent.screenHeight),
         };
       }
       return {
@@ -41047,34 +39946,38 @@ ${e2}`);
         top: this.parent.top < 0,
         bottom: this.parent.bottom > this.parent.worldHeight,
         topLeft: new Point(0, 0),
-        bottomRight: new Point(
-          this.parent.worldWidth * this.parent.scale.x - this.parent.screenWidth,
-          this.parent.worldHeight * this.parent.scale.y - this.parent.screenHeight
-        )
+        bottomRight: new Point(this.parent.worldWidth * this.parent.scale.x - this.parent.screenWidth, this.parent.worldHeight * this.parent.scale.y - this.parent.screenHeight),
       };
     }
     bounce() {
       var s2, h2;
-      if (this.paused)
-        return;
-      let t2, e2 = this.parent.plugins.get("decelerate", true);
-      e2 && (e2.x || e2.y) && (e2.x && e2.percentChangeX === ((s2 = e2.options) == null ? void 0 : s2.friction) || e2.y && e2.percentChangeY === ((h2 = e2.options) == null ? void 0 : h2.friction)) && (t2 = this.oob(), (t2.left && this.left || t2.right && this.right) && (e2.percentChangeX = this.options.friction), (t2.top && this.top || t2.bottom && this.bottom) && (e2.percentChangeY = this.options.friction));
-      const n2 = this.parent.plugins.get("drag", true) || {}, i2 = this.parent.plugins.get("pinch", true) || {};
-      if (e2 = e2 || {}, !(n2 != null && n2.active) && !(i2 != null && i2.active) && (!this.toX || !this.toY) && (!e2.x || !e2.y)) {
+      if (this.paused) return;
+      let t2,
+        e2 = this.parent.plugins.get("decelerate", true);
+      e2 &&
+        (e2.x || e2.y) &&
+        ((e2.x && e2.percentChangeX === ((s2 = e2.options) == null ? void 0 : s2.friction)) || (e2.y && e2.percentChangeY === ((h2 = e2.options) == null ? void 0 : h2.friction))) &&
+        ((t2 = this.oob()), ((t2.left && this.left) || (t2.right && this.right)) && (e2.percentChangeX = this.options.friction), ((t2.top && this.top) || (t2.bottom && this.bottom)) && (e2.percentChangeY = this.options.friction));
+      const n2 = this.parent.plugins.get("drag", true) || {},
+        i2 = this.parent.plugins.get("pinch", true) || {};
+      if (((e2 = e2 || {}), !(n2 != null && n2.active) && !(i2 != null && i2.active) && (!this.toX || !this.toY) && (!e2.x || !e2.y))) {
         t2 = t2 || this.oob();
-        const o2 = t2.topLeft, r2 = t2.bottomRight;
+        const o2 = t2.topLeft,
+          r2 = t2.bottomRight;
         if (!this.toX && !e2.x) {
           let a2 = null;
-          t2.left && this.left ? a2 = this.parent.screenWorldWidth < this.parent.screenWidth ? this.calcUnderflowX() : -o2.x : t2.right && this.right && (a2 = this.parent.screenWorldWidth < this.parent.screenWidth ? this.calcUnderflowX() : -r2.x), a2 !== null && this.parent.x !== a2 && (this.toX = { time: 0, start: this.parent.x, delta: a2 - this.parent.x, end: a2 }, this.parent.emit("bounce-x-start", this.parent));
+          t2.left && this.left ? (a2 = this.parent.screenWorldWidth < this.parent.screenWidth ? this.calcUnderflowX() : -o2.x) : t2.right && this.right && (a2 = this.parent.screenWorldWidth < this.parent.screenWidth ? this.calcUnderflowX() : -r2.x),
+            a2 !== null && this.parent.x !== a2 && ((this.toX = { time: 0, start: this.parent.x, delta: a2 - this.parent.x, end: a2 }), this.parent.emit("bounce-x-start", this.parent));
         }
         if (!this.toY && !e2.y) {
           let a2 = null;
-          t2.top && this.top ? a2 = this.parent.screenWorldHeight < this.parent.screenHeight ? this.calcUnderflowY() : -o2.y : t2.bottom && this.bottom && (a2 = this.parent.screenWorldHeight < this.parent.screenHeight ? this.calcUnderflowY() : -r2.y), a2 !== null && this.parent.y !== a2 && (this.toY = { time: 0, start: this.parent.y, delta: a2 - this.parent.y, end: a2 }, this.parent.emit("bounce-y-start", this.parent));
+          t2.top && this.top ? (a2 = this.parent.screenWorldHeight < this.parent.screenHeight ? this.calcUnderflowY() : -o2.y) : t2.bottom && this.bottom && (a2 = this.parent.screenWorldHeight < this.parent.screenHeight ? this.calcUnderflowY() : -r2.y),
+            a2 !== null && this.parent.y !== a2 && ((this.toY = { time: 0, start: this.parent.y, delta: a2 - this.parent.y, end: a2 }), this.parent.emit("bounce-y-start", this.parent));
         }
       }
     }
     reset() {
-      this.toX = this.toY = null, this.bounce();
+      (this.toX = this.toY = null), this.bounce();
     }
   };
   var z = {
@@ -41083,69 +39986,90 @@ ${e2}`);
     top: false,
     bottom: false,
     direction: null,
-    underflow: "center"
+    underflow: "center",
   };
   var A = class extends u2 {
     /**
-    * This is called by {@link Viewport.clamp}.
-    */
+     * This is called by {@link Viewport.clamp}.
+     */
     constructor(t2, e2 = {}) {
-      super(t2), this.options = Object.assign({}, z, e2), this.options.direction && (this.options.left = this.options.direction === "x" || this.options.direction === "all" ? true : null, this.options.right = this.options.direction === "x" || this.options.direction === "all" ? true : null, this.options.top = this.options.direction === "y" || this.options.direction === "all" ? true : null, this.options.bottom = this.options.direction === "y" || this.options.direction === "all" ? true : null), this.parseUnderflow(), this.last = { x: null, y: null, scaleX: null, scaleY: null }, this.update();
+      super(t2),
+        (this.options = Object.assign({}, z, e2)),
+        this.options.direction &&
+          ((this.options.left = this.options.direction === "x" || this.options.direction === "all" ? true : null),
+          (this.options.right = this.options.direction === "x" || this.options.direction === "all" ? true : null),
+          (this.options.top = this.options.direction === "y" || this.options.direction === "all" ? true : null),
+          (this.options.bottom = this.options.direction === "y" || this.options.direction === "all" ? true : null)),
+        this.parseUnderflow(),
+        (this.last = { x: null, y: null, scaleX: null, scaleY: null }),
+        this.update();
     }
     parseUnderflow() {
       const t2 = this.options.underflow.toLowerCase();
-      t2 === "none" ? this.noUnderflow = true : t2 === "center" ? (this.underflowX = this.underflowY = 0, this.noUnderflow = false) : (this.underflowX = t2.indexOf("left") !== -1 ? -1 : t2.indexOf("right") !== -1 ? 1 : 0, this.underflowY = t2.indexOf("top") !== -1 ? -1 : t2.indexOf("bottom") !== -1 ? 1 : 0, this.noUnderflow = false);
+      t2 === "none"
+        ? (this.noUnderflow = true)
+        : t2 === "center"
+        ? ((this.underflowX = this.underflowY = 0), (this.noUnderflow = false))
+        : ((this.underflowX = t2.indexOf("left") !== -1 ? -1 : t2.indexOf("right") !== -1 ? 1 : 0), (this.underflowY = t2.indexOf("top") !== -1 ? -1 : t2.indexOf("bottom") !== -1 ? 1 : 0), (this.noUnderflow = false));
     }
     move() {
       return this.update(), false;
     }
     update() {
-      if (this.paused || this.parent.x === this.last.x && this.parent.y === this.last.y && this.parent.scale.x === this.last.scaleX && this.parent.scale.y === this.last.scaleY)
-        return;
-      const t2 = new Point(this.parent.x, this.parent.y), e2 = this.parent.plugins.decelerate || {};
+      if (this.paused || (this.parent.x === this.last.x && this.parent.y === this.last.y && this.parent.scale.x === this.last.scaleX && this.parent.scale.y === this.last.scaleY)) return;
+      const t2 = new Point(this.parent.x, this.parent.y),
+        e2 = this.parent.plugins.decelerate || {};
       if (this.options.left !== null || this.options.right !== null) {
         let n2 = false;
         if (!this.noUnderflow && this.parent.screenWorldWidth < this.parent.screenWidth)
           switch (this.underflowX) {
             case -1:
-              this.parent.x !== 0 && (this.parent.x = 0, n2 = true);
+              this.parent.x !== 0 && ((this.parent.x = 0), (n2 = true));
               break;
             case 1:
-              this.parent.x !== this.parent.screenWidth - this.parent.screenWorldWidth && (this.parent.x = this.parent.screenWidth - this.parent.screenWorldWidth, n2 = true);
+              this.parent.x !== this.parent.screenWidth - this.parent.screenWorldWidth && ((this.parent.x = this.parent.screenWidth - this.parent.screenWorldWidth), (n2 = true));
               break;
             default:
-              this.parent.x !== (this.parent.screenWidth - this.parent.screenWorldWidth) / 2 && (this.parent.x = (this.parent.screenWidth - this.parent.screenWorldWidth) / 2, n2 = true);
+              this.parent.x !== (this.parent.screenWidth - this.parent.screenWorldWidth) / 2 && ((this.parent.x = (this.parent.screenWidth - this.parent.screenWorldWidth) / 2), (n2 = true));
           }
         else
-          this.options.left !== null && this.parent.left < (this.options.left === true ? 0 : this.options.left) && (this.parent.x = -(this.options.left === true ? 0 : this.options.left) * this.parent.scale.x, e2.x = 0, n2 = true), this.options.right !== null && this.parent.right > (this.options.right === true ? this.parent.worldWidth : this.options.right) && (this.parent.x = -(this.options.right === true ? this.parent.worldWidth : this.options.right) * this.parent.scale.x + this.parent.screenWidth, e2.x = 0, n2 = true);
-        n2 && this.parent.emit("moved", {
-          viewport: this.parent,
-          original: t2,
-          type: "clamp-x"
-        });
+          this.options.left !== null && this.parent.left < (this.options.left === true ? 0 : this.options.left) && ((this.parent.x = -(this.options.left === true ? 0 : this.options.left) * this.parent.scale.x), (e2.x = 0), (n2 = true)),
+            this.options.right !== null &&
+              this.parent.right > (this.options.right === true ? this.parent.worldWidth : this.options.right) &&
+              ((this.parent.x = -(this.options.right === true ? this.parent.worldWidth : this.options.right) * this.parent.scale.x + this.parent.screenWidth), (e2.x = 0), (n2 = true));
+        n2 &&
+          this.parent.emit("moved", {
+            viewport: this.parent,
+            original: t2,
+            type: "clamp-x",
+          });
       }
       if (this.options.top !== null || this.options.bottom !== null) {
         let n2 = false;
         if (!this.noUnderflow && this.parent.screenWorldHeight < this.parent.screenHeight)
           switch (this.underflowY) {
             case -1:
-              this.parent.y !== 0 && (this.parent.y = 0, n2 = true);
+              this.parent.y !== 0 && ((this.parent.y = 0), (n2 = true));
               break;
             case 1:
-              this.parent.y !== this.parent.screenHeight - this.parent.screenWorldHeight && (this.parent.y = this.parent.screenHeight - this.parent.screenWorldHeight, n2 = true);
+              this.parent.y !== this.parent.screenHeight - this.parent.screenWorldHeight && ((this.parent.y = this.parent.screenHeight - this.parent.screenWorldHeight), (n2 = true));
               break;
             default:
-              this.parent.y !== (this.parent.screenHeight - this.parent.screenWorldHeight) / 2 && (this.parent.y = (this.parent.screenHeight - this.parent.screenWorldHeight) / 2, n2 = true);
+              this.parent.y !== (this.parent.screenHeight - this.parent.screenWorldHeight) / 2 && ((this.parent.y = (this.parent.screenHeight - this.parent.screenWorldHeight) / 2), (n2 = true));
           }
         else
-          this.options.top !== null && this.parent.top < (this.options.top === true ? 0 : this.options.top) && (this.parent.y = -(this.options.top === true ? 0 : this.options.top) * this.parent.scale.y, e2.y = 0, n2 = true), this.options.bottom !== null && this.parent.bottom > (this.options.bottom === true ? this.parent.worldHeight : this.options.bottom) && (this.parent.y = -(this.options.bottom === true ? this.parent.worldHeight : this.options.bottom) * this.parent.scale.y + this.parent.screenHeight, e2.y = 0, n2 = true);
-        n2 && this.parent.emit("moved", {
-          viewport: this.parent,
-          original: t2,
-          type: "clamp-y"
-        });
+          this.options.top !== null && this.parent.top < (this.options.top === true ? 0 : this.options.top) && ((this.parent.y = -(this.options.top === true ? 0 : this.options.top) * this.parent.scale.y), (e2.y = 0), (n2 = true)),
+            this.options.bottom !== null &&
+              this.parent.bottom > (this.options.bottom === true ? this.parent.worldHeight : this.options.bottom) &&
+              ((this.parent.y = -(this.options.bottom === true ? this.parent.worldHeight : this.options.bottom) * this.parent.scale.y + this.parent.screenHeight), (e2.y = 0), (n2 = true));
+        n2 &&
+          this.parent.emit("moved", {
+            viewport: this.parent,
+            original: t2,
+            type: "clamp-y",
+          });
       }
-      this.last.x = this.parent.x, this.last.y = this.parent.y, this.last.scaleX = this.parent.scale.x, this.last.scaleY = this.parent.scale.y;
+      (this.last.x = this.parent.x), (this.last.y = this.parent.y), (this.last.scaleX = this.parent.scale.x), (this.last.scaleY = this.parent.scale.y);
     }
     reset() {
       this.update();
@@ -41157,14 +40081,14 @@ ${e2}`);
     maxWidth: null,
     maxHeight: null,
     minScale: null,
-    maxScale: null
+    maxScale: null,
   };
   var _ = class extends u2 {
     /**
      * This is called by {@link Viewport.clampZoom}.
      */
     constructor(t2, e2 = {}) {
-      super(t2), this.options = Object.assign({}, T, e2), this.clamp();
+      super(t2), (this.options = Object.assign({}, T, e2)), this.clamp();
     }
     resize() {
       this.clamp();
@@ -41173,39 +40097,56 @@ ${e2}`);
     clamp() {
       if (!this.paused) {
         if (this.options.minWidth || this.options.minHeight || this.options.maxWidth || this.options.maxHeight) {
-          let t2 = this.parent.worldScreenWidth, e2 = this.parent.worldScreenHeight;
+          let t2 = this.parent.worldScreenWidth,
+            e2 = this.parent.worldScreenHeight;
           if (this.options.minWidth !== null && t2 < this.options.minWidth) {
             const n2 = this.parent.scale.x;
-            this.parent.fitWidth(this.options.minWidth, false, false, true), this.parent.scale.y *= this.parent.scale.x / n2, t2 = this.parent.worldScreenWidth, e2 = this.parent.worldScreenHeight, this.parent.emit("zoomed", { viewport: this.parent, type: "clamp-zoom" });
+            this.parent.fitWidth(this.options.minWidth, false, false, true),
+              (this.parent.scale.y *= this.parent.scale.x / n2),
+              (t2 = this.parent.worldScreenWidth),
+              (e2 = this.parent.worldScreenHeight),
+              this.parent.emit("zoomed", { viewport: this.parent, type: "clamp-zoom" });
           }
           if (this.options.maxWidth !== null && t2 > this.options.maxWidth) {
             const n2 = this.parent.scale.x;
-            this.parent.fitWidth(this.options.maxWidth, false, false, true), this.parent.scale.y *= this.parent.scale.x / n2, t2 = this.parent.worldScreenWidth, e2 = this.parent.worldScreenHeight, this.parent.emit("zoomed", { viewport: this.parent, type: "clamp-zoom" });
+            this.parent.fitWidth(this.options.maxWidth, false, false, true),
+              (this.parent.scale.y *= this.parent.scale.x / n2),
+              (t2 = this.parent.worldScreenWidth),
+              (e2 = this.parent.worldScreenHeight),
+              this.parent.emit("zoomed", { viewport: this.parent, type: "clamp-zoom" });
           }
           if (this.options.minHeight !== null && e2 < this.options.minHeight) {
             const n2 = this.parent.scale.y;
-            this.parent.fitHeight(this.options.minHeight, false, false, true), this.parent.scale.x *= this.parent.scale.y / n2, t2 = this.parent.worldScreenWidth, e2 = this.parent.worldScreenHeight, this.parent.emit("zoomed", { viewport: this.parent, type: "clamp-zoom" });
+            this.parent.fitHeight(this.options.minHeight, false, false, true),
+              (this.parent.scale.x *= this.parent.scale.y / n2),
+              (t2 = this.parent.worldScreenWidth),
+              (e2 = this.parent.worldScreenHeight),
+              this.parent.emit("zoomed", { viewport: this.parent, type: "clamp-zoom" });
           }
           if (this.options.maxHeight !== null && e2 > this.options.maxHeight) {
             const n2 = this.parent.scale.y;
-            this.parent.fitHeight(this.options.maxHeight, false, false, true), this.parent.scale.x *= this.parent.scale.y / n2, this.parent.emit("zoomed", { viewport: this.parent, type: "clamp-zoom" });
+            this.parent.fitHeight(this.options.maxHeight, false, false, true), (this.parent.scale.x *= this.parent.scale.y / n2), this.parent.emit("zoomed", { viewport: this.parent, type: "clamp-zoom" });
           }
         } else if (this.options.minScale || this.options.maxScale) {
-          const t2 = { x: null, y: null }, e2 = { x: null, y: null };
-          if (typeof this.options.minScale == "number")
-            t2.x = this.options.minScale, t2.y = this.options.minScale;
+          const t2 = { x: null, y: null },
+            e2 = { x: null, y: null };
+          if (typeof this.options.minScale == "number") (t2.x = this.options.minScale), (t2.y = this.options.minScale);
           else if (this.options.minScale !== null) {
             const s2 = this.options.minScale;
-            t2.x = typeof s2.x > "u" ? null : s2.x, t2.y = typeof s2.y > "u" ? null : s2.y;
+            (t2.x = typeof s2.x > "u" ? null : s2.x), (t2.y = typeof s2.y > "u" ? null : s2.y);
           }
-          if (typeof this.options.maxScale == "number")
-            e2.x = this.options.maxScale, e2.y = this.options.maxScale;
+          if (typeof this.options.maxScale == "number") (e2.x = this.options.maxScale), (e2.y = this.options.maxScale);
           else if (this.options.maxScale !== null) {
             const s2 = this.options.maxScale;
-            e2.x = typeof s2.x > "u" ? null : s2.x, e2.y = typeof s2.y > "u" ? null : s2.y;
+            (e2.x = typeof s2.x > "u" ? null : s2.x), (e2.y = typeof s2.y > "u" ? null : s2.y);
           }
-          let n2 = this.parent.scale.x, i2 = this.parent.scale.y;
-          t2.x !== null && n2 < t2.x && (n2 = t2.x), e2.x !== null && n2 > e2.x && (n2 = e2.x), t2.y !== null && i2 < t2.y && (i2 = t2.y), e2.y !== null && i2 > e2.y && (i2 = e2.y), (n2 !== this.parent.scale.x || i2 !== this.parent.scale.y) && (this.parent.scale.set(n2, i2), this.parent.emit("zoomed", { viewport: this.parent, type: "clamp-zoom" }));
+          let n2 = this.parent.scale.x,
+            i2 = this.parent.scale.y;
+          t2.x !== null && n2 < t2.x && (n2 = t2.x),
+            e2.x !== null && n2 > e2.x && (n2 = e2.x),
+            t2.y !== null && i2 < t2.y && (i2 = t2.y),
+            e2.y !== null && i2 > e2.y && (i2 = e2.y),
+            (n2 !== this.parent.scale.x || i2 !== this.parent.scale.y) && (this.parent.scale.set(n2, i2), this.parent.emit("zoomed", { viewport: this.parent, type: "clamp-zoom" }));
         }
       }
     }
@@ -41216,7 +40157,7 @@ ${e2}`);
   var L = {
     friction: 0.98,
     bounce: 0.8,
-    minSpeed: 0.01
+    minSpeed: 0.01,
   };
   var d2 = 16;
   var E = class extends u2 {
@@ -41224,19 +40165,18 @@ ${e2}`);
      * This is called by {@link Viewport.decelerate}.
      */
     constructor(t2, e2 = {}) {
-      super(t2), this.options = Object.assign({}, L, e2), this.saved = [], this.timeSinceRelease = 0, this.reset(), this.parent.on("moved", (n2) => this.handleMoved(n2));
+      super(t2), (this.options = Object.assign({}, L, e2)), (this.saved = []), (this.timeSinceRelease = 0), this.reset(), this.parent.on("moved", (n2) => this.handleMoved(n2));
     }
     down() {
-      return this.saved = [], this.x = this.y = null, false;
+      return (this.saved = []), (this.x = this.y = null), false;
     }
     isActive() {
       return !!(this.x || this.y);
     }
     move() {
-      if (this.paused)
-        return false;
+      if (this.paused) return false;
       const t2 = this.parent.input.count();
-      return (t2 === 1 || t2 > 1 && !this.parent.plugins.get("pinch", true)) && (this.saved.push({ x: this.parent.x, y: this.parent.y, time: performance.now() }), this.saved.length > 60 && this.saved.splice(0, 30)), false;
+      return (t2 === 1 || (t2 > 1 && !this.parent.plugins.get("pinch", true))) && (this.saved.push({ x: this.parent.x, y: this.parent.y, time: performance.now() }), this.saved.length > 60 && this.saved.splice(0, 30)), false;
     }
     /** Listener to viewport's "moved" event. */
     handleMoved(t2) {
@@ -41251,7 +40191,7 @@ ${e2}`);
         for (const e2 of this.saved)
           if (e2.time >= t2 - 100) {
             const n2 = t2 - e2.time;
-            this.x = (this.parent.x - e2.x) / n2, this.y = (this.parent.y - e2.y) / n2, this.percentChangeX = this.percentChangeY = this.options.friction, this.timeSinceRelease = 0;
+            (this.x = (this.parent.x - e2.x) / n2), (this.y = (this.parent.y - e2.y) / n2), (this.percentChangeX = this.percentChangeY = this.options.friction), (this.timeSinceRelease = 0);
             break;
           }
       }
@@ -41265,21 +40205,28 @@ ${e2}`);
      * @param {number} [options.y] - Specify y-component of initial velocity.
      */
     activate(t2) {
-      t2 = t2 || {}, typeof t2.x < "u" && (this.x = t2.x, this.percentChangeX = this.options.friction), typeof t2.y < "u" && (this.y = t2.y, this.percentChangeY = this.options.friction);
+      (t2 = t2 || {}), typeof t2.x < "u" && ((this.x = t2.x), (this.percentChangeX = this.options.friction)), typeof t2.y < "u" && ((this.y = t2.y), (this.percentChangeY = this.options.friction));
     }
     update(t2) {
-      if (this.paused)
-        return;
-      const e2 = this.x || this.y, n2 = this.timeSinceRelease, i2 = this.timeSinceRelease + t2;
+      if (this.paused) return;
+      const e2 = this.x || this.y,
+        n2 = this.timeSinceRelease,
+        i2 = this.timeSinceRelease + t2;
       if (this.x) {
-        const s2 = this.percentChangeX, h2 = Math.log(s2);
-        this.parent.x += this.x * d2 / h2 * (Math.pow(s2, i2 / d2) - Math.pow(s2, n2 / d2)), this.x *= Math.pow(this.percentChangeX, t2 / d2);
+        const s2 = this.percentChangeX,
+          h2 = Math.log(s2);
+        (this.parent.x += ((this.x * d2) / h2) * (Math.pow(s2, i2 / d2) - Math.pow(s2, n2 / d2))), (this.x *= Math.pow(this.percentChangeX, t2 / d2));
       }
       if (this.y) {
-        const s2 = this.percentChangeY, h2 = Math.log(s2);
-        this.parent.y += this.y * d2 / h2 * (Math.pow(s2, i2 / d2) - Math.pow(s2, n2 / d2)), this.y *= Math.pow(this.percentChangeY, t2 / d2);
+        const s2 = this.percentChangeY,
+          h2 = Math.log(s2);
+        (this.parent.y += ((this.y * d2) / h2) * (Math.pow(s2, i2 / d2) - Math.pow(s2, n2 / d2))), (this.y *= Math.pow(this.percentChangeY, t2 / d2));
       }
-      this.timeSinceRelease += t2, this.x && this.y ? Math.abs(this.x) < this.options.minSpeed && Math.abs(this.y) < this.options.minSpeed && (this.x = 0, this.y = 0) : (Math.abs(this.x || 0) < this.options.minSpeed && (this.x = 0), Math.abs(this.y || 0) < this.options.minSpeed && (this.y = 0)), e2 && this.parent.emit("moved", { viewport: this.parent, type: "decelerate" });
+      (this.timeSinceRelease += t2),
+        this.x && this.y
+          ? Math.abs(this.x) < this.options.minSpeed && Math.abs(this.y) < this.options.minSpeed && ((this.x = 0), (this.y = 0))
+          : (Math.abs(this.x || 0) < this.options.minSpeed && (this.x = 0), Math.abs(this.y || 0) < this.options.minSpeed && (this.y = 0)),
+        e2 && this.parent.emit("moved", { viewport: this.parent, type: "decelerate" });
     }
     reset() {
       this.x = this.y = null;
@@ -41298,133 +40245,165 @@ ${e2}`);
     keyToPress: null,
     ignoreKeyToPressOnTouch: false,
     lineHeight: 20,
-    wheelSwapAxes: false
+    wheelSwapAxes: false,
   };
   var U = class extends u2 {
     /**
-    * This is called by {@link Viewport.drag}.
-    */
+     * This is called by {@link Viewport.drag}.
+     */
     constructor(t2, e2 = {}) {
-      super(t2), this.windowEventHandlers = [], this.options = Object.assign({}, D, e2), this.moved = false, this.reverse = this.options.reverse ? 1 : -1, this.xDirection = !this.options.direction || this.options.direction === "all" || this.options.direction === "x", this.yDirection = !this.options.direction || this.options.direction === "all" || this.options.direction === "y", this.keyIsPressed = false, this.parseUnderflow(), this.mouseButtons(this.options.mouseButtons), this.options.keyToPress && this.handleKeyPresses(this.options.keyToPress);
+      super(t2),
+        (this.windowEventHandlers = []),
+        (this.options = Object.assign({}, D, e2)),
+        (this.moved = false),
+        (this.reverse = this.options.reverse ? 1 : -1),
+        (this.xDirection = !this.options.direction || this.options.direction === "all" || this.options.direction === "x"),
+        (this.yDirection = !this.options.direction || this.options.direction === "all" || this.options.direction === "y"),
+        (this.keyIsPressed = false),
+        this.parseUnderflow(),
+        this.mouseButtons(this.options.mouseButtons),
+        this.options.keyToPress && this.handleKeyPresses(this.options.keyToPress);
     }
     /**
-    * Handles keypress events and set the keyIsPressed boolean accordingly
-    *
-    * @param {array} codes - key codes that can be used to trigger drag event
-    */
+     * Handles keypress events and set the keyIsPressed boolean accordingly
+     *
+     * @param {array} codes - key codes that can be used to trigger drag event
+     */
     handleKeyPresses(t2) {
       const e2 = (i2) => {
-        t2.includes(i2.code) && (this.keyIsPressed = true);
-      }, n2 = (i2) => {
-        t2.includes(i2.code) && (this.keyIsPressed = false);
-      };
+          t2.includes(i2.code) && (this.keyIsPressed = true);
+        },
+        n2 = (i2) => {
+          t2.includes(i2.code) && (this.keyIsPressed = false);
+        };
       this.addWindowEventHandler("keyup", n2), this.addWindowEventHandler("keydown", e2);
     }
     addWindowEventHandler(t2, e2) {
       typeof window > "u" || (window.addEventListener(t2, e2), this.windowEventHandlers.push({ event: t2, handler: e2 }));
     }
     destroy() {
-      typeof window > "u" || this.windowEventHandlers.forEach(({ event: t2, handler: e2 }) => {
-        window.removeEventListener(t2, e2);
-      });
+      typeof window > "u" ||
+        this.windowEventHandlers.forEach(({ event: t2, handler: e2 }) => {
+          window.removeEventListener(t2, e2);
+        });
     }
     /**
-    * initialize mousebuttons array
-    * @param {string} buttons
-    */
+     * initialize mousebuttons array
+     * @param {string} buttons
+     */
     mouseButtons(t2) {
-      !t2 || t2 === "all" ? this.mouse = [true, true, true] : this.mouse = [
-        t2.indexOf("left") !== -1,
-        t2.indexOf("middle") !== -1,
-        t2.indexOf("right") !== -1
-      ];
+      !t2 || t2 === "all" ? (this.mouse = [true, true, true]) : (this.mouse = [t2.indexOf("left") !== -1, t2.indexOf("middle") !== -1, t2.indexOf("right") !== -1]);
     }
     parseUnderflow() {
       const t2 = this.options.underflow.toLowerCase();
-      t2 === "center" ? (this.underflowX = 0, this.underflowY = 0) : (t2.includes("left") ? this.underflowX = -1 : t2.includes("right") ? this.underflowX = 1 : this.underflowX = 0, t2.includes("top") ? this.underflowY = -1 : t2.includes("bottom") ? this.underflowY = 1 : this.underflowY = 0);
+      t2 === "center"
+        ? ((this.underflowX = 0), (this.underflowY = 0))
+        : (t2.includes("left") ? (this.underflowX = -1) : t2.includes("right") ? (this.underflowX = 1) : (this.underflowX = 0), t2.includes("top") ? (this.underflowY = -1) : t2.includes("bottom") ? (this.underflowY = 1) : (this.underflowY = 0));
     }
     /**
-    * @param {PIXI.FederatedPointerEvent} event
-    * @returns {boolean}
-    */
+     * @param {PIXI.FederatedPointerEvent} event
+     * @returns {boolean}
+     */
     checkButtons(t2) {
-      const e2 = t2.pointerType === "mouse", n2 = this.parent.input.count();
-      return !!((n2 === 1 || n2 > 1 && !this.parent.plugins.get("pinch", true)) && (!e2 || this.mouse[t2.button]));
+      const e2 = t2.pointerType === "mouse",
+        n2 = this.parent.input.count();
+      return !!((n2 === 1 || (n2 > 1 && !this.parent.plugins.get("pinch", true))) && (!e2 || this.mouse[t2.button]));
     }
     /**
-    * @param {PIXI.FederatedPointerEvent} event
-    * @returns {boolean}
-    */
+     * @param {PIXI.FederatedPointerEvent} event
+     * @returns {boolean}
+     */
     checkKeyPress(t2) {
-      return !this.options.keyToPress || this.keyIsPressed || this.options.ignoreKeyToPressOnTouch && t2.data.pointerType === "touch";
+      return !this.options.keyToPress || this.keyIsPressed || (this.options.ignoreKeyToPressOnTouch && t2.data.pointerType === "touch");
     }
     down(t2) {
-      return this.paused || !this.options.pressDrag ? false : this.checkButtons(t2) && this.checkKeyPress(t2) ? (this.last = { x: t2.global.x, y: t2.global.y }, (this.parent.parent || this.parent).toLocal(
-        this.last,
-        void 0,
-        this.last
-      ), this.current = t2.pointerId, true) : (this.last = null, false);
+      return this.paused || !this.options.pressDrag
+        ? false
+        : this.checkButtons(t2) && this.checkKeyPress(t2)
+        ? ((this.last = { x: t2.global.x, y: t2.global.y }), (this.parent.parent || this.parent).toLocal(this.last, void 0, this.last), (this.current = t2.pointerId), true)
+        : ((this.last = null), false);
     }
     get active() {
       return this.moved;
     }
     move(t2) {
-      if (this.paused || !this.options.pressDrag)
-        return false;
+      if (this.paused || !this.options.pressDrag) return false;
       if (this.last && this.current === t2.data.pointerId) {
-        const e2 = t2.global.x, n2 = t2.global.y, i2 = this.parent.input.count();
-        if (i2 === 1 || i2 > 1 && !this.parent.plugins.get("pinch", true)) {
+        const e2 = t2.global.x,
+          n2 = t2.global.y,
+          i2 = this.parent.input.count();
+        if (i2 === 1 || (i2 > 1 && !this.parent.plugins.get("pinch", true))) {
           const s2 = { x: e2, y: n2 };
-          (this.parent.parent || this.parent).toLocal(
-            s2,
-            void 0,
-            s2
-          );
-          const h2 = s2.x - this.last.x, o2 = s2.y - this.last.y;
-          if (this.moved || this.xDirection && this.parent.input.checkThreshold(h2) || this.yDirection && this.parent.input.checkThreshold(o2))
-            return this.xDirection && (this.parent.x += (s2.x - this.last.x) * this.options.factor), this.yDirection && (this.parent.y += (s2.y - this.last.y) * this.options.factor), this.last = s2, this.moved || this.parent.emit("drag-start", {
-              event: t2,
-              screen: new Point(this.last.x, this.last.y),
-              world: this.parent.toWorld(new Point(this.last.x, this.last.y)),
-              viewport: this.parent
-            }), this.moved = true, this.parent.emit("moved", { viewport: this.parent, type: "drag" }), true;
-        } else
-          this.moved = false;
+          (this.parent.parent || this.parent).toLocal(s2, void 0, s2);
+          const h2 = s2.x - this.last.x,
+            o2 = s2.y - this.last.y;
+          if (this.moved || (this.xDirection && this.parent.input.checkThreshold(h2)) || (this.yDirection && this.parent.input.checkThreshold(o2)))
+            return (
+              this.xDirection && (this.parent.x += (s2.x - this.last.x) * this.options.factor),
+              this.yDirection && (this.parent.y += (s2.y - this.last.y) * this.options.factor),
+              (this.last = s2),
+              this.moved ||
+                this.parent.emit("drag-start", {
+                  event: t2,
+                  screen: new Point(this.last.x, this.last.y),
+                  world: this.parent.toWorld(new Point(this.last.x, this.last.y)),
+                  viewport: this.parent,
+                }),
+              (this.moved = true),
+              this.parent.emit("moved", { viewport: this.parent, type: "drag" }),
+              true
+            );
+        } else this.moved = false;
       }
       return false;
     }
     up(t2) {
-      if (this.paused)
-        return false;
+      if (this.paused) return false;
       const e2 = this.parent.input.touches;
       if (e2.length === 1) {
         const n2 = e2[0];
-        return n2.last && (this.last = { x: n2.last.x, y: n2.last.y }, this.current = n2.id), this.moved = false, true;
+        return n2.last && ((this.last = { x: n2.last.x, y: n2.last.y }), (this.current = n2.id)), (this.moved = false), true;
       } else if (this.last && this.moved) {
         const n2 = new Point(this.last.x, this.last.y);
-        return (this.parent.parent || this.parent).toGlobal(n2, n2, true), this.parent.emit("drag-end", {
-          event: t2,
-          screen: n2,
-          world: this.parent.toWorld(n2),
-          viewport: this.parent
-        }), this.last = null, this.moved = false, true;
+        return (
+          (this.parent.parent || this.parent).toGlobal(n2, n2, true),
+          this.parent.emit("drag-end", {
+            event: t2,
+            screen: n2,
+            world: this.parent.toWorld(n2),
+            viewport: this.parent,
+          }),
+          (this.last = null),
+          (this.moved = false),
+          true
+        );
       }
       return false;
     }
     wheel(t2) {
-      if (this.paused)
-        return false;
+      if (this.paused) return false;
       if (this.options.wheel) {
         const e2 = this.parent.plugins.get("wheel", true);
-        if (!e2 || !e2.options.wheelZoom && !t2.ctrlKey) {
-          const n2 = t2.deltaMode ? this.options.lineHeight : 1, i2 = [t2.deltaX, t2.deltaY], [s2, h2] = this.options.wheelSwapAxes ? i2.reverse() : i2;
-          return this.xDirection && (this.parent.x += s2 * n2 * this.options.wheelScroll * this.reverse), this.yDirection && (this.parent.y += h2 * n2 * this.options.wheelScroll * this.reverse), this.options.clampWheel && this.clamp(), this.parent.emit("wheel-scroll", this.parent), this.parent.emit("moved", { viewport: this.parent, type: "wheel" }), this.parent.options.passiveWheel || t2.preventDefault(), this.parent.options.stopPropagation && t2.stopPropagation(), true;
+        if (!e2 || (!e2.options.wheelZoom && !t2.ctrlKey)) {
+          const n2 = t2.deltaMode ? this.options.lineHeight : 1,
+            i2 = [t2.deltaX, t2.deltaY],
+            [s2, h2] = this.options.wheelSwapAxes ? i2.reverse() : i2;
+          return (
+            this.xDirection && (this.parent.x += s2 * n2 * this.options.wheelScroll * this.reverse),
+            this.yDirection && (this.parent.y += h2 * n2 * this.options.wheelScroll * this.reverse),
+            this.options.clampWheel && this.clamp(),
+            this.parent.emit("wheel-scroll", this.parent),
+            this.parent.emit("moved", { viewport: this.parent, type: "wheel" }),
+            this.parent.options.passiveWheel || t2.preventDefault(),
+            this.parent.options.stopPropagation && t2.stopPropagation(),
+            true
+          );
         }
       }
       return false;
     }
     resume() {
-      this.last = null, this.paused = false;
+      (this.last = null), (this.paused = false);
     }
     clamp() {
       const t2 = this.parent.plugins.get("decelerate", true) || {};
@@ -41440,8 +40419,7 @@ ${e2}`);
             default:
               this.parent.x = (this.parent.screenWidth - this.parent.screenWorldWidth) / 2;
           }
-        else
-          this.parent.left < 0 ? (this.parent.x = 0, t2.x = 0) : this.parent.right > this.parent.worldWidth && (this.parent.x = -this.parent.worldWidth * this.parent.scale.x + this.parent.screenWidth, t2.x = 0);
+        else this.parent.left < 0 ? ((this.parent.x = 0), (t2.x = 0)) : this.parent.right > this.parent.worldWidth && ((this.parent.x = -this.parent.worldWidth * this.parent.scale.x + this.parent.screenWidth), (t2.x = 0));
       if (this.options.clampWheel !== "x")
         if (this.parent.screenWorldHeight < this.parent.screenHeight)
           switch (this.underflowY) {
@@ -41454,14 +40432,13 @@ ${e2}`);
             default:
               this.parent.y = (this.parent.screenHeight - this.parent.screenWorldHeight) / 2;
           }
-        else
-          this.parent.top < 0 && (this.parent.y = 0, t2.y = 0), this.parent.bottom > this.parent.worldHeight && (this.parent.y = -this.parent.worldHeight * this.parent.scale.y + this.parent.screenHeight, t2.y = 0);
+        else this.parent.top < 0 && ((this.parent.y = 0), (t2.y = 0)), this.parent.bottom > this.parent.worldHeight && ((this.parent.y = -this.parent.worldHeight * this.parent.scale.y + this.parent.screenHeight), (t2.y = 0));
     }
   };
   var F = {
     speed: 0,
     acceleration: null,
-    radius: null
+    radius: null,
   };
   var B = class extends u2 {
     /**
@@ -41472,42 +40449,51 @@ ${e2}`);
      * @param options
      */
     constructor(t2, e2, n2 = {}) {
-      super(t2), this.target = e2, this.options = Object.assign({}, F, n2), this.velocity = { x: 0, y: 0 };
+      super(t2), (this.target = e2), (this.options = Object.assign({}, F, n2)), (this.velocity = { x: 0, y: 0 });
     }
     update(t2) {
-      if (this.paused)
-        return;
+      if (this.paused) return;
       const e2 = this.parent.center;
-      let n2 = this.target.x, i2 = this.target.y;
+      let n2 = this.target.x,
+        i2 = this.target.y;
       if (this.options.radius)
         if (Math.sqrt(Math.pow(this.target.y - e2.y, 2) + Math.pow(this.target.x - e2.x, 2)) > this.options.radius) {
           const r2 = Math.atan2(this.target.y - e2.y, this.target.x - e2.x);
-          n2 = this.target.x - Math.cos(r2) * this.options.radius, i2 = this.target.y - Math.sin(r2) * this.options.radius;
-        } else
-          return;
-      const s2 = n2 - e2.x, h2 = i2 - e2.y;
+          (n2 = this.target.x - Math.cos(r2) * this.options.radius), (i2 = this.target.y - Math.sin(r2) * this.options.radius);
+        } else return;
+      const s2 = n2 - e2.x,
+        h2 = i2 - e2.y;
       if (s2 || h2)
         if (this.options.speed)
           if (this.options.acceleration) {
-            const o2 = Math.atan2(i2 - e2.y, n2 - e2.x), r2 = Math.sqrt(Math.pow(s2, 2) + Math.pow(h2, 2));
+            const o2 = Math.atan2(i2 - e2.y, n2 - e2.x),
+              r2 = Math.sqrt(Math.pow(s2, 2) + Math.pow(h2, 2));
             if (r2) {
               const a2 = (Math.pow(this.velocity.x, 2) + Math.pow(this.velocity.y, 2)) / (2 * this.options.acceleration);
-              r2 > a2 ? this.velocity = {
-                x: Math.min(this.velocity.x + (this.options.acceleration * t2, this.options.speed)),
-                y: Math.min(this.velocity.y + (this.options.acceleration * t2, this.options.speed))
-              } : this.velocity = {
-                x: Math.max(this.velocity.x - this.options.acceleration * this.options.speed, 0),
-                y: Math.max(this.velocity.y - this.options.acceleration * this.options.speed, 0)
-              };
-              const p2 = Math.cos(o2) * this.velocity.x, f2 = Math.sin(o2) * this.velocity.y, g2 = Math.abs(p2) > Math.abs(s2) ? n2 : e2.x + p2, w2 = Math.abs(f2) > Math.abs(h2) ? i2 : e2.y + f2;
+              r2 > a2
+                ? (this.velocity = {
+                    x: Math.min(this.velocity.x + (this.options.acceleration * t2, this.options.speed)),
+                    y: Math.min(this.velocity.y + (this.options.acceleration * t2, this.options.speed)),
+                  })
+                : (this.velocity = {
+                    x: Math.max(this.velocity.x - this.options.acceleration * this.options.speed, 0),
+                    y: Math.max(this.velocity.y - this.options.acceleration * this.options.speed, 0),
+                  });
+              const p2 = Math.cos(o2) * this.velocity.x,
+                f2 = Math.sin(o2) * this.velocity.y,
+                g2 = Math.abs(p2) > Math.abs(s2) ? n2 : e2.x + p2,
+                w2 = Math.abs(f2) > Math.abs(h2) ? i2 : e2.y + f2;
               this.parent.moveCenter(g2, w2), this.parent.emit("moved", { viewport: this.parent, type: "follow" });
             }
           } else {
-            const o2 = Math.atan2(i2 - e2.y, n2 - e2.x), r2 = Math.cos(o2) * this.options.speed, a2 = Math.sin(o2) * this.options.speed, p2 = Math.abs(r2) > Math.abs(s2) ? n2 : e2.x + r2, f2 = Math.abs(a2) > Math.abs(h2) ? i2 : e2.y + a2;
+            const o2 = Math.atan2(i2 - e2.y, n2 - e2.x),
+              r2 = Math.cos(o2) * this.options.speed,
+              a2 = Math.sin(o2) * this.options.speed,
+              p2 = Math.abs(r2) > Math.abs(s2) ? n2 : e2.x + r2,
+              f2 = Math.abs(a2) > Math.abs(h2) ? i2 : e2.y + a2;
             this.parent.moveCenter(p2, f2), this.parent.emit("moved", { viewport: this.parent, type: "follow" });
           }
-        else
-          this.parent.moveCenter(n2, i2), this.parent.emit("moved", { viewport: this.parent, type: "follow" });
+        else this.parent.moveCenter(n2, i2), this.parent.emit("moved", { viewport: this.parent, type: "follow" });
     }
   };
   var N2 = {
@@ -41521,47 +40507,63 @@ ${e2}`);
     reverse: false,
     noDecelerate: false,
     linear: false,
-    allowButtons: false
+    allowButtons: false,
   };
   var V = class extends u2 {
     /**
      * This is called by {@link Viewport.mouseEdges}.
      */
     constructor(t2, e2 = {}) {
-      super(t2), this.options = Object.assign({}, N2, e2), this.reverse = this.options.reverse ? 1 : -1, this.radiusSquared = typeof this.options.radius == "number" ? Math.pow(this.options.radius, 2) : null, this.resize();
+      super(t2), (this.options = Object.assign({}, N2, e2)), (this.reverse = this.options.reverse ? 1 : -1), (this.radiusSquared = typeof this.options.radius == "number" ? Math.pow(this.options.radius, 2) : null), this.resize();
     }
     resize() {
       const t2 = this.options.distance;
-      t2 !== null ? (this.left = t2, this.top = t2, this.right = this.parent.screenWidth - t2, this.bottom = this.parent.screenHeight - t2) : this.options.radius || (this.left = this.options.left, this.top = this.options.top, this.right = this.options.right === null ? null : this.parent.screenWidth - this.options.right, this.bottom = this.options.bottom === null ? null : this.parent.screenHeight - this.options.bottom);
+      t2 !== null
+        ? ((this.left = t2), (this.top = t2), (this.right = this.parent.screenWidth - t2), (this.bottom = this.parent.screenHeight - t2))
+        : this.options.radius ||
+          ((this.left = this.options.left),
+          (this.top = this.options.top),
+          (this.right = this.options.right === null ? null : this.parent.screenWidth - this.options.right),
+          (this.bottom = this.options.bottom === null ? null : this.parent.screenHeight - this.options.bottom));
     }
     down() {
       return this.paused || this.options.allowButtons || (this.horizontal = this.vertical = null), false;
     }
     move(t2) {
-      if (this.paused || t2.pointerType !== "mouse" && t2.pointerId !== 1 || !this.options.allowButtons && t2.buttons !== 0)
-        return false;
-      const e2 = t2.global.x, n2 = t2.global.y;
+      if (this.paused || (t2.pointerType !== "mouse" && t2.pointerId !== 1) || (!this.options.allowButtons && t2.buttons !== 0)) return false;
+      const e2 = t2.global.x,
+        n2 = t2.global.y;
       if (this.radiusSquared) {
         const i2 = this.parent.toScreen(this.parent.center);
         if (Math.pow(i2.x - e2, 2) + Math.pow(i2.y - n2, 2) >= this.radiusSquared) {
           const h2 = Math.atan2(i2.y - n2, i2.x - e2);
-          this.options.linear ? (this.horizontal = Math.round(Math.cos(h2)) * this.options.speed * this.reverse * (60 / 1e3), this.vertical = Math.round(Math.sin(h2)) * this.options.speed * this.reverse * (60 / 1e3)) : (this.horizontal = Math.cos(h2) * this.options.speed * this.reverse * (60 / 1e3), this.vertical = Math.sin(h2) * this.options.speed * this.reverse * (60 / 1e3));
-        } else
-          this.horizontal && this.decelerateHorizontal(), this.vertical && this.decelerateVertical(), this.horizontal = this.vertical = 0;
+          this.options.linear
+            ? ((this.horizontal = Math.round(Math.cos(h2)) * this.options.speed * this.reverse * (60 / 1e3)), (this.vertical = Math.round(Math.sin(h2)) * this.options.speed * this.reverse * (60 / 1e3)))
+            : ((this.horizontal = Math.cos(h2) * this.options.speed * this.reverse * (60 / 1e3)), (this.vertical = Math.sin(h2) * this.options.speed * this.reverse * (60 / 1e3)));
+        } else this.horizontal && this.decelerateHorizontal(), this.vertical && this.decelerateVertical(), (this.horizontal = this.vertical = 0);
       } else
-        this.left !== null && e2 < this.left ? this.horizontal = Number(this.reverse) * this.options.speed * (60 / 1e3) : this.right !== null && e2 > this.right ? this.horizontal = -1 * this.reverse * this.options.speed * (60 / 1e3) : (this.decelerateHorizontal(), this.horizontal = 0), this.top !== null && n2 < this.top ? this.vertical = Number(this.reverse) * this.options.speed * (60 / 1e3) : this.bottom !== null && n2 > this.bottom ? this.vertical = -1 * this.reverse * this.options.speed * (60 / 1e3) : (this.decelerateVertical(), this.vertical = 0);
+        this.left !== null && e2 < this.left
+          ? (this.horizontal = Number(this.reverse) * this.options.speed * (60 / 1e3))
+          : this.right !== null && e2 > this.right
+          ? (this.horizontal = -1 * this.reverse * this.options.speed * (60 / 1e3))
+          : (this.decelerateHorizontal(), (this.horizontal = 0)),
+          this.top !== null && n2 < this.top
+            ? (this.vertical = Number(this.reverse) * this.options.speed * (60 / 1e3))
+            : this.bottom !== null && n2 > this.bottom
+            ? (this.vertical = -1 * this.reverse * this.options.speed * (60 / 1e3))
+            : (this.decelerateVertical(), (this.vertical = 0));
       return false;
     }
     decelerateHorizontal() {
       const t2 = this.parent.plugins.get("decelerate", true);
-      this.horizontal && t2 && !this.options.noDecelerate && t2.activate({ x: this.horizontal * this.options.speed * this.reverse / (1e3 / 60) });
+      this.horizontal && t2 && !this.options.noDecelerate && t2.activate({ x: (this.horizontal * this.options.speed * this.reverse) / (1e3 / 60) });
     }
     decelerateVertical() {
       const t2 = this.parent.plugins.get("decelerate", true);
-      this.vertical && t2 && !this.options.noDecelerate && t2.activate({ y: this.vertical * this.options.speed * this.reverse / (1e3 / 60) });
+      this.vertical && t2 && !this.options.noDecelerate && t2.activate({ y: (this.vertical * this.options.speed * this.reverse) / (1e3 / 60) });
     }
     up() {
-      return this.paused || (this.horizontal && this.decelerateHorizontal(), this.vertical && this.decelerateVertical(), this.horizontal = this.vertical = null), false;
+      return this.paused || (this.horizontal && this.decelerateHorizontal(), this.vertical && this.decelerateVertical(), (this.horizontal = this.vertical = null)), false;
     }
     update() {
       if (!this.paused && (this.horizontal || this.vertical)) {
@@ -41575,18 +40577,18 @@ ${e2}`);
     percent: 1,
     center: null,
     factor: 1,
-    axis: "all"
+    axis: "all",
   };
   var R = new Point();
   var j2 = class extends u2 {
     /**
-    * This is called by {@link Viewport.pinch}.
-    */
+     * This is called by {@link Viewport.pinch}.
+     */
     constructor(t2, e2 = {}) {
-      super(t2), this.active = false, this.pinching = false, this.moved = false, this.options = Object.assign({}, Z, e2);
+      super(t2), (this.active = false), (this.pinching = false), (this.moved = false), (this.options = Object.assign({}, Z, e2));
     }
     down() {
-      return this.parent.input.count() >= 2 ? (this.active = true, true) : false;
+      return this.parent.input.count() >= 2 ? ((this.active = true), true) : false;
     }
     isAxisX() {
       return ["all", "x"].includes(this.options.axis);
@@ -41595,62 +40597,45 @@ ${e2}`);
       return ["all", "y"].includes(this.options.axis);
     }
     move(t2) {
-      if (this.paused || !this.active)
-        return false;
-      const { x: e2, y: n2 } = (this.parent.parent || this.parent).toLocal(
-        t2.global,
-        void 0,
-        R
-      ), i2 = this.parent.input.touches;
+      if (this.paused || !this.active) return false;
+      const { x: e2, y: n2 } = (this.parent.parent || this.parent).toLocal(t2.global, void 0, R),
+        i2 = this.parent.input.touches;
       if (i2.length >= 2) {
-        const s2 = i2[0], h2 = i2[1], o2 = s2.last && h2.last ? Math.sqrt(
-          Math.pow(h2.last.x - s2.last.x, 2) + Math.pow(h2.last.y - s2.last.y, 2)
-        ) : null;
-        if (s2.id === t2.pointerId ? s2.last = { x: e2, y: n2, data: t2 } : h2.id === t2.pointerId && (h2.last = { x: e2, y: n2, data: t2 }), o2) {
+        const s2 = i2[0],
+          h2 = i2[1],
+          o2 = s2.last && h2.last ? Math.sqrt(Math.pow(h2.last.x - s2.last.x, 2) + Math.pow(h2.last.y - s2.last.y, 2)) : null;
+        if ((s2.id === t2.pointerId ? (s2.last = { x: e2, y: n2, data: t2 }) : h2.id === t2.pointerId && (h2.last = { x: e2, y: n2, data: t2 }), o2)) {
           let r2;
-          const a2 = new Point(
-            s2.last.x + (h2.last.x - s2.last.x) / 2,
-            s2.last.y + (h2.last.y - s2.last.y) / 2
-          );
-          this.options.center || (r2 = this.parent.toLocal(
-            a2,
-            this.parent.parent || this.parent
-          ));
-          let p2 = Math.sqrt(
-            Math.pow(
-              h2.last.x - s2.last.x,
-              2
-            ) + Math.pow(
-              h2.last.y - s2.last.y,
-              2
-            )
-          );
-          p2 = p2 === 0 ? p2 = 1e-10 : p2;
+          const a2 = new Point(s2.last.x + (h2.last.x - s2.last.x) / 2, s2.last.y + (h2.last.y - s2.last.y) / 2);
+          this.options.center || (r2 = this.parent.toLocal(a2, this.parent.parent || this.parent));
+          let p2 = Math.sqrt(Math.pow(h2.last.x - s2.last.x, 2) + Math.pow(h2.last.y - s2.last.y, 2));
+          p2 = p2 === 0 ? (p2 = 1e-10) : p2;
           const f2 = (1 - o2 / p2) * this.options.percent * (this.isAxisX() ? this.parent.scale.x : this.parent.scale.y);
-          this.isAxisX() && (this.parent.scale.x += f2), this.isAxisY() && (this.parent.scale.y += f2), this.parent.emit("zoomed", {
-            viewport: this.parent,
-            type: "pinch",
-            center: a2
-          });
+          this.isAxisX() && (this.parent.scale.x += f2),
+            this.isAxisY() && (this.parent.scale.y += f2),
+            this.parent.emit("zoomed", {
+              viewport: this.parent,
+              type: "pinch",
+              center: a2,
+            });
           const g2 = this.parent.plugins.get("clamp-zoom", true);
-          if (g2 && g2.clamp(), this.options.center)
-            this.parent.moveCenter(this.options.center);
+          if ((g2 && g2.clamp(), this.options.center)) this.parent.moveCenter(this.options.center);
           else {
-            const w2 = (this.parent.parent || this.parent).toLocal(
-              r2,
-              this.parent
-            );
-            this.parent.x += (a2.x - w2.x) * this.options.factor, this.parent.y += (a2.y - w2.y) * this.options.factor, this.parent.emit("moved", { viewport: this.parent, type: "pinch" });
+            const w2 = (this.parent.parent || this.parent).toLocal(r2, this.parent);
+            (this.parent.x += (a2.x - w2.x) * this.options.factor), (this.parent.y += (a2.y - w2.y) * this.options.factor), this.parent.emit("moved", { viewport: this.parent, type: "pinch" });
           }
-          !this.options.noDrag && this.lastCenter && (this.parent.x += (a2.x - this.lastCenter.x) * this.options.factor, this.parent.y += (a2.y - this.lastCenter.y) * this.options.factor, this.parent.emit("moved", { viewport: this.parent, type: "pinch" })), this.lastCenter = a2, this.moved = true;
-        } else
-          this.pinching || (this.parent.emit("pinch-start", this.parent), this.pinching = true);
+          !this.options.noDrag &&
+            this.lastCenter &&
+            ((this.parent.x += (a2.x - this.lastCenter.x) * this.options.factor), (this.parent.y += (a2.y - this.lastCenter.y) * this.options.factor), this.parent.emit("moved", { viewport: this.parent, type: "pinch" })),
+            (this.lastCenter = a2),
+            (this.moved = true);
+        } else this.pinching || (this.parent.emit("pinch-start", this.parent), (this.pinching = true));
         return true;
       }
       return false;
     }
     up() {
-      return this.pinching && this.parent.input.touches.length <= 1 ? (this.active = false, this.lastCenter = null, this.pinching = false, this.moved = false, this.parent.emit("pinch-end", this.parent), true) : false;
+      return this.pinching && this.parent.input.touches.length <= 1 ? ((this.active = false), (this.lastCenter = null), (this.pinching = false), (this.moved = false), this.parent.emit("pinch-end", this.parent), true) : false;
     }
   };
   var K = {
@@ -41661,19 +40646,19 @@ ${e2}`);
     interrupt: true,
     removeOnComplete: false,
     removeOnInterrupt: false,
-    forceStart: false
+    forceStart: false,
   };
   var q = class extends u2 {
     /**
      * This is called by {@link Viewport.snap}.
      */
     constructor(t2, e2, n2, i2 = {}) {
-      super(t2), this.options = Object.assign({}, K, i2), this.ease = x2(i2.ease, "easeInOutSine"), this.x = e2, this.y = n2, this.options.forceStart && this.snapStart();
+      super(t2), (this.options = Object.assign({}, K, i2)), (this.ease = x2(i2.ease, "easeInOutSine")), (this.x = e2), (this.y = n2), this.options.forceStart && this.snapStart();
     }
     snapStart() {
-      this.percent = 0, this.snapping = { time: 0 };
+      (this.percent = 0), (this.snapping = { time: 0 });
       const t2 = this.options.topLeft ? this.parent.corner : this.parent.center;
-      this.deltaX = this.x - t2.x, this.deltaY = this.y - t2.y, this.startX = t2.x, this.startY = t2.y, this.parent.emit("snap-start", this.parent);
+      (this.deltaX = this.x - t2.x), (this.deltaY = this.y - t2.y), (this.startX = t2.x), (this.startY = t2.y), this.parent.emit("snap-start", this.parent);
     }
     wheel() {
       return this.options.removeOnInterrupt && this.parent.plugins.remove("snap"), false;
@@ -41694,14 +40679,18 @@ ${e2}`);
           const e2 = this.snapping;
           e2.time += t2;
           let n2, i2, s2;
-          const h2 = this.startX, o2 = this.startY, r2 = this.deltaX, a2 = this.deltaY;
-          if (e2.time > this.options.time)
-            n2 = true, i2 = h2 + r2, s2 = o2 + a2;
+          const h2 = this.startX,
+            o2 = this.startY,
+            r2 = this.deltaX,
+            a2 = this.deltaY;
+          if (e2.time > this.options.time) (n2 = true), (i2 = h2 + r2), (s2 = o2 + a2);
           else {
             const p2 = this.ease(e2.time, 0, 1, this.options.time);
-            i2 = h2 + r2 * p2, s2 = o2 + a2 * p2;
+            (i2 = h2 + r2 * p2), (s2 = o2 + a2 * p2);
           }
-          this.options.topLeft ? this.parent.moveCorner(i2, s2) : this.parent.moveCenter(i2, s2), this.parent.emit("moved", { viewport: this.parent, type: "snap" }), n2 && (this.options.removeOnComplete && this.parent.plugins.remove("snap"), this.parent.emit("snap-end", this.parent), this.snapping = null);
+          this.options.topLeft ? this.parent.moveCorner(i2, s2) : this.parent.moveCenter(i2, s2),
+            this.parent.emit("moved", { viewport: this.parent, type: "snap" }),
+            n2 && (this.options.removeOnComplete && this.parent.plugins.remove("snap"), this.parent.emit("snap-end", this.parent), (this.snapping = null));
         } else {
           const e2 = this.options.topLeft ? this.parent.corner : this.parent.center;
           (e2.x !== this.x || e2.y !== this.y) && this.snapStart();
@@ -41718,27 +40707,46 @@ ${e2}`);
     removeOnComplete: false,
     removeOnInterrupt: false,
     forceStart: false,
-    noMove: false
+    noMove: false,
   };
   var G = class extends u2 {
     /**
      * This is called by {@link Viewport.snapZoom}.
      */
     constructor(t2, e2 = {}) {
-      super(t2), this.options = Object.assign({}, Q, e2), this.ease = x2(this.options.ease), this.xIndependent = false, this.yIndependent = false, this.xScale = 0, this.yScale = 0, this.options.width > 0 && (this.xScale = t2.screenWidth / this.options.width, this.xIndependent = true), this.options.height > 0 && (this.yScale = t2.screenHeight / this.options.height, this.yIndependent = true), this.xScale = this.xIndependent ? this.xScale : this.yScale, this.yScale = this.yIndependent ? this.yScale : this.xScale, this.options.time === 0 ? (t2.container.scale.x = this.xScale, t2.container.scale.y = this.yScale, this.options.removeOnComplete && this.parent.plugins.remove("snap-zoom")) : e2.forceStart && this.createSnapping();
+      super(t2),
+        (this.options = Object.assign({}, Q, e2)),
+        (this.ease = x2(this.options.ease)),
+        (this.xIndependent = false),
+        (this.yIndependent = false),
+        (this.xScale = 0),
+        (this.yScale = 0),
+        this.options.width > 0 && ((this.xScale = t2.screenWidth / this.options.width), (this.xIndependent = true)),
+        this.options.height > 0 && ((this.yScale = t2.screenHeight / this.options.height), (this.yIndependent = true)),
+        (this.xScale = this.xIndependent ? this.xScale : this.yScale),
+        (this.yScale = this.yIndependent ? this.yScale : this.xScale),
+        this.options.time === 0 ? ((t2.container.scale.x = this.xScale), (t2.container.scale.y = this.yScale), this.options.removeOnComplete && this.parent.plugins.remove("snap-zoom")) : e2.forceStart && this.createSnapping();
     }
     createSnapping() {
-      const t2 = this.parent.worldScreenWidth, e2 = this.parent.worldScreenHeight, n2 = this.parent.screenWidth / this.xScale, i2 = this.parent.screenHeight / this.yScale;
-      this.snapping = {
+      const t2 = this.parent.worldScreenWidth,
+        e2 = this.parent.worldScreenHeight,
+        n2 = this.parent.screenWidth / this.xScale,
+        i2 = this.parent.screenHeight / this.yScale;
+      (this.snapping = {
         time: 0,
         startX: t2,
         startY: e2,
         deltaX: n2 - t2,
-        deltaY: i2 - e2
-      }, this.parent.emit("snap-zoom-start", this.parent);
+        deltaY: i2 - e2,
+      }),
+        this.parent.emit("snap-zoom-start", this.parent);
     }
     resize() {
-      this.snapping = null, this.options.width > 0 && (this.xScale = this.parent.screenWidth / this.options.width), this.options.height > 0 && (this.yScale = this.parent.screenHeight / this.options.height), this.xScale = this.xIndependent ? this.xScale : this.yScale, this.yScale = this.yIndependent ? this.yScale : this.xScale;
+      (this.snapping = null),
+        this.options.width > 0 && (this.xScale = this.parent.screenWidth / this.options.width),
+        this.options.height > 0 && (this.yScale = this.parent.screenHeight / this.options.height),
+        (this.xScale = this.xIndependent ? this.xScale : this.yScale),
+        (this.yScale = this.yIndependent ? this.yScale : this.xScale);
     }
     wheel() {
       return this.options.removeOnInterrupt && this.parent.plugins.remove("snap-zoom"), false;
@@ -41747,25 +40755,24 @@ ${e2}`);
       return this.options.removeOnInterrupt ? this.parent.plugins.remove("snap-zoom") : this.options.interrupt && (this.snapping = null), false;
     }
     update(t2) {
-      if (this.paused || this.options.interrupt && this.parent.input.count() !== 0)
-        return;
+      if (this.paused || (this.options.interrupt && this.parent.input.count() !== 0)) return;
       let e2;
-      if (!this.options.center && !this.options.noMove && (e2 = this.parent.center), !this.snapping)
-        (this.parent.scale.x !== this.xScale || this.parent.scale.y !== this.yScale) && this.createSnapping();
+      if ((!this.options.center && !this.options.noMove && (e2 = this.parent.center), !this.snapping)) (this.parent.scale.x !== this.xScale || this.parent.scale.y !== this.yScale) && this.createSnapping();
       else if (this.snapping) {
         const n2 = this.snapping;
-        if (n2.time += t2, n2.time >= this.options.time)
-          this.parent.scale.set(this.xScale, this.yScale), this.options.removeOnComplete && this.parent.plugins.remove("snap-zoom"), this.parent.emit("snap-zoom-end", this.parent), this.snapping = null;
+        if (((n2.time += t2), n2.time >= this.options.time)) this.parent.scale.set(this.xScale, this.yScale), this.options.removeOnComplete && this.parent.plugins.remove("snap-zoom"), this.parent.emit("snap-zoom-end", this.parent), (this.snapping = null);
         else {
-          const s2 = this.snapping, h2 = this.ease(s2.time, s2.startX, s2.deltaX, this.options.time), o2 = this.ease(s2.time, s2.startY, s2.deltaY, this.options.time);
-          this.parent.scale.x = this.parent.screenWidth / h2, this.parent.scale.y = this.parent.screenHeight / o2;
+          const s2 = this.snapping,
+            h2 = this.ease(s2.time, s2.startX, s2.deltaX, this.options.time),
+            o2 = this.ease(s2.time, s2.startY, s2.deltaY, this.options.time);
+          (this.parent.scale.x = this.parent.screenWidth / h2), (this.parent.scale.y = this.parent.screenHeight / o2);
         }
         const i2 = this.parent.plugins.get("clamp-zoom", true);
         i2 && i2.clamp(), this.options.noMove || (this.options.center ? this.parent.moveCenter(this.options.center) : this.parent.moveCenter(e2));
       }
     }
     resume() {
-      this.snapping = null, super.resume();
+      (this.snapping = null), super.resume();
     }
   };
   var J = {
@@ -41778,26 +40785,28 @@ ${e2}`);
     axis: "all",
     keyToPress: null,
     trackpadPinch: false,
-    wheelZoom: true
+    wheelZoom: true,
   };
   var $2 = class extends u2 {
     /**
-    * This is called by {@link Viewport.wheel}.
-    */
+     * This is called by {@link Viewport.wheel}.
+     */
     constructor(t2, e2 = {}) {
-      super(t2), this.options = Object.assign({}, J, e2), this.keyIsPressed = false, this.options.keyToPress && this.handleKeyPresses(this.options.keyToPress);
+      super(t2), (this.options = Object.assign({}, J, e2)), (this.keyIsPressed = false), this.options.keyToPress && this.handleKeyPresses(this.options.keyToPress);
     }
     /**
-    * Handles keypress events and set the keyIsPressed boolean accordingly
-    *
-    * @param {array} codes - key codes that can be used to trigger zoom event
-    */
+     * Handles keypress events and set the keyIsPressed boolean accordingly
+     *
+     * @param {array} codes - key codes that can be used to trigger zoom event
+     */
     handleKeyPresses(t2) {
-      typeof window > "u" || (window.addEventListener("keydown", (e2) => {
-        t2.includes(e2.code) && (this.keyIsPressed = true);
-      }), window.addEventListener("keyup", (e2) => {
-        t2.includes(e2.code) && (this.keyIsPressed = false);
-      }));
+      typeof window > "u" ||
+        (window.addEventListener("keydown", (e2) => {
+          t2.includes(e2.code) && (this.keyIsPressed = true);
+        }),
+        window.addEventListener("keyup", (e2) => {
+          t2.includes(e2.code) && (this.keyIsPressed = false);
+        }));
     }
     checkKeyPress() {
       return !this.options.keyToPress || this.keyIsPressed;
@@ -41813,65 +40822,66 @@ ${e2}`);
     }
     update() {
       if (this.smoothing) {
-        const t2 = this.smoothingCenter, e2 = this.smoothing;
+        const t2 = this.smoothingCenter,
+          e2 = this.smoothing;
         let n2;
         this.options.center || (n2 = this.parent.toLocal(t2)), this.isAxisX() && (this.parent.scale.x += e2.x), this.isAxisY() && (this.parent.scale.y += e2.y), this.parent.emit("zoomed", { viewport: this.parent, type: "wheel" });
         const i2 = this.parent.plugins.get("clamp-zoom", true);
-        if (i2 && i2.clamp(), this.options.center)
-          this.parent.moveCenter(this.options.center);
+        if ((i2 && i2.clamp(), this.options.center)) this.parent.moveCenter(this.options.center);
         else {
           const s2 = this.parent.parent || this.parent;
           s2.toLocal(n2, this.parent, n2);
           const h2 = s2.toLocal(t2);
-          this.parent.x += h2.x - n2.x, this.parent.y += h2.y - n2.y;
+          (this.parent.x += h2.x - n2.x), (this.parent.y += h2.y - n2.y);
         }
         this.parent.emit("moved", { viewport: this.parent, type: "wheel" }), this.smoothingCount++, typeof this.options.smooth == "number" && this.smoothingCount >= this.options.smooth && (this.smoothing = null);
       }
     }
     pinch(t2) {
-      if (this.paused)
-        return;
-      const e2 = this.parent.input.getPointerPosition(t2), n2 = -t2.deltaY * (t2.deltaMode ? this.options.lineHeight : 1) / 200, i2 = Math.pow(2, (1 + this.options.percent) * n2);
+      if (this.paused) return;
+      const e2 = this.parent.input.getPointerPosition(t2),
+        n2 = (-t2.deltaY * (t2.deltaMode ? this.options.lineHeight : 1)) / 200,
+        i2 = Math.pow(2, (1 + this.options.percent) * n2);
       let s2;
       this.options.center || (s2 = this.parent.toLocal(e2)), this.isAxisX() && (this.parent.scale.x *= i2), this.isAxisY() && (this.parent.scale.y *= i2), this.parent.emit("zoomed", { viewport: this.parent, type: "wheel" });
       const h2 = this.parent.plugins.get("clamp-zoom", true);
-      if (h2 && h2.clamp(), this.options.center)
-        this.parent.moveCenter(this.options.center);
+      if ((h2 && h2.clamp(), this.options.center)) this.parent.moveCenter(this.options.center);
       else {
         const o2 = this.parent.parent || this.parent;
         o2.toLocal(s2, this.parent, s2);
         const r2 = o2.toLocal(e2);
-        this.parent.x += r2.x - s2.x, this.parent.y += r2.y - s2.y;
+        (this.parent.x += r2.x - s2.x), (this.parent.y += r2.y - s2.y);
       }
       this.parent.emit("moved", { viewport: this.parent, type: "wheel" }), this.parent.emit("wheel-start", { event: t2, viewport: this.parent });
     }
     wheel(t2) {
-      if (this.paused || !this.checkKeyPress())
-        return false;
-      if (t2.ctrlKey && this.options.trackpadPinch)
-        this.pinch(t2);
+      if (this.paused || !this.checkKeyPress()) return false;
+      if (t2.ctrlKey && this.options.trackpadPinch) this.pinch(t2);
       else if (this.options.wheelZoom) {
-        const e2 = this.parent.input.getPointerPosition(t2), i2 = (this.options.reverse ? -1 : 1) * -t2.deltaY * (t2.deltaMode ? this.options.lineHeight : 1) / 500, s2 = Math.pow(2, (1 + this.options.percent) * i2);
+        const e2 = this.parent.input.getPointerPosition(t2),
+          i2 = ((this.options.reverse ? -1 : 1) * -t2.deltaY * (t2.deltaMode ? this.options.lineHeight : 1)) / 500,
+          s2 = Math.pow(2, (1 + this.options.percent) * i2);
         if (this.options.smooth) {
           const h2 = {
             x: this.smoothing ? this.smoothing.x * (this.options.smooth - this.smoothingCount) : 0,
-            y: this.smoothing ? this.smoothing.y * (this.options.smooth - this.smoothingCount) : 0
+            y: this.smoothing ? this.smoothing.y * (this.options.smooth - this.smoothingCount) : 0,
           };
-          this.smoothing = {
+          (this.smoothing = {
             x: ((this.parent.scale.x + h2.x) * s2 - this.parent.scale.x) / this.options.smooth,
-            y: ((this.parent.scale.y + h2.y) * s2 - this.parent.scale.y) / this.options.smooth
-          }, this.smoothingCount = 0, this.smoothingCenter = e2;
+            y: ((this.parent.scale.y + h2.y) * s2 - this.parent.scale.y) / this.options.smooth,
+          }),
+            (this.smoothingCount = 0),
+            (this.smoothingCenter = e2);
         } else {
           let h2;
           this.options.center || (h2 = this.parent.toLocal(e2)), this.isAxisX() && (this.parent.scale.x *= s2), this.isAxisY() && (this.parent.scale.y *= s2), this.parent.emit("zoomed", { viewport: this.parent, type: "wheel" });
           const o2 = this.parent.plugins.get("clamp-zoom", true);
-          if (o2 && o2.clamp(), this.options.center)
-            this.parent.moveCenter(this.options.center);
+          if ((o2 && o2.clamp(), this.options.center)) this.parent.moveCenter(this.options.center);
           else {
             const r2 = this.parent.parent || this.parent;
             r2.toLocal(h2, this.parent, h2);
             const a2 = r2.toLocal(e2);
-            this.parent.x += a2.x - h2.x, this.parent.y += a2.y - h2.y;
+            (this.parent.x += a2.x - h2.x), (this.parent.y += a2.y - h2.y);
           }
         }
         this.parent.emit("moved", { viewport: this.parent, type: "wheel" }), this.parent.emit("wheel-start", { event: t2, viewport: this.parent });
@@ -41891,7 +40901,7 @@ ${e2}`);
     noTicker: false,
     disableOnContextMenu: false,
     ticker: Ticker.shared,
-    allowPreserveDragOutside: false
+    allowPreserveDragOutside: false,
   };
   var it = class extends Container {
     /**
@@ -41914,12 +40924,27 @@ ${e2}`);
      * @param {boolean} [options.disableOnContextMenu] remove oncontextmenu=() => {} from the pixi's events.domElement
      */
     constructor(t2) {
-      super(), this._disableOnContextMenu = (e2) => e2.preventDefault(), this.options = __spreadValues(__spreadValues({}, tt), t2), this.screenWidth = this.options.screenWidth, this.screenHeight = this.options.screenHeight, this._worldWidth = this.options.worldWidth, this._worldHeight = this.options.worldHeight, this.forceHitArea = this.options.forceHitArea, this.threshold = this.options.threshold, this.options.disableOnContextMenu && this.options.events.domElement.addEventListener("contextmenu", this._disableOnContextMenu), this.options.noTicker || (this.tickerFunction = () => this.update(this.options.ticker.elapsedMS), this.options.ticker.add(this.tickerFunction)), this.input = new P(this), this.plugins = new C(this);
+      super(),
+        (this._disableOnContextMenu = (e2) => e2.preventDefault()),
+        (this.options = __spreadValues(__spreadValues({}, tt), t2)),
+        (this.screenWidth = this.options.screenWidth),
+        (this.screenHeight = this.options.screenHeight),
+        (this._worldWidth = this.options.worldWidth),
+        (this._worldHeight = this.options.worldHeight),
+        (this.forceHitArea = this.options.forceHitArea),
+        (this.threshold = this.options.threshold),
+        this.options.disableOnContextMenu && this.options.events.domElement.addEventListener("contextmenu", this._disableOnContextMenu),
+        this.options.noTicker || ((this.tickerFunction = () => this.update(this.options.ticker.elapsedMS)), this.options.ticker.add(this.tickerFunction)),
+        (this.input = new P(this)),
+        (this.plugins = new C(this));
     }
     /** Overrides PIXI.Container's destroy to also remove the 'wheel' and PIXI.Ticker listeners */
     destroy(t2) {
       var e2;
-      !this.options.noTicker && this.tickerFunction && this.options.ticker.remove(this.tickerFunction), this.options.disableOnContextMenu && ((e2 = this.options.events.domElement) == null || e2.removeEventListener("contextmenu", this._disableOnContextMenu)), this.input.destroy(), super.destroy(t2);
+      !this.options.noTicker && this.tickerFunction && this.options.ticker.remove(this.tickerFunction),
+        this.options.disableOnContextMenu && ((e2 = this.options.events.domElement) == null || e2.removeEventListener("contextmenu", this._disableOnContextMenu)),
+        this.input.destroy(),
+        super.destroy(t2);
     }
     /**
      * Update viewport on each frame.
@@ -41929,12 +40954,20 @@ ${e2}`);
      * @param {number} elapsed time in milliseconds since last update
      */
     update(t2) {
-      this.pause || (this.plugins.update(t2), this.lastViewport && (this.lastViewport.x !== this.x || this.lastViewport.y !== this.y ? this.moving = true : this.moving && (this.emit("moved-end", this), this.moving = false), this.lastViewport.scaleX !== this.scale.x || this.lastViewport.scaleY !== this.scale.y ? this.zooming = true : this.zooming && (this.emit("zoomed-end", this), this.zooming = false)), this.forceHitArea || (this._hitAreaDefault = new Rectangle(this.left, this.top, this.worldScreenWidth, this.worldScreenHeight), this.hitArea = this._hitAreaDefault), this._dirty = this._dirty || !this.lastViewport || this.lastViewport.x !== this.x || this.lastViewport.y !== this.y || this.lastViewport.scaleX !== this.scale.x || this.lastViewport.scaleY !== this.scale.y, this.lastViewport = {
-        x: this.x,
-        y: this.y,
-        scaleX: this.scale.x,
-        scaleY: this.scale.y
-      }, this.emit("frame-end", this));
+      this.pause ||
+        (this.plugins.update(t2),
+        this.lastViewport &&
+          (this.lastViewport.x !== this.x || this.lastViewport.y !== this.y ? (this.moving = true) : this.moving && (this.emit("moved-end", this), (this.moving = false)),
+          this.lastViewport.scaleX !== this.scale.x || this.lastViewport.scaleY !== this.scale.y ? (this.zooming = true) : this.zooming && (this.emit("zoomed-end", this), (this.zooming = false))),
+        this.forceHitArea || ((this._hitAreaDefault = new Rectangle(this.left, this.top, this.worldScreenWidth, this.worldScreenHeight)), (this.hitArea = this._hitAreaDefault)),
+        (this._dirty = this._dirty || !this.lastViewport || this.lastViewport.x !== this.x || this.lastViewport.y !== this.y || this.lastViewport.scaleX !== this.scale.x || this.lastViewport.scaleY !== this.scale.y),
+        (this.lastViewport = {
+          x: this.x,
+          y: this.y,
+          scaleX: this.scale.x,
+          scaleY: this.scale.y,
+        }),
+        this.emit("frame-end", this));
     }
     /**
      * Use this to set screen and world sizes, needed for pinch/wheel/clamp/bounce.
@@ -41944,21 +40977,21 @@ ${e2}`);
      * @param {number} [worldHeight]
      */
     resize(t2 = typeof window > "u" ? 0 : window.innerWidth, e2 = typeof window > "u" ? 0 : window.innerHeight, n2, i2) {
-      this.screenWidth = t2, this.screenHeight = e2, typeof n2 < "u" && (this._worldWidth = n2), typeof i2 < "u" && (this._worldHeight = i2), this.plugins.resize(), this.dirty = true;
+      (this.screenWidth = t2), (this.screenHeight = e2), typeof n2 < "u" && (this._worldWidth = n2), typeof i2 < "u" && (this._worldHeight = i2), this.plugins.resize(), (this.dirty = true);
     }
     /** World width, in pixels */
     get worldWidth() {
       return this._worldWidth ? this._worldWidth : this.width / this.scale.x;
     }
     set worldWidth(t2) {
-      this._worldWidth = t2, this.plugins.resize();
+      (this._worldWidth = t2), this.plugins.resize();
     }
     /** World height, in pixels */
     get worldHeight() {
       return this._worldHeight ? this._worldHeight : this.height / this.scale.y;
     }
     set worldHeight(t2) {
-      this._worldHeight = t2, this.plugins.resize();
+      (this._worldHeight = t2), this.plugins.resize();
     }
     /** Get visible world bounds of viewport */
     getVisibleBounds() {
@@ -42000,10 +41033,7 @@ ${e2}`);
     }
     /** Center of screen in world coordinates */
     get center() {
-      return new Point(
-        this.worldScreenWidth / 2 - this.x / this.scale.x,
-        this.worldScreenHeight / 2 - this.y / this.scale.y
-      );
+      return new Point(this.worldScreenWidth / 2 - this.x / this.scale.x, this.worldScreenHeight / 2 - this.y / this.scale.y);
     }
     set center(t2) {
       this.moveCenter(t2);
@@ -42016,9 +41046,10 @@ ${e2}`);
      */
     moveCenter(...t2) {
       let e2, n2;
-      typeof t2[0] == "number" ? (e2 = t2[0], n2 = t2[1]) : (e2 = t2[0].x, n2 = t2[0].y);
-      const i2 = (this.worldScreenWidth / 2 - e2) * this.scale.x, s2 = (this.worldScreenHeight / 2 - n2) * this.scale.y;
-      return (this.x !== i2 || this.y !== s2) && (this.position.set(i2, s2), this.plugins.reset(), this.dirty = true), this;
+      typeof t2[0] == "number" ? ((e2 = t2[0]), (n2 = t2[1])) : ((e2 = t2[0].x), (n2 = t2[0].y));
+      const i2 = (this.worldScreenWidth / 2 - e2) * this.scale.x,
+        s2 = (this.worldScreenHeight / 2 - n2) * this.scale.y;
+      return (this.x !== i2 || this.y !== s2) && (this.position.set(i2, s2), this.plugins.reset(), (this.dirty = true)), this;
     }
     /** Top-left corner of Viewport */
     get corner() {
@@ -42035,7 +41066,11 @@ ${e2}`);
      */
     moveCorner(...t2) {
       let e2, n2;
-      return t2.length === 1 ? (e2 = -t2[0].x * this.scale.x, n2 = -t2[0].y * this.scale.y) : (e2 = -t2[0] * this.scale.x, n2 = -t2[1] * this.scale.y), (e2 !== this.x || n2 !== this.y) && (this.position.set(e2, n2), this.plugins.reset(), this.dirty = true), this;
+      return (
+        t2.length === 1 ? ((e2 = -t2[0].x * this.scale.x), (n2 = -t2[0].y * this.scale.y)) : ((e2 = -t2[0] * this.scale.x), (n2 = -t2[1] * this.scale.y)),
+        (e2 !== this.x || n2 !== this.y) && (this.position.set(e2, n2), this.plugins.reset(), (this.dirty = true)),
+        this
+      );
     }
     /** Get how many world pixels fit in screen's width */
     get screenWidthInWorldPixels() {
@@ -42074,7 +41109,8 @@ ${e2}`);
      * @returns {number} scale
      */
     findFit(t2, e2) {
-      const n2 = this.screenWidth / t2, i2 = this.screenHeight / e2;
+      const n2 = this.screenWidth / t2,
+        i2 = this.screenHeight / e2;
       return Math.min(n2, i2);
     }
     /**
@@ -42086,7 +41122,8 @@ ${e2}`);
      * @returns {number} scale
      */
     findCover(t2, e2) {
-      const n2 = this.screenWidth / t2, i2 = this.screenHeight / e2;
+      const n2 = this.screenWidth / t2,
+        i2 = this.screenHeight / e2;
       return Math.max(n2, i2);
     }
     /**
@@ -42100,7 +41137,7 @@ ${e2}`);
      */
     fitWidth(t2 = this.worldWidth, e2, n2 = true, i2) {
       let s2;
-      e2 && (s2 = this.center), this.scale.x = this.screenWidth / t2, n2 && (this.scale.y = this.scale.x);
+      e2 && (s2 = this.center), (this.scale.x = this.screenWidth / t2), n2 && (this.scale.y = this.scale.x);
       const h2 = this.plugins.get("clamp-zoom", true);
       return !i2 && h2 && h2.clamp(), e2 && s2 && this.moveCenter(s2), this;
     }
@@ -42115,7 +41152,7 @@ ${e2}`);
      */
     fitHeight(t2 = this.worldHeight, e2, n2 = true, i2) {
       let s2;
-      e2 && (s2 = this.center), this.scale.y = this.screenHeight / t2, n2 && (this.scale.x = this.scale.y);
+      e2 && (s2 = this.center), (this.scale.y = this.screenHeight / t2), n2 && (this.scale.x = this.scale.y);
       const h2 = this.plugins.get("clamp-zoom", true);
       return !i2 && h2 && h2.clamp(), e2 && s2 && this.moveCenter(s2), this;
     }
@@ -42127,7 +41164,7 @@ ${e2}`);
      */
     fitWorld(t2) {
       let e2;
-      t2 && (e2 = this.center), this.scale.x = this.screenWidth / this.worldWidth, this.scale.y = this.screenHeight / this.worldHeight, this.scale.x < this.scale.y ? this.scale.y = this.scale.x : this.scale.x = this.scale.y;
+      t2 && (e2 = this.center), (this.scale.x = this.screenWidth / this.worldWidth), (this.scale.y = this.screenHeight / this.worldHeight), this.scale.x < this.scale.y ? (this.scale.y = this.scale.x) : (this.scale.x = this.scale.y);
       const n2 = this.plugins.get("clamp-zoom", true);
       return n2 && n2.clamp(), t2 && e2 && this.moveCenter(e2), this;
     }
@@ -42141,7 +41178,7 @@ ${e2}`);
      */
     fit(t2, e2 = this.worldWidth, n2 = this.worldHeight) {
       let i2;
-      t2 && (i2 = this.center), this.scale.x = this.screenWidth / e2, this.scale.y = this.screenHeight / n2, this.scale.x < this.scale.y ? this.scale.y = this.scale.x : this.scale.x = this.scale.y;
+      t2 && (i2 = this.center), (this.scale.x = this.screenWidth / e2), (this.scale.y = this.screenHeight / n2), this.scale.x < this.scale.y ? (this.scale.y = this.scale.x) : (this.scale.x = this.scale.y);
       const s2 = this.plugins.get("clamp-zoom", true);
       return s2 && s2.clamp(), t2 && i2 && this.moveCenter(i2), this;
     }
@@ -42212,10 +41249,7 @@ ${e2}`);
         right: this.right > this.worldWidth,
         top: this.top < 0,
         bottom: this.bottom > this.worldHeight,
-        cornerPoint: new Point(
-          this.worldWidth * this.scale.x - this.screenWidth,
-          this.worldHeight * this.scale.y - this.screenHeight
-        )
+        cornerPoint: new Point(this.worldWidth * this.scale.x - this.screenWidth, this.worldHeight * this.scale.y - this.screenHeight),
       };
     }
     /** World coordinates of the right edge of the screen */
@@ -42223,28 +41257,28 @@ ${e2}`);
       return -this.x / this.scale.x + this.worldScreenWidth;
     }
     set right(t2) {
-      this.x = -t2 * this.scale.x + this.screenWidth, this.plugins.reset();
+      (this.x = -t2 * this.scale.x + this.screenWidth), this.plugins.reset();
     }
     /** World coordinates of the left edge of the screen */
     get left() {
       return -this.x / this.scale.x;
     }
     set left(t2) {
-      this.x = -t2 * this.scale.x, this.plugins.reset();
+      (this.x = -t2 * this.scale.x), this.plugins.reset();
     }
     /** World coordinates of the top edge of the screen */
     get top() {
       return -this.y / this.scale.y;
     }
     set top(t2) {
-      this.y = -t2 * this.scale.y, this.plugins.reset();
+      (this.y = -t2 * this.scale.y), this.plugins.reset();
     }
     /** World coordinates of the bottom edge of the screen */
     get bottom() {
       return -this.y / this.scale.y + this.worldScreenHeight;
     }
     set bottom(t2) {
-      this.y = -t2 * this.scale.y + this.screenHeight, this.plugins.reset();
+      (this.y = -t2 * this.scale.y + this.screenHeight), this.plugins.reset();
     }
     /**
      * Determines whether the viewport is dirty (i.e., needs to be rendered to the screen because of a change)
@@ -42265,7 +41299,7 @@ ${e2}`);
       return this._forceHitArea;
     }
     set forceHitArea(t2) {
-      t2 ? (this._forceHitArea = t2, this.hitArea = t2) : (this._forceHitArea = null, this.hitArea = new Rectangle(0, 0, this.worldWidth, this.worldHeight));
+      t2 ? ((this._forceHitArea = t2), (this.hitArea = t2)) : ((this._forceHitArea = null), (this.hitArea = new Rectangle(0, 0, this.worldWidth, this.worldHeight)));
     }
     /**
      * Enable one-finger touch to drag
@@ -42516,7 +41550,7 @@ ${e2}`);
       return !!this._pause;
     }
     set pause(t2) {
-      this._pause = t2, this.lastViewport = null, this.moving = false, this.zooming = false, t2 && this.input.pause();
+      (this._pause = t2), (this.lastViewport = null), (this.moving = false), (this.zooming = false), t2 && this.input.pause();
     }
     /**
      * Move the viewport so the bounding box is visible
@@ -42530,7 +41564,9 @@ ${e2}`);
     ensureVisible(t2, e2, n2, i2, s2) {
       s2 && (n2 > this.worldScreenWidth || i2 > this.worldScreenHeight) && (this.fit(true, n2, i2), this.emit("zoomed", { viewport: this, type: "ensureVisible" }));
       let h2 = false;
-      t2 < this.left ? (this.left = t2, h2 = true) : t2 + n2 > this.right && (this.right = t2 + n2, h2 = true), e2 < this.top ? (this.top = e2, h2 = true) : e2 + i2 > this.bottom && (this.bottom = e2 + i2, h2 = true), h2 && this.emit("moved", { viewport: this, type: "ensureVisible" });
+      t2 < this.left ? ((this.left = t2), (h2 = true)) : t2 + n2 > this.right && ((this.right = t2 + n2), (h2 = true)),
+        e2 < this.top ? ((this.top = e2), (h2 = true)) : e2 + i2 > this.bottom && ((this.bottom = e2 + i2), (h2 = true)),
+        h2 && this.emit("moved", { viewport: this, type: "ensureVisible" });
     }
   };
 
@@ -42880,7 +41916,7 @@ ${e2}`);
       outPoint.x = this.x - 2 * dotProduct * normal.x;
       outPoint.y = this.y - 2 * dotProduct * normal.y;
       return outPoint;
-    }
+    },
   };
 
   // ../../../../node_modules/pixi.js/lib/math-extras/rectangleExtras.mjs
@@ -42981,7 +42017,7 @@ ${e2}`);
       outRect.width = x22 - x1;
       outRect.height = y2 - y1;
       return outRect;
-    }
+    },
   };
 
   // ../../../../node_modules/pixi.js/lib/math-extras/init.mjs
@@ -42998,7 +42034,14 @@ ${e2}`);
       if (this.paused) {
         return;
       }
-      if (this.parent.x === this.last.x && this.parent.y === this.last.y && this.parent.scale.x === this.last.scaleX && this.parent.scale.y === this.last.scaleY && this.parent.screenWidth === this.last.screenWidth && this.parent.screenHeight === this.last.screenHeight) {
+      if (
+        this.parent.x === this.last.x &&
+        this.parent.y === this.last.y &&
+        this.parent.scale.x === this.last.scaleX &&
+        this.parent.scale.y === this.last.scaleY &&
+        this.parent.screenWidth === this.last.screenWidth &&
+        this.parent.screenHeight === this.last.screenHeight
+      ) {
         return;
       }
       const original = new Point(this.parent.x, this.parent.y);
@@ -43045,7 +42088,7 @@ ${e2}`);
           this.parent.emit("moved", {
             viewport: this.parent,
             original,
-            type: "clamp-x"
+            type: "clamp-x",
           });
         }
       }
@@ -43091,7 +42134,7 @@ ${e2}`);
           this.parent.emit("moved", {
             viewport: this.parent,
             original,
-            type: "clamp-y"
+            type: "clamp-y",
           });
         }
       }
@@ -43120,10 +42163,10 @@ ${e2}`);
           fill: star.color,
           fontFamily: "Titillium Web",
           fontSize: LABEL_SIZE * fontScale,
-          align: "center"
+          align: "center",
         },
         eventMode: "static",
-        cursor: "pointer"
+        cursor: "pointer",
       });
       this.star = star;
       this.state = 0 /* VISIBLE */;
@@ -43194,7 +42237,7 @@ ${e2}`);
         worldHeight: world.worldHeight,
         passiveWheel: false,
         events: app.renderer.events,
-        allowPreserveDragOutside: true
+        allowPreserveDragOutside: true,
       });
       this.mouse = new Point(0, 0);
       this.starsContainer = new Container();
@@ -43209,12 +42252,15 @@ ${e2}`);
       this.wheel();
       this.clampZoom({
         minScale: 4e-4,
-        maxScale: MAX_ZOOM
+        maxScale: MAX_ZOOM,
       });
-      this.plugins.add("clamp", new CustomViewportClamp(this, {
-        direction: "all",
-        underflow: "center"
-      }));
+      this.plugins.add(
+        "clamp",
+        new CustomViewportClamp(this, {
+          direction: "all",
+          underflow: "center",
+        })
+      );
       this.world = world;
       this.app = app;
       this.onglobalmousemove = (e2) => {
@@ -43225,21 +42271,13 @@ ${e2}`);
       };
       window.addEventListener("keydown", this.handleKeyDown.bind(this));
       window.addEventListener("resize", () => {
-        this.resize(
-          this.app.target.clientWidth,
-          this.app.target.clientHeight,
-          this.world.worldWidth,
-          this.world.worldHeight
-        );
+        this.resize(this.app.target.clientWidth, this.app.target.clientHeight, this.world.worldWidth, this.world.worldHeight);
       });
     }
     init() {
       return __async(this, null, function* () {
         this.fit(true);
-        this.moveCenter(
-          this.worldWidth / 2 - STAR_CELLSIZE_PIXELS / 2,
-          this.worldHeight / 2 - STAR_CELLSIZE_PIXELS / 2
-        );
+        this.moveCenter(this.worldWidth / 2 - STAR_CELLSIZE_PIXELS / 2, this.worldHeight / 2 - STAR_CELLSIZE_PIXELS / 2);
         this.regionsVis = this.addChild(new Graphics({ visible: false }));
         this.starsContainer = this.addChild(new Container());
         this.starLabelContainer = this.addChild(new Container());
@@ -43277,13 +42315,7 @@ ${e2}`);
     loadStars() {
       return __async(this, null, function* () {
         this.app.setStatus("Loading stars...");
-        this.starTextures = yield Promise.all([
-          Assets.load("./libs/1.png"),
-          Assets.load("./libs/2.png"),
-          Assets.load("./libs/3.png"),
-          Assets.load("./libs/4.png"),
-          Assets.load("./libs/5.png")
-        ]);
+        this.starTextures = yield Promise.all([Assets.load("./libs/1.png"), Assets.load("./libs/2.png"), Assets.load("./libs/3.png"), Assets.load("./libs/4.png"), Assets.load("./libs/5.png")]);
         this.starTextures.forEach((texture) => {
           texture.source.scaleMode = "nearest";
         });
@@ -43296,18 +42328,19 @@ ${e2}`);
         this.addStars(pageData.stars);
         for (let i2 = 1; i2 < totalPages; i2++) {
           this.app.setStatus(`Loading stars... ${i2 * pageSize}/${this.app.options.starcount}`);
-          pageResponse = yield fetch(`https://gist.githubusercontent.com/credomane/0db3a71cef7af45a4b3d1932c495ffe6/raw/stars.page-${i2}.json?` + _credoTempDate);
+          pageResponse = yield fetch(`https://gist.githubusercontent.com/credomane/0db3a71cef7af45a4b3d1932c495ffe6/raw/stars.page-${i2}.json?` + this.app.options.last_update);
           pageData = yield pageResponse.json();
           this.addStars(pageData.stars);
         }
         const lastUpdateInOpts = new Date(this.app.options.last_update);
         if (lastUpdateInOpts > this.newestStarUpdateDate) {
           console.log("downloading recently updated stars");
-          pageResponse = yield fetch(`https://gist.githubusercontent.com/credomane/0db3a71cef7af45a4b3d1932c495ffe6/raw/stars.since.json?` + _credoTempDate);
+          pageResponse = yield fetch(`https://gist.githubusercontent.com/credomane/0db3a71cef7af45a4b3d1932c495ffe6/raw/stars.since.json?` + this.app.options.last_update);
           pageData = yield pageResponse.json();
           this.addStars(pageData.stars);
         }
         this.app.hideStatus();
+        setTimeout(appReadyFindStar, 1000); //Function is in index.html.
       });
     }
     handleKeyDown(e2) {
@@ -43342,12 +42375,7 @@ ${e2}`);
         const [localCol, localRow] = lvl.getCoordBySlot(slot);
         const [slotCol, slotRow] = lvl.getWorldCoordBySlot(slot);
         const slotColor = (localCol + localRow) % 2 ? 3355443 : 4473924;
-        this.regionsVis.rect(
-          slotCol * STAR_CELLSIZE_PIXELS - STAR_CELLSIZE_PIXELS / 2,
-          slotRow * STAR_CELLSIZE_PIXELS - STAR_CELLSIZE_PIXELS / 2,
-          STAR_CELLSIZE_PIXELS * lvl.totalCols,
-          STAR_CELLSIZE_PIXELS * lvl.totalCols
-        );
+        this.regionsVis.rect(slotCol * STAR_CELLSIZE_PIXELS - STAR_CELLSIZE_PIXELS / 2, slotRow * STAR_CELLSIZE_PIXELS - STAR_CELLSIZE_PIXELS / 2, STAR_CELLSIZE_PIXELS * lvl.totalCols, STAR_CELLSIZE_PIXELS * lvl.totalCols);
         this.regionsVis.fill({ color: slotColor, alpha: 0.8 });
       }
     }
@@ -43360,12 +42388,7 @@ ${e2}`);
             this.debugVis.circle(star.worldPosition.x, star.worldPosition.y, 32);
             this.debugVis.stroke({ color: 65280, width: 4 });
             const [rectX, rectY] = this.world.starCoordsToWorldPosition(col + xOffset, row + yOffset);
-            this.debugVis.rect(
-              rectX - (STAR_CELLSIZE_PIXELS / 2 - 8),
-              rectY - (STAR_CELLSIZE_PIXELS / 2 - 8),
-              STAR_CELLSIZE_PIXELS - 16,
-              STAR_CELLSIZE_PIXELS - 16
-            );
+            this.debugVis.rect(rectX - (STAR_CELLSIZE_PIXELS / 2 - 8), rectY - (STAR_CELLSIZE_PIXELS / 2 - 8), STAR_CELLSIZE_PIXELS - 16, STAR_CELLSIZE_PIXELS - 16);
             this.debugVis.stroke({ color: 905216, width: 4 });
           }
         }
@@ -43434,7 +42457,7 @@ ${e2}`);
         { x: starX, y: starY - height, p: 0 /* TOP */ },
         { x: starX, y: starY + height, p: 1 /* BOTTOM */ },
         { x: starX + LABEL_OFFSET_X, y: starY, p: 3 /* RIGHT */ },
-        { x: starX - LABEL_OFFSET_X, y: starY, p: 2 /* LEFT */ }
+        { x: starX - LABEL_OFFSET_X, y: starY, p: 2 /* LEFT */ },
       ];
       if (limitPosition !== null) {
         label.labelPosition = limitPosition;
@@ -43447,10 +42470,7 @@ ${e2}`);
       for (const pos of posOptions) {
         let hasCollision = false;
         for (const other of this.starLabelContainer.children) {
-          if (other.state == 0 /* VISIBLE */ && other.star.id !== label.star.id && this.doRectsOverlap(
-            { x: pos.x, y: pos.y, width, height },
-            { x: other.position.x, y: other.position.y, width: other.width, height: other.height }
-          )) {
+          if (other.state == 0 /* VISIBLE */ && other.star.id !== label.star.id && this.doRectsOverlap({ x: pos.x, y: pos.y, width, height }, { x: other.position.x, y: other.position.y, width: other.width, height: other.height })) {
             hasCollision = true;
             break;
           }
@@ -43566,7 +42586,7 @@ ${star == null ? void 0 : star.address}`;
     const baseScale = 6;
     const scaleStep = 0.1;
     const scaleVariants = 5;
-    return 0.2 * (baseScale + triple32inc(starId) % scaleVariants * scaleStep);
+    return 0.2 * (baseScale + (triple32inc(starId) % scaleVariants) * scaleStep);
   }
   var vertex3 = `
 in vec2 aVertexPosition;
@@ -43674,19 +42694,19 @@ void main() {
       const totalStars = stars.ids.length;
       const starPositionBuffer = new Buffer2({
         data: new Float32Array(totalStars * 2),
-        usage: BufferUsage.VERTEX | BufferUsage.COPY_DST
+        usage: BufferUsage.VERTEX | BufferUsage.COPY_DST,
       });
       const starSizeBuffer = new Buffer2({
         data: new Float32Array(totalStars),
-        usage: BufferUsage.VERTEX | BufferUsage.COPY_DST
+        usage: BufferUsage.VERTEX | BufferUsage.COPY_DST,
       });
       const starTextureIndexBuffer = new Buffer2({
         data: new Float32Array(totalStars),
-        usage: BufferUsage.VERTEX | BufferUsage.COPY_DST
+        usage: BufferUsage.VERTEX | BufferUsage.COPY_DST,
       });
       const starColorBuffer = new Buffer2({
         data: new Float32Array(totalStars * 3),
-        usage: BufferUsage.VERTEX | BufferUsage.COPY_DST
+        usage: BufferUsage.VERTEX | BufferUsage.COPY_DST,
       });
       const size = 128;
       const geometry = new Geometry({
@@ -43703,28 +42723,28 @@ void main() {
             size,
             // x, y,
             -size,
-            size
+            size,
             // x, y,
           ],
           aUV: [0, 0, 1, 0, 1, 1, 0, 1],
           aColor: {
             buffer: starColorBuffer,
-            instance: true
+            instance: true,
           },
           aSize: {
             buffer: starSizeBuffer,
-            instance: true
+            instance: true,
           },
           aStarIndex: {
             buffer: starTextureIndexBuffer,
-            instance: true
+            instance: true,
           },
           aStarPosition: {
             buffer: starPositionBuffer,
-            instance: true
-          }
+            instance: true,
+          },
         },
-        instanceCount: totalStars
+        instanceCount: totalStars,
       });
       const shader = Shader.from({
         gl: { vertex: vertex3, fragment: fragment3 },
@@ -43737,17 +42757,14 @@ void main() {
           worldUniforms: {
             uViewScale: {
               value: 1,
-              type: "f32"
-            }
-          }
-        }
+              type: "f32",
+            },
+          },
+        },
       });
       super({ geometry, shader, eventMode: "none" });
       for (let i2 = 0; i2 < totalStars; i2++) {
-        const [x3, y2] = world.starPositionToWorldPosition(
-          stars.positions[i2 * 2],
-          stars.positions[i2 * 2 + 1]
-        );
+        const [x3, y2] = world.starPositionToWorldPosition(stars.positions[i2 * 2], stars.positions[i2 * 2 + 1]);
         starPositionBuffer.data[i2 * 2] = x3;
         starPositionBuffer.data[i2 * 2 + 1] = y2;
         starSizeBuffer.data[i2] = calculateStarSize(stars.ids[i2]);
@@ -43764,8 +42781,7 @@ void main() {
       this.starShader = shader;
     }
     setViewScale(scale) {
-      if (this.starShader)
-        this.starShader.resources.worldUniforms.uniforms.uViewScale = scale;
+      if (this.starShader) this.starShader.resources.worldUniforms.uniforms.uViewScale = scale;
     }
   };
 
