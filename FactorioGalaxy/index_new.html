@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Galaxy Of Fame | Factorio</title>
+
+    <link href="https://cdn.factorio.com/assets/fonts/titillium-web.css" rel="stylesheet" />
+    <link href="https://cdn.factorio.com/assets/vendor/fontawesome/css/all.min.css" rel="stylesheet" crossorigin="anonymous" />
+    <link href="https://factorio.com/static/css/main.css" rel="stylesheet" type="text/css" />
+    <meta name="viewport" content="width=device-width" />
+
+    <script src="./libs/jquery-3.7.0.min.js"></script>
+
+    <link rel="stylesheet" href="./libs/lite-yt-embed.css" />
+    <script src="./libs/lite-yt-embed.js"></script>
+
+    <script src="./libs/floating-ui-core@1.0.1.js"></script>
+    <script src="./libs/floating-ui-dom@1.0.4.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/htmx/1.9.10/htmx.min.js" integrity="sha512-9qpauSP4+dDIldsrdNEZ2Z7JoyLZGfJsAP2wfXnc3drOh+5NXOBxjlq3sGXKdulmN9W+iwLxRt42zKMa8AHEeg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="./libs/galaxy.js?v=2bcc681e"></script>
+
+    <script>
+      function getUrlParameter(sParam) {
+        let sPageURL = window.location.search.substring(1),
+          sURLVariables = sPageURL.split("&"),
+          sParameterName,
+          i;
+
+        for (i = 0; i < sURLVariables.length; i++) {
+          sParameterName = sURLVariables[i].split("=");
+
+          if (sParameterName[0] === sParam) {
+            return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+          }
+        }
+        return false;
+      }
+
+      function findstar() {
+        let user = $("#usernameinput").val();
+        if (focusOnStar(user)) {
+          $("#errordiv").html("Found " + user + "'s star and focused on it!");
+          $("#sharelink").html("Direct Link: " + document.location.href + "?star=" + user);
+        } else {
+          $("#errordiv").html("Searched " + opts.starcount + " stars and I could not find " + user + "'s star!");
+          $("#sharelink").html("&nbsp;");
+        }
+      }
+
+      //This is the lazy and inaccurate way to do this but it is
+      // more than sufficient for the intended purposes here.
+      function timeSince(thisDate) {
+        const seconds = Math.floor((new Date().getTime() - thisDate) / 1000);
+        const minutes = Math.floor(seconds / 60);
+        const hours = Math.floor(minutes / 60);
+        const days = Math.floor(hours / 24);
+        const months = Math.floor(days / 30); //I know, I know. It is close enough.
+        const years = Math.floor(months / 12);
+
+        if (seconds < 0) {
+          return "is in the future!";
+        } else if (seconds == 0) {
+          return "is now!";
+        } else if (seconds < 60) {
+          return "was " + seconds + " seconds ago.";
+        } else if (minutes < 60) {
+          return "was " + minutes + " minutes ago.";
+        } else if (hours < 24) {
+          return "was " + hours + " hours ago.";
+        } else if (days < 30) {
+          return "was " + days + " days ago.";
+        } else if (months < 12) {
+          return "was " + months + " months ago.";
+        } else {
+          return "was " + years + " years ago.";
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div class="header">
+      <div class="header-inner" style="display: block">
+        Search for star by factorio username:<br /><input id="usernameinput" type="text" length="40" /><button onclick="findstar()">Search!</button><br />
+        <div id="errordiv">&nbsp;</div>
+        <div id="sharelink">&nbsp;</div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="container-inner">
+        <div id="flashed-messages" class="small-center"></div>
+
+        <div class="panel pb0 mb64">
+          <h2>Space Age: Galaxy Of Fame</h2>
+          <div class="panel-inset-lighter">
+            <style>
+              #chartbundle-loading {
+                position: absolute;
+                top: 0px;
+                left: 0px;
+                text-align: center;
+              }
+
+              #chartbundle-help {
+                position: absolute;
+                bottom: 6px;
+                right: 4px;
+              }
+
+              #chartbundle-help > .tooltip {
+                min-width: 320px;
+                z-index: 100;
+              }
+
+              #chartbundle-help .panel-tooltip {
+                pointer-events: all;
+              }
+
+              #chartbundle-planets {
+                position: absolute;
+                top: 0px;
+                right: 0px;
+                text-align: center;
+                display: flex;
+                flex-direction: column;
+              }
+
+              #chartbundle-planets > .button {
+                margin-bottom: 8px;
+                margin-right: 0px;
+              }
+
+              .star-label {
+                color: transparent;
+                transition: color 0.2s ease;
+              }
+
+              .star-label:hover {
+                color: white;
+              }
+            </style>
+
+            <div id="chartbundle-map-container">
+              <canvas id="chartbundle-map-canvas"></canvas>
+
+              <div id="chartbundle-loading" class="panel m0">Initializing...</div>
+
+              <div id="chartbundle-help">
+                <div class="tooltip-toggle">
+                  <i class="fa-regular fa-xl fa-circle-info"></i>
+                </div>
+                <div class="tooltip tooltip-click" role="tooltip">
+                  <div class="panel-tooltip-title">Galaxy Of Fame</div>
+                  <div class="panel-tooltip">
+                    <h3>Info</h3>
+                    <p>Each star marks a player who has completed Factorio: Space Age at least once.</p>
+                    <p>Zoom in and click on a star to explore their factories and space platforms.</p>
+                    <p>For more details, check out <a href="https://factorio.com/blog/post/fff-434">FFF-434</a>.</p>
+
+                    <h3>Credits</h3>
+                    <ul>
+                      <li><a href="https://pixijs.com/">pixi.js</a></li>
+                      <li><a href="https://github.com/pixijs-userland/pixi-viewport">pixi-viewport</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div id="chartbundle-planets" class=""></div>
+            </div>
+
+            <script>
+              let opts;
+              let galaxy;
+
+              addEventListener("DOMContentLoaded", () => {
+                fetch("https://gist.githubusercontent.com/credomane/0db3a71cef7af45a4b3d1932c495ffe6/raw/opts.json?" + new Date().getTime()).then(async (response) => {
+                  opts = await response.json();
+                  galaxy = GalaxyOfFame.init(document.getElementById("chartbundle-map-canvas"), document.getElementById("chartbundle-loading"), opts);
+                  $("#errordiv").html("Loaded " + opts.starcount + " stars. Last update " + timeSince(opts._credo.lastUpdate));
+                  const star = getUrlParameter("star");
+                  if (star !== false) {
+                    $("#usernameinput").val(star);
+                    findstar();
+                  }
+                });
+
+                $("#usernameinput").keypress(function (e) {
+                  if (e.which == 13) {
+                    findstar();
+                  }
+                });
+              });
+            </script>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
