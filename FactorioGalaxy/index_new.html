@@ -175,7 +175,11 @@
               addEventListener("DOMContentLoaded", () => {
                 fetch("https://gist.githubusercontent.com/credomane/0db3a71cef7af45a4b3d1932c495ffe6/raw/stars.opts.json?" + new Date().getTime()).then(async (response) => {
                   opts = await response.json();
-                  galaxy = GalaxyOfFame.init(document.getElementById("chartbundle-map-canvas"), document.getElementById("chartbundle-loading"), opts);
+                  GalaxyOfFame.init(document.getElementById("chartbundle-map-canvas"), document.getElementById("chartbundle-loading"), opts).then((app) => {
+                    galaxy = app;
+                    console.log("Ready.");
+                  });
+
                   $("#errordiv").html("Loaded " + opts.starcount + " stars. Last update " + timeSince(opts._credo.lastUpdate));
                   const star = getUrlParameter("star");
                   if (star !== false) {
