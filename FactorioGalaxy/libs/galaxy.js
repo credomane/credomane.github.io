@@ -40172,7 +40172,8 @@ ${e2}`);
             }
           ]);
           yield Assets.loadBundle("fonts");
-          this.spacemap = this.stage.addChild(new SpacemapView(this));
+          this._credoSpacemapView = new SpacemapView(this);
+          this.spacemap = this.stage.addChild(_credoSpacemapView);
           yield this.spacemap.init();
           this.info = this.stage.addChild(new Text({
             style: {
