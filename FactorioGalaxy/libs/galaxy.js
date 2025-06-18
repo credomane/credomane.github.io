@@ -42321,21 +42321,21 @@ ${e2}`);
         });
         const _credoTempDate = new Date().getTime();
         let page = 0;
-        let pageResponse = yield fetch(`https://gist.githubusercontent.com/credomane/0db3a71cef7af45a4b3d1932c495ffe6/raw/stars.page-${page}.json?` + _credoTempDate);
+        let pageResponse = yield fetch(`https://raw.githubusercontent.com/credomane/FactorioGalaxy-Stars/refs/heads/main/stars.page-${page}.json?` + _credoTempDate);
         let pageData = yield pageResponse.json();
         let pageSize = pageData.page_size;
         let totalPages = Math.ceil(this.app.options.starcount / pageSize);
         this.addStars(pageData.stars);
         for (let i2 = 1; i2 < totalPages; i2++) {
           this.app.setStatus(`Loading stars... ${i2 * pageSize}/${this.app.options.starcount}`);
-          pageResponse = yield fetch(`https://gist.githubusercontent.com/credomane/0db3a71cef7af45a4b3d1932c495ffe6/raw/stars.page-${i2}.json?` + this.app.options.last_update);
+          pageResponse = yield fetch(`https://raw.githubusercontent.com/credomane/FactorioGalaxy-Stars/refs/heads/main/stars.page-${i2}.json?` + this.app.options.last_update);
           pageData = yield pageResponse.json();
           this.addStars(pageData.stars);
         }
         const lastUpdateInOpts = new Date(this.app.options.last_update);
         if (lastUpdateInOpts > this.newestStarUpdateDate) {
           console.log("downloading recently updated stars");
-          pageResponse = yield fetch(`https://gist.githubusercontent.com/credomane/0db3a71cef7af45a4b3d1932c495ffe6/raw/stars.since.json?` + this.app.options.last_update);
+          pageResponse = yield fetch(`https://raw.githubusercontent.com/credomane/FactorioGalaxy-Stars/refs/heads/main/stars.since.json?` + this.app.options.last_update);
           pageData = yield pageResponse.json();
           this.addStars(pageData.stars);
         }

@@ -182,7 +182,7 @@
               let galaxy;
 
               addEventListener("DOMContentLoaded", () => {
-                fetch("https://gist.githubusercontent.com/credomane/0db3a71cef7af45a4b3d1932c495ffe6/raw/stars.opts.json?" + new Date().getTime()).then(async (response) => {
+                fetch("https://raw.githubusercontent.com/credomane/FactorioGalaxy-Stars/refs/heads/main/stars.opts.json?" + new Date().getTime()).then(async (response) => {
                   opts = await response.json();
                   GalaxyOfFame.init(document.getElementById("chartbundle-map-canvas"), document.getElementById("chartbundle-loading"), opts).then((app) => {
                     galaxy = app;
