@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Factorio PDM tester</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/pako@1.0.11/dist/pako.min.js" integrity="sha256-Kc+gVCuYZLZkDP3MjxWxhNtkMbUy2ycCo86X5fKn/Bw=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.1/dist/chart.umd.min.js" integrity="sha256-SERKgtTty1vsDxll+qzd4Y2cF9swY9BCq62i9wXJ9Uo=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" integrity="sha256-2FMn2Zx6PuH5tdBQDRNwrOo60ts5wWPC9R8jK67b3t4=" crossorigin="anonymous" />
+    <script src="./chart-pdm.js"></script>
+    <script src="./chart-factorio.js"></script>
+    <script src="../utils.js"></script>
+    <script src="./index.js"></script>
+    <style>
+      .options {
+        float: left;
+        width: 15%;
+      }
+
+      .charts {
+        float: left;
+        height: 100%;
+        width: 35%;
+      }
+
+      .js-warning {
+        color: red;
+        font-weight: bold;
+      }
+
+      input {
+        width: 35px;
+      }
+
+      span {
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="options">
+      Num Thrusters:<input class="js-thrusterNum" value="1" /><br />
+      Thruster Max consumption:<input class="js-thrusterSpeed" value="120" /><br />
+      Num Pumps:<input class="js-pumpNum" value="1" /><br />
+      Pump Max Speed:<input class="js-pumpSpeed" value="1200" /><br />
+      Fill Thrusters to :<input class="js-fillPercent" value="50" />%<br />
+      Thrusters Efficiency :<input class="js-efficiency" value="72" />%<br />
+      <hr />
+      Results:<br />
+      Max Pump Speed <span class="js-resPumpSpeed">??</span><br />
+      Max Thrust Consumption <span class="js-resThrusterSpeed">??</span><br />
+      Desired Consumption <span class="js-resThrusterDesired">??</span> (<span class="js-resFillPercent">??</span>% fill level)<br />
+      Achieved by Enabling Pump for <span class="js-resTime">??</span> ticks out of 60<br />
+      or enabled <span class="js-resPercent">??</span>% of time.<br />
+      Approximate thruster efficiency is <span class="js-resEfficiency">??</span>%.
+      <hr />
+      <div class="js-warning"></div>
+    </div>
+    <div class="charts">
+      <canvas id="pdmChart"></canvas>
+      <br />
+      <canvas id="factorioChart"></canvas>
+    </div>
+  </body>
+</html>

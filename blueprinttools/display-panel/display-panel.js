@@ -121,14 +121,6 @@ function getValueFromPercent(percent, low, high) {
   return Math.floor(percent * (high - low) + low);
 }
 
-function decodeBlueprint(str) {
-  return JSON.parse(pako.inflate(atob(str.substr(1)), { to: "string" }));
-}
-
-function encodeBlueprint(jsonObject) {
-  return "0" + btoa(pako.deflate(JSON.stringify(jsonObject), { to: "string" }));
-}
-
 const bp = {
   blueprint: {
     icons: [
