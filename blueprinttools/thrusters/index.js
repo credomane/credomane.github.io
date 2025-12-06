@@ -17,9 +17,18 @@ $(() => {
     $(".js-efficiency").val(Math.round(efficiencyFromFill(parseInt($(".js-fillPercent").val()))));
     doUpdate();
   });
+
   $(".js-efficiency").on("keyup", () => {
     $(".js-fillPercent").val(Math.round(fillFromEfficiency(parseInt($(".js-efficiency").val()))));
     doUpdate();
+  });
+
+  $(".js-copyBP").on("click", () => {
+    navigator.clipboard.writeText($(".js-blueprint").val());
+    $(".js-copied").html("Copied!");
+    setTimeout(() => {
+      $(".js-copied").html("");
+    }, 2500);
   });
 });
 
