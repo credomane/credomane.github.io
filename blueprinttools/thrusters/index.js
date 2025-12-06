@@ -24,7 +24,7 @@ $(() => {
   });
 
   $(".js-copyBP").on("click", () => {
-    navigator.clipboard.writeText($(".js-blueprint").val());
+    navigator.clipboard.writeText($(".js-blueprint").val().trim());
     $(".js-copied").html("Copied!");
     setTimeout(() => {
       $(".js-copied").html("");
