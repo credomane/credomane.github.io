@@ -59,13 +59,13 @@ function doUpdate() {
   const onTime = (thrusterDesired / totalPumpSpeed) * 60;
   const onPercent = (thrusterDesired / totalPumpSpeed) * 100;
 
-  $(".js-resThrusterSpeed").html(Math.round(totalThrusterSpeed * 100) / 100);
-  $(".js-resThrusterDesired").html(Math.round(thrusterDesired * 100) / 100);
+  $(".js-resThrusterSpeed").html(Math.round(totalThrusterSpeed));
+  $(".js-resThrusterDesired").html(Math.round(thrusterDesired));
   $(".js-resFillPercent").html(Math.round(percent * 100) / 100);
   $(".js-resEfficiency").html(Math.round(efficiencyFromFill(percent) * 100) / 100);
-  $(".js-resPumpSpeed").html(Math.round(totalPumpSpeed * 100) / 100);
-  $(".js-resTime").html(Math.round(onTime * 100) / 100);
-  $(".js-resPercent").html(Math.round(onPercent * 100) / 100);
+  $(".js-resPumpSpeed").html(Math.round(totalPumpSpeed));
+  $(".js-resTime").html(Math.round(onTime));
+  $(".js-resPercent").html(Math.round(onPercent));
   $(".js-warning").html("");
 
   if (thrusterDesired > totalPumpSpeed) {
