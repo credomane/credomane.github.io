@@ -93,35 +93,101 @@ function encodeBlueprint(jsonObject) {
   return "0" + btoa(pako.deflate(JSON.stringify(jsonObject), { to: "string" }));
 }
 
-
 /**
- * 
+ * Takes the fill percentage of the thrusters and turns that into the efficiency.
+ * Fill percentage is fluid in thruster divided by 1000 (does the data stage allow for changing that?)
+ * Formula taken from https://www.desmos.com/calculator/b9a3qxddzd
  * @param {number} x Percentage 0-100
- * @returns 
+ * @returns
  */
-function effFromFill(x) {
-  x = x / 100;
-  let y = -0.7 * (x - 0.1) + 1;
-  if (y < 0.51) {
-    y = 0.51;
-  } else if (y > 1) {
-    y = 1;
+function efficiencyFromFill(x) {
+  let y = (-0.7 * (x / 100 - 0.1) + 1) * 100;
+  if (y < 51) {
+    y = 51;
+  } else if (y > 100) {
+    y = 100;
   }
-  return Math.round(y * 100);
+  return y;
 }
 
 /**
- * 
+ * Takes the thrusters efficiency and turns that into the fill percentage needed.
+ * Formula taken from https://www.desmos.com/calculator/b9a3qxddzd
  * @param {number} y Percentage 0-100
- * @returns 
+ * @returns
  */
-function fillFromEff(y) {
-  y = y / 100;
-  if (y < 0.51) {
-    y = 0.51;
-  } else if (y > 1) {
-    y = 1;
+function fillFromEfficiency(y) {
+  if (y < 51) {
+    y = 51;
+  } else if (y > 100) {
+    y = 100;
   }
-  let x = (y - 1) / -0.7 + 0.1;
-  return Math.round(x * 100);
+  let x = ((y / 100 - 1) / -0.7 + 0.1) * 100;
+  return x;
+}
+
+/**
+ * Takes the fill percentage of the thrusters and turns that into the efficiency.
+ * Fill percentage is fluid in thruster divided by 1000 (does the data stage allow for changing that?)
+ * Formula taken from https://www.desmos.com/calculator/b9a3qxddzd
+ * @param {number} x Percentage 0-100
+ * @returns
+ */
+function usageFromFill(x) {
+  let y = (2.71 * (x / 100 - 0.1) + 0.1) * 100;
+  if (y < 10) {
+    y = 10;
+  } else if (y > 200) {
+    y = 200;
+  }
+  return y;
+}
+
+/**
+ * Takes the thrusters efficiency and turns that into the fill percentage needed.
+ * Formula taken from https://www.desmos.com/calculator/b9a3qxddzd
+ * @param {number} y Percentage 0-100
+ * @returns
+ */
+function fillFromUsage(y) {
+  if (y < 10) {
+    y = 10;
+  } else if (y > 200) {
+    y = 200;
+  }
+  let x = ((y / 100 - 0.1) / 2.71 + 0.1) * 100;
+  return x;
+}
+
+/**
+ * Takes the fill percentage of the thrusters and turns that into the current thrust %.
+ * Fill percentage is fluid in thruster divided by 1000 (does the data stage allow for changing that?)
+ * This function mostly accurate to the wiki table! +-1% in a few spots.
+ * Formula taken from https://www.desmos.com/calculator/b9a3qxddzd
+ * @param {number} x Percentage 0-100
+ * @returns
+ */
+function thrustFromFill(x) {
+  y = (efficiencyFromFill(x) * usageFromFill(x) - 150) / 100;
+  if (y > 100) {
+    y = 100;
+  }
+  return y;
+}
+
+/**
+ * Takes the current thrust % that into the fill percentage needed.
+ * Formula taken from https://www.desmos.com/calculator/b9a3qxddzd
+ * @param {number} y Percentage 0-100
+ * @returns
+ */
+function fillFromThrust(y) {
+  //Looping like this seems stupid but I couldn't figure out how to otherwise invert it.
+  for (let i = 1; i <= 100; ++i) {
+    let x = Math.round(thrustFromFill(i));
+    if (x == y) {
+      return i;
+    }
+  }
+  return 0;
 }

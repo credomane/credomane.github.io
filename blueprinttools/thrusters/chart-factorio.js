@@ -10,13 +10,13 @@ $(() => {
       ],
       datasets: [
         {
-          label: "Thrust",
-          borderColor: "rgba(161, 25, 240, 0.5)",
-          backgroundColor: "rgba(161, 25, 240,0.5)",
+          label: "Fuel Consumption",
+          borderColor: "rgba(235, 93, 11, 0.5)",
+          backgroundColor: "rgba(235, 93, 11, 0.5)",
           data: [],
-          borderWidth: 1,
-          pointStyle: "circle",
+          pointStyle: "rectRot",
           pointRadius: 2,
+          borderWidth: 1,
           cubicInterpolationMode: "monotone",
         },
         {
@@ -25,18 +25,18 @@ $(() => {
           backgroundColor: "rgba(41, 230, 16,0.5)",
           data: [],
           pointStyle: "rect",
-          pointRadius: 5,
+          pointRadius: 2,
           borderWidth: 1,
           cubicInterpolationMode: "monotone",
         },
         {
-          label: "Fuel Consumption",
-          borderColor: "rgba(235, 93, 11, 0.5)",
-          backgroundColor: "rgba(235, 93, 11, 0.5)",
+          label: "Thrust",
+          borderColor: "rgba(161, 25, 240, 0.5)",
+          backgroundColor: "rgba(161, 25, 240,0.5)",
           data: [],
-          pointStyle: "rectRot",
-          pointRadius: 5,
-          borderWidth: 1,
+          borderWidth: 2,
+          pointStyle: "circle",
+          pointRadius: 2,
           cubicInterpolationMode: "monotone",
         },
       ],
@@ -61,10 +61,12 @@ $(() => {
             display: true,
             text: "Fuel Reserve Percentage",
           },
+          type: "linear",
+          display: true,
           min: 0,
           max: 100,
           ticks: {
-            stepSize: 10,
+            stepSize: 5,
           },
         },
         y: {
@@ -87,7 +89,10 @@ $(() => {
   factorioChart = new Chart(ctx, config);
 
   for (let i = 0; i <= 100; i++) {
-    factorioChart.data.datasets[1].data.push(effFromFill(i));
+    factorioChart.data.datasets[0].data.push(Math.round(usageFromFill(i)));
+    factorioChart.data.datasets[1].data.push(Math.round(efficiencyFromFill(i)));
+    factorioChart.data.datasets[2].data.push(Math.round(thrustFromFill(i)));
   }
-  doUpdate();
+
+  factorioChart.update();
 });

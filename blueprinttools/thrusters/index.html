@@ -18,10 +18,20 @@
         width: 15%;
       }
 
-      .charts {
+      .chartHolder {
         float: left;
         height: 100%;
-        width: 35%;
+        width: 1080px;
+      }
+
+      .pdmChart {
+        height: 350px;
+        width: 1080px;
+      }
+
+      .factorioChart {
+        height: 100%;
+        width: 1080px;
       }
 
       .js-warning {
@@ -30,7 +40,7 @@
       }
 
       input {
-        width: 35px;
+        width: 50px;
       }
 
       span {
@@ -45,7 +55,7 @@
       Num Pumps:<input class="js-pumpNum" value="1" /><br />
       Pump Max Speed:<input class="js-pumpSpeed" value="1200" /><br />
       Fill Thrusters to :<input class="js-fillPercent" value="50" />%<br />
-      Thrusters Efficiency :<input class="js-efficiency" value="72" />%<br />
+      Desired Efficiency :<input class="js-efficiency" value="72" />%<br />
       <hr />
       Results:<br />
       Max Pump Speed <span class="js-resPumpSpeed">??</span><br />
@@ -57,10 +67,10 @@
       <hr />
       <div class="js-warning"></div>
     </div>
-    <div class="charts">
-      <canvas id="pdmChart"></canvas>
+    <div class="chartHolder">
+      <div class="pdmChart"><canvas id="pdmChart"></canvas></div>
       <br />
-      <canvas id="factorioChart"></canvas>
+      <div class="factorioChart"><canvas id="factorioChart"></canvas></div>
     </div>
   </body>
 </html>

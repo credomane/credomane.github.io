@@ -42,15 +42,21 @@ $(() => {
         },
       },
       scales: {
-        y: {
+        x: {
           type: "linear",
           display: true,
           position: "left",
-          min: -2,
-          max: 2,
+          min: 1,
+          max: 60,
           ticks: {
-            stepSize: 1,
+            stepSize: 5,
           },
+        },
+        y: {
+          type: "category",
+          display: true,
+          position: "left",
+          labels: ["ON", "OFF"],
         },
       },
     },

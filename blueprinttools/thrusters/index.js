@@ -14,11 +14,11 @@ $(() => {
   });
 
   $(".js-fillPercent").on("keyup", () => {
-    $(".js-efficiency").val(effFromFill(parseInt($(".js-fillPercent").val())));
+    $(".js-efficiency").val(Math.round(efficiencyFromFill(parseInt($(".js-fillPercent").val()))));
     doUpdate();
   });
   $(".js-efficiency").on("keyup", () => {
-    $(".js-fillPercent").val(fillFromEff(parseInt($(".js-efficiency").val())));
+    $(".js-fillPercent").val(Math.round(fillFromEfficiency(parseInt($(".js-efficiency").val()))));
     doUpdate();
   });
 });
@@ -29,21 +29,34 @@ function doUpdate() {
   const pumpNum = parseInt($(".js-pumpNum").val());
   const pumpSpeed = parseInt($(".js-pumpSpeed").val());
   const percent = parseInt($(".js-fillPercent").val());
-  const efficiency = parseInt($(".js-efficiency").val());
   const totalThrusterSpeed = thrusterNum * thrusterSpeed;
   const totalPumpSpeed = pumpNum * pumpSpeed;
 
-  const thrusterDesired = Math.round((totalThrusterSpeed * 100) / Math.round((10000 / (percent * 100)) * 100));
-  const onTime = Math.round((thrusterDesired / totalPumpSpeed) * 60);
-  const onPercent = Math.round((thrusterDesired / totalPumpSpeed) * 100);
+  //Factorio BP formula for calculating thruster fill reserves for combinator "magic".
+  // Keeping a copy here because handy.
+  // Resulting value here goes into pump that activates when "T" < result. then a combinator counts ticks resetting when hitting 60.
 
-  $(".js-resThrusterSpeed").html(totalThrusterSpeed);
-  $(".js-resThrusterDesired").html(thrusterDesired);
-  $(".js-resFillPercent").html(percent);
-  $(".js-resEfficiency").html(effFromFill(percent));
-  $(".js-resPumpSpeed").html(totalPumpSpeed);
-  $(".js-resTime").html(onTime);
-  $(".js-resPercent").html(onPercent);
+  //This formula is hitting a desired efficiency target.
+  //(thrusterNum * thrusterSpeed * ((percent / 100 - 1) / -0.7 + 0.1)) / (pumpNum * pumpSpeed) * 60
+
+  //This formula is for hitting a desired fill level.
+  //(thrusterNum * thrusterSpeed * (percent / 100)) / (pumpNum * pumpSpeed) * 60
+
+  //This formula is for hitting 50% fill level.
+  //(thrusterNum * thrusterSpeed * 0.5) / (pumpNum * pumpSpeed) * 60
+
+  //  const thrusterDesired = Math.round((totalThrusterSpeed * 100) / ((10000 / (percent * 100)) * 100));
+  const thrusterDesired = totalThrusterSpeed * (percent / 100);
+  const onTime = (thrusterDesired / totalPumpSpeed) * 60;
+  const onPercent = (thrusterDesired / totalPumpSpeed) * 100;
+
+  $(".js-resThrusterSpeed").html(Math.round(totalThrusterSpeed * 100) / 100);
+  $(".js-resThrusterDesired").html(Math.round(thrusterDesired * 100) / 100);
+  $(".js-resFillPercent").html(Math.round(percent * 100) / 100);
+  $(".js-resEfficiency").html(Math.round(efficiencyFromFill(percent) * 100) / 100);
+  $(".js-resPumpSpeed").html(Math.round(totalPumpSpeed * 100) / 100);
+  $(".js-resTime").html(Math.round(onTime * 100) / 100);
+  $(".js-resPercent").html(Math.round(onPercent * 100) / 100);
   $(".js-warning").html("");
 
   if (thrusterDesired > totalPumpSpeed) {
@@ -64,15 +77,15 @@ function generateDataFor(onTime) {
   while (tick <= range) {
     let Remainder = (onTime * tick) % range;
     if (Remainder < onTime) {
-      results.push(1);
+      results.push("ON");
     } else {
-      results.push(-1);
+      results.push("OFF");
     }
 
     if (tick <= onTime) {
-      results2.push(1);
+      results2.push("ON");
     } else {
-      results2.push(-1);
+      results2.push("OFF");
     }
 
     tick += 1;
